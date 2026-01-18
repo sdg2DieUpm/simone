@@ -1,0 +1,77 @@
+{
+    "env": {
+        "MatrixMCUWorkspaceFolder": "${workspaceFolder}/../.." // Path to the MatrixMCU workspace folder
+    },
+    "configurations": [
+        {
+            "name": "win32-stm32f446",
+            "includePath": [
+                "${MatrixMCUWorkspaceFolder}/drivers/stm32f4xx/**", // Path to the STM32F4xx CMSIS and HAL drivers
+                "${MatrixMCUWorkspaceFolder}/lib/*/**", // Path to the MatrixMCU lib folder (e.g., FSM or Unity)
+                "${workspaceFolder}/common/**", // Path to the project common sources
+                "${workspaceFolder}/port/include", // Path to the project port include folder
+                "${workspaceFolder}/port/stm32f4/**" // Path to the project port sources for STM32F4
+            ],
+            "defines": [
+                "STM32F446xx"
+            ],
+            "compilerPath": "C:\\Program Files (x86)\\Arm GNU Toolchain arm-none-eabi\\13.2 Rel1\\bin\\arm-none-eabi-gcc.exe", // Path to Windows cross-compiler
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-arm"
+        },
+        {
+            "name": "linux-stm32f446",
+            "includePath": [
+                "${MatrixMCUWorkspaceFolder}/drivers/stm32f4xx/**", // Path to the STM32F4xx CMSIS and HAL drivers
+                "${MatrixMCUWorkspaceFolder}/lib/*/**", // Path to the MatrixMCU lib folder (e.g., FSM or Unity)
+                "${workspaceFolder}/common/**", // Path to the project common sources
+                "${workspaceFolder}/port/include", // Path to the project port include folder
+                "${workspaceFolder}/port/stm32f4/**", // Path to the project port sources for STM32F4
+                "${workspaceFolder}/common/include", // Path to the project common include folder
+            ],
+            "defines": [
+                "STM32F446xx"
+            ],
+            "compilerPath": "/opt/MatrixMCU/bin/arm-none-eabi-gcc", // Path to Linux cross-compiler
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-arm"
+        },
+        {
+            "name": "macos-intel-stm32f446",
+            "includePath": [
+                "${MatrixMCUWorkspaceFolder}/drivers/stm32f4xx/**", // Path to the STM32F4xx CMSIS and HAL drivers
+                "${MatrixMCUWorkspaceFolder}/lib/*/**", // Path to the MatrixMCU lib folder (e.g., FSM or Unity)
+                "${workspaceFolder}/common/**", // Path to the project common sources
+                "${workspaceFolder}/port/include", // Path to the project port include folder
+                "${workspaceFolder}/port/stm32f4/**" // Path to the project port sources for STM32F4
+            ],
+            "defines": [
+                "STM32F446xx"
+            ],
+            "compilerPath": "/opt/local/bin/arm-none-eabi-gcc", // Path to macOS cross-compiler
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "macos-gcc-arm"
+        },
+        {
+            "name": "macos-silicon-stm32f446",
+            "includePath": [
+                "${MatrixMCUWorkspaceFolder}/drivers/stm32f4xx/**", // Path to the STM32F4xx CMSIS and HAL drivers
+                "${MatrixMCUWorkspaceFolder}/lib/*/**", // Path to the MatrixMCU lib folder (e.g., FSM or Unity)
+                "${workspaceFolder}/common/**", // Path to the project common sources
+                "${workspaceFolder}/port/include", // Path to the project port include folder
+                "${workspaceFolder}/port/stm32f4/**" // Path to the project port sources for STM32F4
+            ],
+            "defines": [
+                "STM32F446xx"
+            ],
+            "compilerPath": "/opt/homebrew/bin/arm-none-eabi-gcc", // Path to macOS cross-compiler
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "macos-gcc-arm"
+        }
+    ],
+    "version": 4
+}
