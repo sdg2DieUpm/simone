@@ -2,7 +2,7 @@
  * @file main.c
  * @brief Main file.
  * @author Sistemas Digitales II
- * @date 2025-01-01
+ * @date 2026-01-01
  */
 
 /* Includes ------------------------------------------------------------------*/

@@ -133,11 +133,11 @@
           "test_port_button",
           "test_fsm_button",
           "example_v1",
-          "test_port_ultrasound",
-          "test_fsm_ultrasound",
+          "test_port_keyboard",
+          "test_fsm_keyboard",
           "example_v2",
-          "test_port_display",
-          "test_fsm_display",
+          "test_port_rgb_light",
+          "test_fsm_rgb_light",
           "example_v3",
         ]
       }

@@ -2,7 +2,7 @@
  * @file interr.c
  * @brief Interrupt service routines for the STM32F4 platform.
  * @author SDG2. Román Cárdenas (r.cardenas@upm.es) and Josué Pagán (j.pagan@upm.es)
- * @date 2025-01-01
+ * @date 2026-01-01
  */
 // Include HW dependencies:
 #include "port_system.h"

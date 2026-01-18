@@ -2,7 +2,7 @@
  * @file stm32f4_system.h
  * @brief Header for stm32f4_system.c file.
  * @author SDG2. Román Cárdenas (r.cardenas@upm.es) and Josué Pagán (j.pagan@upm.es)
- * @date 2025-01-01
+ * @date 2026-01-01
  */
 
 #ifndef STM32F4_SYSTEM_H_

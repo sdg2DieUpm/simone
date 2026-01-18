@@ -2,7 +2,7 @@
  * @file stm32f4_system.c
  * @brief This file implements port layer for the system functions in the STM32F4 platform.
  * @author SDG2. Román Cárdenas (r.cardenas@upm.es) and Josué Pagán (j.pagan@upm.es)
- * @date 2025-01-01
+ * @date 2026-01-01
  */
 
 /* HW dependent includes */
