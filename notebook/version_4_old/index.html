@@ -8,6 +8,8 @@
       
       
       
+        <link rel="canonical" href="https://sdg2dieupm.github.io/simone/notebook/version_4_old/">
+      
       
       
       
@@ -992,7 +994,7 @@
 <p>Documenta las funciones, enumerado y tipo nuevo. No olvides incluir el encabezado del fichero con su nombre y la fecha.</p>
 </li>
 </ol>
-<figure><embed src="/assets/notebook_imgs/pr_chapters/version_4/fsm_simone_t.pdf" id="fig:fsm_simone_t" style="width:45.0%" /><figcaption aria-hidden="true">Estructura de la FSM de <em>Simone</em> en <code>COMMON</code>.</figcaption></figure>
+<figure><embed src="/..assets/notebook_imgs/pr_chapters/version_4/fsm_simone_t.pdf" id="fig:fsm_simone_t" style="width:45.0%" /><figcaption aria-hidden="true">Estructura de la FSM de <em>Simone</em> en <code>COMMON</code>.</figcaption></figure>
 
 <h2 id="common-implementacion-de-la-fsm-de-simone"><code>COMMON</code>: implementación de la FSM de Simone<a class="headerlink" href="#common-implementacion-de-la-fsm-de-simone" title="Permanent link">&para;</a></h2>
 <p>Vamos a proceder con la implementación de las funciones de la FSM de <em>Simone</em>.</p>
@@ -1108,7 +1110,7 @@
 <h5 id="test-de-funcionalidades">Test de funcionalidades<a class="headerlink" href="#test-de-funcionalidades" title="Permanent link">&para;</a></h5>
 <h5 id="_2"><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
 <p>Ya has probado los test de ejemplo de los distintos elementos y que se os han sido proporcionado. Ahora vamos a probar el sistema <em>Simone</em> completo. No se os va a pedir hacer un test formal, pero con todo el trabajo que has hecho, es conveniente que compruebes que todo funciona correctamente. Monta el circuito como se muestra en la . Prueba todo el sistema como en <a href="#TO-DO">el vídeo demostración Simone</a>. <strong>Procedamos</strong>:</p>
-<figure><img src="/assets/notebook_imgs/pr_chapters/version_4/fritzing_simone.png" id="fig:fritzing_simone" style="width:100.0%" alt="Montaje final con el transceptor de ultrasonidos, el botón y el RGB light." /><figcaption aria-hidden="true">Montaje final con el transceptor de ultrasonidos, el botón y el RGB light.</figcaption></figure>
+<figure><img src="/..assets/notebook_imgs/pr_chapters/version_4/fritzing_simone.png" id="fig:fritzing_simone" style="width:100.0%" alt="Montaje final con el transceptor de ultrasonidos, el botón y el RGB light." /><figcaption aria-hidden="true">Montaje final con el transceptor de ultrasonidos, el botón y el RGB light.</figcaption></figure>
 
 <ol>
 <li>
@@ -1150,12 +1152,12 @@
 <p>Lo que haremos para demostrar que el sistema alterna entre el modo <em>despierto</em> y <em>dormido</em> será depurando. Continúa con la depuración sin poner puntos de parada. Cuando el sistema esté inactivo, pausa la depuración y comprueba que se ha detenido en la línea de código tras la llamada a <em>wait for interrupt</em> (<code>__WFI()</code>), similar a como se muestra en la . Esto querrá decir que, efectivamente, la ejecución estaba detenida <em>esperando una interrupción</em>, se ha despertado, y ha pasado a la siguiente línea de código.</p>
 </li>
 </ol>
-<figure><img src="/assets/notebook_imgs/pr_chapters/version_4/debug_sleep.png" id="fig:debug_sleep" style="width:100.0%" alt="Restauración del modo despierto vista en depuración." /><figcaption aria-hidden="true">Restauración del modo <em>despierto</em> vista en depuración.</figcaption></figure>
+<figure><img src="/..assets/notebook_imgs/pr_chapters/version_4/debug_sleep.png" id="fig:debug_sleep" style="width:100.0%" alt="Restauración del modo despierto vista en depuración." /><figcaption aria-hidden="true">Restauración del modo <em>despierto</em> vista en depuración.</figcaption></figure>
 
 <h5 id="test-final">Test final<a class="headerlink" href="#test-final" title="Permanent link">&para;</a></h5>
 <h5 id="_4"><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
 <p>En pro de hacer una buena documentación de un proyecto —tanto si es para un cliente como si es para los propios desarrolladores de una empresa—, es conveniente tomar imágenes y/o vídeos y presentarlas como demostración. En este caso, lo haremos mostrando una captura del osciloscopio en el que aparezca la señal <em>trigger</em> que excita el transceptor de ultrasonidos, y el eco recibido. <strong>Procedamos</strong>:</p>
-<figure><img src="/assets/notebook_imgs/pr_chapters/version_4/osciloscopio_trigger_echo.png" id="fig:osciloscopio_trigger_echo" style="width:100.0%" alt="Captura de osciloscopio de la señal trigger y eco del transceptor de ultrasonidos, indicando la distancia." /><figcaption aria-hidden="true">Captura de osciloscopio de la señal <em>trigger</em> y eco del transceptor de ultrasonidos, indicando la distancia.</figcaption></figure>
+<figure><img src="/..assets/notebook_imgs/pr_chapters/version_4/osciloscopio_trigger_echo.png" id="fig:osciloscopio_trigger_echo" style="width:100.0%" alt="Captura de osciloscopio de la señal trigger y eco del transceptor de ultrasonidos, indicando la distancia." /><figcaption aria-hidden="true">Captura de osciloscopio de la señal <em>trigger</em> y eco del transceptor de ultrasonidos, indicando la distancia.</figcaption></figure>
 
 <ol>
 <li>
