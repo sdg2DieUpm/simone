@@ -32,7 +32,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Cabecera" class="md-header__inner md-grid">
-<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href=".." title="Laboratorio de Sistemas Digitales II">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href="../index.html" title="Laboratorio de Sistemas Digitales II">
 <img alt="logo" src="../assets/notebook_imgs/general/etsit.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -105,14 +105,14 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navegación" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Laboratorio de Sistemas Digitales II">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href="../index.html" title="Laboratorio de Sistemas Digitales II">
 <img alt="logo" src="../assets/notebook_imgs/general/etsit.png"/>
 </a>
     Laboratorio de Sistemas Digitales II
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="index.html">
+<a class="md-nav__link" href="../index.html">
 <span class="md-ellipsis">
     Portada
     
@@ -432,7 +432,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cha:version3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.</span> Versión 3: RGB light RGB<a class="headerlink" href="#cha:version3" title="Permanent link">¶</a></h1>
+<h1 id="cha:version3"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.</span> Versión 3: RGB light RGB<a class="headerlink" href="#cha:version3" title="Permanent link">¶</a></h1>
 <p>Ya tenemos una librería que nos permite tener botones que funcionan autónomamente mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. De ella hemos creado un botón que representa la marcha atrás del coche. Además, hemos creado una librería que nos permite crear transceptores de ultrasonido, también gestionados mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. De esta última, hemos creado un transceptor que estaría colocado en la parte trasera del coche para detectar obstáculos mientras se aparca.</p>
 <div class="admonition example">
 <p class="admonition-title">Bibliografía</p>
@@ -472,7 +472,7 @@
 <figure><img alt="Ejemplo de señales PWM para un color amarillento." id="fig:pwm_colors" src="../assets/notebook_imgs/pr_chapters/version_3/pwm_colors.png" style="width:100.0%"><figcaption aria-hidden="true">Ejemplo de señales PWM para un color amarillento.</figcaption></img></figure>
 <p>Igual que hemos hecho hasta ahora, <strong>estamos desarrollando una librería.</strong> Así, cada vez que se quiera añadir un RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> le asociaré una <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. Las particularidades de dónde está conectado cada nuevo RGB light, sus características físicas, <em>etc.</em>, son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
 <p>La muestra las estructuras que vamos a necesitar para el RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. La estructura del HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> (en <code>PORT</code>) se muestra en la . La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> (en <code>COMMON</code>) se muestra en la .</p>
-<h5 id="section"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.0.0.0.1</span> { #section }<a class="headerlink" href="#section" title="Permanent link">¶</a></h5>
+<h5 id="section"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.0.0.0.1</span> { #section }<a class="headerlink" href="#section" title="Permanent link">¶</a></h5>
 <p>Preparemos el proyecto para poder añadir el RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>:</p>
 <ol>
 <li>
@@ -485,11 +485,11 @@
 <p>Verás que no compila, y es que solo se proporciona un esqueleto del código.</p>
 </li>
 </ol>
-<h2 id="sec:headers_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1</span> <code>PORT</code>: cabeceras de la librería del RGB light<a class="headerlink" href="#sec:headers_rgb_light" title="Permanent link">¶</a></h2>
+<h2 id="sec:headers_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.1</span> <code>PORT</code>: cabeceras de la librería del RGB light<a class="headerlink" href="#sec:headers_rgb_light" title="Permanent link">¶</a></h2>
 <p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del RGB light. Esta es la interfaz que vamos a proporcionar al usuario para que pueda usar la librería y añadir LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> como necesite. Vamos a <em>portar</em> las funciones necesarias para usar la librería, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Comenzaremos de nuevo por la cabecera y luego los códigos fuente. El montaje de nuestro RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> con la <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span> se muestra en la .</p>
 <figure><img alt='Montaje del LED &lt;span style="color: red; font-weight: bold;"&gt;R&lt;/span&gt;&lt;span style="color: green; font-weight: bold;"&gt;G&lt;/span&gt;&lt;span style="color: blue; font-weight: bold;"&gt;B&lt;/span&gt; de cátodo común con la &lt;span style="color: RoyalBlue; font-weight: bold;"&gt;Nucleo-STM32F446RE&lt;/span&gt;.' id="fig:fritzing_rgb_light" src="../assets/notebook_imgs/pr_chapters/version_3/fritzing_rgb_light.png" style="width:100.0%"><figcaption aria-hidden="true">Montaje del LED &lt;span style="color: red; font-weight: bold;"&gt;R&lt;/span&gt;&lt;span style="color: green; font-weight: bold;"&gt;G&lt;/span&gt;&lt;span style="color: blue; font-weight: bold;"&gt;B&lt;/span&gt; de cátodo común con la &lt;span style="color: RoyalBlue; font-weight: bold;"&gt;Nucleo-STM32F446RE&lt;/span&gt;.</figcaption></img></figure>
 <p>En el mercado existen numerosos LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En este proyecto utilizaremos un LED de cátodo común. En este tipo de LED, el ánodo de cada LED está conectado a un pin del microcontrolador a través de una resistencia, y los cátodos de los tres LED están internamente conectados a un pin común que irá a tierra. Para adquirir uno, ve al ).</p>
-<h3 id="cabecera-port_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.1</span> Cabecera port_rgb_light.h<a class="headerlink" href="#cabecera-port_rgb_lighth" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-port_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.1.1</span> Cabecera port_rgb_light.h<a class="headerlink" href="#cabecera-port_rgb_lighth" title="Permanent link">¶</a></h3>
 <p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Vamos a seguir los siguientes pasos:</p>
 <ul>
 <li>
@@ -517,7 +517,7 @@
 </li>
 </ul>
 <p>Ya hemos acabado con el encabezado que interactúa con el HW del RGB light y que no depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_rgb_light.h</code>.</p>
-<h3 id="cabecera-stm32f4_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.2</span> Cabecera stm32f4_rgb_light.h<a class="headerlink" href="#cabecera-stm32f4_rgb_lighth" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-stm32f4_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.1.2</span> Cabecera stm32f4_rgb_light.h<a class="headerlink" href="#cabecera-stm32f4_rgb_lighth" title="Permanent link">¶</a></h3>
 <p>Esta cabecera solo define los pines a los que está conectado el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> de cada RGB light asociado.</p>
 <ul>
 <li>
@@ -531,9 +531,9 @@
 </li>
 </ul>
 <p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW del RGB light conectado al microcontrolador <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas en <code>port_rgb_light.h</code>.</p>
-<h2 id="sec:port_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2</span> <code>PORT</code>: fuente de la librería del RGB light<a class="headerlink" href="#sec:port_rgb_light" title="Permanent link">¶</a></h2>
+<h2 id="sec:port_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2</span> <code>PORT</code>: fuente de la librería del RGB light<a class="headerlink" href="#sec:port_rgb_light" title="Permanent link">¶</a></h2>
 <p>Vamos a <em>portar</em> las funciones necesarias para usar la librería del RGB light y comprobar que la parte HW está bien programada. Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_rgb_light.c</code></strong>. Deberás implementar o completar todas las funciones públicas de las que se hayan declarado el prototipo en el encabezado y algunas funciones privadas.</p>
-<h3 id="fuentes-stm32f4_rgb_lightc"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1</span> Fuentes stm32f4_rgb_light.c<a class="headerlink" href="#fuentes-stm32f4_rgb_lightc" title="Permanent link">¶</a></h3>
+<h3 id="fuentes-stm32f4_rgb_lightc"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2.1</span> Fuentes stm32f4_rgb_light.c<a class="headerlink" href="#fuentes-stm32f4_rgb_lightc" title="Permanent link">¶</a></h3>
 <p>Este fichero es mucho menos extenso que el de la versión anterior. La mayor complejidad está en la configuración de los canales del temporizador, pero si ha leído el capítulo del libro relativo a PWM y lo ha entendido, no debería tener problema <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. Vamos a ello.</p>
 <ol>
 <li>
@@ -551,7 +551,7 @@
 <p>Codifica la función <code>_stm32f4_rgb_light_get()</code> de manera análoga a como se ha hecho en las versiones anteriores.</p>
 </li>
 </ol>
-<h5 id="_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1.0.1</span> <a class="headerlink" href="#_1" title="Permanent link">¶</a></h5>
+<h5 id="_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2.1.0.1</span> <a class="headerlink" href="#_1" title="Permanent link">¶</a></h5>
 <p>Ahora vamos a codificar las funciones más importantes de la parte <code>PORT</code> del RGB light, y son las que configuran el temporizador asociado al LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> trasero.</p>
 <ol>
 <li>
@@ -581,7 +581,7 @@
 </li>
 </ol>
 <p>Si ahora compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>!</strong> Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
-<h2 id="sec:test_port_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3</span> <code>PORT</code>: Test unitario del RGB light<a class="headerlink" href="#sec:test_port_v3" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_port_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3</span> <code>PORT</code>: Test unitario del RGB light<a class="headerlink" href="#sec:test_port_v3" title="Permanent link">¶</a></h2>
 <p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado de la librería del RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> antes de continuar con la FSM.</p>
 <p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> Ten a mano y revisa el capítulo <em>"Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
 <p>Descarga el fichero de test HW del RGB light <code>test_port_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
@@ -603,9 +603,9 @@
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del RGB light!</strong> Vamos ahora a implementar la parte <code>COMMON</code>.</p>
-<h2 id="common-cabecera-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4</span> <code>COMMON</code>: cabecera de la FSM del RGB light<a class="headerlink" href="#common-cabecera-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
-<h5 id="consideraciones-de-la-fsm-del-RGB" light="light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4.0.0.1</span> Consideraciones de la FSM del RGB light<a class="headerlink" href="#consideraciones-de-la-fsm-del-RGB" title="Permanent link">¶</a></h5>
-<h5 id="_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4.0.0.2</span> <a class="headerlink" href="#_2" title="Permanent link">¶</a></h5>
+<h2 id="common-cabecera-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.4</span> <code>COMMON</code>: cabecera de la FSM del RGB light<a class="headerlink" href="#common-cabecera-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
+<h5 id="consideraciones-de-la-fsm-del-RGB" light="light"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.4.0.0.1</span> Consideraciones de la FSM del RGB light<a class="headerlink" href="#consideraciones-de-la-fsm-del-RGB" title="Permanent link">¶</a></h5>
+<h5 id="_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.4.0.0.2</span> <a class="headerlink" href="#_2" title="Permanent link">¶</a></h5>
 <p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
 <ul>
 <li>
@@ -670,7 +670,7 @@
 </li>
 </ol>
 <p>Vamos ahora a programar el fichero fuente <code>fsm_rgb_light.c</code>.</p>
-<h2 id="common-fuente-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5</span> <code>COMMON</code>: fuente de la FSM del RGB light<a class="headerlink" href="#common-fuente-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
+<h2 id="common-fuente-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5</span> <code>COMMON</code>: fuente de la FSM del RGB light<a class="headerlink" href="#common-fuente-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
 <p>Vamos a proceder con la implementación de las funciones del <em>RGB light</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y la <strong>función privada</strong> que aparece en la API del fichero <code>fsm_rgb_light.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
 <ul>
 <li>
@@ -710,7 +710,7 @@
 <p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
 </li>
 </ol>
-<h5 id="_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5.0.0.1</span> <a class="headerlink" href="#_3" title="Permanent link">¶</a></h5>
+<h5 id="_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.0.0.1</span> <a class="headerlink" href="#_3" title="Permanent link">¶</a></h5>
 <p>Todavía no hemos acabado con el desarrollo, pero puedes compilar para ir depurando errores.</p>
 <ol>
 <li>
@@ -733,7 +733,7 @@
 <ol>
 <li>Documenta el código que esté sin comentar todavía.</li>
 </ol>
-<h2 id="sec:test_fsm_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.6</span> <code>COMMON</code> Test unitario de la FSM del RGB light<a class="headerlink" href="#sec:test_fsm_v3" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_fsm_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.6</span> <code>COMMON</code> Test unitario de la FSM del RGB light<a class="headerlink" href="#sec:test_fsm_v3" title="Permanent link">¶</a></h2>
 <p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del RGB light y probar que funciona antes de continuar con la siguiente versión.</p>
 <p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
 <p>Descarga el fichero de test de la FSM del RGB light <code>test_fsm_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
@@ -757,7 +757,7 @@
 <p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
 </li>
 </ol>
-<h2 id="ejemplo-de-uso-de-la-version-3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.7</span> Ejemplo de uso de la Versión 3<a class="headerlink" href="#ejemplo-de-uso-de-la-version-3" title="Permanent link">¶</a></h2>
+<h2 id="ejemplo-de-uso-de-la-version-3"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.7</span> Ejemplo de uso de la Versión 3<a class="headerlink" href="#ejemplo-de-uso-de-la-version-3" title="Permanent link">¶</a></h2>
 <p>En este test de integración del RGB light es responsabilidad del alumno comprobar que la funcionalidad es la esperada. El ejemplo que se da no contempla todas las situaciones.</p>
 <p>Descarga el fichero de ejemplo <code>example3̌.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
 <p><strong>Procedamos</strong>:</p>

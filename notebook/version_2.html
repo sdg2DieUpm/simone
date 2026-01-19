@@ -32,7 +32,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Cabecera" class="md-header__inner md-grid">
-<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href=".." title="Laboratorio de Sistemas Digitales II">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href="../index.html" title="Laboratorio de Sistemas Digitales II">
 <img alt="logo" src="../assets/notebook_imgs/general/etsit.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -105,14 +105,14 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navegación" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Laboratorio de Sistemas Digitales II">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href="../index.html" title="Laboratorio de Sistemas Digitales II">
 <img alt="logo" src="../assets/notebook_imgs/general/etsit.png"/>
 </a>
     Laboratorio de Sistemas Digitales II
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="index.html">
+<a class="md-nav__link" href="../index.html">
 <span class="md-ellipsis">
     Portada
     
@@ -516,7 +516,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cha:version2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.</span> Versión 2: transceptor de ultrasonidos<a class="headerlink" href="#cha:version2" title="Permanent link">¶</a></h1>
+<h1 id="cha:version2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.</span> Versión 2: transceptor de ultrasonidos<a class="headerlink" href="#cha:version2" title="Permanent link">¶</a></h1>
 <p>Ya tenemos una librería que nos permite crear botones que funcionan autónomamente mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. En este capítulo vamos a crear una librería que nos permita realizar la comunicación con el transceptor de ultrasonidos HC-SR04. Lo denominamos transceptor porque es un dispositivo que emite y recibe ultrasonidos. El transceptor de ultrasonidos es un dispositivo que nos permite medir distancias. En este caso, el transceptor HC-SR04 emite un pulso de ultrasonidos y mide el tiempo que tarda en recibir el eco. Conociendo la velocidad del sonido en el medio (el aire en nuestro caso), podemos calcular la distancia a la que se encuentra un objeto.</p>
 <p>Como ya hicimos con el <em>botón</em>, (i) vamos a implementar la parte <em>portable</em> <code>PORT</code> dependiente del <a href="acronimos.html#acro:HW"><strong>HW</strong></a> para comunicarnos con el transceptor, y lo probaremos con un test unitario. (ii) Después, vamos a crear la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> de la comunicación con el dispositivo en la parte común (la parte <code>COMMON</code>), y lo probaremos con un test unitario. (iii) Por último, montaremos el <a href="acronimos.html#acro:HW"><strong>HW</strong></a> y probaremos la comunicación de transmisión y recepción de ultrasonidos con un programa de ejemplo.</p>
 <p>En esta versión se van a utilizar tres temporizadores. Para facilitar la implementación, se va a dividir cada uno de los pasos de la parte <code>PORT</code> en subsecciones con sus test correspondientes.</p>
@@ -534,11 +534,11 @@
 <p>Para <strong>medir el tiempo de eco, configuraremos el temporizador <code>TIM2</code> en modo <em>input capture</em></strong> que capturará el valor del contador en el momento en el que se activa y desactiva la señal de eco. La diferencia entre ambos valores nos dará el tiempo que ha tardado en ir y volver el sonido. La distancia se calculará con la fórmula anterior. La tabla <a data-reference="tbl:hc_sr04_timer_echo" data-reference-type="ref" href="#tbl:hc_sr04_timer_echo">[tbl:hc_sr04_timer_echo]</a> muestra las características del temporizador para medir el tiempo de eco del transceptor de ultrasonidos HC-SR04.</p>
 <p>El sistema ya funcionaría con estas configuraciones, pero vamos a añadir un temporizador más para controlar el <em>timeout</em> entre medidas consecutivas. Lo que querremos con ello es permitir a la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> de <em>Simone</em> que pueda hacer varias medidas de distancias seguidas para calcular un valor medio o mediano de la distancia y evitar medidas erróneas. La tabla <a data-reference="tbl:hc_sr04_timer_timeout" data-reference-type="ref" href="#tbl:hc_sr04_timer_timeout">[tbl:hc_sr04_timer_timeout]</a> muestra las características del temporizador <code>TIM5</code> para controlar el <em>timeout</em> entre medidas.</p>
 <p>En primer lugar, debes familiarizarte con el protocolo de temporización de la y manejar los conceptos de temporización de los temporizadores del \<span style="color: RoyalBlue">**STM32F446RE**\</span>. Lea con detenimiento el capítulo <em>“Temporizadores (timers)”</em> del libro <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. <strong>Léelo porque la parte <em>portable</em> serán adaptaciones de lo que ahí se presenta.</strong> <strong>Se recomienda prestar especial atención a los ejemplos de interrupciones periódicas y de <em>input capture</em>.</strong></p>
-<h5 id="_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.0.0.0.1</span> <a class="headerlink" href="#_1" title="Permanent link">¶</a></h5>
+<h5 id="_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.0.0.0.1</span> <a class="headerlink" href="#_1" title="Permanent link">¶</a></h5>
 <p>En el mercado existen numerosos transceptores de ultrasonidos. En este proyecto utilizaremos el popular <strong>HC-SR04</strong> ensamblado por multitud de fabricantes. Se puede encontrar en muchos de proyectos <a href="acronimos.html#acro:DIY"><strong>DIY</strong></a>. Para adquirir uno ve al .</p>
 <p>Igual que con el botón, <strong>estamos desarrollando una librería.</strong> Así, cada vez que se quiera añadir un transceptor de ultrasonidos le asociaré una <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. Las particularidades de dónde está conectado cada nuevo transceptor, sus características físicas, , son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
 <p>La muestra las estructuras que vamos a necesitar para el transceptor de ultrasonidos. La estructura del HW del ultrasonidos (en <code>PORT</code>) se muestra en la . La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> (en <code>COMMON</code>) se muestra en la .</p>
-<h5 id="section-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.0.0.0.2</span> { #section-1 }<a class="headerlink" href="#section-1" title="Permanent link">¶</a></h5>
+<h5 id="section-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.0.0.0.2</span> { #section-1 }<a class="headerlink" href="#section-1" title="Permanent link">¶</a></h5>
 <p>Preparemos el proyecto para poder añadir el transceptor de ultrasonidos:</p>
 <ol>
 <li>
@@ -551,12 +551,12 @@
 <p>Verás que no compila, y es que solo se proporciona un esqueleto del código.</p>
 </li>
 </ol>
-<h2 id="sec:headers_ultrasound_trigger"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1</span> <code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:headers_ultrasound_trigger" title="Permanent link">¶</a></h2>
+<h2 id="sec:headers_ultrasound_trigger"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1</span> <code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:headers_ultrasound_trigger" title="Permanent link">¶</a></h2>
 <p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del transceptor de ultrasonidos. Esta es la interfaz que vamos a proporcionar al usuario para que pueda usar la librería y añadir tantos transceptores como necesite. Vamos a <em>portar</em> las funciones necesarias para usar la librería del transceptor de ultrasonidos. Lo haremos, cómo no, para la placa \<span style="color: RoyalBlue">**Nucleo-STM32F446RE**\</span>.</p>
 <p>El montaje de nuestro módulo HC-SR04 tendrá un aspecto como el mostrado en . Más adelante lo implementaremos.</p>
 <figure><img alt='Montaje del transceptor de ultrasonidos HC-SR04 con la &lt;span style="color: RoyalBlue"&gt;**Nucleo-STM32F446RE**&lt;/span&gt;.' id="fig:fritzing_ultrasound" src="../assets/notebook_imgs/pr_chapters/version_2/fritzing_ultrasound.png" style="width:100.0%"/><figcaption aria-hidden="true">Montaje del transceptor de ultrasonidos HC-SR04 con la &lt;span style="color: RoyalBlue"&gt;**Nucleo-STM32F446RE**&lt;/span&gt;.</figcaption></figure>
 <p>Comenzaremos de nuevo por la cabecera y luego los códigos fuente. Primeramente implementaremos las funciones necesarias para controlar la señal de disparo (<em>Trigger</em>) del transceptor de ultrasonidos.</p>
-<h3 id="cabecera-port_ultrasoundh"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1</span> Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-port_ultrasoundh"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.1</span> Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh" title="Permanent link">¶</a></h3>
 <p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador \<span style="color: RoyalBlue">**STM32F446RE**\</span>. Vamos a seguir los siguientes pasos:</p>
 <ul>
 <li>
@@ -588,7 +588,7 @@
 </li>
 </ul>
 <p>Ya hemos acabado con el encabezado que interactúa con el HW de la señal de disparo del ultrasonidos —y que no depende del microcontrolador—. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_ultrasound.h</code>.</p>
-<h3 id="cabecera-stm32f4_ultrasoundh"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.2</span> Cabecera stm32f4_ultrasound.h<a class="headerlink" href="#cabecera-stm32f4_ultrasoundh" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-stm32f4_ultrasoundh"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.2</span> Cabecera stm32f4_ultrasound.h<a class="headerlink" href="#cabecera-stm32f4_ultrasoundh" title="Permanent link">¶</a></h3>
 <p>Esta cabecera solo define los pines a los que está conectado el transceptor de ultrasonidos trasero del coche en la \<span style="color: RoyalBlue">**Nucleo-STM32F446RE**\</span>:</p>
 <ul>
 <li>
@@ -605,9 +605,9 @@
 </li>
 </ul>
 <p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW de la señal de disparo del ultrasonidos conectado al microcontrolador \<span style="color: RoyalBlue">**Nucleo-STM32F446RE**\</span>. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas en <code>port_ultrasound.h</code> que maneja dicha señal.</p>
-<h2 id="sec:port_ultrasound_trigger"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> <code>PORT</code>: fuente de la librería del ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:port_ultrasound_trigger" title="Permanent link">¶</a></h2>
+<h2 id="sec:port_ultrasound_trigger"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2</span> <code>PORT</code>: fuente de la librería del ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:port_ultrasound_trigger" title="Permanent link">¶</a></h2>
 <p>Vamos a <em>portar</em> las funciones necesarias para usar la librería del ultrasonidos y comprobar que la parte HW está bien programada. Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_ultrasound.c</code></strong>. Deberás implementar o completar todas las funciones públicas de las que se hayan declarado el prototipo en el encabezado y varias funciones privadas. Posteriormente completarás la ISR asociada a los pines del transceptor en el fichero <code>interr.c</code>.</p>
-<h3 id="fuentes-stm32f4_ultrasoundc"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1</span> Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc" title="Permanent link">¶</a></h3>
+<h3 id="fuentes-stm32f4_ultrasoundc"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1</span> Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc" title="Permanent link">¶</a></h3>
 <p>Este fichero es un poco extenso, por eso se ha decidido hacerlo por partes. Las funciones de <em>getter</em> y <em>setter</em> aunque son muchas, son muy sencillas. La mayor complejidad está en la configuración de los temporizadores y en la ISR asociadas, por lo que es importante que manejes bien los conceptos del capítulo de temporizadores del libro <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. Empezaremos por ahora con el temporizador que controla la duración y activación de la señal de disparo (<em>Trigger</em>).</p>
 <ol>
 <li>
@@ -628,7 +628,7 @@
 <p>Codifica la función <code>_stm32f4_ultrasound_get()</code> de manera análoga a la proporcionada para el botón <code>_stm32f4_button_get()</code>. Se trata de una función privada que devuelve un puntero a la estructura del transceptor que se le pasa como argumento. Si el transceptor no existe, la función devuelve <code>NULL</code>.</p>
 </li>
 </ol>
-<h5 id="_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1.0.1</span> <a class="headerlink" href="#_2" title="Permanent link">¶</a></h5>
+<h5 id="_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1.0.1</span> <a class="headerlink" href="#_2" title="Permanent link">¶</a></h5>
 <p>Ahora vamos a codificar las funciones más importantes de la parte <code>PORT</code> del ultrasonidos, y son las que configuran el temporizador de disparo asociado al transceptor de ultrasonidos. Vamos a empezar por la función que configura el temporizador para medir el tiempo de disparo.</p>
 <ol>
 <li>
@@ -659,7 +659,7 @@
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_ultrasound.c</code> relativa al temporizador de disparo!</strong> Ahora solo queda la ISR asociada a dicho temporizador en el fichero <code>interr.c</code>. Vamos a ello.</p>
-<h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
+<h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
 <p>Abre el fichero <code>interr.c</code> y:</p>
 <ol>
 <li>
@@ -671,7 +671,7 @@
 </li>
 </ol>
 <p>Si ahora compilas, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> de la señal de disparo de un transceptor de ultrasonidos!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code> para esta parte.</p>
-<h2 id="sec:test_port_v2_trigger"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> <code>PORT</code>: Test unitario del ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:test_port_v2_trigger" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_port_v2_trigger"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3</span> <code>PORT</code>: Test unitario del ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:test_port_v2_trigger" title="Permanent link">¶</a></h2>
 <p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado antes de continuar.</p>
 <p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> Ten a mano y revisa el capítulo }{ .inline-img <em>“Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
 <p>Descarga el fichero de test HW de la señal de disparo del ultrasonidos <code>test_port_ultrasound_timer_trigger.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto. Verás que también hay otros ficheros llamados <code>test_port_ultrasound_timer_echo.c</code>, y <code>test_port_ultrasound_timer_measurements.c</code>. Estos ficheros son para probar las implementaciones de las los temporizadores de la señal de eco y medida entre disparos; los usaremos más adelante.</p>
@@ -693,9 +693,9 @@
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del transceptor de ultrasonidos para la señal de disparo!</strong> Vamos ahora a implementar la parte <code>PORT</code> para la señal de eco.</p>
-<h2 id="sec:headers_ultrasound_echo"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4</span> <code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:headers_ultrasound_echo" title="Permanent link">¶</a></h2>
+<h2 id="sec:headers_ultrasound_echo"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4</span> <code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:headers_ultrasound_echo" title="Permanent link">¶</a></h2>
 <p>Vamos a continuar con la cabecera y luego los códigos fuente para controlar la señal de eco (<em>Echo</em>) del transceptor de ultrasonidos.</p>
-<h3 id="cabecera-port_ultrasoundh_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4.1</span> Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh_1" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-port_ultrasoundh_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4.1</span> Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh_1" title="Permanent link">¶</a></h3>
 <p>Vamos a seguir los siguientes pasos:</p>
 <ul>
 <li>
@@ -707,8 +707,8 @@
 </li>
 </ul>
 <p>Ya hemos acabado con el encabezado que interactúa con el HW de la señal de eco del ultrasonidos —y que no depende del microcontrolador—. En la la cabecera que sí depende del microcontrolador <code>stm32f4_ultrasound.h</code> ya no tenemos que hacer nada más. Vamos ahora a implementar todas las funciones prototipadas en <code>port_ultrasound.h</code> que maneja la señal de eco.</p>
-<h2 id="sec:port_ultrasound_echo"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> <code>PORT</code>: fuente de la librería del ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:port_ultrasound_echo" title="Permanent link">¶</a></h2>
-<h3 id="fuentes-stm32f4_ultrasoundc_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5.1</span> Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc_1" title="Permanent link">¶</a></h3>
+<h2 id="sec:port_ultrasound_echo"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5</span> <code>PORT</code>: fuente de la librería del ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:port_ultrasound_echo" title="Permanent link">¶</a></h2>
+<h3 id="fuentes-stm32f4_ultrasoundc_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5.1</span> Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc_1" title="Permanent link">¶</a></h3>
 <p>Vamos a continuar con el temporizador que mide la duración de la señal de eco (<em>Echo</em>). Vamos a empezar por la función que configura el temporizador para medir la duración del eco recibido.</p>
 <ol>
 <li>
@@ -758,7 +758,7 @@
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_ultrasound.c</code> relativa al temporizador de eco!</strong> Ahora solo queda la ISR asociada a dicho temporizador en el fichero <code>interr.c</code>. Vamos a ello.</p>
-<h3 id="interrc_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5.2</span> interr.c<a class="headerlink" href="#interrc_1" title="Permanent link">¶</a></h3>
+<h3 id="interrc_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5.2</span> interr.c<a class="headerlink" href="#interrc_1" title="Permanent link">¶</a></h3>
 <p>Abre el fichero <code>interr.c</code> y:</p>
 <ol>
 <li>
@@ -772,7 +772,7 @@
 </li>
 </ol>
 <p>Si ahora compilas, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> de la señal de eco de un transceptor de ultrasonidos!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code> para esta parte.</p>
-<h2 id="sec:test_port_v2_echo"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.6</span> <code>PORT</code>: Test unitario del ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:test_port_v2_echo" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_port_v2_echo"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.6</span> <code>PORT</code>: Test unitario del ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:test_port_v2_echo" title="Permanent link">¶</a></h2>
 <p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado antes de continuar.</p>
 <p>Descarga el fichero de test HW de la señal de disparo del ultrasonidos <code>test_port_ultrasound_timer_echo.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
 <ol>
@@ -793,9 +793,9 @@
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del transceptor de ultrasonidos para la señal de eco!</strong> Vamos ahora a implementar la parte <code>PORT</code> para el temporizador de <em>timeout</em> entre medidas consecutivas.</p>
-<h2 id="sec:headers_ultrasound_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7</span> <code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Timeout entre medidas.<a class="headerlink" href="#sec:headers_ultrasound_timeout" title="Permanent link">¶</a></h2>
+<h2 id="sec:headers_ultrasound_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.7</span> <code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Timeout entre medidas.<a class="headerlink" href="#sec:headers_ultrasound_timeout" title="Permanent link">¶</a></h2>
 <p>Vamos a terminar con la cabecera y los códigos fuente para controlar el temporizador que controla el tiempo entre medidas del transceptor de ultrasonidos.</p>
-<h3 id="cabecera-port_ultrasoundh_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7.1</span> Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh_2" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-port_ultrasoundh_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.7.1</span> Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh_2" title="Permanent link">¶</a></h3>
 <p>Vamos a seguir los siguientes pasos:</p>
 <ul>
 <li>
@@ -806,8 +806,8 @@
 </li>
 </ul>
 <p>Ya hemos acabado con el encabezado que interactúa con el HW del temporizador que gestiona el tiempo entre medidas del ultrasonidos —y que no depende del microcontrolador—. En la la cabecera que sí depende del microcontrolador <code>stm32f4_ultrasound.h</code> ya no tenemos que hacer nada más. Vamos ahora a implementar todas las funciones prototipadas en <code>port_ultrasound.h</code> que maneja este temporizador.</p>
-<h2 id="sec:port_ultrasound_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.8</span> <code>PORT</code>: fuente de la librería del ultrasonidos. Timeout entre medidas.<a class="headerlink" href="#sec:port_ultrasound_timeout" title="Permanent link">¶</a></h2>
-<h3 id="fuentes-stm32f4_ultrasoundc_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.8.1</span> Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc_2" title="Permanent link">¶</a></h3>
+<h2 id="sec:port_ultrasound_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.8</span> <code>PORT</code>: fuente de la librería del ultrasonidos. Timeout entre medidas.<a class="headerlink" href="#sec:port_ultrasound_timeout" title="Permanent link">¶</a></h2>
+<h3 id="fuentes-stm32f4_ultrasoundc_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.8.1</span> Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc_2" title="Permanent link">¶</a></h3>
 <p>Vamos a empezar por la función que configura el temporizador de <em>timeout</em> entre medidas.</p>
 <ol>
 <li>
@@ -831,7 +831,7 @@
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_ultrasound.c</code> por completo!</strong> Ahora solo queda la ISR asociada al temporizador periódico de <em>timeout</em>en el fichero <code>interr.c</code>. Vamos a ello.</p>
-<h3 id="interrc_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.8.2</span> interr.c<a class="headerlink" href="#interrc_2" title="Permanent link">¶</a></h3>
+<h3 id="interrc_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.8.2</span> interr.c<a class="headerlink" href="#interrc_2" title="Permanent link">¶</a></h3>
 <p>Abre el fichero <code>interr.c</code> y:</p>
 <ol>
 <li>
@@ -843,7 +843,7 @@
 </li>
 </ol>
 <p>Si ahora compilas, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> de un transceptor de ultrasonidos!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code> para el temporizador de <em>timeout</em> entre medidas.</p>
-<h2 id="sec:test_port_v2_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.9</span> <code>PORT</code>: Test unitario del ultrasonidos. Señal de timeout entre medidas.<a class="headerlink" href="#sec:test_port_v2_timeout" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_port_v2_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.9</span> <code>PORT</code>: Test unitario del ultrasonidos. Señal de timeout entre medidas.<a class="headerlink" href="#sec:test_port_v2_timeout" title="Permanent link">¶</a></h2>
 <p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado antes de continuar con la parte <code>COMMON</code>.</p>
 <p>Descarga el fichero de test HW de la señal de disparo del ultrasonidos <code>test_port_ultrasound_timer_measurements.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
 <ol>
@@ -864,9 +864,9 @@
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del transceptor de ultrasonidos!</strong> Vamos ahora a implementar la parte <code>COMMON</code>.</p>
-<h2 id="common-cabecera-de-la-fsm-del-ultrasonidos"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.10</span> <code>COMMON</code>: cabecera de la FSM del ultrasonidos<a class="headerlink" href="#common-cabecera-de-la-fsm-del-ultrasonidos" title="Permanent link">¶</a></h2>
-<h5 id="consideraciones-de-la-fsm-del-ultrasonidos"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.10.0.0.1</span> Consideraciones de la FSM del ultrasonidos<a class="headerlink" href="#consideraciones-de-la-fsm-del-ultrasonidos" title="Permanent link">¶</a></h5>
-<h5 id="_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.10.0.0.2</span> <a class="headerlink" href="#_3" title="Permanent link">¶</a></h5>
+<h2 id="common-cabecera-de-la-fsm-del-ultrasonidos"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.10</span> <code>COMMON</code>: cabecera de la FSM del ultrasonidos<a class="headerlink" href="#common-cabecera-de-la-fsm-del-ultrasonidos" title="Permanent link">¶</a></h2>
+<h5 id="consideraciones-de-la-fsm-del-ultrasonidos"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.10.0.0.1</span> Consideraciones de la FSM del ultrasonidos<a class="headerlink" href="#consideraciones-de-la-fsm-del-ultrasonidos" title="Permanent link">¶</a></h5>
+<h5 id="_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.10.0.0.2</span> <a class="headerlink" href="#_3" title="Permanent link">¶</a></h5>
 <p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
 <ul>
 <li>
@@ -937,7 +937,7 @@
 </li>
 </ol>
 <p>Vamos ahora a programar el fichero fuente <code>fsm_keyboard.c</code>.</p>
-<h2 id="common-fuente-de-la-fsm-del-ultrasonidos"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.11</span> <code>COMMON</code>: fuente de la FSM del ultrasonidos<a class="headerlink" href="#common-fuente-de-la-fsm-del-ultrasonidos" title="Permanent link">¶</a></h2>
+<h2 id="common-fuente-de-la-fsm-del-ultrasonidos"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.11</span> <code>COMMON</code>: fuente de la FSM del ultrasonidos<a class="headerlink" href="#common-fuente-de-la-fsm-del-ultrasonidos" title="Permanent link">¶</a></h2>
 <p>Vamos a proceder con la implementación de las funciones del <em>ultrasonidos</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y el resto de <strong>funciones privadas</strong> que aparecen en la API del fichero <code>fsm_keyboard.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
 <ul>
 <li>
@@ -968,7 +968,7 @@
 <p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
 </li>
 </ol>
-<h5 id="_4"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.11.0.0.1</span> <a class="headerlink" href="#_4" title="Permanent link">¶</a></h5>
+<h5 id="_4"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.11.0.0.1</span> <a class="headerlink" href="#_4" title="Permanent link">¶</a></h5>
 <p>Todavía no hemos acabado con el desarrollo, pero puedes compilar para ir depurando errores.</p>
 <ol>
 <li>
@@ -991,7 +991,7 @@
 <ol>
 <li>Documenta el código que esté sin comentar.</li>
 </ol>
-<h2 id="sec:test_fsm_v2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.12</span> <code>COMMON</code> Test unitario de la FSM del ultrasonidos<a class="headerlink" href="#sec:test_fsm_v2" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_fsm_v2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.12</span> <code>COMMON</code> Test unitario de la FSM del ultrasonidos<a class="headerlink" href="#sec:test_fsm_v2" title="Permanent link">¶</a></h2>
 <p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del ultrasonidos y probar que funciona antes de continuar con la siguiente versión.</p>
 <p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
 <p>Descarga el fichero de test de la FSM del ultrasonidos <code>test_fsm_ultrasound.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
@@ -1015,7 +1015,7 @@
 <p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.}{ .inline-img </p>
 </li>
 </ol>
-<h2 id="ejemplo-de-uso-de-la-version-2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.13</span> Ejemplo de uso de la Versión 2<a class="headerlink" href="#ejemplo-de-uso-de-la-version-2" title="Permanent link">¶</a></h2>
+<h2 id="ejemplo-de-uso-de-la-version-2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.13</span> Ejemplo de uso de la Versión 2<a class="headerlink" href="#ejemplo-de-uso-de-la-version-2" title="Permanent link">¶</a></h2>
 <p>En este test de integración del transceptor de ultrasonidos es responsabilidad del alumno comprobar que la funcionalidad es la esperada. El ejemplo que se da no contempla todas las situaciones.</p>
 <p>Descarga el fichero de ejemplo <code>example2̌.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
 <p><strong>Procedamos</strong>:</p>

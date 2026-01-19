@@ -32,7 +32,7 @@
 </div>
 <header class="md-header md-header--shadow" data-md-component="header">
 <nav aria-label="Cabecera" class="md-header__inner md-grid">
-<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href=".." title="Laboratorio de Sistemas Digitales II">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href="../index.html" title="Laboratorio de Sistemas Digitales II">
 <img alt="logo" src="../assets/notebook_imgs/general/etsit.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -105,14 +105,14 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navegación" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Laboratorio de Sistemas Digitales II">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href="../index.html" title="Laboratorio de Sistemas Digitales II">
 <img alt="logo" src="../assets/notebook_imgs/general/etsit.png"/>
 </a>
     Laboratorio de Sistemas Digitales II
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="index.html">
+<a class="md-nav__link" href="../index.html">
 <span class="md-ellipsis">
     Portada
     
@@ -432,7 +432,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cha:version1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Versión 1: botón de usuario<a class="headerlink" href="#cha:version1" title="Permanent link">¶</a></h1>
+<h1 id="cha:version1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.</span> Versión 1: botón de usuario<a class="headerlink" href="#cha:version1" title="Permanent link">¶</a></h1>
 <p>Ya estamos en disposición de programar el bloque que controla la pulsación del botón para encender y apagar el sistema <em>Simone</em>, y para pausarlo. Debes tener a mano en todo momento <strong>los documentos referenciados y ver los vídeos sugeridos</strong> a fin de entender mejor cómo tienes que escribir el código o realizar montajes.</p>
 <div class="admonition example">
 <p class="admonition-title">Bibliografía</p>
@@ -539,7 +539,7 @@
 <p>Verás que no compila, y es que solo se te proporciona cierta parte del código. Los prototipos de gran parte de las funciones públicas no están definidos.</p>
 </li>
 </ol>
-<h2 id="sec:headers_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1</span> <code>PORT</code>: cabeceras de la librería del botón<a class="headerlink" href="#sec:headers_button" title="Permanent link">¶</a></h2>
+<h2 id="sec:headers_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1</span> <code>PORT</code>: cabeceras de la librería del botón<a class="headerlink" href="#sec:headers_button" title="Permanent link">¶</a></h2>
 <p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del botón. Esto es, qué interfaz vamos a proporcionar al usuario para que pueda usar la librería y crear tantos botones como necesite. Lo haremos, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</p>
 <p>Durante todo el desarrollo del proyecto, <strong>si detectas que falta algún</strong> <code>#define</code>, <strong>o</strong> <code>#include</code>, <strong>o declaración de variable que sea necesaria o que necesite, hazlo. Lo que aquí se expone no es algo inmutable, aunque sigue unas buenas prácticas.</strong></p>
 <p>La <a href="#fig:template_header">figura de plantilla</a> representa las secciones de una plantilla genérica de cabecera que puede utilizar a lo largo del proyecto. El orden no es un estándar, ni las secciones que ahí aparecen. No obstante, sí es muy conveniente ser ordenado y metódico en programación. Sí es importante el orden en los siguientes casos:</p>
@@ -556,7 +556,7 @@
 </ul>
 <figure><embed id="fig:template_header" src="../assets/notebook_imgs/pr_chapters/version_1/template_header.svg" style="width:85.0%"/><figcaption aria-hidden="true">Sugerencia de plantilla genérica de una cabecera.</figcaption></figure>
 <p>Nuestro botón es <strong>el botón de usuario <code>B1</code> de la placa (el azul) será el botón para arranque y parada del juego. Está conectado a la GPIO PC13</strong>. Si lo queremos ver en el osciloscopio, tendremos que pinchar en el pin indicado en el <em>header</em>-Morpho izquierdo, como marca la figura <em>“Pinout y funciones header -Morpho izquierdo.”</em> del libro de fundamentos teóricos <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>. El esquemático del circuito del botón es el que se mostró en la <a href="#fig:button_nucleo">figura del esquemático</a>.</p>
-<h3 id="cabecera-port_buttonh"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1.1</span> Cabecera port_button.h<a class="headerlink" href="#cabecera-port_buttonh" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-port_buttonh"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.1</span> Cabecera port_button.h<a class="headerlink" href="#cabecera-port_buttonh" title="Permanent link">¶</a></h3>
 <p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. En ella vamos a definir las funciones que el usuario podrá usar para gestionar el botón. <strong>Fíjate que todas las funciones reciben el identificador del botón</strong> y solo pueden recibir o devolver variables que <strong>NO dependan del microcontrolador</strong>. Vamos a seguir los siguientes pasos:</p>
 <ul>
 <li>
@@ -582,7 +582,7 @@
 <p>Podemos tener ayuda para autocomentar parcialmente el código con Doxygen. Compruea si tienes instalada la extensión llamada <em>Doxygen Documentation Generator</em> —a veces se instala junto con otras extensiones—; si no la tienes, puedes instalarla. Con esta extensión, si te colocas justo en la lı́nea encima del nombre de la función y escribes: <em>barra, asterisco, asterisco, enter</em> <img alt="image" class="inline-img" src="/assets/notebook_imgs/pr_chapters/version_1/doxygen_autocomment.png"/>, colocando el cursor en la tercera posición, como en la imagen, para darle a enter, se genera automáticamente un esqueleto para poder completarlo. También se puede hacer si, colocados justo encima de la función, damos botón derecho → Generate Doxygen Comment.</p>
 </div>
 <p>Ya hemos acabado con el encabezado que interactúa con el HW del botón y que no depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_button.h</code>.</p>
-<h3 id="cabecera-stm32f4_buttonh"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1.2</span> Cabecera stm32f4_button.h<a class="headerlink" href="#cabecera-stm32f4_buttonh" title="Permanent link">¶</a></h3>
+<h3 id="cabecera-stm32f4_buttonh"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.1.2</span> Cabecera stm32f4_button.h<a class="headerlink" href="#cabecera-stm32f4_buttonh" title="Permanent link">¶</a></h3>
 <p>Esta cabecera depende del HW y del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. En ella vamos a definir la función que permitirá al usuario asignar una GPIO al botón. En la versión V5, si lo necesitas, puedes añadir más funciones que dependan del microcontrolador. Vamos a seguir los siguientes pasos:</p>
 <ul>
 <li>
@@ -612,10 +612,10 @@
 <li>Puede ser buen momento ahora para documentar la función, la estructura y sus campos, y los <code>#define</code> con Doxygen.</li>
 </ul>
 <p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW del botón y depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas aquí y en <code>port_button.h</code>.</p>
-<h2 id="sec:port_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2</span> <code>PORT</code>: fuente de la librería del botón<a class="headerlink" href="#sec:port_button" title="Permanent link">¶</a></h2>
+<h2 id="sec:port_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> <code>PORT</code>: fuente de la librería del botón<a class="headerlink" href="#sec:port_button" title="Permanent link">¶</a></h2>
 <p>Si observas la API, verás que la FSM del <em>botón</em> hace llamadas a funciones que empiezan por <code>port_</code>. Estas son funciones <em>portables</em>, y el usuario que quiera usar la librería de la FSM del <em>botón</em> debe programarlas y adaptarlas a su HW.</p>
 <p>Vamos a <em>portar</em> las funciones necesarias para usar la librería botón y comprobar que la parte HW está bien programada. Lo haremos, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Ya tenemos las cabeceras HW del botón: las que no dependen del microcontrolador (<code>port_button.h</code>) y las que sí (<code>stm32f4_button.h</code>). Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_button.c</code></strong>. Deberás implementar o completar todas las funciones públicas de las que ya has declarado el prototipo en el encabezado. Posteriormente completarás la ISR asociada al pin del botón que aparece en la API del fichero <code>interr.c</code>.</p>
-<h3 id="fuentes-stm32f4_buttonc"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.1</span> Fuentes stm32f4_button.c<a class="headerlink" href="#fuentes-stm32f4_buttonc" title="Permanent link">¶</a></h3>
+<h3 id="fuentes-stm32f4_buttonc"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.1</span> Fuentes stm32f4_button.c<a class="headerlink" href="#fuentes-stm32f4_buttonc" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
@@ -637,7 +637,7 @@
 <li>
 <p>Codifica la función pública declarada en el fichero <code>port_button.h</code> siguiendo la API: <code>port_button_get_pressed()</code>.</p>
 <p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_button.c</code>!</strong> Ahora solo queda la ISR asociada al pin del botón para poder probarlo. Vamos a ello.</p>
-<h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
+<h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
 <p>Abre el fichero <code>interr.c</code> e implementa la <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a> <code>EXTI15_10_IRQHandler</code>.</p>
 </li>
 <li>
@@ -664,7 +664,7 @@
 </li>
 </ol>
 <p>Si ahora compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del botón!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
-<h2 id="sec:test_port_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3</span> <code>PORT</code>: Test unitario del botón<a class="headerlink" href="#sec:test_port_v1" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_port_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> <code>PORT</code>: Test unitario del botón<a class="headerlink" href="#sec:test_port_v1" title="Permanent link">¶</a></h2>
 <p>Veremos que la lógica de las máquinas de estado hacen uso de las funciones portables que acceden al HW del dispositivo. Es por ello que es importante comprobar primero que la parte <code>PORT</code> funciona correctamente. Vamos a hacer el test de HW del código que hemos desarrollado de la librería del botón y probar que funciona antes de continuar con la implementación de la lógica de la parte de la FSM.</p>
 <p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> Ten a mano y revisa el capítulo <em>“Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>.</p>
 <p>En esta sección vamos a practicar con el concepto de <strong>depuración</strong> (<em>debugging</em>) (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> <strong>recordar ejercicio de clase en SDG1 y las pruebas de la <em>Guía de instalación<em> con </em>blink</em></strong> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">7</a></sup>).</p>
@@ -695,8 +695,8 @@
 <p>Un ejemplo de ejecución del test se muestra en la <a href="#fig:test_port_button">ejecución de test de la figura</a>. En este caso, la segunda comprobación ha fallado indicándonos que la GPIO elegida para el botón no es la correcta. Luego aparecen más errores, pero son derivados de este. Corrigiéndolo, pasan todos los test correctamente. Por eso, se recomienda <strong>arreglar los errores en el orden en que aparecen</strong>.</p>
 <figure><img alt="Ejecución de los test unitarios de la parte &lt;code&gt;PORT&lt;/code&gt; del botón." id="fig:test_port_button" src="../assets/notebook_imgs/pr_chapters/version_1/unit_test_port_button.png" style="width:100.0%"/><figcaption aria-hidden="true">Ejecución de los test unitarios de la parte <code>PORT</code> del botón.</figcaption></figure>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del botón!</strong> Vamos ahora a implementar la parte <code>COMMON</code> de la librería del botón.</p>
-<h2 id="common-cabecera-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4</span> <code>COMMON</code>: cabecera de la FSM del botón<a class="headerlink" href="#common-cabecera-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
-<h3 id="consideraciones-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.1</span> Consideraciones de la FSM del botón<a class="headerlink" href="#consideraciones-de-la-fsm-del-boton" title="Permanent link">¶</a></h3>
+<h2 id="common-cabecera-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4</span> <code>COMMON</code>: cabecera de la FSM del botón<a class="headerlink" href="#common-cabecera-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
+<h3 id="consideraciones-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4.1</span> Consideraciones de la FSM del botón<a class="headerlink" href="#consideraciones-de-la-fsm-del-boton" title="Permanent link">¶</a></h3>
 <p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
 <ul>
 <li>
@@ -764,7 +764,7 @@
 </li>
 </ol>
 <p>Ya hemos acabado con el encabezado. Quizás de errores al compilar. Vamos ahora a programar el fichero fuente <code>fsm_button.c</code>.</p>
-<h2 id="common-fuente-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5</span> <code>COMMON</code>: fuente de la FSM del botón<a class="headerlink" href="#common-fuente-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
+<h2 id="common-fuente-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> <code>COMMON</code>: fuente de la FSM del botón<a class="headerlink" href="#common-fuente-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
 <p>Vamos a proceder con la implementación de las funciones del <em>botón</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y el resto de <strong>funciones privadas</strong> que aparecen en la API del fichero <code>fsm_button.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
 <ol>
 <li>
@@ -839,7 +839,7 @@
 <p>Documenta el código que esté sin comentar.</p>
 </li>
 </ol>
-<h2 id="sec:test_fsm_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.6</span> <code>COMMON</code> Test unitario de la FSM del botón<a class="headerlink" href="#sec:test_fsm_v1" title="Permanent link">¶</a></h2>
+<h2 id="sec:test_fsm_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.6</span> <code>COMMON</code> Test unitario de la FSM del botón<a class="headerlink" href="#sec:test_fsm_v1" title="Permanent link">¶</a></h2>
 <p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del botón y probar que funciona antes de continuar con la siguiente versión.</p>
 <p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
 <p>Descarga el fichero de test de la FSM del botón <code>test_fsm_button.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v1_test">https://github.com/sdg2DieUpm/simone/tree/simone_v1_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
@@ -863,7 +863,7 @@
 <p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
 </li>
 </ol>
-<h2 id="ejemplo-de-uso-de-la-version-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.7</span> Ejemplo de uso de la Versión 1<a class="headerlink" href="#ejemplo-de-uso-de-la-version-1" title="Permanent link">¶</a></h2>
+<h2 id="ejemplo-de-uso-de-la-version-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7</span> Ejemplo de uso de la Versión 1<a class="headerlink" href="#ejemplo-de-uso-de-la-version-1" title="Permanent link">¶</a></h2>
 <p><strong>Comúnmente llamado test de integración, es un código de ejemplo que consiste en probar la librería en el sistema final, o en una versión particular, con el resto de librerías y módulos</strong>. El test de integración no hace uso de la librería <code>unity</code>, sino que es como un pequeño programa de prueba sobre las funciones que hemos implementado. Tiene su propio <code>main</code>.</p>
 <p>En los test de integración es responsabilidad del alumno comprobar que la funcionalidad es la esperada, porque aquí no hay test unitarios que nos ayuden.</p>
 <p>Nuestra librería de botón devuelve la duración de la última pulsación. Así pues, algunas de las comprobaciones que podemos hacer son: que la duración de la pulsación es la que esperamos, que se reinicia adecuadamente el valor, que se funciona el anti-rebotes…</p>
