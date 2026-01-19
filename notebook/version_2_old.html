@@ -1,0 +1,1532 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sdg2dieupm.github.io/simone/notebook/version_2_old.html">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/general/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Versión 2: transceptor de ultrasonidos - Laboratorio de Sistemas Digitales II</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/notebook-extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue_grey" data-md-color-accent="deep_orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cha:version2" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../index.html" title="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" aria-label="Laboratorio de Sistemas Digitales II" data-md-component="logo">
+      
+  <img src="../assets/notebook_imgs/general/etsit.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Laboratorio de Sistemas Digitales II
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Versión 2: transceptor de ultrasonidos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue_grey" data-md-color-accent="deep_orange"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue_grey" data-md-color-accent="deep_orange"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" aria-label="Laboratorio de Sistemas Digitales II" data-md-component="logo">
+      
+  <img src="../assets/notebook_imgs/general/etsit.png" alt="logo">
+
+    </a>
+    Laboratorio de Sistemas Digitales II
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Portada
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Introducción general
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Introducción general
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción a SDG2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="sesion_introduccion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sesión de introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Proyecto
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Proyecto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="proyecto_base.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proyecto base
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version_1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versión 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version_2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versión 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version_3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versión 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version_4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versión 4
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="version_5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Versión 5
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Documentación API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Apéndices
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Apéndices
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="bom.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BOM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Acrónimos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="acronimos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sec:headers_ultrasound_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: cabeceras de la librería del transceptor de ultrasonidos. Señal de trigger.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:port_ultrasound_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: fuente de la librería del ultrasonidos. Señal de trigger.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:test_port_v2_trigger" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: Test unitario del ultrasonidos. Señal de trigger.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:headers_ultrasound_echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: cabeceras de la librería del transceptor de ultrasonidos. Señal de echo.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:port_ultrasound_echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: fuente de la librería del ultrasonidos. Señal de echo.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:test_port_v2_echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: Test unitario del ultrasonidos. Señal de echo.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:headers_ultrasound_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: cabeceras de la librería del transceptor de ultrasonidos. Timeout entre medidas.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:port_ultrasound_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: fuente de la librería del ultrasonidos. Timeout entre medidas.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:test_port_v2_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      PORT: Test unitario del ultrasonidos. Señal de timeout entre medidas.
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-cabecera-de-la-fsm-del-ultrasonidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      COMMON: cabecera de la FSM del ultrasonidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-fuente-de-la-fsm-del-ultrasonidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      COMMON: fuente de la FSM del ultrasonidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sec:test_fsm_v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      COMMON Test unitario de la FSM del ultrasonidos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplo-de-uso-de-la-version-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo de uso de la Versión 2
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="cha:version2">Versión 2: transceptor de ultrasonidos<a class="headerlink" href="#cha:version2" title="Permanent link">&para;</a></h1>
+<p>Ya tenemos una librería que nos permite crear botones que funcionan autónomamente mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. En este capítulo vamos a crear una librería que nos permita realizar la comunicación con el transceptor de ultrasonidos HC-SR04. Lo denominamos transceptor porque es un dispositivo que emite y recibe ultrasonidos. El transceptor de ultrasonidos es un dispositivo que nos permite medir distancias. En este caso, el transceptor HC-SR04 emite un pulso de ultrasonidos y mide el tiempo que tarda en recibir el eco. Conociendo la velocidad del sonido en el medio (el aire en nuestro caso), podemos calcular la distancia a la que se encuentra un objeto.</p>
+<p>Como ya hicimos con el <em>botón</em>, (i) vamos a implementar la parte <em>portable</em> <code>PORT</code> dependiente del <a href="acronimos.html#acro:HW"><strong>HW</strong></a> para comunicarnos con el transceptor, y lo probaremos con un test unitario. (ii) Después, vamos a crear la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> de la comunicación con el dispositivo en la parte común (la parte <code>COMMON</code>), y lo probaremos con un test unitario. (iii) Por último, montaremos el <a href="acronimos.html#acro:HW"><strong>HW</strong></a> y probaremos la comunicación de transmisión y recepción de ultrasonidos con un programa de ejemplo.</p>
+<p>En esta versión se van a utilizar tres temporizadores. Para facilitar la implementación, se va a dividir cada uno de los pasos de la parte <code>PORT</code> en subsecciones con sus test correspondientes.</p>
+<figure><img src="../assets/notebook_imgs/pr_chapters/version_2/keyboardpng" id="fig:hc_sr04" style="width:35.0%" alt="Transceptor de ultrasonidos HC-SR04." /><figcaption aria-hidden="true">Transceptor de ultrasonidos HC-SR04.</figcaption></figure>
+
+<p>La tabla <a href="#tbl:hc_sr04" data-reference-type="ref" data-reference="tbl:hc_sr04">[tbl:hc_sr04]</a> muestra las características y conexiones del transceptor de ultrasonidos HC-SR04.</p>
+<p>El transceptor estará conectado a 2 GPIOs del microcontrolador para activar la señal de disparo (<em>trigger</em>) y recibir la señal de eco (<em>echo</em>). La señal de disparo se activará para que el transceptor emita un tren de pulsos de ultrasonidos. La señal de eco del obstáculo encontrado se recibe y se activará la señal <em>Echo</em>. La distancia se calculará midiendo el tiempo que transcurre entre la activación de la señal de eco y su fin.</p>
+<p>Como el temporizador está configurado para medir <em>ticks</em> de <span class="arithmatex">\(1 \mu\)</span>s, podemos decir que <span class="arithmatex">\(58.3 \mu s \leadsto 1 percentage\)</span>. O, de forma más general, la distancia en centímetros se calculará como:</p>
+<div class="arithmatex">\[\text{distancia} = \frac{\text{Tiempo}_{\text{eco}} (\mu s) \times \text{Velocidad del sonido} \left(\frac{m}{s}\right)}{2*10000} \, \text{percentage}\]</div>
+<p>donde la distancia se medirá en centímetros, el tiempo en microsegundos, y la velocidad del sonido en el aire es de 343 <span class="arithmatex">\(\frac{m}{s}\)</span>. La distancia se dividirá por 2 porque el tiempo que medimos es el que tarda en ir y volver el pulso de ultrasonidos. El factor de 10000 es para dejar las unidades en centímetros.</p>
+<p>El tiempo lo calcularemos mediante captura de entrada, <strong><em>input capture</em></strong> (repasar los conceptos de SDG1). Contaremos ciclos de un temporizador configurado en modo <em>input capture</em> captura el valor del contador en el momento en el que se activa y desactiva la señal de eco. Cada ciclo del temporizador estará configurado para representar <span class="arithmatex">\(1 \mu\)</span>s. La diferencia entre el valor del contador en el momento en el que cae la señal de eco y el valor del contador en el momento en el que se activa la señal de eco nos dará el tiempo que ha tardado en ir y volver el sonido. La distancia se calculará con la fórmula anterior.</p>
+<p>Mira el diagrama de temporización de la . El fabricante recomienda que el tiempo de disparo sea de, al menos, 10 <span class="arithmatex">\(\mu\)</span>s, y que el tiempo entre medidas sea de, al menos, 60 ms. El tiempo de <em>timeout</em> entre medidas consecutivas lo estableceremos en 100 ms. La señal de eco tendrá una duración proporcional a la distancia al objeto. Nosotros no tendremos oportunidad de ver el tren de pulsos de ultrasonidos a <span class="arithmatex">\(40 kHz\)</span>, pero sí podremos ver el <em>Trigger</em> y el <em>Echo</em> en el osciloscopio.</p>
+<figure><img src="../assets/notebook_imgs/pr_chapters/version_2/hc_sr04_timing.png" id="fig:hc_sr04_timing" style="width:85.0%" alt="Diagrama de temporización del transceptor de ultrasonidos HC-SR04." /><figcaption aria-hidden="true">Diagrama de temporización del transceptor de ultrasonidos HC-SR04.</figcaption></figure>
+
+<p>En nuestra implementación tendremos 3 temporizadores: (i) uno para controlar la duración de la señal de disparo, (ii) otro para medir el tiempo de eco, y (iii) otro para medir el <em>timeout</em> del tiempo entre medidas consecutivas que queramos realizar. La muestra el diagrama de temporización de las medidas.</p>
+<p>Para generar <strong>la señal de disparo (<em>Trigger</em>)</strong> activaremos (1 lógico) el pin de disparo durante, al menos, 10 <span class="arithmatex">\(\mu\)</span>s. Para controlar la duración de esta señal, configuraremos el temporizador <code>TIM3</code> como se muestra en la tabla <a href="#tbl:hc_sr04_timer_trigger" data-reference-type="ref" data-reference="tbl:hc_sr04_timer_trigger">[tbl:hc_sr04_timer_trigger]</a>.</p>
+<p>Para <strong>medir el tiempo de eco, configuraremos el temporizador <code>TIM2</code> en modo <em>input capture</em></strong> que capturará el valor del contador en el momento en el que se activa y desactiva la señal de eco. La diferencia entre ambos valores nos dará el tiempo que ha tardado en ir y volver el sonido. La distancia se calculará con la fórmula anterior. La tabla <a href="#tbl:hc_sr04_timer_echo" data-reference-type="ref" data-reference="tbl:hc_sr04_timer_echo">[tbl:hc_sr04_timer_echo]</a> muestra las características del temporizador para medir el tiempo de eco del transceptor de ultrasonidos HC-SR04.</p>
+<p>El sistema ya funcionaría con estas configuraciones, pero vamos a añadir un temporizador más para controlar el <em>timeout</em> entre medidas consecutivas. Lo que querremos con ello es permitir a la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> de <em>Simone</em> que pueda hacer varias medidas de distancias seguidas para calcular un valor medio o mediano de la distancia y evitar medidas erróneas. La tabla <a href="#tbl:hc_sr04_timer_timeout" data-reference-type="ref" data-reference="tbl:hc_sr04_timer_timeout">[tbl:hc_sr04_timer_timeout]</a> muestra las características del temporizador <code>TIM5</code> para controlar el <em>timeout</em> entre medidas.</p>
+<p>En primer lugar, debes familiarizarte con el protocolo de temporización de la y manejar los conceptos de temporización de los temporizadores del \<span style="color: RoyalBlue">**STM32F446RE**\</span>. Lea con detenimiento el capítulo <em>“Temporizadores (timers)”</em> del libro <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. <strong>Léelo porque la parte <em>portable</em> serán adaptaciones de lo que ahí se presenta.</strong> <strong>Se recomienda prestar especial atención a los ejemplos de interrupciones periódicas y de <em>input capture</em>.</strong></p>
+<h5 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h5>
+<p>En el mercado existen numerosos transceptores de ultrasonidos. En este proyecto utilizaremos el popular <strong>HC-SR04</strong> ensamblado por multitud de fabricantes. Se puede encontrar en muchos de proyectos <a href="acronimos.html#acro:DIY"><strong>DIY</strong></a>. Para adquirir uno ve al .</p>
+<p>Igual que con el botón, <strong>estamos desarrollando una librería.</strong> Así, cada vez que se quiera añadir un transceptor de ultrasonidos le asociaré una <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. Las particularidades de dónde está conectado cada nuevo transceptor, sus características físicas, , son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
+<p>La muestra las estructuras que vamos a necesitar para el transceptor de ultrasonidos. La estructura del HW del ultrasonidos (en <code>PORT</code>) se muestra en la . La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> (en <code>COMMON</code>) se muestra en la .</p>
+<h5 id="section-1">{ #section-1 }<a class="headerlink" href="#section-1" title="Permanent link">&para;</a></h5>
+<p>Preparemos el proyecto para poder añadir el transceptor de ultrasonidos:</p>
+<ol>
+<li>
+<p>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT</strong> de la librería del <em>ultrasound</em> correspondientes a la versión <code>V2</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v2">https://github.com/sdg2DieUpm/Simone/tree/simone_v2</a>. Solo descarga por ahora: <code>port_ultrasound.h</code>, <code>stm32f4_ultrasound.h</code>, y <code>stm32f4_ultrasound.c</code> y colócalos en las carpetas correspondientes. <strong>No añadas los ficheros de la parte COMMON.</strong></p>
+</li>
+<li>
+<p>Coloca cada uno donde corresponde: <code>PORT</code> o <code>COMMON</code>, en <code>include</code>, o <code>src</code>, como se explicó en el .</p>
+</li>
+<li>
+<p>Verás que no compila, y es que solo se proporciona un esqueleto del código.</p>
+</li>
+</ol>
+<h2 id="sec:headers_ultrasound_trigger"><code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:headers_ultrasound_trigger" title="Permanent link">&para;</a></h2>
+<p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del transceptor de ultrasonidos. Esta es la interfaz que vamos a proporcionar al usuario para que pueda usar la librería y añadir tantos transceptores como necesite. Vamos a <em>portar</em> las funciones necesarias para usar la librería del transceptor de ultrasonidos. Lo haremos, cómo no, para la placa \<span style="color: RoyalBlue">**Nucleo-STM32F446RE**\</span>.</p>
+<p>El montaje de nuestro módulo HC-SR04 tendrá un aspecto como el mostrado en . Más adelante lo implementaremos.</p>
+<figure><img src="../assets/notebook_imgs/pr_chapters/version_2/fritzing_ultrasound.png" id="fig:fritzing_ultrasound" style="width:100.0%" alt="Montaje del transceptor de ultrasonidos HC-SR04 con la &lt;span style=&quot;color: RoyalBlue&quot;&gt;**Nucleo-STM32F446RE**&lt;/span&gt;." /><figcaption aria-hidden="true">Montaje del transceptor de ultrasonidos HC-SR04 con la &lt;span style="color: RoyalBlue"&gt;**Nucleo-STM32F446RE**&lt;/span&gt;.</figcaption></figure>
+
+<p>Comenzaremos de nuevo por la cabecera y luego los códigos fuente. Primeramente implementaremos las funciones necesarias para controlar la señal de disparo (<em>Trigger</em>) del transceptor de ultrasonidos.</p>
+<h3 id="cabecera-port_ultrasoundh">Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh" title="Permanent link">&para;</a></h3>
+<p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador \<span style="color: RoyalBlue">**STM32F446RE**\</span>. Vamos a seguir los siguientes pasos:</p>
+<ul>
+<li>
+<p>Incluye todas las cabeceras necesarias según indica la API.</p>
+</li>
+<li>
+<p>Incluye los (<code>#define</code>) que se indican en la API para transceptor de ultrasonidos <code>PORT_SENSOR</code> que asume que se encuentra en la parte trasera del coche.</p>
+<ul>
+<li>
+<p><code>PORT_SENSOR_ID</code>: valor numérico natural que será el identificador del transceptor trasero. Si es el único transceptor del sistema, le asignaremos el 0.</p>
+</li>
+<li>
+<p><code>PORT_PARKING_SENSOR_TRIGGER_UP_US</code>: hace referencia al tiempo que estará activa la señal de disparo (<em>Trigger</em>) del transceptor en microsegundos. Usa el valor mínimo requerido por el fabricante (ver ).</p>
+</li>
+<li>
+<p><code>PORT_PARKING_SENSOR_TIMEOUT_MS</code>: hace referencia al tiempo de <em>timeout</em> entre medidas consecutivas en milisegundos. <strong>Usaremos 100 ms.</strong></p>
+</li>
+<li>
+<p><code>SPEED_OF_SOUND_MS</code>: velocidad del sonido en el aire en metros por segundo. <strong>Usaremos 343 m/s.</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_ultrasound.h</code>; implementaremos primeramente las que hacen referencia a la señal de disparo (<em>Trigger</em>) del transceptor de ultrasonidos. A saber (si echas en falta alguna, añádela): <code>port_ultrasound_init()</code>, <code>port_ultrasound_stop_trigger_timer()</code>, <code>port_ultrasound_get_trigger_ready()</code>, <code>port_ultrasound_set_trigger_ready()</code>, <code>port_ultrasound_get_trigger_end()</code>, y <code>port_ultrasound_set_trigger_end()</code>.</p>
+<p>Fíjate que hay numerosas funciones que son <em>getters</em> y <em>setters</em> de campos de la estructura del transceptor de ultrasonidos. Estas funciones son necesarias para que la parte <code>COMMON</code> pueda acceder a los campos de la estructura sin tener que conocer su implementación. Más adelante, describiremos dichos campos.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen.</p>
+</li>
+</ul>
+<p>Ya hemos acabado con el encabezado que interactúa con el HW de la señal de disparo del ultrasonidos —y que no depende del microcontrolador—. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_ultrasound.h</code>.</p>
+<h3 id="cabecera-stm32f4_ultrasoundh">Cabecera stm32f4_ultrasound.h<a class="headerlink" href="#cabecera-stm32f4_ultrasoundh" title="Permanent link">&para;</a></h3>
+<p>Esta cabecera solo define los pines a los que está conectado el transceptor de ultrasonidos trasero del coche en la \<span style="color: RoyalBlue">**Nucleo-STM32F446RE**\</span>:</p>
+<ul>
+<li>
+<p>Incluye todas las cabeceras necesarias según indica la API.</p>
+</li>
+<li>
+<p>Define (<code>#define</code>) los valores de la GPIO del pin de disparo (<em>Trigger</em>) con el nombre que indica la API y los valores que indica el .</p>
+</li>
+<li>
+<p>Haz lo mismo para el pin de la señal de eco (<em>Echo</em>), aunque no lo vayamos a usar en esta parte; nos ayudará en la creación del array de estructuras de ultrasonidos.</p>
+</li>
+<li>
+<p>Documenta los <code>#define</code> con Doxygen.</p>
+</li>
+</ul>
+<p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW de la señal de disparo del ultrasonidos conectado al microcontrolador \<span style="color: RoyalBlue">**Nucleo-STM32F446RE**\</span>. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas en <code>port_ultrasound.h</code> que maneja dicha señal.</p>
+<h2 id="sec:port_ultrasound_trigger"><code>PORT</code>: fuente de la librería del ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:port_ultrasound_trigger" title="Permanent link">&para;</a></h2>
+<p>Vamos a <em>portar</em> las funciones necesarias para usar la librería del ultrasonidos y comprobar que la parte HW está bien programada. Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_ultrasound.c</code></strong>. Deberás implementar o completar todas las funciones públicas de las que se hayan declarado el prototipo en el encabezado y varias funciones privadas. Posteriormente completarás la ISR asociada a los pines del transceptor en el fichero <code>interr.c</code>.</p>
+<h3 id="fuentes-stm32f4_ultrasoundc">Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc" title="Permanent link">&para;</a></h3>
+<p>Este fichero es un poco extenso, por eso se ha decidido hacerlo por partes. Las funciones de <em>getter</em> y <em>setter</em> aunque son muchas, son muy sencillas. La mayor complejidad está en la configuración de los temporizadores y en la ISR asociadas, por lo que es importante que manejes bien los conceptos del capítulo de temporizadores del libro <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. Empezaremos por ahora con el temporizador que controla la duración y activación de la señal de disparo (<em>Trigger</em>).</p>
+<ol>
+<li>
+<p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
+</li>
+<li>
+<p>Hay que definir la estructura <code>stm32f4_ultrasound_hw_t</code> de la misma forma que está para el botón <code>stm32f4_button_hw_t</code> (ver ). En la estructura se definen los campos que se muestran en la figura y en la API. Implementa todos los campos, aunque no sean necesarios para la parte de la señal de disparo (<em>Trigger</em>).</p>
+<p>Esta estructura es genérica para cualquier ultrasonidos que vayamos a usar, no solo el trasero del coche, sino cualquier otro que queramos añadir.</p>
+<p>Los campos booleanos <code>trigger_ready</code>, <code>trigger_end</code>, y <code>echo_received</code> son necesarios para indicar el estado de la señal de disparo, la señal de eco, y la recepción de la señal de eco, respectivamente. Todos ellos serán <code>false</code> al inicio y controlados por los <em>setters</em> llamados desde las ISR de los temporizadores en <code>interr.c</code>.</p>
+<p>Los campos <code>echo_init_tick</code>, <code>echo_end_tick</code>, y <code>echo_overflows</code> son necesarios para almacenar los tiempos de inicio y fin de la señal de eco, y el número de desbordamientos del temporizador durante la señal de eco. Todos ellos serán inicializados a 0 y controlados también por los <em>setters</em> y <em>getters</em> llamados desde las ISR de los temporizadores.</p>
+</li>
+<li>
+<p>Igual que hicimos con el botón, ahora vamos a definir una <strong>variable global privada</strong> <code>static stm32f4_ultrasound_hw_t ultrasounds_arr[]</code>. Se trata del array de estructuras de tipo <code>stm32f4_ultrasound_hw_t</code>, que representa al HW de cada transceptor de ultrasonidos que tengamos en nuestro coche.</p>
+<p>Como hicimos con el botón, la declaración e inicialización de este array podemos hacerla a la vez (recuerda las secciones correspondientes de los vídeos de SDG1: <a href="https://youtu.be/U395gYoCHbQ?t=223">inicialización de arrays</a> y <a href="https://youtu.be/X33jHui_l0k?t=378">arrays de estructuras</a>).</p>
+<p>Asigna los valores HW del ultrasonidos de aparcamiento trasero <code>PORT_SENSOR_ID</code> utilizando los <code>#define</code> de <code>stm32f4_ultrasound.h</code>. Los <em>flag</em> y los tiempos de eco y desbordamientos se inicializarán en la función <code>port_ultrasound_init()</code>.</p>
+</li>
+<li>
+<p>Codifica la función <code>_stm32f4_ultrasound_get()</code> de manera análoga a la proporcionada para el botón <code>_stm32f4_button_get()</code>. Se trata de una función privada que devuelve un puntero a la estructura del transceptor que se le pasa como argumento. Si el transceptor no existe, la función devuelve <code>NULL</code>.</p>
+</li>
+</ol>
+<h5 id="_2"><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<p>Ahora vamos a codificar las funciones más importantes de la parte <code>PORT</code> del ultrasonidos, y son las que configuran el temporizador de disparo asociado al transceptor de ultrasonidos. Vamos a empezar por la función que configura el temporizador para medir el tiempo de disparo.</p>
+<ol>
+<li>
+<p>Codifica la función <code>_timer_trigger_setup()</code> como indica la API. Esta función configura el <strong>temporizador que controla los tiempos de la señal de disparo (<em>Trigger</em>) de cualquier transceptor de ultrasonidos que se monte en el coche; si hubiese más de uno, todos se lanzarían a la vez</strong>. Para ello, apóyate en el ejemplo <em>“timer para interrupción periódica”</em> del libro de Fundamentos <sup id="fnref5:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
+<p>Esta función configura un temporizador para que genere una interrupción de <code>PORT_PARKING_SENSOR_TRIGGER_UP_US</code> microsegundos desde que se habilita el mismo. El temporizador elegido se muestra en la tabla <a href="#tbl:hc_sr04_timer_trigger" data-reference-type="ref" data-reference="tbl:hc_sr04_timer_trigger">[tbl:hc_sr04_timer_trigger]</a>.</p>
+<p>No lo vamos a usar para que genere interrupciones periódicas, sino que lo deshabilitaremos una vez que haya transcurrido el tiempo de disparo, y lo volveremos a habilitar cuando haya pasado el tiempo de <em>timeout</em> entre medidas consecutivas. Podemos verlo como un temporizador periódico que solo va a saltar 1 vez cada vez.</p>
+<p>Para saber qué fuente de reloj habilitar para el temporizador, consulta la tabla <em>“Figure 3. STM32F446xC/E block diagram”</em> del <em>datasheet</em> <sup id="fnref4:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>. Allí podrás ver si nuestro temporizador está conectado al <strong>APB1</strong> o al <strong>APB2</strong>, y tenemos que habilitar el reloj en el registro <code>RCC-&gt;APB1ENR</code> o <code>RCC-&gt;APB2ENR</code> respectivamente.</p>
+<p>Es importante que no pongas los valores de los registros de configuración del temporizador a mano, sino que uses las ecuaciones que se proporcionan en el libro <sup id="fnref6:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup> para calcular los valores de los registros <code>TIMx-&gt;PSC</code> y <code>TIMx-&gt;ARR</code>. En cualquier momento podríamos querer cambiar el ancho de pulso de la señal de disparo, y si lo hacemos a mano, podríamos cometer errores, además de que es menos legible.</p>
+<p><strong>Es muy importante que la función <code>_timer_trigger_setup()</code> se llame desde la función <code>port_ultrasound_init()</code></strong>. Si no, no se podrán generar interrupciones para el fin del tiempo de disparo de los ultrasonidos.</p>
+</li>
+</ol>
+<p>Vamos a continuar con el resto de funciones públicas de la parte <code>PORT</code> del ultrasonidos que manejan la señal de disparo (<em>Trigger</em>).</p>
+<ol>
+<li>
+<p>Completa la función <code>port_ultrasound_init()</code> como se indica en la API.</p>
+<p>Inicializa los tiempos de eco y desbordamientos a 0, y los <em>flags</em> a <code>false</code>, excepto el que indica que el <em>trigger</em> está listo, que se pone a <code>true</code>.</p>
+<p>Por el momento, <strong>solo llama a la función de configuración <code>stm32f4_system_gpio_config()</code> para el pin de disparo</strong>.</p>
+<p>Llama por ahora solo a las función de configuración del temporizador de disparo <code>_timer_trigger_setup()</code>.</p>
+</li>
+<li>
+<p>Codifica la función pública declarada en el fichero <code>port_ultrasound.h</code> relativa al control del estado del temporizador de disparo siguiendo la API: <code>port_ultrasound_stop_trigger_timer()</code>.</p>
+</li>
+<li>
+<p>Codifica las funciones públicas declaradas en el fichero <code>port_ultrasound.h</code> relativas a los <em>getters</em> y <em>setters</em> para la obtención y manejo de información de los transceptores de ultrasonidos siguiendo la API: <code>port_ultrasound_get_trigger_ready()</code>, <code>port_ultrasound_set_trigger_ready()</code>, <code>port_ultrasound_get_trigger_end()</code>, <code>port_ultrasound_set_trigger_end()</code>.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_ultrasound.c</code> relativa al temporizador de disparo!</strong> Ahora solo queda la ISR asociada a dicho temporizador en el fichero <code>interr.c</code>. Vamos a ello.</p>
+<h3 id="interrc">interr.c<a class="headerlink" href="#interrc" title="Permanent link">&para;</a></h3>
+<p>Abre el fichero <code>interr.c</code> y:</p>
+<ol>
+<li>
+<p>Codifica la ISR <code>TIM3_IRQHandler</code> como se indica en la API. Recuerda que las ISR no reciben ni devuelven nada.</p>
+<p>Esta ISR, cuando salta, se encarga de llamar a la función correspondiente para inhabilitar el temporizador de disparo.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p>Si ahora compilas, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> de la señal de disparo de un transceptor de ultrasonidos!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code> para esta parte.</p>
+<h2 id="sec:test_port_v2_trigger"><code>PORT</code>: Test unitario del ultrasonidos. Señal de trigger.<a class="headerlink" href="#sec:test_port_v2_trigger" title="Permanent link">&para;</a></h2>
+<p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado antes de continuar.</p>
+<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png" /> Ten a mano y revisa el capítulo }{ .inline-img <em>“Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
+<p>Descarga el fichero de test HW de la señal de disparo del ultrasonidos <code>test_port_ultrasound_timer_trigger.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto. Verás que también hay otros ficheros llamados <code>test_port_ultrasound_timer_echo.c</code>, y <code>test_port_ultrasound_timer_measurements.c</code>. Estos ficheros son para probar las implementaciones de las los temporizadores de la señal de eco y medida entre disparos; los usaremos más adelante.</p>
+<ol>
+<li>
+<p>Conecta la placa  al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png" /> y selecciona }{ .inline-img <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png" /> Clean and Debug}{ .inline-img </strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_port_ultrasound_timer_trigger</code> y pulsa <strong>OK</strong>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Comprueba que todos los test pasan correctamente en el texto mostrado en la terminal de depuración. Si no es así, lee los mensajes de error y corrige tu código hasta que pase todas las pruebas. <strong>Si no pasa las pruebas, no continúes programando.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png" />) y repite el proceso hasta que pase todos los test.}{ .inline-img </p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del transceptor de ultrasonidos para la señal de disparo!</strong> Vamos ahora a implementar la parte <code>PORT</code> para la señal de eco.</p>
+<h2 id="sec:headers_ultrasound_echo"><code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:headers_ultrasound_echo" title="Permanent link">&para;</a></h2>
+<p>Vamos a continuar con la cabecera y luego los códigos fuente para controlar la señal de eco (<em>Echo</em>) del transceptor de ultrasonidos.</p>
+<h3 id="cabecera-port_ultrasoundh_1">Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh_1" title="Permanent link">&para;</a></h3>
+<p>Vamos a seguir los siguientes pasos:</p>
+<ul>
+<li>
+<p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_ultrasound.h</code> que hacen referencia a la señal de eco (<em>Echo</em>) del transceptor de ultrasonidos. A saber (si echas en falta alguna, añádela): <code>port_ultrasound_reset_echo_ticks()</code>, <code>port_ultrasound_get_echo_init_tick()</code>, <code>port_ultrasound_set_echo_init_tick()</code>, <code>port_ultrasound_get_echo_end_tick()</code>, <code>port_ultrasound_set_echo_end_tick()</code>, <code>port_ultrasound_get_echo_received()</code>, <code>port_ultrasound_set_echo_received()</code>, <code>port_ultrasound_get_echo_overflows()</code>, y <code>port_ultrasound_set_echo_overflows()</code>.</p>
+<p>Recuerda que las funciones que son <em>getters</em> y <em>setters</em> de campos de la estructura del transceptor de ultrasonidos son necesarias para que la parte <code>COMMON</code> pueda acceder a los campos de la estructura sin tener que conocer su implementación.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen.</p>
+</li>
+</ul>
+<p>Ya hemos acabado con el encabezado que interactúa con el HW de la señal de eco del ultrasonidos —y que no depende del microcontrolador—. En la la cabecera que sí depende del microcontrolador <code>stm32f4_ultrasound.h</code> ya no tenemos que hacer nada más. Vamos ahora a implementar todas las funciones prototipadas en <code>port_ultrasound.h</code> que maneja la señal de eco.</p>
+<h2 id="sec:port_ultrasound_echo"><code>PORT</code>: fuente de la librería del ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:port_ultrasound_echo" title="Permanent link">&para;</a></h2>
+<h3 id="fuentes-stm32f4_ultrasoundc_1">Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc_1" title="Permanent link">&para;</a></h3>
+<p>Vamos a continuar con el temporizador que mide la duración de la señal de eco (<em>Echo</em>). Vamos a empezar por la función que configura el temporizador para medir la duración del eco recibido.</p>
+<ol>
+<li>
+<p>Codifica la función <code>_timer_echo_setup()</code> como indica la API. Esta función configura un temporizador para que mida el tiempo de eco del transceptor de ultrasonidos. El temporizador elegido se muestra en la tabla <a href="#tbl:hc_sr04_timer_echo" data-reference-type="ref" data-reference="tbl:hc_sr04_timer_echo">[tbl:hc_sr04_timer_echo]</a>.</p>
+<p>El código configura el canal del temporizador para capturar eventos de entrada. Repasa el ejemplo <em>“captura de entrada (input capture)”</em> del libro de Fundamentos <sup id="fnref4:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup> para entender cómo se configura un temporizador en modo <em>input capture</em>.</p>
+<p>Fíjate que esta función sí recibe como argumento el identificador del transceptor de ultrasonidos. Esto es porque cada transceptor de ultrasonidos que montemos en el coche tendrá su propio temporizador para medir el tiempo de eco. <strong>Recuerda que el temporizador que mide el tiempo de eco se configura en modo <em>input capture</em>, y está asociado a un pin GPIO del microcontrolador.</strong> Es por ello que todo el código de configuración del temporizador ha de ir en un bloque <code>if</code> que compruebe el identificador del transceptor. Si en un futuro añadimos más transceptores de ultrasonidos, cada uno tendrá su propio temporizador y su propio pin GPIO asociado, pero la función <code>_timer_echo_setup()</code> será la misma para todos.</p>
+<p>Para saber qué canal del temporizador configurar, consulta la tabla de <em>Función Alternativa</em> en el <em>datasheet</em> <sup id="fnref2:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup> para el pin de eco del transceptor de ultrasonidos.</p>
+<p>En esta ocasión puedes poner los valores de los registros <code>TIMx-&gt;PSC</code> y <code>TIMx-&gt;ARR</code> a mano, o usando las ecuaciones. El tiempo de cada <em>tick</em> del temporizador será de <span class="arithmatex">\(1 \mu\)</span>s. Puedes crear un <code>#define</code> para ello si lo consideras oportuno.</p>
+<p>¿Por qué nos interesa que el tiempo de cada <em>tick</em> sea de <span class="arithmatex">\(1 \mu\)</span>s? Porque así podemos aplicar fácilmente la fórmula de la distancia en centímetros que hemos visto al principio de este capítulo. En realidad se puede usar cualquier tiempo de <em>tick</em> que quieras, pero tendrás que modificar la fórmula de la distancia en consecuencia.</p>
+<p>No obstante, <strong>se recomienda trabajar con precisión de <span class="arithmatex">\(1 \mu\)</span>s. Recuerda que nuestro reloj de sistema es de <span class="arithmatex">\(16 MHz\)</span>, y que para que cada ciclo del temporizador sea de <span class="arithmatex">\(1 \mu\)</span>s (frecuencia de <span class="arithmatex">\(1 MHz\)</span>), tenemos que preescalarlo con el valor adecuado</strong>, dando lugar a que <code>PSC=prescaler-1</code>. Como vemos, el valor de prescaler nos fija la resolución del temporizador, pero con el valor de <code>ARR</code> tenemos más libertad. No obstante, <strong><span style="color: Red">se recomienda que el valor de <code>ARR</code> sea lo más grande posible para que el temporizador no desborde en la medida de la distancia máxima que queremos medir</span></strong>, por ejemplo, su valor máximo.</p>
+<p>Las características más importantes de la configuración del canal son que:</p>
+<ul>
+<li>
+<p>Configura com entrada el canal que le corresponda de forma natural ( si es canal 1, <code>TI1</code>, si es canal 2, <code>TI2</code>, ). Comprueba los bits <em>Capture/ Compare X Selection</em> (<code>CCxS</code>) de los registros <code>CCMRx</code> para saber qué canal configurar. Ver el punto <em>TIMx capture/compare mode register 1</em> y <em>TIMx capture/compare mode register 2</em> del <em>datasheet</em> <sup id="fnref3:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>.</p>
+</li>
+<li>
+<p>Deshabilita el filtrado digital para capturar cada evento.</p>
+</li>
+<li>
+<p>Selecciona que los <strong>flancos de subida y bajada</strong> sean los que activen la captura.</p>
+</li>
+<li>
+<p>Configura el prescaler de entrada para capturar cada transición válida.</p>
+</li>
+<li>
+<p>Habilita las interrupciones de captura para el canal correspondiente y las interrupciones de actualización.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Vamos a continuar con el resto de funciones públicas de la parte <code>PORT</code> del ultrasonidos que manejan la señal de eco (<em>Echo</em>).</p>
+<ol>
+<li>
+<p>Continúa completando la función <code>port_ultrasound_init()</code> como se indica en la API.</p>
+<p>Añade <strong>llama a la función de configuración <code>stm32f4_system_gpio_config()</code> para el pin de eco</strong>.</p>
+<p><span style="color: Red">Recuerda que es muy importante indicar en el modo el pin de eco, <strong>no es de entrada ni salida, sino alternativo, trabajará como entrada en modo <em>input capture</em></strong>.</span> No olvides llamar a <code>stm32f4_system_gpio_config_alternate()</code>.</p>
+<p><strong>Es muy importante que añadas la llamada a <code>_timer_echo_setup()</code> en la función <code>port_ultrasound_init()</code></strong>. Si no, no se podrán generar de la captura de entrada.</p>
+</li>
+<li>
+<p>Codifica las funciones públicas declaradas en el fichero <code>port_ultrasound.h</code> relativa al control del temporizador de eco siguiendo la API: <code>port_ultrasound_stop_echo_timer()</code> y <code>port_ultrasound_reset_echo_ticks()</code>.</p>
+</li>
+<li>
+<p>Codifica las funciones públicas declaradas en el fichero <code>port_ultrasound.h</code> relativas a los <em>getters</em> y <em>setters</em> para la obtención y manejo de información de los transceptores de ultrasonidos siguiendo la API:<code>port_ultrasound_get_echo_init_tick()</code>, <code>port_ultrasound_set_echo_init_tick()</code>, <code>port_ultrasound_get_echo_end_tick()</code>, <code>port_ultrasound_set_echo_end_tick()</code>, <code>port_ultrasound_get_echo_received()</code>, <code>port_ultrasound_set_echo_received()</code>, <code>port_ultrasound_get_echo_overflows()</code>, y <code>port_ultrasound_set_echo_overflows()</code>.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_ultrasound.c</code> relativa al temporizador de eco!</strong> Ahora solo queda la ISR asociada a dicho temporizador en el fichero <code>interr.c</code>. Vamos a ello.</p>
+<h3 id="interrc_1">interr.c<a class="headerlink" href="#interrc_1" title="Permanent link">&para;</a></h3>
+<p>Abre el fichero <code>interr.c</code> y:</p>
+<ol>
+<li>
+<p>Codifica la ISR <code>TIM2_IRQHandler</code>. Esta ISR se encarga de gestionar la señal de eco del transceptor de ultrasonidos.</p>
+<p>Esta ISR puede saltar por 3 motivos: (i) por un desbordamiento (<em>overflow</em>) del temporizador, (ii) por un flanco de subida, o (iii) por un flanco de bajada.</p>
+<p>Lo primero que hace es comprobar si la interrupción es por un desbordamiento del temporizador. Si es así, incrementa el número de desbordamientos del temporizador en la estructura del ultrasonidos correspondiente llamando a la función <code>port_ultrasound_set_echo_overflows()</code>.</p>
+<p>Posteriormente comprueba si la interrupción es por un flanco de subida o de bajada. En caso de ser un flanco de subida, guarda el tiempo de inicio de la señal de eco. En caso de ser un flanco de bajada, guarda el tiempo de fin de la señal de eco y llama a la función que indica que <code>echo_received</code> es <code>true</code>.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p>Si ahora compilas, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> de la señal de eco de un transceptor de ultrasonidos!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code> para esta parte.</p>
+<h2 id="sec:test_port_v2_echo"><code>PORT</code>: Test unitario del ultrasonidos. Señal de echo.<a class="headerlink" href="#sec:test_port_v2_echo" title="Permanent link">&para;</a></h2>
+<p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado antes de continuar.</p>
+<p>Descarga el fichero de test HW de la señal de disparo del ultrasonidos <code>test_port_ultrasound_timer_echo.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
+<ol>
+<li>
+<p>Conecta la placa  al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png" /> y selecciona }{ .inline-img <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png" /> Clean and Debug}{ .inline-img </strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_port_ultrasound_timer_echo</code> y pulsa <strong>OK</strong>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Comprueba que todos los test pasan correctamente en el texto mostrado en la terminal de depuración. Si no es así, lee los mensajes de error y corrige tu código hasta que pase todas las pruebas. <strong>Si no pasa las pruebas, no continúes programando.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png" />) y repite el proceso hasta que pase todos los test.}{ .inline-img </p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del transceptor de ultrasonidos para la señal de eco!</strong> Vamos ahora a implementar la parte <code>PORT</code> para el temporizador de <em>timeout</em> entre medidas consecutivas.</p>
+<h2 id="sec:headers_ultrasound_timeout"><code>PORT</code>: cabeceras de la librería del transceptor de ultrasonidos. Timeout entre medidas.<a class="headerlink" href="#sec:headers_ultrasound_timeout" title="Permanent link">&para;</a></h2>
+<p>Vamos a terminar con la cabecera y los códigos fuente para controlar el temporizador que controla el tiempo entre medidas del transceptor de ultrasonidos.</p>
+<h3 id="cabecera-port_ultrasoundh_2">Cabecera port_ultrasound.h<a class="headerlink" href="#cabecera-port_ultrasoundh_2" title="Permanent link">&para;</a></h3>
+<p>Vamos a seguir los siguientes pasos:</p>
+<ul>
+<li>
+<p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_ultrasound.h</code> que hacen referencia a la señal de eco (<em>Echo</em>) del transceptor de ultrasonidos. A saber (si echas en falta alguna, añádela): <code>port_ultrasound_start_measurement()</code>, <code>port_ultrasound_start_new_measurement_timer()</code>, <code>port_ultrasound_stop_new_measurement_timer()</code>, y <code>port_ultrasound_stop_ultrasound()</code>.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen.</p>
+</li>
+</ul>
+<p>Ya hemos acabado con el encabezado que interactúa con el HW del temporizador que gestiona el tiempo entre medidas del ultrasonidos —y que no depende del microcontrolador—. En la la cabecera que sí depende del microcontrolador <code>stm32f4_ultrasound.h</code> ya no tenemos que hacer nada más. Vamos ahora a implementar todas las funciones prototipadas en <code>port_ultrasound.h</code> que maneja este temporizador.</p>
+<h2 id="sec:port_ultrasound_timeout"><code>PORT</code>: fuente de la librería del ultrasonidos. Timeout entre medidas.<a class="headerlink" href="#sec:port_ultrasound_timeout" title="Permanent link">&para;</a></h2>
+<h3 id="fuentes-stm32f4_ultrasoundc_2">Fuentes stm32f4_ultrasound.c<a class="headerlink" href="#fuentes-stm32f4_ultrasoundc_2" title="Permanent link">&para;</a></h3>
+<p>Vamos a empezar por la función que configura el temporizador de <em>timeout</em> entre medidas.</p>
+<ol>
+<li>
+<p>Codifica la función <code>_timer_new_measurement_setup()</code> como indica la API. Esta función configura un temporizador para que genere una interrupción de <code>PORT_PARKING_SENSOR_TIMEOUT_MS</code> milisegundos desde que se habilita el mismo. El temporizador elegido se muestra en la tabla <a href="#tbl:hc_sr04_timer_timeout" data-reference-type="ref" data-reference="tbl:hc_sr04_timer_timeout">[tbl:hc_sr04_timer_timeout]</a>.</p>
+<p>Esta función se llamará desde la función <code>port_ultrasound_init()</code> para que se configure el temporizador que controla el <em>timeout</em> entre medidas consecutivas. Este timer SÍ lo vamos a usar para que genere interrupciones periódicas durante todo el tiempo que el coche está aparcando. Cada vez que se genere una interrupción, se tomará una nueva medida de distancia.</p>
+<p>Para saber qué fuente de reloj habilitar para el temporizador: <strong>APB1</strong> o <strong>APB2</strong>, consulta la tabla <em>“Figure 3. STM32F446xC/E block diagram”</em> del <em>datasheet</em> <sup id="fnref:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>.</p>
+<p>De nuevo, es importante que no pongas los valores de los registros <code>TIMx-&gt;PSC</code> y <code>TIMx-&gt;ARR</code> a mano, sino que uses las ecuaciones.</p>
+</li>
+</ol>
+<p>Vamos a continuar con el resto de funciones públicas de la parte <code>PORT</code> del ultrasonidos que manejan el temporizador de <em>timeout</em> entre medidas.</p>
+<ol>
+<li>
+<p>Vamos a finalizar la función <code>port_ultrasound_init()</code> como se indica en la API. Solo añade la llamada a <code>_timer_new_measurement_setup()</code>. Si no, no se podrán tomar múltiples medidas.</p>
+</li>
+<li>
+<p>Codifica las funciones públicas declaradas en el fichero <code>port_ultrasound.h</code> relativa al control del temporizador entre medidas siguiendo la API: <code>port_ultrasound_start_measurement()</code>, <code>port_ultrasound_start_new_measurement_timer()</code>, <code>port_ultrasound_stop_new_measurement_timer()</code>, y <code>port_ultrasound_stop_ultrasound()</code>.</p>
+<p>Fíjate que algunas funciones acceden directamente a los temporizadores, y recuerda que el temporizador de eco depende del identificador del transceptor de ultrasonidos. <strong>Ten esto en cuenta para encapsular dicho acceso en un bloque condicional que compruebe el identificador del transceptor.</strong></p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_ultrasound.c</code> por completo!</strong> Ahora solo queda la ISR asociada al temporizador periódico de <em>timeout</em>en el fichero <code>interr.c</code>. Vamos a ello.</p>
+<h3 id="interrc_2">interr.c<a class="headerlink" href="#interrc_2" title="Permanent link">&para;</a></h3>
+<p>Abre el fichero <code>interr.c</code> y:</p>
+<ol>
+<li>
+<p>Codifica la ISR <code>TIM5_IRQHandler</code> de manera análoga a la anterior.</p>
+<p>Esta ISR se encarga de llamar a la función correspondiente que indica que se ha acabado el tiempo de <em>timeout</em> entre medidas consecutivas y el <em>trigger</em> está listo para una nueva medida.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p>Si ahora compilas, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> de un transceptor de ultrasonidos!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code> para el temporizador de <em>timeout</em> entre medidas.</p>
+<h2 id="sec:test_port_v2_timeout"><code>PORT</code>: Test unitario del ultrasonidos. Señal de timeout entre medidas.<a class="headerlink" href="#sec:test_port_v2_timeout" title="Permanent link">&para;</a></h2>
+<p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado antes de continuar con la parte <code>COMMON</code>.</p>
+<p>Descarga el fichero de test HW de la señal de disparo del ultrasonidos <code>test_port_ultrasound_timer_measurements.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
+<ol>
+<li>
+<p>Conecta la placa  al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png" /> y selecciona }{ .inline-img <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png" /> Clean and Debug}{ .inline-img </strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_port_ultrasound_timer_measurements</code> y pulsa <strong>OK</strong>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Comprueba que todos los test pasan correctamente en el texto mostrado en la terminal de depuración. Si no es así, lee los mensajes de error y corrige tu código hasta que pase todas las pruebas. <strong>Si no pasa las pruebas, no continúes programando.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png" />) y repite el proceso hasta que pase todos los test.}{ .inline-img </p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del transceptor de ultrasonidos!</strong> Vamos ahora a implementar la parte <code>COMMON</code>.</p>
+<h2 id="common-cabecera-de-la-fsm-del-ultrasonidos"><code>COMMON</code>: cabecera de la FSM del ultrasonidos<a class="headerlink" href="#common-cabecera-de-la-fsm-del-ultrasonidos" title="Permanent link">&para;</a></h2>
+<h5 id="consideraciones-de-la-fsm-del-ultrasonidos">Consideraciones de la FSM del ultrasonidos<a class="headerlink" href="#consideraciones-de-la-fsm-del-ultrasonidos" title="Permanent link">&para;</a></h5>
+<h5 id="_3"><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
+<ul>
+<li>
+<p>La FSM <strong>almacena varias distancias en un array y la distancia mediana de la última serie de medidas</strong>.</p>
+</li>
+<li>
+<p>La FSM contiene un campo de estado (<code>status</code>) que indica si el sistema está aparcando (activo, <code>true</code>) o no (inactivo, <code>false</code>).</p>
+</li>
+<li>
+<p>El usuario debe solicitar/ comprobar la distancia mediante la función <code>fsm_ultrasound_get_intensity()</code> para recuperar el campo de distancia <code>intensity_perc</code>.</p>
+</li>
+<li>
+<p>El valor de inicio de distancia al arrancar la FSM, y el de reinicio, debe ser <span class="arithmatex">\(0 ms\)</span>.</p>
+</li>
+<li>
+<p>La FSM contiene información del identificador (<code>ID</code>) del transceptor. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIO a la que está conectado, ) para todos los transceptores de ultrasonidos de su sistema.</p>
+</li>
+</ul>
+<figure><embed src="../assets/notebook_imgs/pr_chapters/version_2/fsm_keyboard.pdf" id="fig:fsm_keyboard" style="width:100.0%" /><figcaption aria-hidden="true">Máquina de estados del <em>ultrasonidos</em>.</figcaption></figure>
+
+<p>Nuestra librería implementa la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> mostrada en la y que llamaremos <code>fsm_keyboard</code> (en los ficheros <code>.c</code> y <code>.h</code>). Tiene 5 estados en los que:</p>
+<ul>
+<li>
+<p><code>WAIT_START</code>: estado inicial en el que el transceptor está inactivo y preparado para activar el <em>trigger</em>. En tal caso, se lanza el inicio de una nueva serie de medidas.</p>
+</li>
+<li>
+<p><code>TRIGGER_START</code>: en este estado se está un tiempo muy breve, solo desde que se inicia la disparo del emisor de ultrasonido, hasta que salta la interrupción del temporizador de disparo, y se deshabilita dicho <em>timer</em> hasta la próxima medida.</p>
+</li>
+<li>
+<p><code>WAIT_ECHO_START</code>: inmediatamente el sistema queda esperando la recepción del inicio de la señal de eco en el sensor de ultrasonidos. Cuando se detecta el inicio del eco, la FSM avanza al siguiente estado sin ejecutar ninguna acción adicional.</p>
+</li>
+<li>
+<p><code>WAIT_ECHO_END</code>: en este estado, el sensor está esperando hasta que finalice la señal de eco en la captura de entrada. Una vez recibidos ambos flancos de la señal, se calcula la distancia con <code>do_set_intensity</code> y se guarda. Si se han recibido <code>FSM_ULTRASOUND_NUM_MEASUREMENTS</code> medidas, se calcula la mediana de las distancias y se guarda en el campo <code>intensity_perc</code>. Si se detecta que el sistema se ha apagado, se detienen las mediciones y se vuelve al estado inicial.</p>
+</li>
+<li>
+<p><code>SET_DISTANCE</code>: en este estado ya se ha almacenado el valor de la distancia calculada y se queda a la espera de que el <em>flag</em> <code>trigger_ready</code> esté a <code>true</code>. Si se detecta que el sistema se ha apagado, se detienen las mediciones y se vuelve al estado inicial.</p>
+</li>
+</ul>
+<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la . El tipo de esta estructura está declarada en el fichero <code>fsm_keyboard.h</code> (<code>typedef struct fsm_ultrasound_t fsm_ultrasound_t;</code>), pero la definición de la estructura está en el fichero <code>.c</code>.</p>
+<ol>
+<li>Lo primero, descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>ultrasound</em> correspondientes a la versión <code>V2</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v2">https://github.com/sdg2DieUpm/Simone/tree/simone_v2</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_keyboard.h</code> y <code>fsm_keyboard.c</code>. Ponlos en las carpetas correspondientes de tu proyecto.</li>
+</ol>
+<p>Ahora, vamos a completar la cabecera de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del transceptor de ultrasonidos, <code>fsm_keyboard.h</code>.</p>
+<ol>
+<li>
+<p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
+</li>
+<li>
+<p>Define el <code>#define</code> <code>FSM_ULTRASOUND_NUM_MEASUREMENTS</code> con el número de medidas que se van a almacenar en el array de distancias para calcular la mediana. <strong>Usaremos 5 medidas.</strong></p>
+</li>
+<li>
+<p>Ahora vamos a definir el enumerado con los nombres de los estados de la FSM. Escribe el <code>enum</code> <code>FSM_ULTRASOUND</code> con los nombres de los estados del diagrama de la .</p>
+</li>
+<li>
+<p>Es buena práctica ir documentado el código a la vez que se programa.</p>
+</li>
+<li>
+<p>Seguidamente <strong>declararemos</strong> la estructura <code>fsm_ultrasound_t</code> para hacerla pública. No obstante, no vamos definir sus campos públicamente, como se ha indicado anteriormente.</p>
+</li>
+</ol>
+<p>Continuamos con las declaraciones de funciones públicas de la librería. <strong>Procedamos</strong>:</p>
+<ol>
+<li>
+<p>Escribe los prototipos de las <strong>funciones públicas</strong> que aparecen en la API del fichero <code>fsm_keyboard.h</code>.</p>
+<p>Estas son las funciones que podrán ser llamadas desde el exterior y, como en el caso del botón, el nombre de la función debe empezar por <code>fsm_</code>.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen.</p>
+</li>
+</ol>
+<p>Vamos ahora a programar el fichero fuente <code>fsm_keyboard.c</code>.</p>
+<h2 id="common-fuente-de-la-fsm-del-ultrasonidos"><code>COMMON</code>: fuente de la FSM del ultrasonidos<a class="headerlink" href="#common-fuente-de-la-fsm-del-ultrasonidos" title="Permanent link">&para;</a></h2>
+<p>Vamos a proceder con la implementación de las funciones del <em>ultrasonidos</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y el resto de <strong>funciones privadas</strong> que aparecen en la API del fichero <code>fsm_keyboard.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
+<ul>
+<li>
+<p>Lo primero que debe aparecer es la inclusión de cabeceras como indica la API.</p>
+</li>
+<li>
+<p>Vamos a declarar la estructura <code>fsm_ultrasound_t</code>. Definiremos la estructura con los campos que se muestran en la . <span style="color: Red"><strong>Es muy importante que la máquina de estados del ultrasonidos</strong> <code>fsm_t</code> <strong>sea el primer campo</strong></span>.</p>
+</li>
+<li>
+<p>De igual modo, es buen momento para aprovechar a documentar la estructura.</p>
+</li>
+</ul>
+<p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. <strong>Empezaremos con las funciones de entrada o comprobación <code>check_</code> de la FSM</strong> bajo la línea de <code>/* State machine input or transition functions */</code>.</p>
+<ol>
+<li>
+<p>Codifica las funciones <code>check_on()</code>, <code>check_trigger_end()</code>, <code>check_echo_init()</code>, <code>check_echo_received()</code>, y <code>check_new_measurement()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Documenta las funciones con Doxygen, encima del nombre de cada función.</p>
+</li>
+</ol>
+<p><strong>Seguiremos con las funciones de salida o actualización de la FSM <code>do_</code></strong>.</p>
+<ol>
+<li>
+<p>Codifica las funciones <code>do_start_measurement()</code>, <code>do_stop_trigger()</code>, <code>do_set_intensity()</code>, <code>do_stop_measurement()</code>, y <code>do_start_new_measurement()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
+</li>
+</ol>
+<h5 id="_4"><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
+<p>Todavía no hemos acabado con el desarrollo, pero puedes compilar para ir depurando errores.</p>
+<ol>
+<li>
+<p>Declara la tabla de transiciones de la FSM <code>fsm_trans_ultrasound</code>. Esto eliminará muchos errores de compilación. <span style="color: Red"><strong>¡Importante! En la declaración de esta tabla es importante el orden en el que se colocan las transiciones: en asegúrate en <code>SET_DISTANCE</code> de comprobar antes que hay que hacer una nueva medida (<code>check_new_measurement()</code>), que de comprobar si hay que parar (<code>check_off()</code>); de otra manera puedes tener errores y acabar antes de tiempo.</strong></span></p>
+</li>
+<li>
+<p>Completa la función de inicialización de la FSM <code>fsm_ultrasound_init()</code> como se indica en la API. En esta función se inicializan los campos de la estructura de la FSM, y se llama a la función <code>fsm_init()</code> para inicializar la máquina de estados. También se llama a la función <code>port_ultrasound_init()</code> para inicializar el HW del transceptor de ultrasonidos.</p>
+</li>
+<li>
+<p>Codifica la función <code>fsm_ultrasound_fire()</code> igual que la función <code>fsm_button_fire()</code> que se daba implementada en la parte del botón. Esta función lanza la FSM. Haz lo propio con la función <code>fsm_ultrasound_destroy()</code> igual que la función <code>fsm_button_destroy()</code> que se daba implementada en la parte del botón. Esta función destruye la FSM. La usaremos en la integración final del sistema.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>fsm_ultrasound_get_inner_fsm()</code> y <code>fsm_ultrasound_get_state()</code>. Se usarán en el test de la FSM.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>fsm_ultrasound_get_intensity()</code>, <code>fsm_ultrasound_stop()</code>, <code>fsm_ultrasound_start()</code>, <code>fsm_ultrasound_get_status()</code>, <code>fsm_ultrasound_set_status()</code>, <code>fsm_ultrasound_get_ready()</code>, y <code>fsm_ultrasound_get_new_measurement_ready()</code> como se indica en la API.</p>
+</li>
+</ol>
+<p><strong>Ya hemos acabado con la programación de la librería del ultrasonidos.</strong> Toda esta lógica <code>COMMON</code> <strong>puede ser usada en cualquier sistema</strong>, esté basado en microcontrolador, o sea un PC. Ahora, si compilas, no deberán aparecer errores.</p>
+<ol>
+<li>Documenta el código que esté sin comentar.</li>
+</ol>
+<h2 id="sec:test_fsm_v2"><code>COMMON</code> Test unitario de la FSM del ultrasonidos<a class="headerlink" href="#sec:test_fsm_v2" title="Permanent link">&para;</a></h2>
+<p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del ultrasonidos y probar que funciona antes de continuar con la siguiente versión.</p>
+<p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
+<p>Descarga el fichero de test de la FSM del ultrasonidos <code>test_fsm_ultrasound.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
+<ol>
+<li>
+<p>Con la placa  conectada al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_fsm_ultrasound</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso.</p>
+</li>
+<li>
+<p>Se habrá impreso por la terminal del <code>gdb-server</code> el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png" />) y repite el proceso hasta que pasen todos los test.}{ .inline-img </p>
+</li>
+</ol>
+<h2 id="ejemplo-de-uso-de-la-version-2">Ejemplo de uso de la Versión 2<a class="headerlink" href="#ejemplo-de-uso-de-la-version-2" title="Permanent link">&para;</a></h2>
+<p>En este test de integración del transceptor de ultrasonidos es responsabilidad del alumno comprobar que la funcionalidad es la esperada. El ejemplo que se da no contempla todas las situaciones.</p>
+<p>Descarga el fichero de ejemplo <code>example2̌.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
+<p><strong>Procedamos</strong>:</p>
+<p>Para poder hacer el ejemplo del sistema de ultrasonidos, necesitamos montar el transceptor. En la se muestra un ejemplo de montaje.</p>
+<ol>
+<li>
+<p>Monte el HW como se muestra en la .</p>
+</li>
+<li>
+<p>Con la placa  conectada al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png" /> y selecciona }{ .inline-img <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png" /> Clean and Debug}{ .inline-img </strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>example_v2</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Se parará en la primera línea del <code>main()</code>. Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso. Este código no termina, pues es un bucle <code>while</code> infinito.</p>
+</li>
+<li>
+<p>Abre la terminal del <code>gdb-server</code> para ver los mensajes que se van imprimiendo.</p>
+</li>
+<li>
+<p>Ve acercando y alejando un objeto del transceptor de ultrasonidos para ver cómo se actualiza la distancia en la terminal. Puedes servirte de una regla colocada en la mesa para comprobar que la distancia es la correcta.</p>
+</li>
+<li>
+<p>Haz distintas pruebas y asegúrate de que el comportamiento es el adecuado.</p>
+</li>
+</ol>
+<p>¡Hemos creado nuestra segunda librería! Fíjate que es <em>portable</em> a cualquier plataforma solo con adaptar las funciones del <code>PORT</code>.</p>
+<p>No dejes de documentar el código. <strong>Comprueba que la documentación del código se ha generado correctamente como se explica en la <em>“Guía de instalación de herramientas para compilación multiplataforma en C”</em> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">3</a></sup>.</strong>, o en el vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a>.</p>
+<p>Guarda una copia de su proyecto como <code>simone_v2</code> para tener un punto de partida para la siguiente versión, y una copia de seguridad por si algo falla.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:stm322025fundamentos">
+<p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024.&#160;<a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:stm322025fundamentos" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:stm322025fundamentos" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:stm322025fundamentos" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:stm322025fundamentos" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:stm322025fundamentos" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:st2021datasheet">
+<p>STMicroelectronics. Stm32f446xc/e. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</a>.&#160;<a class="footnote-backref" href="#fnref:st2021datasheet" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:st2021datasheet" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:st2021datasheet" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:st2021datasheet" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:stm322025guiainstalacion">
+<p>Josué Pagán Ortiz, Pedro José Malagón Marzo, Daniel Capellán Martín, Román Cárdenas Rodríguez, and Amadeo de Gracia Herranz. <em>Guía de instalación de herramientas para compilación multiplataforma en C</em>. Universidad Politécnica de Madrid, 2024.&#160;<a class="footnote-backref" href="#fnref:stm322025guiainstalacion" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
