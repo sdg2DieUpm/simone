@@ -128,28 +128,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>port_keyboard_excite_
 <tr class="memitem:ad9d95c098d9ce87863ae191c65246830"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#ad9d95c098d9ce87863ae191c65246830">port_keyboard_get_key_pressed_status</a> (uint8_t keyboard_id)</td></tr>
 <tr class="memdesc:ad9d95c098d9ce87863ae191c65246830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the status of the keyboard (pressed or not).  <a href="stm32f4__keyboard_8c.html#ad9d95c098d9ce87863ae191c65246830">More...</a><br /></td></tr>
 <tr class="separator:ad9d95c098d9ce87863ae191c65246830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0f06120b963a9aeda74ee26f3595478"><td class="memItemLeft" align="right" valign="top"><a id="ac0f06120b963a9aeda74ee26f3595478"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>port_keyboard_set_key_pressed_status</b> (uint8_t keyboard_id, bool status)</td></tr>
+<tr class="memitem:ac0f06120b963a9aeda74ee26f3595478"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#ac0f06120b963a9aeda74ee26f3595478">port_keyboard_set_key_pressed_status</a> (uint8_t keyboard_id, bool status)</td></tr>
+<tr class="memdesc:ac0f06120b963a9aeda74ee26f3595478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the status of the keyboard (pressed or not).  <a href="stm32f4__keyboard_8c.html#ac0f06120b963a9aeda74ee26f3595478">More...</a><br /></td></tr>
 <tr class="separator:ac0f06120b963a9aeda74ee26f3595478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82b195430e43df585ddebe86f06a2cdc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a82b195430e43df585ddebe86f06a2cdc">port_keyboard_get_row_timeout_status</a> (uint8_t keyboard_id)</td></tr>
 <tr class="memdesc:a82b195430e43df585ddebe86f06a2cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the status of the column timeout flag.  <a href="stm32f4__keyboard_8c.html#a82b195430e43df585ddebe86f06a2cdc">More...</a><br /></td></tr>
 <tr class="separator:a82b195430e43df585ddebe86f06a2cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae652d3e4324278a555817e5cdfc128a5"><td class="memItemLeft" align="right" valign="top"><a id="ae652d3e4324278a555817e5cdfc128a5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>port_keyboard_set_row_timeout_status</b> (uint8_t keyboard_id, bool status)</td></tr>
+<tr class="memitem:ae652d3e4324278a555817e5cdfc128a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#ae652d3e4324278a555817e5cdfc128a5">port_keyboard_set_row_timeout_status</a> (uint8_t keyboard_id, bool status)</td></tr>
+<tr class="memdesc:ae652d3e4324278a555817e5cdfc128a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the status of the row timeout flag.  <a href="stm32f4__keyboard_8c.html#ae652d3e4324278a555817e5cdfc128a5">More...</a><br /></td></tr>
 <tr class="separator:ae652d3e4324278a555817e5cdfc128a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e84e1f30a5de2c507f98f9a9972a8d0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a5e84e1f30a5de2c507f98f9a9972a8d0">port_keyboard_get_key_value</a> (uint8_t keyboard_id)</td></tr>
-<tr class="memdesc:a5e84e1f30a5de2c507f98f9a9972a8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the char representing the key pressed of a given keyboard based on its row that is being excited. This assumes that the matrix of chars is flattened, thus it is necessary to calculate only one index.  <a href="stm32f4__keyboard_8c.html#a5e84e1f30a5de2c507f98f9a9972a8d0">More...</a><br /></td></tr>
+<tr class="memdesc:a5e84e1f30a5de2c507f98f9a9972a8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the char representing the key pressed of a given keyboard based on its row that is being excited. This assumes that the matrix of chars is flattened (i.e., it is not a 2D array, but all rows are in a single array), thus it is necessary to calculate only one index.  <a href="stm32f4__keyboard_8c.html#a5e84e1f30a5de2c507f98f9a9972a8d0">More...</a><br /></td></tr>
 <tr class="separator:a5e84e1f30a5de2c507f98f9a9972a8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a867391d4d1c6c3697569da3747946124"><td class="memItemLeft" align="right" valign="top">static GPIO_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><b>keyboard_main_row_ports</b> []</td></tr>
+<tr class="memitem:a867391d4d1c6c3697569da3747946124"><td class="memItemLeft" align="right" valign="top">static GPIO_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a867391d4d1c6c3697569da3747946124">keyboard_main_row_ports</a> []</td></tr>
+<tr class="memdesc:a867391d4d1c6c3697569da3747946124"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of GPIO ports for the rows of the main keyboard.  <a href="stm32f4__keyboard_8c.html#a867391d4d1c6c3697569da3747946124">More...</a><br /></td></tr>
 <tr class="separator:a867391d4d1c6c3697569da3747946124"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d090c1fbaca817b4239e812a2cb6e8f"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>keyboard_main_row_pins</b> []</td></tr>
+<tr class="memitem:a6d090c1fbaca817b4239e812a2cb6e8f"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a6d090c1fbaca817b4239e812a2cb6e8f">keyboard_main_row_pins</a> []</td></tr>
+<tr class="memdesc:a6d090c1fbaca817b4239e812a2cb6e8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of GPIO pins for the rows of the main keyboard.  <a href="stm32f4__keyboard_8c.html#a6d090c1fbaca817b4239e812a2cb6e8f">More...</a><br /></td></tr>
 <tr class="separator:a6d090c1fbaca817b4239e812a2cb6e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28e31f51852dd555058ff9af04a7a111"><td class="memItemLeft" align="right" valign="top">static GPIO_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><b>keyboard_main_col_ports</b> []</td></tr>
+<tr class="memitem:a28e31f51852dd555058ff9af04a7a111"><td class="memItemLeft" align="right" valign="top">static GPIO_TypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a28e31f51852dd555058ff9af04a7a111">keyboard_main_col_ports</a> []</td></tr>
+<tr class="memdesc:a28e31f51852dd555058ff9af04a7a111"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of GPIO ports for the columns of the main keyboard.  <a href="stm32f4__keyboard_8c.html#a28e31f51852dd555058ff9af04a7a111">More...</a><br /></td></tr>
 <tr class="separator:a28e31f51852dd555058ff9af04a7a111"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1258e7b149c14a7c7b4202a2f6a55f4d"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>keyboard_main_col_pins</b> []</td></tr>
+<tr class="memitem:a1258e7b149c14a7c7b4202a2f6a55f4d"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a1258e7b149c14a7c7b4202a2f6a55f4d">keyboard_main_col_pins</a> []</td></tr>
+<tr class="memdesc:a1258e7b149c14a7c7b4202a2f6a55f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of GPIO pins for the columns of the main keyboard.  <a href="stm32f4__keyboard_8c.html#a1258e7b149c14a7c7b4202a2f6a55f4d">More...</a><br /></td></tr>
 <tr class="separator:a1258e7b149c14a7c7b4202a2f6a55f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae69e26c4c86714f594c74601b4133ae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structstm32f4__keyboard__hw__t.html">stm32f4_keyboard_hw_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#ae69e26c4c86714f594c74601b4133ae8">keyboards_arr</a> []</td></tr>
 <tr class="memdesc:ae69e26c4c86714f594c74601b4133ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of elements that represents the HW characteristics of the keyboards connected to the STM32F4 platform.  <a href="stm32f4__keyboard_8c.html#ae69e26c4c86714f594c74601b4133ae8">More...</a><br /></td></tr>
@@ -285,7 +289,7 @@ An arbitrary example of C code: <div class="fragment"><div class="line"><span cl
 <blockquote class="doxtable">
 <p>✅ 1. Update the <code>current_excited_row</code> to move to the next row. If the index equals or greater than the number of rows <b>indicated in the layout</b>, move to the first row. <br  />
 &#160;&#160;&#160;&#160;💡 You can use the <code>%</code> (modulo) operator to get the remainder of the division <br  />
-✅ 2. Set the updated row to be excited to HIGH and the others to LOW. You must use the appropiate function to do it. <br  />
+✅ 2. Call the function <code>port_keyboard_excite_row()</code> to excite the new row. <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -347,7 +351,7 @@ false If the keyboard has not been pressed </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Return the char representing the key pressed of a given keyboard based on its row that is being excited. This assumes that the matrix of chars is flattened, thus it is necessary to calculate only one index. </p>
+<p>Return the char representing the key pressed of a given keyboard based on its row that is being excited. This assumes that the matrix of chars is flattened (i.e., it is not a 2D array, but all rows are in a single array), thus it is necessary to calculate only one index. </p>
 <blockquote class="doxtable">
 <p>✅ 1. Determine the value (char) of the key pressed based on the index of the current scanned row and the index of the column that provoked the interrupt, and return it. <br  />
 &#160;&#160;&#160;&#160;💡 You can calculate the key index as: <code>key index = (excited row * num columns) + column interrupting</code>. <br  />
@@ -419,9 +423,9 @@ false If the column timeout has not occurred </dd></dl>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
 <p>✅ 1. Retrieve the keyboard configuration struct calling <code><a class="el" href="stm32f4__keyboard_8c.html#aa3330d22a2fcd66831baa9cdef648e48" title="Get the keyboard struct with the given ID.">_stm32f4_keyboard_get()</a></code> <br  />
-✅ 2. Call function <code><a class="el" href="stm32f4__system_8h.html#aca348a9998b93751c1440d62050b7d79" title="Configure the mode and pull of a GPIO.">stm32f4_system_gpio_config()</a></code> with the right arguments to configure the rows as outputs with no pull up neither pull down connections <br  />
-✅ 3. Call function <code><a class="el" href="stm32f4__system_8h.html#aca348a9998b93751c1440d62050b7d79" title="Configure the mode and pull of a GPIO.">stm32f4_system_gpio_config()</a></code> with the right arguments to configure the columns as inputs with pull down connections. Call also function <code><a class="el" href="stm32f4__system_8h.html#a98f4105a82f32c645f0b06424af5ef22" title="Configure the external interruption or event of a GPIO.">stm32f4_system_gpio_config_exti()</a></code> with the right parameters to to configure interruption mode in rising edge and enabling the interrupt line for each column. Finally, call function <code><a class="el" href="stm32f4__system_8h.html#a03d8c69cd44964e3f1ff05a2c79626b8" title="Enable interrupts of a GPIO line (pin).">stm32f4_system_gpio_exti_enable()</a></code> with priority level to <code>1</code> and the subpriority level to <code>1</code> for all columns. All keyboards will have the same priority levels for their columns in the basic implementation. <br  />
-✅ 4. Clean/set all the fields of the keyboard struct to their initial values. <br  />
+✅ 2. Call function <code><a class="el" href="stm32f4__system_8h.html#aca348a9998b93751c1440d62050b7d79" title="Configure the mode and pull of a GPIO.">stm32f4_system_gpio_config()</a></code> with the right arguments to configure the rows as outputs with no pull up neither pull down connections (you can get the number of rows from the keyboard's layout). <br  />
+✅ 3. Call function <code><a class="el" href="stm32f4__system_8h.html#aca348a9998b93751c1440d62050b7d79" title="Configure the mode and pull of a GPIO.">stm32f4_system_gpio_config()</a></code> with the right arguments to configure the columns as inputs with pull down connections. Call also function <code><a class="el" href="stm32f4__system_8h.html#a98f4105a82f32c645f0b06424af5ef22" title="Configure the external interruption or event of a GPIO.">stm32f4_system_gpio_config_exti()</a></code> with the right parameters to to configure interruption mode in rising edge and enabling the interrupt line for each column. Finally, call function <code><a class="el" href="stm32f4__system_8h.html#a03d8c69cd44964e3f1ff05a2c79626b8" title="Enable interrupts of a GPIO line (pin).">stm32f4_system_gpio_exti_enable()</a></code> with priority level to <code>1</code> and the subpriority level to <code>1</code> for all columns. All keyboards will have the same priority levels for their columns in the basic implementation. You can get the number of columns from the keyboard's layout. <br  />
+✅ 4. Clean/set all the fields of the keyboard struct to their initial values. Set the value of <code>current_excited_row</code> to <code>-1</code> to indicate that no row is being excited at the beginning. <br  />
 ✅ 5. Configure the timer that controls the duration of the column scanning by calling the function <code><a class="el" href="stm32f4__keyboard_8c.html#a02d1f396d821890ec121fde3292f3ed4" title="Configure the timer that controls the duration of the column scanning.">_timer_scan_column_config()</a></code> <br  />
 </p>
 </blockquote>
@@ -432,6 +436,92 @@ false If the column timeout has not occurred </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">keyboard_id</td><td>Keyboard ID. This index is used to select the element of the <code>keyboards_arr[]</code> array </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0f06120b963a9aeda74ee26f3595478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f06120b963a9aeda74ee26f3595478">&#9670;&nbsp;</a></span>port_keyboard_set_key_pressed_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void port_keyboard_set_key_pressed_status </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>keyboard_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the status of the keyboard (pressed or not). </p>
+<p>This function is used to update the status of the keyboard when a key press is detected or cleared.</p>
+<blockquote class="doxtable">
+<p><b>TODO alumnos:</b></p>
+<p>✅ 1. Set the value of the field <code>flag_key_pressed</code> to the given status. Call the function <code><a class="el" href="stm32f4__keyboard_8c.html#aa3330d22a2fcd66831baa9cdef648e48" title="Get the keyboard struct with the given ID.">_stm32f4_keyboard_get()</a></code> to get the keyboard struct. <br  />
+ </p>
+</blockquote>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyboard_id</td><td></td></tr>
+    <tr><td class="paramname">status</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae652d3e4324278a555817e5cdfc128a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae652d3e4324278a555817e5cdfc128a5">&#9670;&nbsp;</a></span>port_keyboard_set_row_timeout_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void port_keyboard_set_row_timeout_status </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>keyboard_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>status</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the status of the row timeout flag. </p>
+<p>This function is used to update the status of the row timeout flag when a timeout occurs or is cleared.</p>
+<blockquote class="doxtable">
+<p><b>TODO alumnos:</b></p>
+<p>✅ 1. Set the value of the field <code>flag_row_timeout</code> to the given status. Call the function <code><a class="el" href="stm32f4__keyboard_8c.html#aa3330d22a2fcd66831baa9cdef648e48" title="Get the keyboard struct with the given ID.">_stm32f4_keyboard_get()</a></code> to get the keyboard struct. <br  />
+ </p>
+</blockquote>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyboard_id</td><td>Keyboard ID. This index is used to get the correct keyboard status struct. </td></tr>
+    <tr><td class="paramname">status</td><td>New status of the row timeout flag. </td></tr>
   </table>
   </dd>
 </dl>
@@ -494,7 +584,7 @@ false If the column timeout has not occurred </dd></dl>
 <p><b>TODO alumnos:</b></p>
 <p>✅ 1. Disable the counter of the timer (register <code>CR1</code> of the timer) to stop the column scanning. <br  />
 ✅ 2. Disable the timer interrupt in the NVIC using the <code>NVIC_DisableIRQ()</code> function and the <code>TIMx_IRQn</code> interrupt. <br  />
-✅ 3. Lower all rows. You must use the appropiate function to do it. <br  />
+✅ 3. Set all rows to LOW. <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -532,6 +622,8 @@ false If the column timeout has not occurred </dd></dl>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#aac5c2666d1dc0895ccbc019e23ebaebd">STM32F4_KEYBOARD_MAIN_COL_2_PIN</a>,</div>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#a1056c8cbb8728b7dba2416a6b2154ad3">STM32F4_KEYBOARD_MAIN_COL_3_PIN</a>}</div>
 </div><!-- fragment -->
+<p>Array of GPIO pins for the columns of the main keyboard. </p>
+
 </div>
 </div>
 <a id="a28e31f51852dd555058ff9af04a7a111"></a>
@@ -559,6 +651,8 @@ false If the column timeout has not occurred </dd></dl>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#a2c9d1e2b8b2c2cc6547e72945b2ca946">STM32F4_KEYBOARD_MAIN_COL_2_GPIO</a>,</div>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#a2d0e96f7db06fbc300556a8a587eebae">STM32F4_KEYBOARD_MAIN_COL_3_GPIO</a>}</div>
 </div><!-- fragment -->
+<p>Array of GPIO ports for the columns of the main keyboard. </p>
+
 </div>
 </div>
 <a id="a6d090c1fbaca817b4239e812a2cb6e8f"></a>
@@ -586,6 +680,8 @@ false If the column timeout has not occurred </dd></dl>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#a5ddb2b1941518216b16ab05f9ca00349">STM32F4_KEYBOARD_MAIN_ROW_2_PIN</a>,</div>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#a2d5de9853e674201e15f1bd5271daa6a">STM32F4_KEYBOARD_MAIN_ROW_3_PIN</a>}</div>
 </div><!-- fragment -->
+<p>Array of GPIO pins for the rows of the main keyboard. </p>
+
 </div>
 </div>
 <a id="a867391d4d1c6c3697569da3747946124"></a>
@@ -613,6 +709,8 @@ false If the column timeout has not occurred </dd></dl>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#a75431188721594178ae08f8c1f4ea653">STM32F4_KEYBOARD_MAIN_ROW_2_GPIO</a>,</div>
 <div class="line">    <a class="code" href="stm32f4__keyboard_8h.html#a194c7817867399ac8a6803147da6cfec">STM32F4_KEYBOARD_MAIN_ROW_3_GPIO</a>}</div>
 </div><!-- fragment -->
+<p>Array of GPIO ports for the rows of the main keyboard. </p>
+
 </div>
 </div>
 <a id="ae69e26c4c86714f594c74601b4133ae8"></a>

@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"structstm32f4__button__hw__t.html#a71b5377630fd4caac186c168d92fcfce":[1,0,6,0],
+"structstm32f4__button__hw__t.html#a96246bee7f212e399873ade39af868b5":[1,0,6,1],
+"structstm32f4__button__hw__t.html#ae435cd8e99dea0b784405e580e27eebc":[1,0,6,3],
+"structstm32f4__keyboard__hw__t.html":[1,0,7],
 "structstm32f4__keyboard__hw__t.html#a0861cc44a9f21f2fe9201a8d6a6843e6":[1,0,7,4],
 "structstm32f4__keyboard__hw__t.html#a90923a33d3e61bb751f6a6474ad64191":[1,0,7,0],
 "structstm32f4__keyboard__hw__t.html#ab4cd1b72e10347d38dda61d0759d825a":[1,0,7,7],
