@@ -1,0 +1,1179 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../version_3/" rel="prev"/>
+<link href="../version_5/" rel="next"/>
+<link href="../../assets/general/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Versión 4 - Laboratorio de Sistemas Digitales II</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/notebook-extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#version-4-integracion-final-y-modos-de-bajo-consumo">
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Laboratorio de Sistemas Digitales II
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Versión 4
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Cambiar a modo oscuro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Cambiar a modo oscuro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Cambiar a modo claro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Cambiar a modo claro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+    Laboratorio de Sistemas Digitales II
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Portada
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Introducción general
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Introducción general
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introducción a SDG2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sesion_introduccion/">
+<span class="md-ellipsis">
+    Sesión de introducción
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    Proyecto
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Proyecto
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../proyecto_base/">
+<span class="md-ellipsis">
+    Proyecto base
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_1/">
+<span class="md-ellipsis">
+    Versión 1
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_2/">
+<span class="md-ellipsis">
+    Versión 2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_3/">
+<span class="md-ellipsis">
+    Versión 3
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Versión 4
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Versión 4
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:low_power_modes">
+<span class="md-ellipsis">
+      Modos de bajo consumo
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_simone_1">
+<span class="md-ellipsis">
+      Integración final
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_simone_main">
+<span class="md-ellipsis">
+      Mecánica del juego y reglas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instrucciones-de-implementacion">
+<span class="md-ellipsis">
+      Instrucciones de implementación
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_simone_spec">
+<span class="md-ellipsis">
+      FSM Simone. Especificación detallada
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:v4_integration">
+<span class="md-ellipsis">
+      Integración HW-SW de la FSM Simone
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#test-de-integracion-de-simone">
+<span class="md-ellipsis">
+      Test de integración de Simone
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_5/">
+<span class="md-ellipsis">
+    Versión 5
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    API
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/">
+<span class="md-ellipsis">
+    Documentación API
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    Apéndices
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            Apéndices
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bom/">
+<span class="md-ellipsis">
+    BOM
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Acrónimos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../acronimos/">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:low_power_modes">
+<span class="md-ellipsis">
+      Modos de bajo consumo
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_simone_1">
+<span class="md-ellipsis">
+      Integración final
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_simone_main">
+<span class="md-ellipsis">
+      Mecánica del juego y reglas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instrucciones-de-implementacion">
+<span class="md-ellipsis">
+      Instrucciones de implementación
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_simone_spec">
+<span class="md-ellipsis">
+      FSM Simone. Especificación detallada
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:v4_integration">
+<span class="md-ellipsis">
+      Integración HW-SW de la FSM Simone
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#test-de-integracion-de-simone">
+<span class="md-ellipsis">
+      Test de integración de Simone
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="version-4-integracion-final-y-modos-de-bajo-consumo"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.</span> Versión 4: integración final y modos de bajo consumo<a class="headerlink" href="#version-4-integracion-final-y-modos-de-bajo-consumo" title="Permanent link">¶</a></h1>
+<h2 id="sec:low_power_modes"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.1</span> Modos de bajo consumo<a class="headerlink" href="#sec:low_power_modes" title="Permanent link">¶</a></h2>
+<p>Ya tenemos todos los elementos del sistema para que sea funcional. Quizás quisiéramos —si se hace el diseño correspondiente— diseñar una <a href="../acronimos/#acro:PCB"><strong>PCB</strong></a> para desplegarlo en algún sitio. Si hiciésemos esto, muy seguramente alimentaríamos el dispositivo con una batería. Si midiésemos el consumo con un amperímetro, podríamos calcular la autonomía de nuestro sistema. Te habrás fijado que en los dispositivos comerciales como relojes inteligentes, mandos de TV, dispositivos <a href="../acronimos/#acro:IoT"><strong>IoT</strong></a>…la autonomía puede superar de largo varios meses con un uso normal del mismo. Para conseguir esto contamos con los <strong>modos de bajo consumo</strong>. Buena parte de los microcontroladores que hoy en día se precien cuentan con distintos modos de bajo consumo. <strong>Lea la sección <em>“Modos de bajo consumo”</em> del libro de Fundamentos Teóricos <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</strong></p>
+<p>En esta versión, antes de hacer la integración final, vamos a implementar unas pocas funciones para gestionar el <strong>modo <em>sleep</em></strong> de bajo consumo en nuestro sistema. Esto se destaca en 2 estados de la FSM de <em>Simone</em> que veremos más adelante. Estos estados comprueban si alguna de las FSM de los elementos está, o no, activa, y en caso de que todas estén inactivas, <em>se va a dormir</em>. El sistema <em>se despertará</em> ante alguna interrupción de un <em>timer</em> o interrupción externa (pulsación de botón o teclado).</p>
+<p>Antes de empezar a implementar las funciones de bajo consumo vamos a partir de una serie de consideraciones de la FSM. En la siguiente sección se detallan mucho más los estados, pero por ahora, nos fijamos en lo relativo al bajo consumo:</p>
+<ul>
+<li>
+<p>En bajo consumo desactivaremos el <strong>SysTick</strong> para que no despierte al sistema cada <span class="arithmatex">\(1 ms\)</span>. Así pues, el contador del sistema no aumenta mientras se está <em>dormido</em>.</p>
+</li>
+<li>
+<p>Las ISR que generan interrupciones externas —<em>botón</em> y <em>teclado matricial</em>— son las encargadas de reactivar el <strong>SysTick</strong>.</p>
+</li>
+<li>
+<p>La FSM del <em>botón</em> está inactiva en el estado <code>BUTTON_RELEASED</code>.</p>
+</li>
+<li>
+<p>La FSM del <em>teclado matricial</em> está inactiva en el estado <code>KEYBOARD_RELEASED_WAIT_ROW</code>.</p>
+</li>
+<li>
+<p>La FSM del <em>RGB light</em> está activa si el <em>status</em> indica que está <em>funcionando</em>, y no está ocioso (<em>idle</em>).</p>
+</li>
+<li>
+<p>Las autotransiciones de los estados de la FSM <em>Simone</em> (<code>SLEEP_WHILE_IDLE</code> y <code>SLEEP_WHILE_PLAYBACK</code>) están pensadas para cuando esté trabajando en depuración. El depurador genera interrupciones en la ejecución del código que despiertan a nuestro sistema. Como no se trata de interrupciones de nuestros elementos, no pasaremos a los estados, pero debemos dormirnos mientras no se detenga el depurador de nuevo en otro <em>breakpoint</em>. Este es el cometido de dichas autotransiciones.</p>
+</li>
+</ul>
+<p><strong>Procedamos.</strong> Como siempre, tenga abierta la página web de la <a href="../acronimos/#acro:API"><strong>API</strong></a> <a href="https://sdg2dieupm.github.io/simone/">https://sdg2dieupm.github.io/simone/</a>, ahí están todos los detalles de implementación. Ahora vamos a tocar varios ficheros pero no crearemos ninguno nuevo.</p>
+<p>Vamos a añadir las funciones de comprobación específicas de cada máquina de estados.</p>
+<ol>
+<li>
+<p>En <code>fsm_button.c</code>: Añade la función <code>fsm_button_check_activity()</code> y su prototipo y documentación del código en <code>fsm_button.h</code>.</p>
+</li>
+<li>
+<p>En <code>fsm_keyboard.c</code> añade la función <code>fsm_keyboard_check_activity()</code> y su prototipo y documentación del código en <code>fsm_keyboard.h</code>.</p>
+</li>
+<li>
+<p>En <code>fsm_rgb_light.c</code> añade la función <code>fsm_rgb_light_check_activity()</code> y su prototipo y documentación en <code>fsm_rgb_light.h</code>.</p>
+</li>
+</ol>
+<p>Para terminar, vamos a añadir las funciones HW específicas de manejo del modo <em>stop</em> y <em>sleep</em> en nuestro <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Primero añadiremos algunas funciones generales del sistema en <code>stm32f4_system.c</code>; luego las modificaciones necesarias para restablecer el reloj de sistema <strong>SysTick</strong> tras una interrupción del <em>botón</em> o del <em>teclado matricial</em>, o de temporizador.</p>
+<p>En <code>stm32f4_system.c</code>:</p>
+<ol>
+<li>
+<p>Copia el código de <code>port_system_power_stop()</code> y <code>port_system_power_sleep()</code> de la API. Por tener un orden, puedes hacerlo en una parte dedicada a <em>POWER RELATED FUNCTIONS</em>.</p>
+</li>
+<li>
+<p>Copia el código de <code>port_system_systick_suspend()</code> de la API. Por tener un orden, puedes hacerlo en la parte dedicada a <em>TIMER RELATED FUNCTIONS</em>.</p>
+</li>
+<li>
+<p>Copia el código de <code>port_system_systick_resume()</code> de la API. Por tener un orden, puedes hacerlo también en la parte dedicada a <em>TIMER RELATED FUNCTIONS</em>.</p>
+</li>
+<li>
+<p>Implementa la función <code>port_system_sleep()</code> como indica la API. Por tener un orden, puedes hacerlo junto con las anteriores en la parte dedicada a <em>POWER RELATED FUNCTIONS</em>.</p>
+</li>
+</ol>
+<p>En <code>port_system.h</code>:</p>
+<ol>
+<li>Añade los prototipos de las funciones anteriores y su documentación.</li>
+</ol>
+<p>En el fichero en el que se encuentran nuestras ISR, <code>interr.c</code>, añade al principio de todas las ISR de todos las <a href="../acronimos/#acro:GPIO"><strong>GPIO</strong></a> la llamada a <code>port_system_systick_resume()</code> para reactivar el contador del sistema <strong>SysTick</strong> inmediatamente tras la interrupción de pulsación de cualquier tecla o del botón de usuario: <code>EXTI15_10_IRQHandler()</code>, <code>EXTI4_IRQHandler()</code>, y <code>EXTI9_5_IRQHandler()</code>.</p>
+<p>¡Ya tenemos un sistema eficiente energéticamente! En el futuro ten siempre en consideración la importancia de estos modos de bajo consumo en cualquier sistema embebido que se alimente con baterías. Vamos a unir todas las piezas.</p>
+<h2 id="sec:fsm_simone_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.2</span> Integración final<a class="headerlink" href="#sec:fsm_simone_1" title="Permanent link">¶</a></h2>
+<p>Ya tenemos todos los módulos de las versiones V1-V3 de <em>Simone</em> desarrollados y probados: botón, teclado matricial y RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Ahora vamos a integrarlos en el sistema central, y rellenar el <code>main.c</code> del programa. <strong>Procedamos</strong>:</p>
+<p>La máquina de estados del sistema <em>Simone</em> involucra a todos los elementos del mismo y la gestión del bajo consumo. Será una implementación principalmente de la lógica de control del juego en <code>fsm_simone.c</code> y <code>fsm_simone.h</code>. La parte dependiente del hardware (<code>PORT</code>) relacionada con la temporización del juego (<code>port_simone</code>) <strong>se os proporciona parcialmente implementada para facilitar la integración</strong>.</p>
+<h2 id="sec:fsm_simone_main"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3</span> Mecánica del juego y reglas<a class="headerlink" href="#sec:fsm_simone_main" title="Permanent link">¶</a></h2>
+<p>El sistema debe gestionar la lógica del juego, tiempos de espera, niveles de dificultad y la interacción con los drivers de hardware (botón, teclado matricial y LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>).</p>
+<h3 id="inicio"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3.1</span> Inicio<a class="headerlink" href="#inicio" title="Permanent link">¶</a></h3>
+<p>El sistema <strong>arranca</strong> en reposo en el estado <code>IDLE</code>. Al pulsar el <strong>botón de usuario</strong>, el sistema arranca pansando al estado que gestiona las secuencias de colores.</p>
+<p>El juego tiene 3 niveles de dificultad predefinidos: fácil, medio y difícil. Al arrancar el sistema, empieza en modo fácil por defecto.</p>
+<p>Los niveles predefinidos son: <code>LEVEL_EASY</code>, <code>LEVEL_MEDIUM</code> y <code>LEVEL_HARD</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Consejo</p>
+<p>Utiliza un <code>enum</code> para definir los niveles y <code>#defines</code> para definir las teclas de cad nivel. <strong>La FSM tendrá un campo <code>level</code> en su estructura para guardar el nivel del juego</strong>.</p>
+</div>
+<h3 id="generacion-de-secuencia-de-colores-y-teclas-asociadas"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3.2</span> Generación de secuencia de colores y teclas asociadas<a class="headerlink" href="#generacion-de-secuencia-de-colores-y-teclas-asociadas" title="Permanent link">¶</a></h3>
+<p>El juego básico usa 6 colores para mostrar al usuario de manera aleatoria en una secuencia, y se define también el <em>color</em> apagado para parpadear entre colores. Cada color estará asociado a una tecla. Los colores están definidos en <code>rgb_colors.h</code> como estructuras de tipo <code>rgb_color_t</code>. Las asociaciones son las siguientes:</p>
+<div id="tbl:version4_sel_nivel"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Tecla</strong></th>
+<th style="text-align: center;"><strong>Color</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">'0'</td>
+<td style="text-align: center;"><code>color_white</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">'1'</td>
+<td style="text-align: center;"><code>color_red</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">'2'</td>
+<td style="text-align: center;"><code>color_green</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">'3'</td>
+<td style="text-align: center;"><code>color_blue</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">'5'</td>
+<td style="text-align: center;"><code>color_yellow</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">'8'</td>
+<td style="text-align: center;"><code>color_turquoise</code></td>
+</tr>
+</tbody>
+</table>
+<p>El número de colores <strong>se debe definir</strong> en el fichero de cabecera con la etiqueta <code>NUMBER_OF_COLORS_GAME</code>.</p>
+<p>Cada color de la secuencia se mostrará a una <strong>velocidad</strong> (tiempo que tarda en apagarse), y a una <strong>intensidad</strong> lumínica. La dificultad rige estos dos parámetros elegidos al inicio del juego.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Nivel</strong></th>
+<th style="text-align: center;"><strong>Velocidad por color</strong></th>
+<th style="text-align: center;"><strong>Intensidad mínima</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>LEVEL_EASY</code></td>
+<td style="text-align: center;"><code>SIMONE_TIME_ON_LEVEL_EASY_MS</code>: 3000 ms</td>
+<td style="text-align: center;"><code>LEVEL_EASY_MIN_INTENSITY</code>: 80%</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>LEVEL_MEDIUM</code></td>
+<td style="text-align: center;"><code>SIMONE_TIME_ON_LEVEL_MEDIUM_MS</code>: 2000 ms</td>
+<td style="text-align: center;"><code>LEVEL_MEDIUM_MIN_INTENSITY</code>: 50%</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>LEVEL_HARD</code></td>
+<td style="text-align: center;"><code>SIMONE_TIME_ON_LEVEL_HARD_MS</code>: 1000 ms</td>
+<td style="text-align: center;"><code>LEVEL_HARD_MIN_INTENSITY</code>: 20%</td>
+</tr>
+</tbody>
+</table>
+<p>En todos los casos el tiempo de apagado entre colores es fijo: <code>SIMONE_TIME_OFF_BETWEEN_COLORS_MS</code>: 300 ms, que <strong>se debe definir</strong> en el fichero de cabecera. De igual modo se debe definir el tiempo de espera máximo para la entrada del usuario entre pulsaciones: <code>SIMONE_TIME_WAIT_INPUT_MS</code>: 5000 ms, y el timpo de feedback visual al usuario tras cada pulsación: <code>SIMONE_TIME_VISUAL_FEEDBACK_MS</code>: 300 ms.</p>
+<p>La longitud de la secuencia máxima es fija para todos los niveles <code>SEQUENCE_LENGTH</code>: 5 colores. <strong>Cuando el jugador complete la secuencia máxima en un nivel, el sistema subirá automáticamente al siguiente nivel (si no está ya en el máximo) y reiniciará la secuencia.</strong></p>
+<div class="admonition tip">
+<p class="admonition-title">Consejo</p>
+<p>Declara los <code>#define</code> de velocidad e intensidad en <code>fsm_simone.h</code> para mayor legibilidad.</p>
+</div>
+<p>El juego debe comportarse de forma determinista siguiendo las siguientes reglas:</p>
+<h3 id="flujo-del-juego"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.3.3</span> Flujo del juego<a class="headerlink" href="#flujo-del-juego" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p><strong>Ronda:</strong></p>
+<ul>
+<li>El sistema añade un color aleatorio a la secuencia.</li>
+<li>El sistema reproduce la secuencia completa usando el LED (respetando la velocidad del nivel actual). <strong>Nota:</strong> Debe haber un breve instante de apagado entre colores consecutivos para distinguirlos si son el mismo.</li>
+<li>El sistema espera a que el usuario repita la secuencia.</li>
+</ul>
+</li>
+<li>
+<p><strong>Turno del jugador:</strong></p>
+<ul>
+<li>El usuario debe pulsar las teclas en el orden correcto.</li>
+<li><strong>Timeout de usuario:</strong> Si el usuario tarda más de <code>SIMONE_TIME_WAIT_INPUT_MS</code> milisegundos en pulsar una tecla entre paso y paso, pierde la partida. Se ha establcido que este valor sea de <strong>5000 ms</strong>.</li>
+<li>Si se pulsa una tecla incorrecta, pierde la partida.</li>
+<li>Si se pulsa una tecla correcta, se reinicia el temporizador y el jugador tiene otros <code>SIMONE_TIME_WAIT_INPUT_MS</code> milisegundos para pulsar la siguiente tecla.</li>
+</ul>
+</li>
+<li>
+<p><strong>Victoria de ronda y juego:</strong></p>
+<ul>
+<li>Si el usuario completa la secuencia actual correctamente, el sistema añade un nuevo color y repite el proceso (Ronda + 1).</li>
+<li>Si el usuario completa la secuencia de máxima longitud <code>SEQUENCE_LENGTH</code> correctamente, <strong>aumenta de nivel</strong>.</li>
+<li>Si el usuario ya estaba en el nivel máximo y completa la secuencia, gana la partida y la FSM va al estado <code>IDLE</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Game over</strong></p>
+<ul>
+<li>Si el usuario pierde (por error o por timeout), el sistema debe mostrar un mensaje de resultado y volver al estado de reposo para permitir empezar una nueva partida.</li>
+</ul>
+</li>
+</ol>
+<h2 id="instrucciones-de-implementacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.4</span> Instrucciones de implementación<a class="headerlink" href="#instrucciones-de-implementacion" title="Permanent link">¶</a></h2>
+<p>Para el desarrollo de la FSM, se os proporcionan la parte portable <code>PORT</code>, algunos <code>#define</code> de <code>fsm_simone.h</code>, y algún código en <code>fsm_simone.c</code>, como dos funciones auxiliares que facilitan la conversión entre los tipos de datos:</p>
+<ul>
+<li><code>_get_key_from_color()</code>: devuelve el carácter asociado a un color (ej. '1' para Rojo).</li>
+<li><code>_get_color_from_key()</code>: devuelve el color asociado a un carácter.</li>
+</ul>
+<p>Debéis implementar el resto de la lógica siguiendo la tabla de transiciones que diseñéis basándoos en <a href="#sec:fsm_simone_spec">la especificación de la FSM</a>. <span style="color: Red"><strong>Debéis  completar el fichero de cabecera con los prototipos de función y añadir cualquier <code>#include</code>, <code>#define</code>, o función auxiliar que consideréis necesaria para el correcto funcionamiento.</strong></span></p>
+<p>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT y COMMON</strong> de la librería de <em>Simone</em> correspondientes a la versión <code>V4</code>: <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v4">https://github.com/sdg2DieUpm/simone/tree/simone_v4</a> y colócalos en las carpetas correspondientes de tu proyecto.</p>
+<h2 id="sec:fsm_simone_spec"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5</span> FSM Simone. Especificación detallada<a class="headerlink" href="#sec:fsm_simone_spec" title="Permanent link">¶</a></h2>
+<p>En esta ocasión no se proporciona la máquina de estados, ni funciones, ni API. Se dará el detalle de la lógica de control del juego y algún detalle de implementación más crítico, así como las restricciones a implementar.</p>
+<p>La lógica del juego es más compleja que la de un simple periférico. El sistema debe ser capaz de generar secuencias aleatorias, reproducirlas respetando tiempos, esperar la entrada del usuario, validar dicha entrada en tiempo real y gestionar la victoria o la derrota. Para gobernar todo esto, utilizaremos una FSM central que orquestará el funcionamiento del juego.</p>
+<div class="admonition info">
+<p class="admonition-title">Objetivo</p>
+<p>El objetivo de esta versión es implementar la lógica de control del juego en <code>fsm_simone.c</code> y <code>fsm_simone.h</code>. La parte dependiente del hardware (<code>PORT</code>) relacionada con la temporización del juego (<code>port_simone</code>) <strong>se os proporciona parcialmente implementada para facilitar la integración</strong>.</p>
+</div>
+<h3 id="definicion-de-la-estructura-de-datos"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.1</span> Definición de la estructura de datos<a class="headerlink" href="#definicion-de-la-estructura-de-datos" title="Permanent link">¶</a></h3>
+<p>Antes de dibujar estados y transiciones, es fundamental entender qué datos necesita manejar nuestra máquina para funcionar. La estructura de datos <code>fsm_simone_t</code> actúa como la memoria del juego. Aparte de los punteros a las otras FSM (teclado, botón, luces), necesitamos variables para gestionar la secuencia. <strong>Complétala con los detalles que se indican a continuación</strong>.</p>
+<p>Hay que tener cuidado de no confundir los <strong>diferentes índices que gestionan el progreso del juego</strong>. Observa los campos definidos en la estructura:</p>
+<ul>
+<li><strong>FSMs de los elementos</strong>:</li>
+<li><code>f</code>: estructura base de la FSM de Simone de tipo sm_t` y que <strong>ha de ser el primer elemento de la estructura</strong>.</li>
+<li><code>p_fsm_button</code>: puntero a la FSM del botón de usuario.</li>
+<li><code>p_fsm_keyboard</code>: puntero a la FSM del teclado matricial.</li>
+<li>
+<p><code>p_fsm_rgb_light</code>: puntero a la FSM del LED RGB.</p>
+</li>
+<li>
+<p><strong>Secuencia de datos</strong>:</p>
+</li>
+<li><code>seq_colors</code>: un array que almacena la lista de <code>`SEQUENCE_LENGTH</code> <strong>colores</strong> (<code>rgb_color_t</code>) de la secuencia actual.</li>
+<li><code>seq_intensities</code>: un array paralelo al anterior, también de longitud <code>SEQUENCE_LENGTH</code>, y que almacena la <strong>intensidad</strong> ([0-100]) de cada color como un entero.</li>
+<li>
+<p><code>level</code>: almacena como un entero el nivel de dificultad actual definido en un enumerado (fácil, medio, difícil).</p>
+</li>
+<li>
+<p><strong>Índices de control</strong> (¡Cuidado aquí!):</p>
+</li>
+<li><code>seq_idx</code>: indica la <strong>longitud actual</strong> de la secuencia que se debe jugar. Si estamos en la ronda 3, este índice valdrá 3. Determina hasta dónde tiene que llegar la máquina reproduciendo y hasta dónde tiene que llegar el jugador repitiendo.</li>
+<li><code>playback_idx</code>: es el índice de <strong>Simone</strong>. Recorre la secuencia del array de colores y de intensidades. Indica qué color de la secuencia se está mostrando actualmente por los LED.</li>
+<li>
+<p><code>player_idx</code>: es el índice del <strong>jugador</strong>. Recorre también la secuencia, pero para comparar si el valor pulsado por el usuario es correcto.</p>
+</li>
+<li>
+<p><strong>Flags y otros campos</strong>:</p>
+</li>
+<li><code>player_key</code>: almacena <strong>el caracter</strong> de la tecla que acaba de pulsar el usuario para poder verificarla con la correspondiente del color que debería haber pulsado el usuario</li>
+<li><code>playback_over</code>: es un <strong>booleano</strong> que usaremos para controlar el parpadeo de los LED (encendido/apagado) durante la reproducción de la secuencia de colores.</li>
+<li><code>level</code>: almacena el nivel de dificultad actual del juego como un entero. Albergará los valores del enumerado que contiene los niveles <code>LEVEL_EASY</code>, <code>LEVEL_MEDIUM</code> y <code>LEVEL_HARD</code>.</li>
+<li><code>on_off_press_time_ms</code>: entero que almacena el tiempo que el botón de usuario ha estado presionado (para gestionar el encendido y apagado del sistema).</li>
+</ul>
+<p><strong>Completa la estructura y documéntala en <code>fsm_simone.h</code>.</strong></p>
+<div class="admonition tip">
+<p class="admonition-title">Consejo sobre los índices</p>
+<p>El juego consiste esencialmente en comparar índices.</p>
+<ol>
+<li>La máquina Simone reproduce desde <code>0</code> hasta <code>seq_idx</code> usando su índice <code>playback_idx</code>.</li>
+<li>El jugador repite desde <code>0</code> hasta <code>seq_idx</code> usando su índice <code>player_idx</code>.</li>
+<li>Si <code>player_idx</code> alcanza a <code>seq_idx</code> es que todo han sido aciertos, por tanto ¡ronda superada! Se incrementa <code>seq_idx</code> y vuelta a empezar.</li>
+</ol>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">Importante: Nombres de las constantes</p>
+<p>Para que vuestro código pase los test automáticos de los profesores, debéis respetar escrupulosamente los nombres de los <code>#define</code> de tiempos y teclas, así como los nombres de los estados en el <code>enum FSM_SIMONE</code> definidos en el fichero de cabecera proporcionado.</p>
+</div>
+<h3 id="especificacion-de-la-maquina-de-estados"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2</span> Especificación de la máquina de estados<a class="headerlink" href="#especificacion-de-la-maquina-de-estados" title="Permanent link">¶</a></h3>
+<p>El juego consta de <strong>7 estados</strong>: 5 de juego y 2 de gestión de bajo consumo. <strong>Mantén los nombres proporcionados de los estados.</strong> Tienes que <strong>completar y documentar todas las funciones de la tabla de transiciones y funciones auxiliares faltantes, así como la propia tabla de transiciones.</strong> Sigue los criterios que hemos usado en las tres versiones anteriores.</p>
+<p>La lógica del juego se divide en los siguientes estados principales. Estudia detenidamente qué debe ocurrir en cada uno y, sobre todo, qué condiciones provocan las transiciones a los siguientes estados.</p>
+<h4 id="sec:estado-idle"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.1</span> Estado <code>IDLE</code><a class="headerlink" href="#sec:estado-idle" title="Permanent link">¶</a></h4>
+<p>Es el estado de reposo. El sistema está dormido esperando a que el usuario quiera jugar.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Entradas</strong></th>
+<th style="text-align: center;"><strong>Salidas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>(1)</strong> al arrancar el sistema</td>
+<td style="text-align: center;"><a href="#cond:simone_idle_on"><strong>(1)</strong> Por encendido del usuario</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>(2)</strong> Por victoria (desde <a href="#sec:estado-wait_key"><code>WAIT_KEY</code></a>)</td>
+<td style="text-align: center;"><a href="#cond:simone_idle_no_activity"><strong>(2)</strong> Por inactividad</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>(3)</strong> Por derrota (desde <a href="#sec:estado-wait_key"><code>WAIT_KEY</code></a>)</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>(4)</strong> Por apagado del usuario (desde <a href="#sec:estado-wait_key"><code>WAIT_KEY</code></a>)</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cond:simone_idle_on"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.1.1</span> Transición (1): Por encendido del usuario<a class="headerlink" href="#cond:simone_idle_on" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_on()</code> debe detectar si el jugador ha pulsado el botón de usuario durante el tiempo definido en <code>main.c</code> (<code>SIMONE_ON_OFF_PRESS_TIME_MS</code>). Si esto sucede, pasará al estado <a href="#sec:estado-add_color"><code>ADD_COLOR</code></a> para iniciar la partida.</p>
+<p>La <strong>función de acción</strong> <code>do_init_game()</code> inicializa las variables del juego. Debe resetear la duración del botón de usuario, la tecla del teclado matricial, los índices de control (<code>seq_idx</code>, <code>playback_idx</code>, <code>player_idx</code>), y las variables <code>playback_over</code>, y <code>player_key</code> (esta última al carácter definido en <code>KEY_NO_KEY_PRESSED</code>).</p>
+<p>El nivel de dificultad lo inicializa a <code>LEVEL_EASY</code>. Inicializa cada elemento del array de secuencia de colores al color <code>color_off</code> (ver colores en <code>rgb_colors.c</code>), y cada elemento del array de las intensidades a <code>0</code>.</p>
+<p>Llama a una <strong>función privada auxiliar</strong> (<code>_add_color()</code>) pasándole un puntero a la máquina de estados de Simone <strong>para añadir un color e intensidad aleatorios a la secuencia</strong>. Será el primer color de la ronda 1.</p>
+<p>Para que el LED RGB muestre el color, esta función debe activar el <em>status</em> de la FSM RGB light llamando a la función apropiada de dicha FSM.</p>
+<p>Por último, antes de salir, imprime un mensaje de inicio al usuario. Algo como: <code>
+<code>printf("[SIMONE][%ld] Simone game INIT\n", port_system_get_millis());</code>
+</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Función auxiliar <code>_add_color</code></p>
+<p>Esta función privada que encapsula la generación aleatoria recibe un puntero a la FSM de Simone y debe:</p>
+<ol>
+<li>
+<p>Generar un índice aleatorio para seleccionar un color del array <code>p_colors_library</code>. Este array debe colocarse al inicio de <code>fsm_simone.c</code> y contiene direcciones los 6 colores usados en el juego.</p>
+<div class="highlight"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">rgb_color_t</span><span class="w"> </span><span class="o">*</span><span class="n">p_colors_library</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="o">&amp;</span><span class="n">color_red</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color_green</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color_blue</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color_yellow</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color_turquoise</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">color_white</span><span class="p">};</span>
+</code></pre></div>
+<p>Para generar el índice aleatorio usa la función <code>rand()</code> de la <code>&lt;stdlib.h&gt;</code>, y el operador módulo <code>%</code> para acotar el valor al rango <code>0</code> a <code>NUMBER_OF_COLORS_GAME</code>. El valor aleatorio se generará gracias a la semilla <code>srand()</code> iniciada en <code>fsm_simone_init()</code>.</p>
+</li>
+<li>
+<p>Generar una intensidad aleatoria respetando los rangos definidos para el nivel actual (usando los define <code>LEVEL_X_MIN_INTENSITY</code>).</p>
+<p>Como la función <code>rand()</code> devuelve un valor entre <code>0</code> y <code>RAND_MAX</code>, puedes usar la siguiente fórmula para acotar el valor al rango deseado:</p>
+<div class="highlight"><pre><span></span><code><span class="n">random_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">random_num</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="n">max</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">min</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">min</span><span class="p">;</span>
+</code></pre></div>
+<p>Donde los valores máximos y mínimos dependen del nivel actual <code>level</code>.</p>
+</li>
+<li>
+<p>Si <code>seq_idx</code> ha alcanzado el valor <code>SEQUENCE_LENGTH</code>, reseteamos <code>seq_idx</code>. Si no, guardamos el color e intensidad generados en las posiciones <code>seq_idx</code> de los arrays <code>seq_colors</code> y <code>seq_intensities</code>, respectivamente, y luego incrementamos <code>seq_idx</code> en 1.</p>
+</li>
+</ol>
+</div>
+<h5 id="cond:simone_idle_no_activity"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.1.2</span> Transición (2): Por inactividad<a class="headerlink" href="#cond:simone_idle_no_activity" title="Permanent link">¶</a></h5>
+<p>Si no hay actividad, el sistema puede dormirse pasando al estado <code>SLEEP_WHILE_IDLE</code>.</p>
+<p>La <strong>función de comprobación</strong> <code>check_no_activity()</code> devuelve directamente el valor inverso al de su contraria <code>check_activity()</code>. Esta última, lo que hace es devolver <code>true</code> si alguna de las FSM de los elementos (botón, teclado, RGB light) está activa. Para ello, llama a las funciones de comprobación de actividad que hemos implementado en la <a href="#sec:low_power_modes">sección de bajo consumo</a> (<code>fsm_xxx_check_activity()</code>).</p>
+<p>La <strong>función de acción</strong> <code>do_sleep_idle()</code> debe poner el sistema en un estado de bajo consumo. Para ello llama a la función de <em>sleep</em> del <code>PORT</code> del sistema que hemos implementado en la <a href="#sec:low_power_modes">sección de bajo consumo</a>.</p>
+<p>Aquí tienes la especificación para el estado <code>ADD_COLOR</code>, siguiendo el mismo formato, estilo y estructura que tu ejemplo de <code>IDLE</code>.</p>
+<h4 id="sec:estado-add_color"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.2</span> Estado <code>ADD_COLOR</code><a class="headerlink" href="#sec:estado-add_color" title="Permanent link">¶</a></h4>
+<p>Este es un estado de transición. El sistema no se detiene aquí esperando eventos externos, sino que realiza las operaciones lógicas necesarias para preparar la secuencia de la siguiente ronda antes de reproducirla.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas</strong></th>
+<th><strong>Salidas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(1)</strong> Al iniciar partida (desde <a href="#sec:estado-idle"><code>IDLE</code></a>)</td>
+<td><a href="#cond:simone_add_color_added"><strong>(1)</strong> Secuencia actualizada</a></td>
+</tr>
+<tr>
+<td><strong>(2)</strong> Al completar ronda (desde <a href="#sec:estado-wait_key"><code>WAIT_KEY</code></a>)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cond:simone_add_color_added"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.2.1</span> Transición (1): Secuencia actualizada<a class="headerlink" href="#cond:simone_add_color_added" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_color_added()</code> verifica si la longitud de la secuencia (<code>seq_idx</code>) es diferente del índice del jugador (<code>player_idx</code>). Como la la función auxiliar <code>_add_color()</code> habrá añadido un nuevo color, esta condición se cumplirá inmediatamente, permitiendo el paso al estado de reproducción de la secuencia <a href="#sec:estado-playback"><code>PLAYBACK</code></a>.</p>
+<p>La <strong>función de acción</strong> <code>do_playback()</code> es el <strong><em>core</em> de la reproducción</strong>. Su objetivo es gestionar el parpadeo de los LED respetando los tiempos de cada nivel. Dado que esta función se llama repetidamente, utiliza la variable <code>playback_over</code> como un selector para <strong>alternar entre dos fases: mostrar color y pausa.</strong></p>
+<p><strong id="fig:flowchart_do_playback">Flujograma de implementación:</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    Start([do_playback]) --&gt; Guard{"¿secuencia recorrida por completo?"}
+
+    %% Guarda de seguridad
+    Guard -- "&lt;code&gt;true&lt;/code&gt;" --&gt; EndReturn([&lt;code&gt;return&lt;/code&gt;])
+
+    Guard -- &lt;code&gt;false&lt;/code&gt; --&gt; ResetHW["1. Reset flag timer Simone&lt;br/&gt;2. Stop escaneo del teclado"]
+
+    ResetHW --&gt; CheckPhase{"playback_over"}
+
+    %% RAMA 1: MOSTRAR COLOR (playback_over == false)
+    CheckPhase -- "&lt;code&gt;false&lt;/code&gt;" --&gt; LedOn["1. Coger color e intensidad de los arrays.&lt;br/&gt;2. Llamar función de la FSM del LED RGB para poner color e intensidad."]
+    LedOn --&gt; SetTimerOn["1. Seleccionar duración de ON según nivel de dificultad&lt;br/&gt;2. Set timer de Simone con  duración."]
+    SetTimerOn --&gt; UpdateFlagOn["&lt;code&gt;playback_over = true&lt;/code&gt;"]
+    UpdateFlagOn --&gt; EndFunc([&lt;code&gt;return&lt;/code&gt;])
+
+    %% RAMA 2: PAUSA / GAP (playback_over == true)
+    CheckPhase -- "&lt;code&gt;true&lt;/code&gt;" --&gt; LedOff["Llamar función de la FSM del LED RGB para poner color &lt;code&gt;color_off&lt;/code&gt;."]
+    LedOff --&gt; IncIdx["Set timer de Simone con duración de pausa entre colores."]
+    IncIdx --&gt; UpdateFlagOff["1. &lt;code&gt;playback_idx++&lt;/code&gt;&lt;br/&gt;2. &lt;code&gt;playback_over=false&lt;/code&gt;"]
+
+    %% Comprobación de fin de secuencia
+    UpdateFlagOff --&gt; CheckEnd{"&lt;code&gt;playback_idx&gt;=seq_idx&lt;/code&gt;"}
+    CheckEnd -- "&lt;code&gt;true&lt;/code&gt;" --&gt; SetMarker["Marcar fin de playback"]
+    CheckEnd -- "&lt;code&gt;false&lt;/code&gt;" --&gt; EndFunc
+    SetMarker --&gt; EndFunc
+
+    %% Estilos para facilitar lectura
+    style Start fill:#f9f,stroke:#333,stroke-width:2px
+    style EndReturn fill:#faa,stroke:#333
+    style EndFunc fill:#ccf,stroke:#333
+    style CheckPhase fill:#ffd,stroke:#333,stroke-width:2px</code></pre>
+<p>Aunque el diagrama resume el flujo lógico, la implementación correcta de <code>do_playback()</code> requiere prestar atención a varios detalles técnicos para mantener la estabilidad del sistema:</p>
+<ol>
+<li><strong>La naturaleza no bloqueante del temporizador</strong>: Cuando el diagrama indica "Set timer de Simone", debes llamar a <code>port_simone_set_timer_timeout()</code>. Hay que entender que esta función <strong>no detiene la ejecución del código</strong> (no es un <code>delay</code>), sino que  programa una interrupción futura. El microcontrolador se dormirá en el estado <code>SLEEP_WHILE_PLAYBACK</code> hasta que ese tiempo expire, interrumpa y vuelva a comprobarse la tabla de transiciones.</li>
+<li><strong>Protección contra entradas espurias</strong>: Una de las primeras acciones es detener el escaneo del teclado. Si no se hace, el usuario podría pulsar teclas mientras se muestran las luces; esas pulsaciones se quedarían guardadas en el <em>struct</em> HW del teclado y se procesarían erróneamente en cuanto el juego pasara al estado de espera, provocando que se detecte como una tecla mal pulsada al inicio de la ronda siguiente.</li>
+<li><strong>Acceso a la memoria de la secuencia</strong>: En la fase de encendido, debes recuperar la información almacenada previamente. Usa la variable <code>playback_idx</code> para acceder a los arrays paralelos <code>seq_colors</code> y <code>seq_intensities</code>. Recuerda que la función de encendido del LED (<code>fsm_rgb_light_set_color_intensity</code>) requiere ambos parámetros.</li>
+<li><strong>Sincronización de índices</strong>: Fíjate bien en la comparación final. Comparamos <code>playback_idx</code> (lo que estamos mostrando ahora) con <code>seq_idx</code> (la longitud total de la secuencia actual).<ul>
+<li>Si <code>seq_idx</code> es 3, significa que hay colores en las posiciones 0, 1 y 2.</li>
+<li>Cuando terminamos de mostrar el color 2 y su pausa, incrementamos <code>playback_idx</code> a 3.</li>
+<li>Como 3 es mayor o igual que 3, sabemos que hemos terminado.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">El marcador de fin de playback</p>
+<p>Para marcar el final de <em>playback</em> y poder comprobar al inicio si ha acabado o no, podemos usar varios mecanismos. Puedes usar, por ejemplo, una variable global, o puedes usar un valor inválido (que nunca vaya a ocurrir en el índice <code>playback_idx</code>). Cualquiera que uses, ten en cuenta que este marcador será la forma de comunicar  a la función de comprobación <code>check_playback_over()</code> que la tarea de reproducción ha concluido.</p>
+</div>
+<h4 id="sec:estado-playback"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.3</span> Estado <code>PLAYBACK</code><a class="headerlink" href="#sec:estado-playback" title="Permanent link">¶</a></h4>
+<p>En este estado el sistema ha tomado el control para mostrar la secuencia de colores al jugador como se ha mostrado en el <a href="#fig:flowchart_do_playback">flujograma de <code>do_playback</code></a>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas</strong></th>
+<th><strong>Salidas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(1)</strong> Desde <a href="#estado-add_color"><code>ADD_COLOR</code></a></td>
+<td><a href="#cond:simone_playback_off"><strong>(1)</strong> Apagado manual</a></td>
+</tr>
+<tr>
+<td><strong>(2)</strong> Desde <a href="#estado-sleep_while_playback"><code>SLEEP_WHILE_PLAYBACK</code></a></td>
+<td><a href="#cond:simone_playback_over"><strong>(2)</strong> Turno del jugador</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#cond:simone_playback_no_activity"><strong>(3)</strong> Por inactividad</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cond:simone_playback_off"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.3.1</span> Transición (1): Apagado manual<a class="headerlink" href="#cond:simone_playback_off" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_off()</code> verifica si el botón de la placa se ha mantenido pulsado el tiempo suficiente. Es idéntica a la función <code>check_on()</code>. Si se cumple, el sistema debe volver al estado de reposo <a href="#sec:estado-idle"><code>IDLE</code></a>.</p>
+<p>La <strong>función de acción</strong> <code>do_stop_simone()</code>: <strong>resetea la duración</strong> del botón de usuario, <strong>desactiva el estado</strong> del LED, <strong>resetea el nivel</strong> de dificultad a <code>LEVEL_EASY</code>, e imprime un <strong>mensaje</strong> de despedida indicando que el juego ha terminado y que puede presionar el botón para iniciar una nueva partida.</p>
+<h5 id="cond:simone_playback_over"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.3.2</span> Transición (2): Turno del jugador<a class="headerlink" href="#cond:simone_playback_over" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_playback_over()</code> determina si la máquina ha terminado de reproducir toda la secuencia y, además, ha terminado el tiempo de espera del último apagado. Debe devolver <code>true</code> <strong>solo si</strong> se cumplen dos condiciones simultáneamente:</p>
+<ol>
+<li>El marcador de fin de reproducción está activado (establecido en <code>do_playback()</code>).</li>
+<li>El temporizador ha expirado (<code>port_simone_get_timeout_status()</code>).</li>
+</ol>
+<p>La <strong>función de acción</strong> <code>do_start_player_sequence()</code> prepara el sistema para escuchar al usuario. La función debe:</p>
+<ol>
+<li><strong>Reiniciar flag</strong> <code>playback_over</code> y <strong>reiniciar el índice</strong> del jugador <code>player_idx</code> para empezar a comprobar desde el principio.</li>
+<li><strong>Apagar LED</strong> con el color <code>color_off</code> llamando a la función correspondiente de la FSM del LED.</li>
+<li><strong>Set timeout</strong> del temporizador con el tiempo máximo que tiene el usuario para reaccionar (<code>SIMONE_TIME_WAIT_INPUT_MS</code>).</li>
+<li><strong>Iniciar el escaneo del teclado</strong> llamando a la función correspondiente de la FSM del teclado, ya que se desactivó durante la reproducción.</li>
+<li><strong>Imprimir</strong> un mensaje por consola informando al usuario de que es su turno y cuántos segundos tiene para responder entre pulsaciones.</li>
+</ol>
+<h5 id="cond:simone_playback_no_activity"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.3.3</span> Transición (3): Por inactividad<a class="headerlink" href="#cond:simone_playback_no_activity" title="Permanent link">¶</a></h5>
+<p>Si no ha expirado el temporizador mientras mostramos un color o una pausa, el sistema puede dormirse para ahorrar energía.</p>
+<p>La <strong>función de comprobación</strong> <code>check_no_activity()</code> devuelve el valor inverso al de su contraria <code>check_activity()</code>.</p>
+<p>La <strong>función de acción</strong> <code>do_sleep_playback()</code> debe poner el sistema en un estado de bajo consumo. Para ello llama a la función de <em>sleep</em> del <code>PORT</code> del sistema que hemos implementado en la <a href="#sec:low_power_modes">sección de bajo consumo</a>.</p>
+<h4 id="sec:estado-wait_key"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.4</span> Estado <code>WAIT_KEY</code><a class="headerlink" href="#sec:estado-wait_key" title="Permanent link">¶</a></h4>
+<p>Es el turno del jugador. El sistema espera cualquier reacción por parte del usuario, ya sea para apagar el juego, introducir una tecla de la secuencia, o porque se ha agotado el tiempo.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas</strong></th>
+<th><strong>Salidas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(1)</strong> Desde <a href="#sec:estado-playback"><code>PLAYBACK</code></a></td>
+<td><a href="#cond:simone_wait_key_off"><strong>(1)</strong> Apagado manual</a></td>
+</tr>
+<tr>
+<td><strong>(2)</strong> Desde <a href="#sec:estado-verify_input"><code>VERIFY_INPUT</code></a></td>
+<td><a href="#cond:simone_wait_key_winner"><strong>(2)</strong> Victoria final</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#cond:simone_wait_key_timeout"><strong>(3)</strong> Derrota por tiempo</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#cond:simone_wait_key_round_end"><strong>(4)</strong> Fin de ronda</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#cond:simone_wait_any_key"><strong>(5)</strong> Pulsación de una tecla</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cond:simone_wait_key_off"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.4.1</span> Transición (1): Apagado manual<a class="headerlink" href="#cond:simone_wait_key_off" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_off()</code> verifica si el botón de la placa se ha mantenido pulsado el tiempo suficiente. Es idéntica a la función <code>check_on()</code>. Si se cumple, el sistema debe volver al estado de reposo <a href="#sec:estado-idle"><code>IDLE</code></a>.</p>
+<p>La <strong>función de acción</strong> <code>do_stop_simone()</code>: <strong>resetea la duración</strong> del botón de usuario, <strong>desactiva el estado</strong> del LED, <strong>resetea el nivel</strong> de dificultad a <code>LEVEL_EASY</code>, e imprime un <strong>mensaje</strong> de despedida indicando que el juego ha terminado y que puede presionar el botón para iniciar una nueva partida.</p>
+<h5 id="cond:simone_wait_key_winner"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.4.2</span> Transición (2): Victoria final<a class="headerlink" href="#cond:simone_wait_key_winner" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_winner()</code> es la más estricta. Deben cumplirse 3 condiciones: se cumple solo si (1) el jugador ha terminado la secuencia (debes jugar con los índices del jugador y la secuencia), (2) el índice que recorre el array de la secuencia ha llegado o superado la longitud máxima (<code>SEQUENCE_LENGTH</code>) y, además, (3) estamos en el nivel <code>level</code> de dificultad más alto (<code>LEVEL_HARD</code>).</p>
+<p>Si se cumplen estas 3 condiciones, el jugador ha ganado la partida y pasa al estado de reposo <a href="#sec:estado-idle"><code>IDLE</code></a>.</p>
+<p>La <strong>función de acción</strong> <code>do_winner()</code> <strong>detiene el temporizador</strong> (<code>port_simone_stop_timer()</code>), y muestra un <strong>mensaje</strong> de felicitación por consola indicando cuántos colores ha conseguido recordar el jugador.</p>
+<h5 id="cond:simone_wait_key_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.4.3</span> Transición (3): Derrota por tiempo<a class="headerlink" href="#cond:simone_wait_key_timeout" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_player_key_timeout()</code> verifica si el temporizador de espera de usuario ha expirado (<code>port_simone_get_timeout_status()</code>). Si el jugador tarda demasiado en pensar (<code>SIMONE_TIME_WAIT_INPUT_MS</code>), la condición se cumple y pasa al estado de reposo <a href="#sec:estado-idle"><code>IDLE</code></a>.</p>
+<p>La <strong>función de acción</strong> <code>do_game_over_timeout()</code> gestiona el fin de la partida por tiempo. <strong>Detiene el temporizador</strong> (<code>port_simone_stop_timer()</code>), <strong>reinicia todos</strong> los índices y elementos de la estructura de Simone (<code>seq_idx</code>, <code>player_idx</code>, etc.), <strong>detiene el escaneo</strong> del teclado antes de volver al reposo. Por último imprime un <strong>mensaje</strong> de <em>Game Over</em>, indicando alguna estadística relevante (por ejemplo, cuántos colores ha conseguido recordar el jugador).</p>
+<h5 id="cond:simone_wait_key_round_end"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.4.4</span> Transición (4): Fin de ronda<a class="headerlink" href="#cond:simone_wait_key_round_end" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_player_round_end()</code> verifica si (1) el jugador ha reproducido con éxito toda la secuencia actual (comparando los índices <code>player_idx</code> y <code>seq_idx</code>), pero (2) aún no ha cumplido las condiciones de victoria total; esto es, no ha alcanzado la longitud máxima de la secuencia o no está en el nivel más alto.</p>
+<p>Si se cumplen estas dos condiciones, el jugador ha superado la ronda y pasa al estado <a href="#sec:estado-add_color"><code>ADD_COLOR</code></a> para preparar la siguiente ronda.</p>
+<p>La <strong>función de acción</strong> <code>do_add_color()</code> prepara el sistema para el siguiente nivel o secuencia. Puedes ver su lógica detallada en el <a href="#fig:flowchart_do_add_color">flujograma</a>.</p>
+<p><strong id="fig:flowchart_do_add_color">Flujograma de implementación:</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    Start([do_add_color]) --&gt; ResetVars["Reset de &lt;code&gt;player_idx&lt;/code&gt;, &lt;code&gt;playback_idx&lt;/code&gt; y &lt;code&gt;playback_over&lt;/code&gt;"]
+
+    ResetVars --&gt; CheckLevelUp{"Array lleno &amp; nivel &lt; HARD"}
+
+    %% RAMA 1: SUBIR NIVEL
+    CheckLevelUp -- "&lt;code&gt;true&lt;/code&gt;" --&gt; LevelUp["1. Subir nivel&lt;br/&gt;2. Reiniciar &lt;code&gt;seq_idx&lt;/code&gt;&lt;br/&gt;3. Imprimir mensaje de aviso"]
+    LevelUp --&gt; AddSeq
+
+    %% RAMA 2: MANTENER NIVEL
+    CheckLevelUp -- "&lt;code&gt;false&lt;/code&gt;" --&gt; AddSeq["Llamar a &lt;code&gt;_add_sequence(p_fsm)&lt;/code&gt;"]
+
+    AddSeq --&gt; EndFunc([&lt;code&gt;return&lt;/code&gt;])
+
+    %% Estilos de formato
+    style Start fill:#f9f,stroke:#333,stroke-width:2px
+    style EndFunc fill:#ccf,stroke:#333
+    style CheckLevelUp fill:#ffd,stroke:#333,stroke-width:2px
+</code></pre>
+<h5 id="cond:simone_wait_any_key"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.4.5</span> Transición (5): Pulsación de una tecla<a class="headerlink" href="#cond:simone_wait_any_key" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_any_key_pressed()</code> utiliza el driver del teclado para detectar si hay alguna tecla disponible en el buffer. Devuelve <code>true</code> si el usuario ha pulsado algo (valor de tecla leída es distinto de <code>KEY_NO_KEY_PRESSED</code>). En tal caso, el sistema transiciona al estado intermedio <a href="#sec:estado-verify_input"><code>VERIFY_INPUT</code></a> para validar la pulsación.</p>
+<p>La <strong>función de acción</strong> <code>do_capture_input()</code> realiza de nuevo la lectura de la tecla pulsada y proporciona <em>feedback</em> visual inmediato al usuario del color de la tecla que haya pulsado (sea correcta, o no). Debe:</p>
+<ol>
+<li><strong>Obtiene la tecla del teclado</strong> y la guarda en la variable <code>player_key</code>. Luego, <strong>resetea el valor de la tecla</strong> del teclado para evitar lecturas repetidas usando la función correspondiente de la FSM del teclado.</li>
+<li><strong>Traduce la tecla a color</strong> usando la función auxiliar <code>_get_color_from_key()</code>, y <strong>enciende el LED</strong> al máximo brillo con el color resultante.</li>
+<li>Pone el temporizador de Simone con un tiempo breve de <em>feedback</em> visual (definido en <code>SIMONE_TIME_VISUAL_FEEDBACK_MS</code>).</li>
+</ol>
+<h4 id="sec:estado-verify_input"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.5</span> Estado <code>VERIFY_INPUT</code><a class="headerlink" href="#sec:estado-verify_input" title="Permanent link">¶</a></h4>
+<p>Este es un estado temporal de retención. El sistema entra aquí justo después de que el usuario pulse una tecla para mantener el LED encendido durante un breve instante (<code>SIMONE_TIME_VISUAL_FEEDBACK_MS</code>), permitiendo al jugador ver qué color ha seleccionado. En este estado se comprueba si la tecla leída es la esperada, o no.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas</strong></th>
+<th><strong>Salidas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(1)</strong> Desde <a href="#sec:estado-wait_key"><code>WAIT_KEY</code></a></td>
+<td><a href="#cond:simone_verify_valid"><strong>(1)</strong> Tecla correcta</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a href="#cond:simone_verify_invalid"><strong>(2)</strong> Tecla incorrecta</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cond:simone_verify_valid"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.5.1</span> Transición (1): Tecla correcta<a class="headerlink" href="#cond:simone_verify_valid" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_input_valid()</code> realiza una validación en dos pasos:</p>
+<ol>
+<li><strong>Espera visual:</strong> Primero verifica si el temporizador de feedback visual ha expirado (<code>!port_simone_get_timeout_status()</code>). Si el tiempo no ha pasado, devuelve <code>false</code> y sale de la función.</li>
+<li><strong>Validación lógica:</strong> Si el tiempo ha pasado, compara la tecla pulsada guardada en la estructura con la esperada según la secuencia (ayúdate de la función auxiliar <code>_get_key_from_color()</code>). Devuelve <code>true</code> solo si coinciden. En este caso transicionará de vuelta al estado <a href="#sec:estado-wait_key"><code>WAIT_KEY</code></a> para esperar la siguiente pulsación.</li>
+</ol>
+<p>La <strong>función de acción</strong> <code>do_valid_key()</code> consolida el progreso del jugador. Debe:</p>
+<ol>
+<li><strong>Apagar</strong> el LED con el color <code>color_off</code>.</li>
+<li><strong>Aumentar</strong> el índice del jugador.</li>
+<li><strong>Reiniciar la tecla</strong> guardada en la estructura a <code>KEY_NO_KEY_PRESSED</code>.</li>
+<li><strong>Reiniciar el temporizador</strong> (<code>port_simone_set_timer_timeout()</code>) para dar tiempo al usuario a pulsar la siguiente tecla.</li>
+</ol>
+<h5 id="cond:simone_verify_invalid"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.5.2</span> Transición (2): Tecla incorrecta<a class="headerlink" href="#cond:simone_verify_invalid" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_input_invalid_finished()</code> sigue la misma lógica temporal que la anterior, pero devuelve <code>true</code> si la tecla pulsada es <strong>diferente</strong> a la esperada.</p>
+<p>La <strong>función de acción</strong> <code>do_game_over_invalid_key()</code> gestiona la derrota:</p>
+<ol>
+<li><strong>Apaga</strong> el LED para finalizar el feedback.</li>
+<li><strong>Reinicia</strong> todos los elementos de la estructura de Simone (<code>seq_idx</code>, <code>player_idx</code>, <code>player_key</code>, etc.) para que la próxima vez se empiece desde cero.</li>
+<li><strong>Reiniciar el temporizador</strong> de Simone (<code>port_simone_stop_timer()</code>) y <em>detiene el escaneo</em>* del teclado usando la función correspondiente de la FSM del teclado.</li>
+<li><strong>Muestra por consola</strong> información sobre qué tecla se esperaba y cuál se pulsó realmente, junto con un mensaje de <em>Game Over</em>. Hace uso de la función auxiliar <code>_get_key_from_color()</code>.</li>
+</ol>
+<h4 id="sec:estado-sleep_while_idle"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.6</span> Estado <code>SLEEP_WHILE_IDLE</code><a class="headerlink" href="#sec:estado-sleep_while_idle" title="Permanent link">¶</a></h4>
+<p>Es el estado de bajo consumo. El sistema entra aquí cuando está en reposo (<code>IDLE</code>) y no hay ninguna interacción por parte del usuario, permitiendo ahorrar energía mientras se espera a que se inicie una nueva partida.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas</strong></th>
+<th><strong>Salidas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(1)</strong> Desde <a href="#sec:estado-idle"><code>IDLE</code></a></td>
+<td><a href="#cond:simone_sleep_idle_wake"><strong>(1)</strong> Detección de actividad</a></td>
+</tr>
+<tr>
+<td><strong>(2)</strong> Desde <a href="#sec:estado-sleep_while_idle"><code>SLEEP_WHILE_IDLE</code></a> (autotransición)</td>
+<td><a href="#cond:simone_sleep_idle_sleep"><strong>(2)</strong> Sin actividad</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cond:simone_sleep_idle_wake"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.6.1</span> Transición (1): Detección de actividad<a class="headerlink" href="#cond:simone_sleep_idle_wake" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_activity()</code> verifica si algún periférico ha generado un evento (botón pulsado, tecla pulsada, etc.). Al despertar por una interrupción, esta condición se cumple y el sistema transiciona de vuelta a <a href="#sec:estado-idle"><code>IDLE</code></a> para procesar dicho evento.</p>
+<p>En esta transición <strong>no hay función de acción</strong> asociada (es <code>NULL</code>), ya que la propia salida del estado de sueño es suficiente para reactivar la lógica principal.</p>
+<h5 id="cond:simone_sleep_idle_sleep"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.6.2</span> Transición (2): Sin actividad<a class="headerlink" href="#cond:simone_sleep_idle_sleep" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_no_activity()</code> confirma que el sistema sigue inactivo. Esta autotransición sirve para gestionar el bajo consumo en modo depuración, cuando se despierta por un <em>breakpoint</em> o similar.</p>
+<p>La <strong>función de acción</strong> <code>do_sleep_idle()</code> detendrá el reloj de la CPU  hasta que ocurra la próxima interrupción.</p>
+<h4 id="sec:estado-sleep_while_playback"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.7</span> Estado <code>SLEEP_WHILE_PLAYBACK</code><a class="headerlink" href="#sec:estado-sleep_while_playback" title="Permanent link">¶</a></h4>
+<p>Este estado gestiona el bajo consumo <strong>durante la reproducción</strong>. Mientras el LED está encendido mostrando un color o apagado durante una pausa, no es necesario que la CPU esté consumiendo ciclos. El sistema duerme aquí hasta que el temporizador interrumpe.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Entradas</strong></th>
+<th><strong>Salidas</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>(1)</strong> Desde <a href="#sec:estado-playback"><code>PLAYBACK</code></a></td>
+<td><a href="#cond:simone_sleep_playback_timeout"><strong>(1)</strong> Timeout del color/pausa</a></td>
+</tr>
+<tr>
+<td><strong>(2)</strong> Desde <a href="#sec:estado-sleep_while_playback"><code>SLEEP_WHILE_PLAYBACK</code></a> (autotransición)</td>
+<td><a href="#cond:simone_sleep_playback_sleep"><strong>(2)</strong> Sin actividad</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="cond:simone_sleep_playback_timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.7.1</span> Transición (1): Timeout del color/pausa<a class="headerlink" href="#cond:simone_sleep_playback_timeout" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_playback_color_timeout()</code> consulta al si el temporizador (<code>port_simone_get_timeout_status()</code>) configurado en el paso anterior ha expirado. Si es así, significa que es hora de cambiar el estado del LED.</p>
+<p>La <strong>función de acción</strong> asociada es <code>do_playback()</code>. Esta transición devuelve al sistema al estado <a href="#sec:estado-playback"><code>PLAYBACK</code></a>, ejecutando inmediatamente la lógica de alternancia de luces (encender/apagar) descrita en el <a href="#fig:flowchart_do_playback">flujograma de dicho estado</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Funcionamiento cíclico</p>
+<p>Observa que el sistema entra y sale constantemente entre <code>PLAYBACK</code> y <code>SLEEP_WHILE_PLAYBACK</code>.</p>
+</div>
+<ol>
+<li><code>PLAYBACK</code> configura el LED y el temporizador, y salta a dormir.</li>
+<li>Espera dormido en bajo consumo.</li>
+<li>Timer interrumpe y vuelve a <code>PLAYBACK</code> para cambiar el LED, y puede volver a dormir de nuevo.</li>
+</ol>
+<h5 id="cond:simone_sleep_playback_sleep"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.7.2</span> Transición (2): Sin actividad<a class="headerlink" href="#cond:simone_sleep_playback_sleep" title="Permanent link">¶</a></h5>
+<p>La <strong>función de comprobación</strong> <code>check_no_activity()</code> verifica que no hay eventos pendientes.</p>
+<p>La <strong>función de acción</strong> <code>do_sleep_playback()</code> detendrá el reloj de la CPU  hasta que ocurra la próxima interrupción de la misma forma que lo hace <code>do_sleep_idle()</code>, o <code>do_sleep_playback()</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Funciones de bajo consumo</p>
+<p>Habrás notado que hay 3 funciones que hacen lo mismo: <code>do_sleep_idle()</code>, <code>do_sleep_playback()</code> y <code>do_sleep_playback()</code>. Esto es una buena práctica para poder saber dónde está y de dónde viene el sistema cuando se está depurando.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Bajo consumo durante la lectura del teclado</p>
+<p>Nótese que <strong>no hay bajo consumo en el estado <code>WAIT_KEY</code></strong>. Esto es intencionado, ya que el jugador debe poder interactuar en cualquier momento. Por la forma en la que se excitan y leen las filas y columnas, la gestión del bajo consumo aquí es posible, pero más complicada de manejar. <strong>Se deja como implementación a elegir en la Versión 5.</strong></p>
+</div>
+<h4 id="sec:v4_fsm_simone_init"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.8</span> Inicialización de la FSM Simone<a class="headerlink" href="#sec:v4_fsm_simone_init" title="Permanent link">¶</a></h4>
+<p>Ya hemos codificado las funciones de entrada y salida, ahora vamos a codificar las funciones privadas que nos quedan.</p>
+<p><strong>Codifica la función <code>fsm_simone_init()</code> de forma análoga a las anteriores máquinas de estados.</strong> </p>
+<ol>
+<li>Llama a la función <code>fsm_init()</code> pasándole el puntero a la máquina de estados, y el array de transiciones.</li>
+<li>Inicializa el HW asociado a la FSM de Simone llamando a <code>port_simone_init()</code>.</li>
+<li>Inicializa en la estructura todos los elementos que ser reciben: los punteros a las máquinas de estados de los elementos del sistema <em>Simone</em>, el tiempo de pulsación del botón para encender y apagar, y el nivel inicial. </li>
+<li>Inicializa la semilla aleatoria con la función <code>srand(time(NULL))</code> para asegurar que los números aleatorios generados sean diferentes en cada ejecución. Deberás importar la cabecera <code>&lt;time.h&gt;</code> para usar la función <code>time()</code>.</li>
+<li>Imprime un mensaje por consola indicando al usuario que debe pulsar el botón para iniciar una nueva partida.</li>
+</ol>
+<p><strong>Codifica las funciones <code>fsm_simone_fire()</code> y <code>fsm_simone_destroy()</code> de forma análoga a las anteriores máquinas de estados.</strong></p>
+<p>Ya hemos terminado con al FSM, ahora vamos a integrar todas las FSM en el <code>main.c</code> y a probarlo.</p>
+<h2 id="sec:v4_integration"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.6</span> Integración HW-SW de la FSM Simone<a class="headerlink" href="#sec:v4_integration" title="Permanent link">¶</a></h2>
+<p>Ha llegado la hora de integrar la parte HW-SW del sistema, y depurar. Vamos a escribir las líneas de código necesarias en <code>main.c</code> para probar que funciona. <strong>Procedamos</strong>:</p>
+<ol>
+<li>
+<p>Abre el fichero <code>main.c</code> e incluye las cabeceras necesarias.</p>
+</li>
+<li>
+<p>Define la macro <code>SIMONE_ON_OFF_PRESS_TIME_MS</code> como indica la API para definir una pulsación larga como aquella que supere <span class="arithmatex">\(1 s\)</span>. ¡Ojo, porque el tiempo hay que darlo en <strong>milisegundos</strong>! Este es el tiempo que se debe mantener pulsado el botón para encender y apagar el juego.</p>
+</li>
+<li>
+<p>Después de la inicialización del sistema con la llamada a la función <code>port_system_init()</code>, crea la máquina de estados para el <em>botón</em>. Dale un nombre representativo (*e.g.*, <code>p_fsm_button</code>). Para ello llama a la función <code>fsm_button_new()</code> con los argumentos necesarios. A continuación, haz lo propio con la máquina de estados del <em>teclado matricial</em>, y con la del <em>RGB light</em> trasero. Dales nombres representativos.</p>
+</li>
+<li>
+<p>Crea la máquina de estados para el sistema <em>Simone</em>, puedes darle un nombre representativo (*e.g.*, <code>p_fsm_simone</code>). ¡No pases los valores “a pincho”, usa los <code>#define</code> que has creado!</p>
+</li>
+<li>
+<p>En el bucle <code>while</code>, lanza constantemente la función <code>fsm_xxx_fire()</code>, para las máquinas de estados del <em>botón</em>, el teclado, el RGB light y <em>Simone</em>.</p>
+<p>Conviene que el sistema sea lo último porque depende de la actualización del estado de las FSM de los elementos anteriores.</p>
+</li>
+<li>
+<p>Por último solo nos queda un aspecto meramente formal, casi académico. Cuando creamos las máquinas de estado con las funciones <code>fsm_xxx_new()</code> estamos reservando memoria de forma dinámica (con la función <code>malloc()</code>). Cuando las máquinas de estado dejan de usarse, esa memoria debe ser liberada para poder ser usada por otras partes del código. Esa liberación se hará con la llamada a la función <code>fsm_destroy()</code>.</p>
+<p>Después del bucle <code>while</code> llama a <code>fsm_xxx_destroy()</code> para cada una de las FSM pasándole su tipo concreto. Esto libera la memoria de cada una de las máquinas de estado creadas: <em>botón</em>, <em>teclado matricial</em>, <em>RGB light</em>, y <em>Simone</em>.</p>
+<p>Como se decía, esto es pura ortodoxia, porque el bucle <code>while</code> del <code>main</code> es infinito, y nunca saldrá de ahí, por lo que nuestras FSM nunca dejarán de usarse y las líneas que acabas de escribir con <code>fsm_xxx_destroy()</code> nunca se ejecutarán. No obstante, conviene que sepas que así debería hacerse.</p>
+</li>
+<li>
+<p>Compila y comprueba que no tiene ningún error. Si tienes, corrígelos.</p>
+</li>
+</ol>
+<p>Puede ser buen momento ahora para <strong>documentar todo el código con Doxygen.</strong></p>
+<h2 id="test-de-integracion-de-simone"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.7</span> Test de integración de Simone<a class="headerlink" href="#test-de-integracion-de-simone" title="Permanent link">¶</a></h2>
+<h3 id="test-de-funcionalidades"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.7.1</span> Test de funcionalidades<a class="headerlink" href="#test-de-funcionalidades" title="Permanent link">¶</a></h3>
+<p>Ya has probado los test de ejemplo de los distintos elementos y que se os han sido proporcionado. Ahora vamos a probar el sistema <em>Simone</em> completo. No se os va a pedir hacer un test formal, pero con todo el trabajo que has hecho, es conveniente que compruebes que todo funciona correctamente. Monta el circuito como se muestra en la . Prueba todo el sistema como en <a href="#TODO">el vídeo demostración Simone</a>. <strong>Procedamos</strong>:</p>
+<figure><img alt="Montaje final con el teclado, el botón y el LED RGB." id="fig:fritzing_simone" src="/assets/notebook_imgs/pr_chapters/version_4/fritzing_simone.png" style="width:100.0%"><figcaption aria-hidden="true">Montaje final con el teclado, el botón y el LED RGB.</figcaption></img></figure>
+<ol>
+<li>
+<p>Conecta la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> al ordenador.</p>
+</li>
+<li>
+<p>Compila y carga el programa <code>main</code> en la placa (<strong><img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_debug.png"> <code>Clean and Debug</code></img></strong>). Comprueba que no tienes errores de compilación.</p>
+</li>
+<li>
+<p>Prueba que el botón enciende y apaga el juego <em>Simone</em>.</p>
+</li>
+<li>
+<p>Prueba que el RGB light se enciende de manera acorde en la primera ronda y enciende un color y mostrando los mensajes por la terminal oportuna</p>
+</li>
+<li>
+<p>Prueba que el teclado recoge correctamente las teclas, tanto cuando aciertos, como cuando fallas.</p>
+</li>
+<li>
+<p>Prueba que el nivel de dificultad sube correctamente cada vez que se completa una secuencia de longitud <code>SEQUENCE_LENGTH</code>, hasta un máximo de 3 niveles.</p>
+</li>
+<li>
+<p>Prueba que mientras está haciendo el <em>playback</em> no responde al teclado.</p>
+</li>
+<li>
+<p>Prueba que puedes apagarlo y encenderlo en cualquier momento.</p>
+</li>
+<li>
+<p>Prueba que, estando apagada, el juego <em>Simone</em> no responde al teclado ni muestra nada por el LED RGB.</p>
+</li>
+<li>
+<p>Prueba, en general, el funcionamiento correcto como en el vídeo de demostración. Si encuentras algún error, corrígelo.</p>
+</li>
+</ol>
+<h3 id="comprobación-de-bajo-consumo"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.7.2</span> Comprobación de bajo consumo<a class="headerlink" href="#comprobación-de-bajo-consumo" title="Permanent link">¶</a></h3>
+<p>Comprobaremos que el modo <em>sleep</em> de bajo consumo se gestiona correctamente. Compila y comprueba que no tienes errores de sintaxis o de código. Para comprobar que el sistema está dormido, podemos hacerlo de dos formas:</p>
+<ol>
+<li>
+<p>Lo más habitual —si no tenemos acceso a un depurador y si tenemos que caracterizar nuestro producto— sería hacerlo mediante la medición del consumo del microcontrolador (¡no de los elementos HW de nuestro sistema!). Para medir el consumo, ve el punto <em>“6.6 JP6 (IDD)”</em> del manual de la placa <sup id="fnref:st2020um"><a class="footnote-ref" href="#fn:st2020um">2</a></sup>. Si vas a medirlo, también deberías desconectar los <em>jumpers</em> del <code>ST-LINK</code> del conector <code>CN2</code>. Para ver el ahorro tendríamos que medirlo en ejecución sobre versión final. Esto puedes hacerlo si deseas como funcionalidad extra en la Versión 5, e incluir la información en la documentación del código (fichero <code>README.md</code>).</p>
+</li>
+<li>
+<p>Lo que haremos para demostrar que el sistema alterna entre el modo <em>despierto</em> y <em>dormido</em> será depurando. Continúa con la depuración sin poner puntos de parada. Cuando el sistema esté inactivo, pausa la depuración y comprueba que se ha detenido en la línea de código tras la llamada a <em>wait for interrupt</em> (<code>__WFI()</code>), similar a como se muestra en la . Esto querrá decir que, efectivamente, la ejecución estaba detenida <em>esperando una interrupción</em>, se ha despertado, y ha pasado a la siguiente línea de código.</p>
+</li>
+</ol>
+<figure><img alt="Restauración del modo despierto vista en depuración." id="fig:debug_sleep" src="/assets/notebook_imgs/pr_chapters/version_4/debug_sleep.png" style="width:100.0%"/><figcaption aria-hidden="true">Restauración del modo <em>despierto</em> vista en depuración.</figcaption></figure>
+<p>Realiza con con <em>Paint</em>, <em>Drawio</em>, o cualquier programa que elijas el diagrama de la FSM del sistema con todas sus transiciones. Añádela a tu <code>README.md</code>.</p>
+<p>¡Ya tenemos el sistema <em>Simone</em> funcionando! <strong>No olvides documentarlo</strong> (vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a>). En la siguiente versión podrás añadir más funcionalidades a tu elección. Puedes incluir más capturas o imágenes para enriquecer la documentación.</p>
+<p>Guarda una copia de su proyecto como <code>simone_v4</code> para tener un punto de partida para la siguiente versión, y una copia de seguridad por si algo falla. <strong>Esta copia súbela al buzón de entrega de la asignatura separada de la que hagas con la versión 5, que tiene otro buzón</strong>. ¡Ánimo!</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:stm322025fundamentos">
+<p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:st2020um">
+<p>STMicroelectronics. Um1724 user manual. stm32 nucleo-64 boards. Technical Report, STMicroelectronics, 2020. URL: <a href="https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf">https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf</a>. <a class="footnote-backref" href="#fnref:st2020um" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Volver al principio
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

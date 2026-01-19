@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../" rel="prev"/>
+<link href="../sesion_introduccion/" rel="next"/>
+<link href="../../assets/general/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Introducción a SDG2 - Laboratorio de Sistemas Digitales II</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/notebook-extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#cha:pr_intro">
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Laboratorio de Sistemas Digitales II
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Introducción a SDG2
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Cambiar a modo oscuro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Cambiar a modo oscuro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Cambiar a modo claro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Cambiar a modo claro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+    Laboratorio de Sistemas Digitales II
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Portada
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Introducción general
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Introducción general
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Introducción a SDG2
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Introducción a SDG2
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistemas-digitales-ii">
+<span class="md-ellipsis">
+      Sistemas Digitales II
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-proyecto-simone">
+<span class="md-ellipsis">
+      El proyecto Simone
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#organizacion-versiones">
+<span class="md-ellipsis">
+      Organización (versiones)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:profes">
+<span class="md-ellipsis">
+      Profesorado y turnos de laboratorio
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:eval">
+<span class="md-ellipsis">
+      Evaluación y calendario
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sesion_introduccion/">
+<span class="md-ellipsis">
+    Sesión de introducción
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    Proyecto
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Proyecto
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../proyecto_base/">
+<span class="md-ellipsis">
+    Proyecto base
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_1/">
+<span class="md-ellipsis">
+    Versión 1
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_2/">
+<span class="md-ellipsis">
+    Versión 2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_3/">
+<span class="md-ellipsis">
+    Versión 3
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_4/">
+<span class="md-ellipsis">
+    Versión 4
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_5/">
+<span class="md-ellipsis">
+    Versión 5
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    API
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/">
+<span class="md-ellipsis">
+    Documentación API
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    Apéndices
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            Apéndices
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bom/">
+<span class="md-ellipsis">
+    BOM
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Acrónimos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../acronimos/">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sistemas-digitales-ii">
+<span class="md-ellipsis">
+      Sistemas Digitales II
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#el-proyecto-simone">
+<span class="md-ellipsis">
+      El proyecto Simone
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#organizacion-versiones">
+<span class="md-ellipsis">
+      Organización (versiones)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:profes">
+<span class="md-ellipsis">
+      Profesorado y turnos de laboratorio
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:eval">
+<span class="md-ellipsis">
+      Evaluación y calendario
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="cha:pr_intro"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Introducción<a class="headerlink" href="#cha:pr_intro" title="Permanent link">¶</a></h1>
+<p>En este capítulo se presenta una introducción a la asignatura de laboratorio <a href="../acronimos/#acro:SDG2"><strong>SDG2</strong></a>, y la descripción general del proyecto de la asignatura y la organización de este. Aquí se podrá encontrar información sobre la evaluación y el calendario que se seguirá.</p>
+<h2 id="sistemas-digitales-ii"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Sistemas Digitales II<a class="headerlink" href="#sistemas-digitales-ii" title="Permanent link">¶</a></h2>
+<p>La asignatura se imparte con una <strong>metodología de Aprendizaje Basado en Proyectos</strong> <sup id="fnref:servicio2008aprendizaje"><a class="footnote-ref" href="#fn:servicio2008aprendizaje">2</a></sup>. Los alumnos tienen como objetivo realizar el <strong>desarrollo de un sistema electrónico empotrado complejo basado en un microcontrolador de bajas prestaciones partiendo de una descripción y unas especificaciones básicas</strong>. Este aprendizaje requiere por tu parte el <strong>manejo de distintas fuentes de información</strong> y disciplinas necesarias para resolver problemas. <strong>Tu papel ha de ser activo, con un compromiso y responsabilidad por tu propio aprendizaje</strong>. Trabajarás en parejas desde el principio y desarrollarás un proyecto planificando la actuación, distribuyendo las tareas, evaluando las posibles consecuencias, y previendo los éxitos.</p>
+<p>Como indica la <strong>Guía de Aprendizaje Basado en Proyectos</strong> del Servicio de Innovación Educativa-UPM <sup id="fnref2:servicio2008aprendizaje"><a class="footnote-ref" href="#fn:servicio2008aprendizaje">2</a></sup>, y a modo de resumen, las características más relevantes a las que debe atender son (recuperado de la Guía de Aprendizaje de la asignatura):</p>
+<ul>
+<li>
+<p><strong>No existe una única solución correcta.</strong></p>
+</li>
+<li>
+<p>Se presenta la situación y <strong>los alumnos tienen que ampliar la información</strong> para avanzar en el proyecto.</p>
+</li>
+<li>
+<p><strong>El papel del profesor es supervisar y revisar el plan de trabajo</strong> y evolución de cada pareja, utilizando las clases de laboratorio y las tutorías para ayudar a resolver dudas. El profesor tiene también el papel de <strong>evaluar</strong> el progreso y trabajo final.</p>
+</li>
+<li>
+<p>La interacción con el alumno se da en las <strong>sesiones de laboratorio: orientación a las dudas y problemas encontrados para seguir el progreso de los estudiantes para evitar equivocaciones, corregir errores conceptuales y orientar el aprendizaje</strong>. Se realiza un seguimiento de cada pareja. También en las tutorías.</p>
+</li>
+<li>
+<p>El lugar de trabajo es <strong>el laboratorio y fuera de este</strong>.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>El proyecto no se puede completar solo con las sesiones de laboratorio sin un trabajo de búsqueda de información previa</strong> y de trabajo fuera del horario de clase. <strong>3 ECTS son unas 81 horas de esfuerzo. El laboratorio son solo <span class="arithmatex">\(28\)</span> (un <span class="arithmatex">\(35\%\)</span>), por lo que en casa ha de trabajar tanto o más que las horas de laboratorio</strong> <sup id="fnref:comision2014memoria"><a class="footnote-ref" href="#fn:comision2014memoria">3</a></sup>.</p>
+</div>
+<p>Las sesiones de laboratorio plantean al alumno ir consiguiendo hitos que corresponderán a ciertos niveles de desarrollo (funcionalidad) del proyecto. <strong>El proyecto propuesto se divide en 4 versiones básicas más una versión final de libre elección</strong>. <strong>Las versiones básicas son requisitos de funcionalidad obligatorios, pero para completar el proyecto y conseguir la máxima nota las parejas deberán implementar la versión final de libre elección</strong>.</p>
+<div class="admonition danger">
+<p class="admonition-title">IMPORTANTE</p>
+<p><strong>Las sesiones de laboratorio NO SON COMO LAS DE OTRAS ASIGNATURAS DE LABORATORIO en las que cada día es una práctica temática</strong>. En SDG2 <strong>tú gestionas tu tiempo</strong> dentro y fuera del laboratorio. Existe un objetivo final organizado por fases y, siendo proactivo, debes prever y prepararte para el trabajo que va a hacer cada día en el laboratorio. Aunque existe un calendario orientativo, cada pareja avanzará a un ritmo. Los profesores estarán para ayudar a resolver dudas que la pareja plantee sobre el problema al que se están enfrentando.</p>
+</div>
+<p>Harás frente a un caso real de <strong>diseño e implementación de un sistema electrónico basado en microcontrolador</strong> de bajas prestaciones, empleando los medios disponibles en el <strong>laboratorio B-043 y componentes electrónicos —alguno de los cuales deberá adquirir—</strong> (ver materiales en ).</p>
+<p>Como has venido trabajando en <a href="../acronimos/#acro:CELT"><strong>CELT</strong></a>, <strong>el laboratorio estará abierto durante <span class="arithmatex">\(2h30'\)</span></strong>. Si se quiere hacer una analogía con las clases teóricas, <strong>las horas con profesor son <span class="arithmatex">\(2h\)</span> de supervisión puramente dicha</strong>. El resto del tiempo es para que inicies las máquinas, prepares los montajes, y recojas ordenadamente al finalizar. El acceso al laboratorio está controlado por los maestros de laboratorio.</p>
+<p><strong>Por las mañanas habrá acceso libre siempre que haya un maestro de laboratorio o persona responsable que abra el laboratorio</strong> y vigile. Se recomienda que <strong>lleves tu propio material</strong>, pues no se garantiza que la persona responsable pueda hacerse cargo de los préstamos.</p>
+<h2 id="el-proyecto-simone"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> El proyecto Simone<a class="headerlink" href="#el-proyecto-simone" title="Permanent link">¶</a></h2>
+<p>El objetivo es desarrollar un sistema básico completamente funcional de <strong>una versión del clásico juego de memoria visual, Simón</strong> utilizando un teclado matricial y un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span><em><em> que permita al jugador identificar cada color que se represente por el LED con una tecla del teclado. A este sistema le vamos a llamar </em>Simone</em>. El sistema se basa en (i) una placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span> que hará las veces de sistema central, (ii) un teclado matricial alfanumérico de membrana, y (iii) un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> que cambia de color de forma aleatoria con cada secuencia de colores que crea el juego. Puede ver el video demostrativo en <a href="#TO-DO"><strong>Demostración del sistema Simone</strong></a>. Al sistema básico posteriormente el alumno debe añadir más funcionalidades de su elección.</p>
+<p>Para entender lo que vamos a construir, debemos viajar atrás en el tiempo, hasta 1978, cuando el ingeniero <strong>Ralph Baer</strong> (conocido como el <em>padre de los videojuegos</em>) y Howard J. Morrison presentaron al mundo el juego <strong>Simon</strong>. Este dispositivo con forma de platillo volante se convirtió en un icono de la cultura pop de los 80. Su funcionamiento era  simple: un juego de memoria visual y auditiva donde la máquina generaba una secuencia progresiva de luces y sonidos aleatorios que el jugador debía repetir.</p>
+<figure><embed id="fig:simon" src="/assets/notebook_imgs/pr_chapters/intro/simon.jpg" style="width:60.0%"/><figcaption aria-hidden="true">Juego Simon original.</figcaption></figure>
+<p>La mecánica original consistía en cuatro grandes botones de colores (<span style="color: red; font-weight: bold;">rojo</span>, <span style="color: green; font-weight: bold;">verde</span>, <span style="color: blue; font-weight: bold;">azul</span> y <span style="color: orange; font-weight: bold;">amarillo</span>), cada uno asociado a un tono musical específico. El juego comenzaba con una secuencia de un solo paso. Si el usuario acertaba, la máquina repetía la secuencia y añadía un nuevo paso al final. El juego terminaba cuando el usuario fallaba o tardaba demasiado en responder.</p>
+<p>En esta práctica vamos a rendir homenaje a este clásico, pero elevando la complejidad técnica para adaptarla a un sistema embebido moderno basado en el <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Nuestro sistema, bautizado como <strong>Simone</strong>, mantiene la esencia del juego de memoria visual pero introduce diferencias significativas respecto al juguete original:</p>
+<ol>
+<li><strong>Interfaz de entrada:</strong> En lugar de cuatro botones grandes dedicados, utilizaremos un <strong>teclado matricial</strong> (desarrollado en la <a href="../version_2">Versión 2</a>). Esto nos obliga a mapear teclas específicas (<code>'1'</code>, <code>'2'</code>, ...) a colores.</li>
+<li><strong>Interfaz de salida:</strong> Sustituimos las cuatro bombillas independientes por un único <strong>LED</strong> <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> (desarrollado en la <a href="../version_3">Versión 3</a>). Esto implica que la secuencia no es espacial (luces en distintas posiciones), sino puramente cromática (el mismo punto de luz cambia de color).</li>
+<li><strong>Complejidad cromática:</strong> El juego original usaba 4 colores. Simone gestiona una paleta de <strong>6 colores</strong> (<span style="color: red; font-weight: bold;">rojo</span>, <span style="color: green; font-weight: bold;">verde</span>, <span style="color: blue; font-weight: bold;">azul</span> y <span style="color: orange; font-weight: bold;">amarillo</span>, <span style="color: cyan; font-weight: bold;">turquesa</span> y <span style="color: black; font-weight: bold;">blanco</span>), aumentando la dificultad de memorización.</li>
+<li><strong>Niveles de dificultad dinámicos:</strong> Implementaremos un sistema de niveles (<code>EASY</code>, <code>MEDIUM</code>, <code>HARD</code>) que no solo afecta a la velocidad de reproducción, sino también a la <strong>intensidad lumínica</strong> (<a href="../acronimos/#acro:PWM"><strong>PWM</strong></a>). En los niveles difíciles, los colores se mostrarán más tenues y rápidos, poniendo a prueba tanto la memoria como la agudeza visual del jugador.</li>
+<li><strong>Feedback textual:</strong> Al carecer de altavoz en esta versión, utilizaremos la terminal de VSCode para enviar mensajes de estado, victoria o derrota, lo que nos servirá como herramienta de realimentación visual en tiempo real.</li>
+</ol>
+<p>El reto de este proyecto no es solo programar la lógica del juego, sino orquestar los periféricos que construiréis a lo largo de las sesiones (botón, teclado, LED RGB) para que funcionen al unísono bajo el control de una <strong>máquina de estados finitos (FSM)</strong> central.</p>
+<p>El alumno tiene la libertad de imaginar e implementar a través de la <strong>Versión 5 del proyecto</strong> cualquier sistema que desee. Por ejemplo: añadir un sistema de sonido, más teclados y LEDs, botones, un <em>buzzer</em> para generar sonidos, un <a href="../acronimos/#acro:LCD"><strong>LCD</strong></a> u otro <em>RGB light</em>, … o incluso añadir un sistema de comunicación inalámbrica para enviar la información a un dispositivo móvil.</p>
+<p>El sistema correrá sobre la plataforma <a href="https://www.st.com/en/evaluation-tools/nucleo-f446re.html#overview"><span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span></a> (ver libro de fundamentos teórico-prácticos de la asignatura <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">4</a></sup>). Sería posible emplear otros modelos de placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> si el modelo basado en el microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span> no está disponible (*e.g.*, el modelo <span style="color: RoyalBlue; font-weight: bold;">STM32F411RE</span>). En dicho caso deberá realizar los pasos para adaptarse a la asignatura. <strong>Se deberá comprar una placa por pareja o una por cada miembro</strong>, si lo desea (les dará más posibilidades de hacer pruebas y nuevas implementaciones más interesantes). <strong>Los componentes electrónicos básicos se les prestan</strong>, pero se aconseja que consigáis los vuestros, sobre todo para la Versión 5 del proyecto. Para los primeros días o en caso de olvido, habrá placas de préstamo durante las sesiones de laboratorio.</p>
+<p>Para poder trabajar en tu ordenador personal deberás tener instalado el entorno de compilación cruzada siguiendo los pasos de instalación del capítulo de la <em>“Guía de instalación de herramientas para compilación cruzada en C”</em> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">5</a></sup>. <span style="color: red; font-weight: bold;">Durante las sesiones de laboratorio no se resolverán problemas de instalación del entorno para no entorpecer al resto de compañeros que tengan dudas del proyecto. Si se tienen problemas en la instalación, se concertará una tutoría.</span></p>
+<h3 id="subsec:materiales"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Materiales<a class="headerlink" href="#subsec:materiales" title="Permanent link">¶</a></h3>
+<p>La lista de materiales que se usan se muestra en la <a href="../acronimos/#acro:BOM"><strong>BOM</strong></a> <a href="../bom">del anexo</a>. En la puede verlos agrupados por cada una de las "partidas" del proyecto: los básicos, los de la sensorización, y los de actuación.</p>
+<p><strong>Lo más urgente de adquirir es la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span> y el cable USB necesarios para la V1 y siguientes</strong>. El resto de HW se usará en las siguientes versiones. <strong>Durante las primeras sesiones podrás trabajar con las placas que se prestan</strong> en el laboratorio, pero no podrás llevártela. Cuando adquieras la tuya para trabajar en casa, será la que debes traer.</p>
+<p>En el anexo se proporciona información de los componentes y un enlace para que tengas una orientación de cuál es. Puedes conseguirlos tú mismo. Muchos de dichos componentes quizás ya los tengas, como la <em>protoboard</em>, o los cables para la misma. El resto puedse conseguirlo en alguna tienda física de la ciudad, u online. Fíjate que <strong>algunos de los componentes no se venden por unidad en las tiendas online</strong> (quizás le convenga comprar con otros compañeros o ir a una tienda física y comprarlos unitarios). <span style="color: red; font-weight: bold;">Un miembro de la pareja se responsabilizará del material prestado, que ha de devolver en la fecha del examen.</span></p>
+<h2 id="organizacion-versiones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Organización (versiones)<a class="headerlink" href="#organizacion-versiones" title="Permanent link">¶</a></h2>
+<p>El desarrollo del sistema <em>Simone</em> está guiado como un tutorial, por puntos. El proyecto básico son <strong>los requisitos mínimos obligatorios, y suponen el <span class="arithmatex">\(50\%\)</span> del total de la calificación de la asignatura. Un <span class="arithmatex">\(20\%\)</span> de la nota es la V5</strong> (ver <a href="#sec:eval">Evaluación y calendario</a>).</p>
+<p>El proyecto básico lo podemos dividir en versiones o fases, a modo de guía. <strong>Todos los códigos deberán estar documentados con Doxygen</strong>. <em>Cada versión tiene un código de test unitarios HW y SW</em> que se les proporcionará. Los códigos corren sobre la placa y nos da una indicación de si el sistema funciona correctamente.</p>
+<p>Las características más importantes de cada versión son:</p>
+<ul>
+<li>
+<p><strong>Versión 1</strong>: desarrollo de la base del sistema con (i) <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a>, (ii) interrupción de botón para interactuar con el juego y (iii) temporización de la pulsación con <span style="color: Green"><code>SysTick</code></span> para poder iniciar y detener el juego. (iv) Por último, test unitarios y la documentación del código. (<em>Estimado 2 semanas</em>)</p>
+</li>
+<li>
+<p><strong>Versión 2</strong>: desarrollo del subsistema de detección de teclas del teclado matricial con (i) FSM, (ii) excitación de las filas de manera alterna mediante interrupción de un temporizador, (iii) captura de entrada (<em>input capture</em>) de las columnas para detección de tecla, (iii) montaje HW del teclado, y (iv) test unitarios y documentación del código. (<em>Estimado 3 semanas</em>)</p>
+</li>
+<li>
+<p><strong>Versión 3</strong>: desarrollo del subsistema de visualización (i) FSM, (ii) interrupciones de temporizadores para generación de <a href="../acronimos/#acro:PWM"><strong>PWM</strong></a>, (iii) montaje HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>, y (iv) test unitarios y documentación del código. (<em>Estimado 2-3 semanas</em>)</p>
+</li>
+<li>
+<p><strong>Versión 4</strong>: (i) implementación de modos de bajo consumo, (ii) integración de la FSM final del sistema y (iii) prueba y documentación del código. (<em>Estimado 1-2 semanas</em>)</p>
+</li>
+<li>
+<p><strong>Versión 5</strong>: funcionalidades de libre elección del alumno. (<em>Estimado 3 semanas</em>)</p>
+</li>
+</ul>
+<h2 id="sec:profes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Profesorado y turnos de laboratorio<a class="headerlink" href="#sec:profes" title="Permanent link">¶</a></h2>
+<p>El turno que elijas para asistir al laboratorio no tiene por qué coincidir con el grupo de matriculación. Puedes elegir el que mejor se ajuste a tu horario. El turno se elige <strong>por orden de inscripción</strong> en la <a href="https://moodle.upm.es/titulaciones/oficiales/course/view.php?id=785">página de Moodle de la asignatura</a>. Típicamente habrá 2-3 profesores por turno y también podremos contar con la ayuda inestimable de los colaboradores docentes que te ayudarán en todo lo posible, aunque no tienen competencias de evaluación, <em>i.e.</em>, para consultas de gestión de la asignatura, mejor pregunta a un profesor del turno.</p>
+<p>Tradicionalmente un profesor se encarga de "un pasillo" del laboratorio y tiene seguimiento detallado de los alumnos de esos puestos. No obstante, siempre que sea posible se le atenderá por cualquier profesor que esté libre.</p>
+<div class="admonition danger">
+<p class="admonition-title">IMPORTANTE</p>
+<p><em>/ironic mode on/</em></p>
+<p>Ya se ha mencionado que la metodología es "de Aprendizaje Basado en Proyectos" y que el profesor está para resolver dudas y guiar. <strong>Sabemos que este mensaje a estas alturas de la carrera y de la vida está de más, y que tú no lo haces nunca, pero: levantar la mano y quedarse de brazos cruzados cual cliente en un bar esperando ser servido —en el mejor de los casos, sino es que no se está viendo el último <em>viral</em> de <em>TikTok</em>— no es la actitud que se espera. Se lee, se prueba, se escribe, se hacen dibujos…, se sacan conclusiones y, cuando se ha cavilado, si no se entiende, se pregunta con fundamento</strong>.</p>
+<p><em>/ironic mode off/</em></p>
+</div>
+<h3 id="turnos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Turnos<a class="headerlink" href="#turnos" title="Permanent link">¶</a></h3>
+<h3 id="profesores-y-colaboradores-docentes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Profesores y colaboradores docentes<a class="headerlink" href="#profesores-y-colaboradores-docentes" title="Permanent link">¶</a></h3>
+<p><strong>Profesores</strong></p>
+<ul>
+<li>
+<p><strong>AGH</strong>, Amadeo de Gracia Herranz (C-229) <em>e-mail:</em> <a href="mailto:amadeo.degracia@upm.es">amadeo.degracia@upm.es</a></p>
+</li>
+<li>
+<p><strong>JPO</strong>, Josué Pagán Ortiz (coordinador) (C-221) <em>e-mail:</em> <a href="mailto:j.pagan@upm.es">j.pagan@upm.es</a></p>
+</li>
+<li>
+<p><strong>MGM</strong>, Manuel Gil Martín (coord. administrativo) (B-111) <em>e-mail:</em> <a href="mailto:manuel.gilmartin@upm.es">manuel.gilmartin@upm.es</a></p>
+</li>
+<li>
+<p><strong>JALM</strong>, Juan Antonio López Martín (B-111) <em>e-mail:</em> <a href="mailto:juanantonio.lopez@upm.es">juanantonio.lopez@upm.es</a></p>
+</li>
+<li>
+<p><strong>RCR</strong>, Román Cárdenas Rodríguez (B-305) <em>e-mail:</em> <a href="mailto:r.cardenas@upm.es">r.cardenas@upm.es</a></p>
+</li>
+<li>
+<p><strong>RIL</strong>, Raúl Izquierdo López (C-206) <em>e-mail:</em> <a href="mailto:raul.izquierdo@upm.es">raul.izquierdo@upm.es</a></p>
+</li>
+</ul>
+<p><strong>Colaboradores docentes</strong></p>
+<ul>
+<li><em>ABG</em>, Álvaro Basterra García</li>
+<li><em>SER</em>, Sergio Esteban Romero</li>
+<li><em>IHA</em>, Ignacio Hernández Abad</li>
+<li><em>IMF</em>, Iván Martín Fernández</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>El laboratorio se organiza por parejas por temas de espacio y gestión de recursos. Que pueda elegir un turno distinto del grupo de matriculación es lo que permite que pueda elegir pareja. <strong>Si no tiene pareja, se le asignará una y un turno. No obstante, si el trabajo con la pareja asignada no funciona por <em>x</em> motivo, hágaselo saber antes de la evaluación parcial a un profesor</strong>. No queremos que el no-trabajo de un alumno afecte al rendimiento de otro. <strong>No se permiten tríos. Podrá hacer el trabajo de forma individual</strong>. Le requerirá más disciplina, pero es perfectamente abordable. <strong>Los requisitos del proyecto seguirán siendo los mismos.</strong></p>
+</div>
+<h2 id="sec:eval"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Evaluación y calendario<a class="headerlink" href="#sec:eval" title="Permanent link">¶</a></h2>
+<p>La asignatura tiene una componente práctica muy importante. No obstante, en esta asignatura no solo se aplican conceptos aprendidos, sino que también se adquieren otros nuevos. La asignatura tiene 2 grandes bloques de evaluación <strong>que se pueden liberar hasta la evaluación extraordinaria del mismo curso</strong>:</p>
+<ol>
+<li>
+<p>Un <strong>proyecto por parejas</strong> que tiene 2 partes:</p>
+<ol>
+<li>
+<p><strong>requisitos básicos obligatorios</strong>: versiones V1-V4. Es guiada. Supone un <span class="arithmatex">\(50\%\)</span> de la nota total. <strong>Las especificaciones básicas</strong> del proyecto <strong>son requisitos impuestos por la asignatura</strong></p>
+</li>
+<li>
+<p><strong>funcionalidades de libre elección</strong>: V5. Desarrollo libre. Supone un <span class="arithmatex">\(20\%\)</span> de la nota total.</p>
+</li>
+</ol>
+<p>Las dos entregas de código (y documentación de la versión V5) se realizarán en buzones de Moodle que se abrirán cerca de la fecha de entrega. <strong>Solo un miembro de la pareja tiene que subir los ficheros fuente del proyecto</strong>. Si realiza implementaciones en V5 que incorporen HW nuevo, deberá mostrar su funcionamiento el día del examen práctico individual o cuando se convenga con su profesor asignado. <strong>En todo caso, se grabará un vídeo breve demostrativo de las funcionalidades implementadas en V5.</strong></p>
+<p><strong>Dispone de una rúbrica orientativa de evaluación del proyecto en la .</strong></p>
+</li>
+<li>
+<p>Un <strong>examen práctico individual</strong> que tiene el fin de diferenciar el trabajo de cada uno de los miembros de la pareja. Supone el <span class="arithmatex">\(30\%\)</span> restante de la nota total.</p>
+<p>El examen consta típicamente de 2 ejercicios. Se proporciona un proyecto adaptado del trabajado durante el curso pero más sencillo. Este proyecto no compila y se pide que (i) se depure y corrija, y (ii) se hagan modificaciones. Se realiza en el laboratorio con los ordenadores del mismo. Se dispone de 1 hora para realizarlo. Se puede consultar la documentación que se proporciona. No se puede consultar internet. Se evalúa la capacidad de depuración de código, la capacidad de análisis y resolución de problemas, y la capacidad de implementación de soluciones. Puede ver cómo abordar esta prueba en estos vídeos de <strong>corrección de examen práctico</strong> <a href="https://www.youtube.com/watch?v=mCXf8Y187Oo">de 2023</a>, <a href="https://youtu.be/OfSAluKaxcs?si=W9PYZ4_PHtltIvmb">de 2024</a>, y <a href="https://www.youtube.com/watch?v=S7Dpvm3ZrU0">de 2025</a>.</p>
+</li>
+</ol>
+<p>Se recomienda el uso de repositorios <strong>privados</strong> de código como <a href="https://github.com/">GitHub</a> o <a href="https://bitbucket.org/">BitBucket</a> para guardar el avance del proyecto cada semana. También puedes usar una memoria USB. <strong>Es responsabilidad exclusiva del alumno conservar copias de las distintas versiones del proyecto y de tus avances parciales. <em>Los ordenadores del laboratorio se borran diariamente</em></strong>. No obstante, estará abierto continuamente un buzón en Moodle para que puedas subir copias de sus códigos cuando quieras. <strong><em><u>Este buzón no tiene copia de seguridad</u></em></strong>.</p>
+<p><span style="color: Red"><strong>Es responsabilidad de la pareja protegerse de copiar o ser copiados. Los códigos pasan el <em>anti-copy</em>. Si se detecta una copia, la nota de los proyectos copia y copiado será 0.</strong></span> Sean honestos, inspírense, pregunten, pero nunca copien.</p>
+<p><span style="color: Red"><strong>Conviene recordar que, como indica la Guía de Aprendizaje, <em>cualquier evaluación o entrega realizada podrá requerir una evaluación oral complementaria por parte del profesor para validar que se ha realizado por el alumno sin ayuda de sistemas de Inteligencia Artificial.</em></strong></span></p>
+<p>Como sabrá, la normativa de la UPM <sup id="fnref:upm2022normativa"><a class="footnote-ref" href="#fn:upm2022normativa">6</a></sup> distingue entre evaluación progresiva y global. A continuación se presentan los criterios de evaluación en ambas modalidades.</p>
+<h3 id="evaluacion-progresiva"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Evaluación progresiva<a class="headerlink" href="#evaluacion-progresiva" title="Permanent link">¶</a></h3>
+<p>En esta modalidad hay dos periodos de evaluación: uno a mitad de semestre y otro al final.</p>
+<figure><img alt="Distribución de las calificaciones de la asignatura." id="fig:cha1_nota" src="/assets/notebook_imgs/pr_chapters/intro/cha1_nota.png" style="width:100.0%"><figcaption aria-hidden="true">Distribución de las calificaciones de la asignatura.</figcaption></img></figure>
+<p>Puede ver el desglose de las calificaciones en la y el detalle de fechas de evaluación en el calendario de la . En particular:</p>
+<ul>
+<li><strong>La semana de exámenes del GITST: LÍMITE de entrega por parejas versiones V1 y V2 (<span class="arithmatex">\(25\%\)</span>)</strong>. Solo se entrega <strong>un proyecto QUE COMPILE, hasta donde haya llegado. <span style="color: red">SI NO COMPILA, NO SE CORRIGE, Y LA NOTA ES 0.</span></strong> <strong>El profesor corrige con un HW idéntico al tuyo</strong> y en la siguiente sesión habrá realimentación de los problemas encontrados. <strong>El código debe compilar y cargar en la placa</strong> <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Esta fecha es el plazo límite de entrega en Moodle, y establecida dentro del periodo de evaluaciones intermedias de la ETSIT. .</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">ATENCIÓN</p>
+<p>El montaje HW no es en sí mismo objeto de evaluación, pero es indispensable que monte bien para que el sistema funcione según las especificaciones. Si sigues las pautas dadas no debería existir ningún problema con el montaje usado por el profesor para la evaluación. <strong>En caso de que detectes algún problema o hagas alguna modificación relevante, comunícaselo a tu profesor durante las sesiones de laboratorio</strong> (Los dı́as próximos a la entrega no son una sesión de laboratorio. Salvo causas de fuerza mayor, claro 🙂.).</p>
+</div>
+<ul>
+<li>
+<p><strong>Último día lectivo</strong>: <strong>LÍMITE de entrega por parejas versiones V3 y V4 (<span class="arithmatex">\(25\%\)</span>), y V5 (<span class="arithmatex">\(\geq20\%\)</span>)</strong>. El profesor corrige con un HW idéntico al tuyo. <strong>El código debe compilar y cargar en la placa</strong> <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Esta fecha es el plazo límite de entrega en Moodle.</p>
+<p><strong>Hay que hacer 2 entregas separadas</strong>. Una para la parte obligatoria de requisitos mínimos V1-V4, y otra para V1-V5.</p>
+<p><strong>Las funcionalidades de la V5 son de libre elección por el alumno,</strong> pueden ser SW, <a href="../acronimos/#acro:FW"><strong>FW</strong></a>, o HW. Las parejas que realicen alguna implementación deberán documentarlas y explicarlas <strong>con Doxygen y Markdown utilizando una plantilla proporcionada</strong>. Con estas modificaciones SW o montajes alternativos añadidos al proyecto básico —y dependiendo de su dificultad y realización— se podrán sumar puntos hasta alcanzar la máxima nota: 10 puntos (ver ).</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Los alumnos pueden hacer tantas modificaciones como deseen y la suma de puntos podrı́a exceder el 10. No obstante, la calificación máxima en actas es 10, y el exceso se considera a efectos de poder otorgar Matrı́culas de Honor.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">ATENCIÓN</p>
+<p>La evaluación de las versiones V1-V2 no tiene nota mínima. Tampoco la tienen V3-V4, ni V5. No obstante, <strong>la suma de la nota de ambas evaluaciones del proyecto V1-V2 + V3-V4-V5 ha de ser mayor de 5/10 para liberar el bloque “proyecto”</strong>, sino, quedará pendiente esta parte para extraordinaria.</p>
+</div>
+<ul>
+<li>
+<p><strong>En la fecha estipulada de exámenes de la ETSIT</strong>: <strong>examen práctico individual en el laboratorio (<span class="arithmatex">\(30\%\)</span>)</strong>. De <strong>1 hora</strong> de duración aproximada. Se dividirá a los alumnos en varios horarios de evaluación que se harán disponibles cuando se acerque la fecha.</p>
+<p>El examen consiste en depurar un código dado, hacer que compile, y hacer modificaciones o pequeños desarrollos de código. Se hará con los ordenadores del laboratorio y no tendrá acceso a internet. Se le proporcionará la documentación de consulta necesaria. Puede ver cómo abordar esta prueba en estos vídeos de <strong>corrección de examen práctico</strong> <a href="https://www.youtube.com/watch?v=mCXf8Y187Oo">de 2023</a>, <a href="https://youtu.be/OfSAluKaxcs?si=W9PYZ4_PHtltIvmb">de 2024</a>, y <a href="https://www.youtube.com/watch?v=S7Dpvm3ZrU0">de 2025</a>.</p>
+<p><strong>La nota del examen ha de ser mayor de 5/10</strong> y liberar el bloque "examen práctico"”", sino, quedará pendiente esta parte para la convocatoria extraordinaria.</p>
+<p>En algún momento de la jornada de evaluación, este día también (o cuando se convenga con el profesor), se realizará la <strong>demostración de las funcionalidades HW añadidas en V5, si las hay</strong>.</p>
+</li>
+</ul>
+<p>La gestión de los plazos también es parte del proyecto. No se aceptan proyectos después de la fecha límite. La fecha es no es la única fecha de entrega, sino la fecha límite. Si no es entrega en plazo, se va a convocatoria extraordinaria.</p>
+<h3 id="evaluacion-mediante-proyecto-innovador"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Evaluación mediante proyecto innovador<a class="headerlink" href="#evaluacion-mediante-proyecto-innovador" title="Permanent link">¶</a></h3>
+<p>Dentro de la evaluación progresiva, aquellos alumnos que deseen realizar un proyecto innovador alternativo que se base en un problema o diseño propio (o propuesto por un profesor), pueden hacerlo. Deberán hablar con alguno de los profesores de la asignatura y presentarle <strong>durante la primera y segunda semana de curso</strong> una propuesta de proyecto donde describan, en 2 o 3 páginas:</p>
+<ul>
+<li>
+<p>Objetivos del sistema propuesto.</p>
+</li>
+<li>
+<p>Recursos necesarios para llevarlo a cabo.</p>
+</li>
+<li>
+<p>Arquitecturas HW y SW propuestas para abordar el problema.</p>
+</li>
+</ul>
+<p>Para poder abordar el proyecto será necesario contar con la aprobación de dicho profesor. No será admitido ningún proyecto (por muy complejo o perfecto que sea) que no se ajuste a estas normas. En el canal de YouTube<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">1</a></sup> de la asignatura puede ver vídeos de proyectos de alumnos en cursos pasados.</p>
+<p><strong>Solo se aceptarán 10 proyectos innovadores. Para poder evaluar las propuestas y que las parejas puedan comenzar a trabajar lo antes posible, disponen de no más de la segunda semana de clase para presentar la propuesta.</strong></p>
+<p>El proyecto es libre, no obstante ha de cubrir los conceptos básicos de la asignatura con los que se evalúa al resto de compañeros:</p>
+<ul>
+<li>
+<p>Deberá trabajar con</p>
+</li>
+<li>
+<p>una base del sistema programada en C,</p>
+</li>
+<li>
+<p>donde se demuestre el manejo de registros básicos (parte del programa escrito a bajo nivel: <em>bare-metal</em>),</p>
+</li>
+<li>
+<p>que contenga una o varias <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a>, interrupciones, y temporización.</p>
+</li>
+<li>
+<p>Metodología de proyecto como la propuesta (división de código en <code>COMMON</code> y <code>PORT</code>).</p>
+</li>
+<li>
+<p>Documentación del código con Doxygen.</p>
+</li>
+<li>
+<p>El <em>lenguaje tipo Arduino</em> no está permitido como base del sistema, aunque sí sobre elementos añadidos (otros microcontroladores). Cubierto lo básico en C, puede trabajar sobre el lenguaje que quiera, sea de alto nivel, o no.</p>
+</li>
+<li>
+<p>Cubierto lo anterior, sí puede hacer uso de la <a href="../acronimos/#acro:HAL"><strong>HAL</strong></a> del fabricante.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Quién realice un <strong>proyecto innovador NO hace la evaluación individual</strong>. En cambio, ha de hacer <strong>una entrega intermedia y final</strong> del código y documentación (mismas fechas que el proyecto estándar), <strong>y una demostración</strong> del proyecto en una fecha a convenir a los profesores de la asignatura. En cualquier momento se pueden abandonar y engancharse a la evaluación global.</p>
+</div>
+<h3 id="evaluacion-global"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> Evaluación global<a class="headerlink" href="#evaluacion-global" title="Permanent link">¶</a></h3>
+<p>En la modalidad de evaluación global se han de superar las <strong>mismas actividades que en la evaluación progresiva y tienen los mismos pesos y criterios</strong>.</p>
+<p><strong>El estudiante que no han hecho la entrega de V1-V2 puede optar a un <span class="arithmatex">\(7.5\)</span>, incluyendo V5,</strong> siempre que se cumplan los criterios de mínimos mencionados anteriormente.</p>
+<h3 id="insignias"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.4</span> Insignias<a class="headerlink" href="#insignias" title="Permanent link">¶</a></h3>
+<p>En general, las insignias, o <em>badges</em> en inglés, se usan como reconocimiento digital cuando se realiza un curso o una actividad. Constan de una imagen y una descripción con el nombre y los criterios que hay que cumplir para obtenerla, como se muestra en la . Sirven para reconocer logros a lo largo del curso. Están firmadas por un profesor y permite al alumno anexarla a su <em>Curriculum Vitae</em>, o almacenarlas en <em>mochilas virtuales</em> como <a href="https://info.badgr.com/">Badgr</a>, u <a href="https://openbadges.me/">OpenBadges</a>. Puede conocer más sobre las insignias de Moodle UPM en el <a href="https://www.youtube.com/watch?v=HXr2irB9CtA">CanalTIC: Badges o insignias digitales</a>. Puede leer más sobre insignias digitales en el manual <a href="https://oa.upm.es/47460/1/Insignias%20digitales%20como%20acreditacion%20de%20competencias%20en%20la%20Universidad.pdf">“Insignias digitales como acreditación de competencias en la Universidad”</a> <sup id="fnref:borras2017insignias"><a class="footnote-ref" href="#fn:borras2017insignias">7</a></sup>.</p>
+<figure><img alt="Contenido de una insignia (“Open Badges Peeled” de Bryan Mathers, con licencia CC-BY-ND License)." id="fig:cha1_insignia" src="/assets/notebook_imgs/pr_chapters/intro/cha1_insignia.png" style="width:60.0%"><figcaption aria-hidden="true">Contenido de una insignia (“Open Badges Peeled” de Bryan Mathers, con licencia CC-BY-ND License).</figcaption></img></figure>
+<p>Los profesores, bajo criterio consensuado, podrán otorgar insignias para reconocer algún mérito destacable en la asignatura. En concreto, se contemplan las siguientes insignias (ver #TO-DO):</p>
+<ul>
+<li>
+<p>Para la evaluación progresiva y global:</p>
+</li>
+<li>
+<p><strong>Mejor diseño <a href="../acronimos/#acro:HW"><strong>HW</strong></a></strong>: electrónica adicional, diseño de <a href="../acronimos/#acro:PCB"><strong>PCB</strong></a>, integración con otras placas, <em>etc.</em></p>
+</li>
+<li>
+<p><strong>Mejor diseño <a href="../acronimos/#acro:SW"><strong>SW</strong></a></strong>: funcionalidades <a href="../acronimos/#acro:FW"><strong>FW</strong></a> o <a href="../acronimos/#acro:SW"><strong>SW</strong></a> extras que sean significativas.</p>
+</li>
+<li>
+<p><strong>Mejor diseño de producto</strong>: entendido como un todo, se valorará la experiencia de usuario, acabado con impresión 3D, <em>etc.</em></p>
+</li>
+<li>
+<p><strong>Proyecto destacado</strong>: proyecto que cumple funcionalidades, tiene mejoras considerables, <em>etc.</em> y a juicio de los profesores es un proyecto destacable.</p>
+</li>
+<li>
+<p>Para los proyecto innovadores:</p>
+</li>
+<li>
+<p><strong>Todo proyecto innovador que lo merezca</strong>.</p>
+</li>
+<li>
+<p><strong>El mejor proyecto innovador</strong>.</p>
+</li>
+</ul>
+<figure><img alt="Insignias del curso." id="fig:insignias" src="/assets/notebook_imgs/pr_chapters/intro/insignias.png" style="width:75.0%"/><figcaption aria-hidden="true">Insignias del curso.</figcaption></figure>
+<h3 id="subsec:rubrica"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5</span> Rúbrica de evaluación<a class="headerlink" href="#subsec:rubrica" title="Permanent link">¶</a></h3>
+<p>Una rúbrica “es una herramienta de puntuaciones en la que se valora la calidad de un producto (proyecto, tarea, <em>etc.</em>) en base a los criterios establecidos, iguales para todos los estudiantes. Dichos criterios se presentan en distintos grados y se completan según sea el producto evaluado” <sup id="fnref3:servicio2008aprendizaje"><a class="footnote-ref" href="#fn:servicio2008aprendizaje">2</a></sup>. No espere ver una nota detallada de cada aspecto, sino un grado de consecución.</p>
+<p>Para cada “Nivel de calidad” de la rúbrica existen procesos intermedios que han de ser superados aunque no queden descritos como tal en la misma. No obstante <strong>es una guía para que tenga siempre presente los objetivos de grano grueso del proyecto. El profesor puede tener mayor granularidad</strong> para evaluar parcialmente un criterio de la rúbrica que no se haya logrado en su completitud. El muestra la rúbrica del proyecto <em>Simone</em>.</p>
+<div style="overflow-x:auto;">
+<table class="latex-rubric">
+<thead>
+<tr>
+<th style="background-color: white; border: none;"></th> <th colspan="3">Nivel de calidad</th>
+</tr>
+<tr>
+<th>Criterio</th>
+<th>Malo</th>
+<th>Regular</th>
+<th>Excelente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="col-criterio">V1 - Botón</td>
+<td class="cell-bad">
+<strong>Solo FSM.</strong><br/>
+                El sistema no hace lo requerido.
+            </td>
+<td class="cell-regular">
+                No funciona completamente. No cambia de modo. No gestiona bien los rebotes. No gestiona bien el <code>SysTick</code>.
+            </td>
+<td class="cell-excellent">
+                Pasa los test, funciona correctamente y está bien documentado.
+            </td>
+</tr>
+<tr>
+<td class="col-criterio">V2 - Teclado</td>
+<td class="cell-bad">
+<strong>Solo FSM.</strong><br/>
+                El sistema no hace lo requerido.
+            </td>
+<td class="cell-regular">
+                No funciona completamente. No gestiona bien la excitación de filas. No gestiona bien el <em>input capture</em> de columnas. No recoge bien las teclas.
+            </td>
+<td class="cell-excellent">
+                Pasa los test, funciona correctamente y está bien documentado.
+            </td>
+</tr>
+<tr>
+<td class="col-criterio">
+                V3 - LED <span style="color:red; font-weight:bold">R</span><span style="color:green; font-weight:bold">G</span><span style="color:blue; font-weight:bold">B</span>
+</td>
+<td class="cell-bad">
+<strong>Solo FSM.</strong><br/>
+                El sistema no hace lo requerido.
+            </td>
+<td class="cell-regular">
+                No funciona correctamente. No gestiona bien el PWM para mostrar los colores. No se detiene cuando se le indica.
+            </td>
+<td class="cell-excellent">
+                Pasa los test, funciona correctamente y está bien documentado.
+            </td>
+</tr>
+<tr>
+<td class="col-criterio">V4 - Bajo consumo</td>
+<td class="cell-bad">
+<strong>Solo FSM completa.</strong><br/>
+                El sistema no hace lo requerido.
+            </td>
+<td class="cell-regular">
+                No se gestionan comandos ON/OFF. No detiene <code>SysTick</code>. Solo duerme una vez o no duerme en todas las situaciones.
+            </td>
+<td class="cell-excellent">
+                Funciona correctamente y está bien documentado.
+            </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure-caption" id="tbl:rubrica">
+<strong>Cuadro 1.</strong> Rúbrica de evaluación.
+</div>
+<h3 id="sec:cal"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.6</span> Calendario<a class="headerlink" href="#sec:cal" title="Permanent link">¶</a></h3>
+<p>En la se muestra el calendario de la asignatura. A la izquierda, los días de la semana, señalando los eventos más importantes, como las evaluaciones. A la derecha un gráfico de colores para ver fácilmente qué días tiene clase cada turno. Orientativamente, se indica por qué versión del proyecto se debería ir cada semana. Ajústate lo más que puedas, no te confíes.</p>
+<figure><img alt="Calendario de la asignatura." id="fig:cha1_cal" src="/assets/notebook_imgs/pr_chapters/intro/cha1_cal.png" style="width:96.0%"/><figcaption aria-hidden="true">Calendario de la asignatura.</figcaption></figure>
+<p>Fíjate que, debido a cómo es el calendario académico, hay alteraciones de los turnos que, en algunos casos nos llevan a estar varias semanas sin clase, no te distraigas durante ese tiempo para que no te cueste retomar las sesiones de laboratorio. <strong>Todos los turnos tienen el mismo número de horas de laboratorio</strong>. Las fechas de evaluación son iguales para todos los turnos.</p>
+<p><strong>En el curso 2025-26 se ha reducido una semana el semestre. Para mantener el número de horas de laboratorio, <u>las 2 sesiones previas a la entrega intermedia y final serán de <span class="arithmatex">\(2h30'\)</span> en lugar de <span class="arithmatex">\(2h\)</span></u></strong>.</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:2">
+<p>Canal Youtube de la asignatura: <a href="https://www.youtube.com/channel/UCYIw_gl745WMJ1n0MamDzQw/">https://www.youtube.com/channel/UCYIw_gl745WMJ1n0MamDzQw/</a> <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:servicio2008aprendizaje">
+<p>Servicio de Innovación Educativa de la UPM. Aprendizaje orientado a proyectos. Technical Report, Servicio de Innovación Educativa de la UPM, 2008. <a class="footnote-backref" href="#fnref:servicio2008aprendizaje" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:servicio2008aprendizaje" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref3:servicio2008aprendizaje" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:comision2014memoria">
+<p>Comisión del Plan de Estudios. Memoria del título de graduado en ingeniería de tecnologías y servicios de telecomunicación. Technical Report, Escuela Técnica Superior de Ingenieros de Telecomunicación, 2014. <a class="footnote-backref" href="#fnref:comision2014memoria" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:stm322025fundamentos">
+<p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:stm322025guiainstalacion">
+<p>Josué Pagán Ortiz, Pedro José Malagón Marzo, Daniel Capellán Martín, Román Cárdenas Rodríguez, and Amadeo de Gracia Herranz. <em>Guía de instalación de herramientas para compilación multiplataforma en C</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025guiainstalacion" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:upm2022normativa">
+<p>Consejo de Gobierno. Normativa de evaluación del aprendizaje en las titulaciones oficiales de grado y máster universitario de la universidad politécnica de madrid. Technical Report, Universidad Politécnica de Madrid, 2022. <a class="footnote-backref" href="#fnref:upm2022normativa" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+<li id="fn:borras2017insignias">
+<p>Oriol Borrás Gené. Insignias digitales como acreditación de competencias en la universidad. \url https://oa.upm.es/47460/1/Insignias%20digitales%20como%20acreditacion%20de%20competencias%20en%20la%20Universidad.pdf, 2017. <a class="footnote-backref" href="#fnref:borras2017insignias" title="Jump back to footnote 7 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Volver al principio
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

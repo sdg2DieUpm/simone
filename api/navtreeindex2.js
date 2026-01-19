@@ -1,0 +1,21 @@
+var NAVTREEINDEX2 =
+{
+"structstm32f4__keyboard__hw__t.html#a0861cc44a9f21f2fe9201a8d6a6843e6":[1,0,7,4],
+"structstm32f4__keyboard__hw__t.html#a90923a33d3e61bb751f6a6474ad64191":[1,0,7,0],
+"structstm32f4__keyboard__hw__t.html#ab4cd1b72e10347d38dda61d0759d825a":[1,0,7,7],
+"structstm32f4__keyboard__hw__t.html#ab9f29e892898619e71a449dfe04cd366":[1,0,7,8],
+"structstm32f4__keyboard__hw__t.html#ac8c0f9c9a588cf25ead3488deee38bb3":[1,0,7,6],
+"structstm32f4__keyboard__hw__t.html#ac99ba60f61e44fd740e00605efa46eb4":[1,0,7,3],
+"structstm32f4__keyboard__hw__t.html#ac9e0a40e20e6c5cb2e35e74ab6b3c35c":[1,0,7,2],
+"structstm32f4__keyboard__hw__t.html#adc881a3a578666f3ba66cd83a9d1943e":[1,0,7,5],
+"structstm32f4__keyboard__hw__t.html#ae788b45edf20a86dcdf96ce657e7711d":[1,0,7,1],
+"structstm32f4__rgb__light__hw__t.html":[1,0,8],
+"structstm32f4__rgb__light__hw__t.html#a075f54583fc99cb0bd4fde1ebc25cef2":[1,0,8,5],
+"structstm32f4__rgb__light__hw__t.html#a21a93f5b6c850494c22c56800e05886c":[1,0,8,3],
+"structstm32f4__rgb__light__hw__t.html#a984cca26ee231a54d861bc35603d86a1":[1,0,8,4],
+"structstm32f4__rgb__light__hw__t.html#a9fed7f2e8d53e6f33ace834a99c84a85":[1,0,8,0],
+"structstm32f4__rgb__light__hw__t.html#aa129acd2c7a83b790f20b25cb9d26a6a":[1,0,8,1],
+"structstm32f4__rgb__light__hw__t.html#aacef3e78bc275ba95e27a4d5e8387bc8":[1,0,8,2],
+"structstm32f4__simone__hw__t.html":[1,0,9],
+"structstm32f4__simone__hw__t.html#a9687dac9a2ec4ee95a8f938627312b35":[1,0,9,0]
+};

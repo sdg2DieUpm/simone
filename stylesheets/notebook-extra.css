@@ -1,0 +1,362 @@
+/* =========================================
+   1. TIPOGRAFÍA Y FORMATO DE TEXTO
+   ========================================= */
+
+/* Justificar texto a ambos lados (Estilo Libro/Académico) */
+.md-typeset p {
+  text-align: justify;
+  /* Activamos guiones para evitar espacios grandes entre palabras */
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+/* =========================================
+   2. LAYOUT Y ANCHURA
+   ========================================= */
+
+/* Aumentar el ancho máximo del contenido */
+/* Por defecto MkDocs es estrecho. 1400px aprovecha mejor monitores modernos */
+.md-grid {
+  max-width: 1400px;
+}
+
+/* Opcional: Si quieres que la barra lateral (izquierda) sea un poco más ancha */
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    width: 20%; /* Ajusta si necesitas más espacio para títulos largos */
+  }
+  .md-sidebar--secondary {
+    width: 20%; /* Ajusta la barra de contenidos de la derecha */
+  }
+}
+
+/* =========================================
+   3. COLORES DE TABLAS (Tus Macros)
+   ========================================= */
+.excellent { background-color: #32CB00 !important; color: white; }
+.verygood  { background-color: #00D2CB !important; color: white; }
+.regular   { background-color: #F8FF00 !important; color: black; }
+.bad       { background-color: #CB0000 !important; color: white; }
+.insufficient { background-color: #F56B00 !important; color: white; }
+
+/* Asegurar que las tablas ocupen el 100% del ancho disponible */
+.md-typeset table:not([class]) {
+    display: table;
+    width: 100%;
+}
+
+/* =========================================
+   4. IMÁGENES Y FIGURAS
+   ========================================= */
+img { 
+  display: block; 
+  margin: 0 auto; 
+  max-width: 100%; /* Evita que imágenes gigantes rompan el layout */
+}
+
+figure { 
+  text-align: center; 
+  margin: 20px 0; 
+}
+
+figcaption {
+  font-style: italic;
+  font-size: 0.9em;
+  color: gray;
+  margin-top: 10px;
+}
+
+/* =========================================
+   5. AJUSTES TÉCNICOS DE NAVEGACIÓN
+   ========================================= */
+
+/* Ajuste de anclas para que la cabecera fija no tape el título */
+:target:before {
+  content: "";
+  display: block;
+  height: 80px; 
+  margin: -80px 0 0;
+}
+
+/* =========================================
+   6. ALINEACIÓN DE TEXTO (Soporte para Fenced Divs)
+   ========================================= */
+
+/* Para ::: center */
+.center {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+/* Para ::: flushright (alineado a la derecha) */
+.flushright {
+  text-align: right;
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+/* Para ::: flushleft (alineado a la izquierda, por si acaso) */
+.flushleft {
+  text-align: left;
+  display: block;
+  width: 100%;
+}
+
+/* =========================================
+   7. ESTILO DE CÓDIGO (Para \ttt)
+   ========================================= */
+
+code {
+  font-family: "Roboto Mono", "Courier New", monospace !important;
+  color: #c0392b;           /* Rojo oscuro técnico */
+  background-color: #f4f4f4; /* Fondo gris claro */
+  padding: 2px 4px;
+  border-radius: 3px;
+  
+  /* CRUCIAL: Esto asegura que no salgan comillas ni antes ni después */
+  content: none !important; 
+}
+/* Evitar problemas de visualización en tablas */
+td code {
+    white-space: nowrap; 
+}
+
+/* =========================================
+   8. ESTILO DE TABLAS (Mejorado)
+   ========================================= */
+
+/* Estilo general de la tabla */
+.md-typeset table:not([class]) {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+    font-size: 0.9em; /* Un poco más compacto */
+}
+
+/* ENCABEZADO DE TABLA (Tu petición de color) */
+.md-typeset table:not([class]) thead th {
+    /* Color de fondo del encabezado - Puedes cambiar este código HEX */
+    background-color: #37474f; /* Gris azulado oscuro muy profesional */
+    color: white;              /* Texto blanco */
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 2px solid #263238;
+}
+
+/* Filas alternas para mejor lectura (Opcional, estilo 'zebra') */
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+/* Celdas normales */
+.md-typeset table:not([class]) tbody td {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* =========================================
+   9. MACROS PERSONALIZADAS (Macros.tex)
+   ========================================= */
+
+/* --- Highlighters (\hlcyan, \hlred...) --- */
+mark.hl-cyan  { background-color: cyan; color: black; }
+mark.hl-red   { background-color: red; color: white; }
+mark.hl-blue  { background-color: blue; color: white; }
+mark.hl-green { background-color: green; color: white; }
+
+/* --- Bubbles / Etiquetas (\bubble...) --- */
+.bubble {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0 2px;
+    vertical-align: middle;
+}
+
+.bubble.green {
+    background-color: #e8f5e9; /* Fondo claro */
+    border: 1px solid #67B868;
+    color: #67B868;
+}
+
+.bubble.blue {
+    background-color: #0000FF;
+    color: white;
+}
+
+.bubble.yellow {
+    background-color: #FFFF00;
+    color: blue;
+}
+
+.bubble.cyan {
+    background-color: #00FFFF;
+    color: white;
+}
+
+.bubble.gray {
+    background-color: lightgray;
+    color: blue;
+}
+
+/* --- Colores de Celdas de Tabla (\definecolor...) --- */
+.excellent { background-color: #32CB00 !important; color: white; }
+.verygood  { background-color: #00D2CB !important; color: white; }
+.regular   { background-color: #F8FF00 !important; color: black; }
+.regular2  { background-color: #FFCB2F !important; color: black; }
+.insufficient { background-color: #F56B00 !important; color: white; }
+.bad       { background-color: #CB0000 !important; color: white; }
+.greyA     { background-color: #C0C0C0 !important; }
+.greyB     { background-color: #EFEFEF !important; }
+.greyC     { background-color: #656565 !important; color: white; }
+
+/* =========================================
+   10. IMÁGENES INLINE (Tipo Emoji/Icono)
+   ========================================= */
+
+/* Esta clase se aplica a los antiguos \inlinegraphics */
+img.inline-img {
+    height: 1.2em;                /* Un pelín más alto que el texto para que se vea bien */
+    width: auto;                  /* Mantiene la proporción */
+    display: inline-block;        /* Permite que fluya con el texto */
+    vertical-align: middle;       /* Lo alinea con el centro de las letras */
+    margin: 0 2px;                /* Pequeña separación lateral */
+    border: none;                 /* Quita bordes si los hubiera */
+    box-shadow: none !important;  /* Quita sombras que pone el tema Material */
+}
+
+/* Si están dentro de un párrafo justificado, evitamos que distorsionen el interlineado */
+.md-typeset p {
+    line-height: 1.6;
+}
+
+/* Limitar altura y permitir scroll en diagramas Mermaid */
+.mermaid {
+    display: flex;
+    max-height: 600px;       /* Altura máxima antes de hacer scroll */
+    overflow-y: auto;          /* Activar barras de desplazamiento si es necesario */
+    background-color: white; /* Fondo blanco por seguridad */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+/* =========================================
+   TABLA RÚBRICA (Estilo LaTeX) - FINAL
+   ========================================= */
+
+/* 1. ESTRUCTURA Y BORDES GENERALES */
+html body .latex-rubric {
+    width: 100%;
+    border-collapse: collapse !important; /* Une los bordes de las celdas */
+    margin: 20px 0;
+    font-size: 0.9em;
+    font-family: 'Roboto', sans-serif; /* Misma fuente que el resto */
+    background-color: transparent;
+}
+
+/* Bordes visibles (Gris oscuro) y espaciado */
+html body .latex-rubric th, 
+html body .latex-rubric td {
+    border: 1px solid #666 !important; /* Líneas visibles */
+    padding: 10px !important;
+    vertical-align: top;
+    line-height: 1.4;
+}
+
+/* 2. CABECERA (Header) */
+html body .latex-rubric thead th {
+    background-color: #546e7a !important; /* Blue Grey */
+    color: white !important;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* 3. PRIMERA COLUMNA (Criterios) */
+html body .latex-rubric .col-criterio {
+    background-color: #f5f5f5 !important; /* Gris muy claro */
+    color: #333 !important;
+    font-weight: bold;
+    width: 15%; /* Ancho fijo para la primera columna */
+}
+
+/* 4. COLORES DE ESTADO (MODO CLARO) */
+
+/* Malo (Rojo) */
+html body .latex-rubric td.cell-bad {
+    background-color: #ffcdd2 !important; /* Fondo rojo suave */
+    color: #b71c1c !important;            /* Texto rojo oscuro */
+}
+
+/* Regular (Amarillo/Naranja) */
+html body .latex-rubric td.cell-regular {
+    background-color: #fff9c4 !important; /* Fondo amarillo suave */
+    color: #f57f17 !important;            /* Texto naranja oscuro */
+}
+
+/* Excelente (Verde) */
+html body .latex-rubric td.cell-excellent {
+    background-color: #c8e6c9 !important; /* Fondo verde suave */
+    color: #1b5e20 !important;            /* Texto verde oscuro */
+}
+
+
+/* 5. ADAPTACIÓN A MODO OSCURO (Slate) */
+/* Oscurecemos los fondos para que no dañen la vista */
+
+[data-md-color-scheme="slate"] .latex-rubric .col-criterio {
+    background-color: #333 !important;
+    color: #eee !important;
+}
+
+[data-md-color-scheme="slate"] .latex-rubric td.cell-bad {
+    background-color: #5c1818 !important; /* Rojo muy oscuro */
+    color: #ffcdd2 !important;            /* Texto claro */
+}
+
+[data-md-color-scheme="slate"] .latex-rubric td.cell-regular {
+    background-color: #584c08 !important; /* Amarillo muy oscuro */
+    color: #fff9c4 !important;
+}
+
+[data-md-color-scheme="slate"] .latex-rubric td.cell-excellent {
+    background-color: #143818 !important; /* Verde muy oscuro */
+    color: #c8e6c9 !important;
+}
+
+/* =========================================
+   ESTILO CÓDIGO INLINE (Como LaTeX/Editor)
+   ========================================= */
+
+/* Afecta a todo lo que pongas entre `backticks` */
+.md-typeset :not(pre) > code {
+    /* Color del texto: Azul Ingeniero (Navy Blue) */
+    color: #0d47a1 !important; 
+    
+    /* Fondo: Un gris muy azulado y muy suave (opcional, para resaltar) */
+    background-color: #e8eaf6 !important; 
+    
+    /* Borde: Opcional, para que parezca una cajita */
+    border: 1px solid #c5cae9 !important;
+    border-radius: 3px;
+    
+    /* Fuente: Aseguramos que sea monoespaciada */
+    font-family: 'Roboto Mono', monospace; 
+    font-weight: 500; /* Un poco más gordita */
+    padding: 0 4px;   /* Un poco de aire a los lados */
+}
+
+/* Ajuste para Modo Oscuro (Si lo usas) */
+[data-md-color-scheme="slate"] .md-typeset :not(pre) > code {
+    color: #82b1ff !important; /* Azul claro brillante */
+    background-color: #1a237e !important; /* Fondo azul oscuro */
+    border: 1px solid #304ffe !important;
+}

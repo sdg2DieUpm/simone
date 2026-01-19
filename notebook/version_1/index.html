@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../proyecto_base/" rel="prev"/>
+<link href="../version_2/" rel="next"/>
+<link href="../../assets/general/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Versión 1 - Laboratorio de Sistemas Digitales II</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/notebook-extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#cha:version1">
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Laboratorio de Sistemas Digitales II
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Versión 1
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Cambiar a modo oscuro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Cambiar a modo oscuro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Cambiar a modo claro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Cambiar a modo claro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+    Laboratorio de Sistemas Digitales II
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Portada
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Introducción general
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Introducción general
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introducción a SDG2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sesion_introduccion/">
+<span class="md-ellipsis">
+    Sesión de introducción
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    Proyecto
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Proyecto
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../proyecto_base/">
+<span class="md-ellipsis">
+    Proyecto base
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Versión 1
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Versión 1
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:headers_button">
+<span class="md-ellipsis">
+      PORT: cabeceras de la librería del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:port_button">
+<span class="md-ellipsis">
+      PORT: fuente de la librería del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_port_v1">
+<span class="md-ellipsis">
+      PORT: Test unitario del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-cabecera-de-la-fsm-del-boton">
+<span class="md-ellipsis">
+      COMMON: cabecera de la FSM del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-boton">
+<span class="md-ellipsis">
+      COMMON: fuente de la FSM del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_fsm_v1">
+<span class="md-ellipsis">
+      COMMON Test unitario de la FSM del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-1">
+<span class="md-ellipsis">
+      Ejemplo de uso de la Versión 1
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_2/">
+<span class="md-ellipsis">
+    Versión 2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_3/">
+<span class="md-ellipsis">
+    Versión 3
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_4/">
+<span class="md-ellipsis">
+    Versión 4
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_5/">
+<span class="md-ellipsis">
+    Versión 5
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    API
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/">
+<span class="md-ellipsis">
+    Documentación API
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    Apéndices
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            Apéndices
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bom/">
+<span class="md-ellipsis">
+    BOM
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Acrónimos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../acronimos/">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:headers_button">
+<span class="md-ellipsis">
+      PORT: cabeceras de la librería del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:port_button">
+<span class="md-ellipsis">
+      PORT: fuente de la librería del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_port_v1">
+<span class="md-ellipsis">
+      PORT: Test unitario del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-cabecera-de-la-fsm-del-boton">
+<span class="md-ellipsis">
+      COMMON: cabecera de la FSM del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-boton">
+<span class="md-ellipsis">
+      COMMON: fuente de la FSM del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_fsm_v1">
+<span class="md-ellipsis">
+      COMMON Test unitario de la FSM del botón
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-1">
+<span class="md-ellipsis">
+      Ejemplo de uso de la Versión 1
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="cha:version1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Versión 1: botón de usuario<a class="headerlink" href="#cha:version1" title="Permanent link">¶</a></h1>
+<p>Ya estamos en disposición de programar el bloque que controla la pulsación del botón para encender y apagar el sistema <em>Simone</em>, y para pausarlo. Debes tener a mano en todo momento <strong>los documentos referenciados y ver los vídeos sugeridos</strong> a fin de entender mejor cómo tienes que escribir el código o realizar montajes.</p>
+<div class="admonition example">
+<p class="admonition-title">Bibliografía</p>
+<ol>
+<li>
+<p><em>“Fundamentos teóricos de sistemas basados en microcontrolador STM32”</em> <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup></p>
+</li>
+<li>
+<p><em>Datasheet “STM32F446xC/E”</em> <sup id="fnref:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">4</a></sup></p>
+</li>
+<li>
+<p><em>Reference manual “RM0390. STM32F446xx advanced Arm-based 32-bit MCUs’</em> <sup id="fnref:st2021reference"><a class="footnote-ref" href="#fn:st2021reference">5</a></sup></p>
+</li>
+</ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title"><a href="https://www.youtube.com/channel/UCYIw_gl745WMJ1n0MamDzQw/">Vídeos del canal de SDGII</a></p>
+<ul>
+<li>
+<p><a href="#TO-DO">Demostración Simone</a></p>
+</li>
+<li>
+<p><a href="https://youtu.be/CcbgLVfCXrw?si=A8DP1rescxJNBEb9">Blink LED y manejo de proyecto</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/playlist?list=PLTFFovUxjNnn19myGVw1kwh6GPbRxwIcC">Conceptos básicos de C (canal SDG1)</a></p>
+</li>
+<li>
+<p><a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">[MatrixMCU] Documentación de código con Doxygen</a></p>
+</li>
+</ul>
+</div>
+<p>Vamos a desarrollar el <em>botón</em> de control del sistema <em>Simone</em>. Vamos a trabajar con el <em>timer</em> del sistema y máquinas de estado. En esta sección explicaremos los fundamentos de esta librería y posteriormente seguiremos los pasos para desarrollarla. Para desarrollar esta librería vamos a contar con la <a href="../acronimos/#acro:API"><strong>API</strong></a>.</p>
+<p>En esta versión 1, el sistema solo trabaja con el botón de usuario. Las características a destacar de este montaje se muestran en el . El botón de usuario está conectado al pin <code>PC13</code>, por lo que usaremos la interrupción externa <code>EXTI13</code> para detectar cuando pulsamos y soltamos el botón. La prioridad de la interrupción será 1, la más alta, para poder parar el sistema en cualquier momento.</p>
+<div id="tbl:version1_button"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parámetro</strong></th>
+<th style="text-align: center;"><strong>Valor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Pin</td>
+<td style="text-align: center;"><code>PC13</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Modo</td>
+<td style="text-align: center;">Entrada</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pull up/ down</td>
+<td style="text-align: center;">No push no pull</td>
+</tr>
+<tr>
+<td style="text-align: left;">EXTI</td>
+<td style="text-align: center;"><code>EXTI13</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">ISR</td>
+<td style="text-align: center;"><code>EXTI15_10_IRQHandler()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Prioridad</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Subprioridad</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">Tiempo anti-rebotes</td>
+<td style="text-align: center;"><span class="arithmatex">\(100-200 ms\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Características del botón de usuario en Versión 1.</p>
+<p>Estudia y practica con las máquinas de estado. Entiende cómo se definen los estados, las tablas de transiciones, y qué son las funciones de entrada/ comprobación y salida/ actuación. Para ello vuelve a leer <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/gen_book_icon.png"> <strong>el capítulo “2. Introducción a las máquinas de estados en C”</strong> <sup id="fnref:stm322025tutoriales"><a class="footnote-ref" href="#fn:stm322025tutoriales">6</a></sup>.</img></p>
+<p>Si tienes la oportunidad de abrir un botón pulsador<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, seguramente encuentres un diseño mecánico como el de la <a href="#fig:button_mechanics">figura</a>. Se trata de una chapa metálica pegada a un aislante (donde toca el usuario) y colocada sobre un muelle. En la parte inferior, los pines del botón están también en contacto con una chapa metálica. Al presionar, la chapa superior entra en contacto con la inferior y cierra el circuito (cortocircuito), circulando la corriente a través del botón. Cuando se suelta, la corriente deja de pasar (circuito abierto).</p>
+<figure><embed id="fig:button_mechanics" src="/assets/notebook_imgs/pr_chapters/version_1/button_mechanics.png" style="width:45.0%"/><figcaption aria-hidden="true">Representación mecánica de un botón.</figcaption></figure>
+<p>En la <a href="fig:button_nucleo">figura del esquema</a> vemos el esquemático del botón de usuario <code>B1</code> en la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span>. Cuando pulsamos el botón, este hace cortocircuito con <code>GND</code>, por lo que la tensión en el puerto <code>PC13</code> del microcontrolador pasa de alto a bajo (flanco de bajada).</p>
+<figure><embed id="fig:button_nucleo" src="/assets/notebook_imgs/pr_chapters/version_1/button_nucleo.png" style="width:50.0%"/><figcaption aria-hidden="true">Esquema del circuito del botón en la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</figcaption></figure>
+<p>Como habrás podido intuir, el muelle genera inestabilidades cuando se pulsa, esto es a lo que llamamos <strong>rebotes</strong> (<em>bounces</em> en inglés). Estos rebotes son molestos porque se pueden interpretar como múltiples pulsaciones del usuario, por lo que hay que poner algún mecanismo para filtrarlos. Se pueden hacer mecanismos HW como un filtro paso bajo o, como en nuestro caso, se pueden implementar mecanismos SW.</p>
+<p>En SW hay varias formas de implementar dicho mecanismo. En nuestra propuesta lo haremos a través de la definición de un tiempo de guarda que obliga a ignorar todo lo que pasa en ese intervalo. Fíjate en el supuesto de la <a href="#fig:button_debound">figura de rebotes</a>. <strong>Para el proyecto vamos a considerar que la pulsación empieza cuando la ISR detecta el flanco de bajada, y hasta que se detecta un flanco de subida válido</strong>. En la figura, hay una pulsación de usuario, y la mecánica del botón hace que haya 2 rebotes bien definidos. El primer rebote no se detecta porque está dentro del tiempo de guarda. No obstante, este tiempo no es lo suficiente grande y <em>se nos cuela</em> el segundo rebote. Esta figura nos servirá como ejemplo para entender el desarrollo de la FSM.</p>
+<figure><embed id="fig:button_debound" src="/assets/notebook_imgs/pr_chapters/version_1/button_debounce.svg" style="width:100.0%"/><figcaption aria-hidden="true">Ejemplo de 2 rebotes en una pulsación con tiempo de anti-rebotes bajo.</figcaption></figure>
+<p>Salvo que tengamos mucha experiencia jugando a videojuegos 😅, no seremos muy rápidos pulsando el botón. Dejando un tiempo de guarda entre <span class="arithmatex">\(100-200 ms\)</span> debería ser suficiente, pero depende del deterioro de nuestro botón y quizás debamos ajustarlo haciendo pruebas en el laboratorio con el osciloscopio. Ya estamos preparados para implementar la FSM.</p>
+<p>Tenemos que entender que <strong>estamos desarrollando una librería.</strong> Así lo vamos a hacer con todos los bloques del sistema. ¿Qué quiere decir esto? Tenemos que pensar que una librería es una entidad superior que me proporciona <em>“cosas”</em>. Pueden ser funciones, o elementos (estructuras). Me puede proporcionar tantos como necesite. El desarrollo de la librería es ajeno al botón que vamos a usar (irá en el <code>COMMON</code>, es una lógica <em>común</em>, genérica, independiente del HW). Puedo tener <span class="arithmatex">\(1\)</span> botón, o <span class="arithmatex">\(N\)</span> botones. Cada vez que quiera usar un botón, a este le asociaré una <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> de botón. Las particularidades de dónde está conectado este nuevo botón, sus características físicas (tiempo de rebote), <em>etc.</em>, son cosas específicas del HW, por lo que estarán en <code>PORT</code>. La lógica la vamos a hacer, siempre que se pueda, con máquinas de estado. El <em>botón</em> implementa su propia máquina de estados. Esta filosofía es la que mantendremos a lo largo de todo el proyecto.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vamos a empezar por la parte portable <code>PORT</code> de control y acceso al HW. Empezaremos con las cabeceras <code>.h</code>y seguiremos con la implementación de las funciones de los ficheros fuente <code>.c</code>. Para comprobar que todo funciona correctamente, pasaremos el <em>test</em> unitario de la parte <code>PORT</code>. Luego, pasaremos a la parte <code>COMMON</code> de la librería, que es la lógica común a todos los sistemas. Empezaremos con las cabeceras y seguiremos con la implementación de las funciones de los ficheros fuente. Para comprobar que todo funciona correctamente, pasaremos el <em>test</em> unitario de la parte <code>COMMON</code>, y finalizaremos con el ejemplo de uso de la librería. </p>
+<p>Las cabeceras <code>.h</code> van a se nuestro <strong><em>“contrato con el usuario”</em></strong>, y en los ficheros fuente <code>.c</code> implementaremos las funciones. <strong>Este es el ciclo de desarrollo que vamos a seguir en todo el proyecto.</strong></p>
+</div>
+<figure><embed id="fig:stm32f4_button_hw_t" src="/assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.svg" style="width:100.0%"/><figcaption aria-hidden="true">Estructura del HW del botón en PORT.</figcaption></figure>
+<figure><embed id="fig:fsm_button_t" src="/assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.svg" style="width:85.0%"/><figcaption aria-hidden="true">Estructura de la FSM del botón en COMMON.</figcaption></figure>
+<p>Las <a href="#stm32f4_button_hw_t">figuras de estructuras HW</a> <a href="#fms_button_t">y SW</a> muestran las estructuras que vamos a necesitar para el botón. La estructura del HW del botón en <code>PORT</code>. El <code>PORT</code> de otro microcontrolador podría implementar internamente una estructura diferente, por eso está dentro de la carpeta <code>stm32f4</code>. Por ejemplo, al <em>portar</em> el código para PC no tendría sentido definir la estructura de una GPIO. La estructura de la <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> del botón en <code>COMMON</code> se muestra en la <a href="#fsm_button_t">figura de la FSM</a>.</p>
+<p>Ahora sí, comencemos. Preparemos el proyecto para poder añadir el <em>botón</em>:</p>
+<ol>
+<li>
+<p>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT</strong> de la librería del <em>botón</em> correspondientes a la versión <code>V1</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v1">https://github.com/sdg2DieUpm/Simone/tree/simone_v1</a>. Solo descarga por ahora: <code>port_button.h</code>, <code>stm32f4_button.h</code> y <code>stm32f4_button.c</code> y colócalos en las carpetas correspondientes de tu proyecto. <strong>No añadas los ficheros de la parte COMMON.</strong></p>
+</li>
+<li>
+<p>Coloca cada uno donde corresponde: <code>PORT</code> o <code>COMMON</code>, en <code>include</code>, o <code>src</code>. <strong>Ten en cuenta que algunos ficheros de <code>PORT</code> están en la carpeta <code>stm32f4</code> porque sus funciones reciben o devuelven estructuras específicas de la <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</strong></p>
+<p>Verás que no compila, y es que solo se te proporciona cierta parte del código. Los prototipos de gran parte de las funciones públicas no están definidos.</p>
+</li>
+</ol>
+<h2 id="sec:headers_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1</span> <code>PORT</code>: cabeceras de la librería del botón<a class="headerlink" href="#sec:headers_button" title="Permanent link">¶</a></h2>
+<p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del botón. Esto es, qué interfaz vamos a proporcionar al usuario para que pueda usar la librería y crear tantos botones como necesite. Lo haremos, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</p>
+<p>Durante todo el desarrollo del proyecto, <strong>si detectas que falta algún</strong> <code>#define</code>, <strong>o</strong> <code>#include</code>, <strong>o declaración de variable que sea necesaria o que necesite, hazlo. Lo que aquí se expone no es algo inmutable, aunque sigue unas buenas prácticas.</strong></p>
+<p>La <a href="#fig:template_header">figura de plantilla</a> representa las secciones de una plantilla genérica de cabecera que puede utilizar a lo largo del proyecto. El orden no es un estándar, ni las secciones que ahí aparecen. No obstante, sí es muy conveniente ser ordenado y metódico en programación. Sí es importante el orden en los siguientes casos:</p>
+<ul>
+<li>
+<p>La inclusión de cabeceras ha de ser lo primero. Es importante el orden en caso de existir dependencias entre ellas.</p>
+</li>
+<li>
+<p>Es aconsejable definir las etiquetas, macros, enumerados… justo después para que puedan ser utilizados en la declaración y definición de variables. <strong>Solo pondremos en el <code>.h</code> aquéllas que queramos que sean visibles y utilizadas por otros ficheros. En caso contrario, lo colocaremos en el <code>.c</code></strong>.</p>
+</li>
+<li>
+<p>Si se declara algún tipo nuevo de variable, hay que hacerlo antes de que se use en el prototipo de alguna función. <strong>Las funciones que no queramos que sean accesibles por otros ficheros no tendrán prototipo, y escribiremos y documentaremos directamente en el <code>.c</code>, además, se definirán como <code>static</code>.</strong></p>
+</li>
+</ul>
+<figure><embed id="fig:template_header" src="/assets/notebook_imgs/pr_chapters/version_1/template_header.svg" style="width:85.0%"/><figcaption aria-hidden="true">Sugerencia de plantilla genérica de una cabecera.</figcaption></figure>
+<p>Nuestro botón es <strong>el botón de usuario <code>B1</code> de la placa (el azul) será el botón para arranque y parada del juego. Está conectado a la GPIO PC13</strong>. Si lo queremos ver en el osciloscopio, tendremos que pinchar en el pin indicado en el <em>header</em>-Morpho izquierdo, como marca la figura <em>“Pinout y funciones header -Morpho izquierdo.”</em> del libro de fundamentos teóricos <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>. El esquemático del circuito del botón es el que se mostró en la <a href="#fig:button_nucleo">figura del esquemático</a>.</p>
+<h3 id="cabecera-port_buttonh"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1.1</span> Cabecera port_button.h<a class="headerlink" href="#cabecera-port_buttonh" title="Permanent link">¶</a></h3>
+<p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. En ella vamos a definir las funciones que el usuario podrá usar para gestionar el botón. <strong>Fíjate que todas las funciones reciben el identificador del botón</strong> y solo pueden recibir o devolver variables que <strong>NO dependan del microcontrolador</strong>. Vamos a seguir los siguientes pasos:</p>
+<ul>
+<li>
+<p>Vamos a definir (<code>#define</code>) dos valores que nombraremos en un consenso con nosotros mismos. Puede cambiarlos si lo desea, pero deberán ser los mismos que luego use en el resto del proyecto <strong>¡y en los test, si los cambias, tendrás que tocar los ficheros de test también!</strong> Los valores son:</p>
+</li>
+<li>
+<p><code>PORT_USER_BUTTON_ID</code>: valor numérico natural que será el identificador del botón para indicar arranque y parada del juego Simone. Si es nuestro primer y/ o único botón del sistema, le asignaremos el <code>0</code>.</p>
+</li>
+<li>
+<p><code>PORT_USER_BUTTON_DEBOUNCE_TIME_MS</code>: tiempo del anti-rebotes del botón en <span class="arithmatex">\(ms\)</span>.</p>
+</li>
+<li>
+<p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_button.h</code>.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. Para que aparezca en la API el campo y su definición, hay que poner <code>/*!\&lt; aqui_la_definicion */</code> junto al nombre del campo como muestra la <a href="#fig:doxygen_enum">figura de ejemplo de Doxygen en enumerados</a>.</p>
+<p><figure><img alt="Comentario de Doxygen en las claves de un enumerado." id="fig:doxygen_enum" src="/assets/notebook_imgs/pr_chapters/version_1/doxygen_enum.png" style="width:90.0%"><figcaption aria-hidden="true">Comentario de Doxygen en las claves de un enumerado.</figcaption></img></figure></p>
+<p>Puedes partir de los ejemplos dados en el fichero <code>port_system.h</code> y ayudarse con extensa documentación online. <strong>Puede hacerlo en español o inglés</strong><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Podemos tener ayuda para autocomentar parcialmente el código con Doxygen. Compruea si tienes instalada la extensión llamada <em>Doxygen Documentation Generator</em> —a veces se instala junto con otras extensiones—; si no la tienes, puedes instalarla. Con esta extensión, si te colocas justo en la lı́nea encima del nombre de la función y escribes: <em>barra, asterisco, asterisco, enter</em> <img alt="image" class="inline-img" src="/assets/notebook_imgs/pr_chapters/version_1/doxygen_autocomment.png"/>, colocando el cursor en la tercera posición, como en la imagen, para darle a enter, se genera automáticamente un esqueleto para poder completarlo. También se puede hacer si, colocados justo encima de la función, damos botón derecho → Generate Doxygen Comment.</p>
+</div>
+<p>Ya hemos acabado con el encabezado que interactúa con el HW del botón y que no depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_button.h</code>.</p>
+<h3 id="cabecera-stm32f4_buttonh"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1.2</span> Cabecera stm32f4_button.h<a class="headerlink" href="#cabecera-stm32f4_buttonh" title="Permanent link">¶</a></h3>
+<p>Esta cabecera depende del HW y del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. En ella vamos a definir la función que permitirá al usuario asignar una GPIO al botón. En la versión V5, si lo necesitas, puedes añadir más funciones que dependan del microcontrolador. Vamos a seguir los siguientes pasos:</p>
+<ul>
+<li>
+<p>Como vamos a hacer uso de funciones de control de las GPIO, vamos a incluir <code>stm32f4xx.h</code>, que nos da acceso a los registros.</p>
+</li>
+<li>
+<p>Vamos a definir (<code>#define</code>) los valores de la GPIO y el pin al que está conectado el botón, y que se indican en la <a href="#tbl:version1_button">tabla resumen del botón</a>:</p>
+</li>
+<li>
+<p><code>STM32F4_USER_BUTTON_GPIO</code>: GPIO a la que está conectada el botón de usuario en la placa. Pon el nombre de la GPIO. Por ejemplo: <code>GPIOH</code>, si estuviese conectado a la GPIO H. Este nombre, es el de la estructura de <code>CMSIS</code> y se define en <code>stm32f4xx.h</code>. Puedes hacer <code>CTRL + click</code> sobre el nombre de la GPIO para ir a su definición.</p>
+</li>
+<li>
+<p><code>STM32F4_USER_BUTTON_PIN</code>: pin/ línea de la GPIO del botón. Es un número entero que va de 0 a 15.</p>
+</li>
+<li>
+<p>En el fichero tenemos que declarar también una estructura llamada <code>stm32f4_button_hw_t</code> (ver la [figura del struct]{#fig:stm32f4_button_hw_t}). Esta estructura se pone en el \ttt{.h} y se hace pública para que pueda ser usada por la ISR del botón en el fichero <code>interr.c</code>. Esto es así porque a las ISR no se les puede pasar argumentos. En ella se definen los campos que se muestran en la figura.</p>
+<p>Esta estructura es genérica para cualquier botón que vayamos a usar, no solo el de usuario <code>B1</code>, sino cualquiera que desee añadir más tarde.</p>
+<p>El campo <code>flag_pressed</code> nos indica si el botón se ha pulsado, o no. Ya vimos que cuando pulsamos nuestro botón se produce un flanco de bajada por cómo están conectados sus pines (ver <a href="#fig:button_debound">figura de rebotes</a>). Son las ISR las que hacen esta interpretación.</p>
+</li>
+<li>
+<p>Vamos declarar un array de estructuras de tipo <code>stm32f4_button_hw_t</code> como <code>extern</code> que se definirá en el fichero fuente <code>stm32f4_button.c</code>. Este array contendrá las características de todos los botones que tengamos en el sistema.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">extern</span><span class="w"> </span><span class="n">stm32f4_button_hw_t</span><span class="w"> </span><span class="n">buttons_arr</span><span class="p">[];</span>
+</code></pre></div>
+<ul>
+<li>Puede ser buen momento ahora para documentar la función, la estructura y sus campos, y los <code>#define</code> con Doxygen.</li>
+</ul>
+<p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW del botón y depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas aquí y en <code>port_button.h</code>.</p>
+<h2 id="sec:port_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2</span> <code>PORT</code>: fuente de la librería del botón<a class="headerlink" href="#sec:port_button" title="Permanent link">¶</a></h2>
+<p>Si observas la API, verás que la FSM del <em>botón</em> hace llamadas a funciones que empiezan por <code>port_</code>. Estas son funciones <em>portables</em>, y el usuario que quiera usar la librería de la FSM del <em>botón</em> debe programarlas y adaptarlas a su HW.</p>
+<p>Vamos a <em>portar</em> las funciones necesarias para usar la librería botón y comprobar que la parte HW está bien programada. Lo haremos, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Ya tenemos las cabeceras HW del botón: las que no dependen del microcontrolador (<code>port_button.h</code>) y las que sí (<code>stm32f4_button.h</code>). Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_button.c</code></strong>. Deberás implementar o completar todas las funciones públicas de las que ya has declarado el prototipo en el encabezado. Posteriormente completarás la ISR asociada al pin del botón que aparece en la API del fichero <code>interr.c</code>.</p>
+<h3 id="fuentes-stm32f4_buttonc"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.1</span> Fuentes stm32f4_button.c<a class="headerlink" href="#fuentes-stm32f4_buttonc" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
+</li>
+<li>
+<p>Vamos a definir la <strong>variable global</strong> <code>stm32f4_button_hw_t buttons_arr[]</code> que se declaró en el <code>.h</code>. Se trata de un array que no especifica el número de elementos que tiene, pero cada uno será de tipo <code>stm32f4_button_hw_t</code>, que representa al HW de cada botón que tengamos en nuestro sistema.</p>
+<p>La declaración e inicialización de este array podemos hacerla a la vez, que será lo más aconsejable. También podríamos hacer solo la declaración e inicializar los valores de cada botón en una función aparte —que ahora mismo no tenemos definida—. Convendría recordar las secciones correspondientes de los vídeos de SDG1: <a href="https://youtu.be/U395gYoCHbQ?t=223">inicialización de arrays</a> y <a href="https://youtu.be/X33jHui_l0k?t=378">arrays de estructuras</a>.</p>
+<p>Asigna los valores del botón <code>PORT_USER_BUTTON_ID</code> utilizando los <code>#define</code> de <code>stm32f4_button.h</code>. Deberá quedarte algo como lo de la <a href="#fig:buttons_array">figura de arrays</a>. Si tienes más botones en el sistema, simplemente añadirías una fila para cada botón con sus características correspondientes.</p>
+<p><figure><img alt="Array de botones con las características del botón de usuario." id="fig:buttons_array" src="/assets/notebook_imgs/pr_chapters/version_1/buttons_array.png" style="width:90.0%"/><figcaption aria-hidden="true">Array de botones con las características del botón de usuario.</figcaption></figure></p>
+</li>
+<li>
+<p>Se os proporciona ya codificada la función <code>_stm32f4_button_get()</code>. Se trata de una función privada que devuelve un puntero a la estructura del botón que se le pasa como argumento. Esta función, aunque prescindible, es útil para poder hacer un código más legible y acceder a los campos de la estructura del botón de forma más sencilla desde otras funciones del fichero <code>stm32f4_button.c</code>. <strong>¡Recuerda que esta función es privada y por tanto debe aparecer codificada antes de cualquier función que la utilice!</strong></p>
+<p>Si el botón no existe, la función devuelve <code>NULL</code>. Esto es habitual en funciones que devuelven punteros y es muy útil para detectar errores en la programación.</p>
+</li>
+<li>
+<p>Completa la función <code>port_button_init()</code> como se indica en la API. Fíjate cómo la parte de código proporcionada define la variable local <code>*p_button</code> que nos permite acceder al botón. También podría haberse hecho con acceso directo al elemento del array de botones <code>buttons_arr[button_id]</code>, pero es más elegante, seguro, y legible hacerlo con la función <code>_stm32f4_button_get()</code>.</p>
+<p><span style="color: Red">Recuerda que es muy importante indicar en el modo de la interrupción del botón que, <strong>además de detectar ambos flancos (subida y bajada), debe habilitar la petición de interrupción (registro <code>EXTI_IMR</code>)</strong></span>.</p>
+</li>
+<li>
+<p>Codifica la función pública declarada en el fichero <code>port_button.h</code> siguiendo la API: <code>port_button_get_pressed()</code>.</p>
+<p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_button.c</code>!</strong> Ahora solo queda la ISR asociada al pin del botón para poder probarlo. Vamos a ello.</p>
+<h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
+<p>Abre el fichero <code>interr.c</code> e implementa la <a href="../acronimos/#acro:ISR"><strong>ISR</strong></a> <code>EXTI15_10_IRQHandler</code>.</p>
+</li>
+<li>
+<p>Copia este esqueleto en el documento:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">EXTI15_10_IRQHandler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="cm">/* ISR user button */</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">EXTI</span><span class="o">-&gt;</span><span class="n">PR</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">BIT_POS_TO_MASK</span><span class="p">(</span><span class="n">buttons_arr</span><span class="p">[</span><span class="n">PORT_USER_BUTTON_ID</span><span class="p">].</span><span class="n">pin</span><span class="p">))</span>
+<span class="w">    </span><span class="p">{</span>
+
+
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</li>
+<li>
+<p>Completa la ISR <code>EXTI15_10_IRQHandler</code> como se indica en la API.</p>
+<p>Esta ISR es la misma para cualquier elemento que se conecte en las líneas <code>10-15</code>, y por ello debe identificar cuál de ellas ha sido. Es por eso que tenemos la línea <code>EXTI-&gt;PR &amp; BIT_POS_TO_MASK(buttons_arr[PORT_USER_BUTTON_ID].pin)</code>, para asegurar que es el botón de usuario.</p>
+<p>Esta línea comprueba si el bit de la posición del pin del botón está activo en el registro Pending Register <code>EXTI_PR</code>. Si es así, es porque se ha producido una interrupción en el pin del botón. <strong>Es muy importante que borremos el flag de interrupción</strong> escribiendo un 1 en el bit correspondiente del registro <code>EXTI_PR</code>.</p>
+<p>Debemos identificar si el flanco que ha producido la interrupción es de subida o bajada, pues el montaje HW de cada botón puede ser distinto.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p>Si ahora compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del botón!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
+<h2 id="sec:test_port_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3</span> <code>PORT</code>: Test unitario del botón<a class="headerlink" href="#sec:test_port_v1" title="Permanent link">¶</a></h2>
+<p>Veremos que la lógica de las máquinas de estado hacen uso de las funciones portables que acceden al HW del dispositivo. Es por ello que es importante comprobar primero que la parte <code>PORT</code> funciona correctamente. Vamos a hacer el test de HW del código que hemos desarrollado de la librería del botón y probar que funciona antes de continuar con la implementación de la lógica de la parte de la FSM.</p>
+<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/gen_book_icon.png"/> Ten a mano y revisa el capítulo <em>“Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>.</p>
+<p>En esta sección vamos a practicar con el concepto de <strong>depuración</strong> (<em>debugging</em>) (<img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/gen_book_icon.png"/> <strong>recordar ejercicio de clase en SDG1 y las pruebas de la <em>Guía de instalación<em> con </em>blink</em></strong> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">7</a></sup>).</p>
+<p>La herramienta más importante y cómoda que tenemos para depurar es el <a href="../acronimos/#acro:IDE"><strong>IDE</strong></a> que usemos. En nuestro caso, como <em>VSCode</em> no es un <a href="../acronimos/#acro:IDE"><strong>IDE</strong></a> en sí mismo, sino un editor de texto <em>vitaminado</em>, tenemos que usar extensiones. La extensión <em>Cortex-Debug</em> para <em>VSCode</em> es la que nos ayudará a depurar.</p>
+<p>A veces no nos queda otra forma para depurar que imprimir texto por pantalla (cuando esta existe). Recuerde de la <em>Guía de instalación</em> <sup id="fnref2:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">7</a></sup> que algunos dispositivos basados en ARM proporcionan una consola de <a href="../acronimos/#acro:ITM"><strong>ITM</strong></a>. ITM es una aplicación de ARM que permite, entre otras cosas, el uso de la función <code>printf()</code> en depuración con la placa. También existen alternativas como el <em>semihosting</em>, que envía mensajes a través de la pestaña de <em>Debug Console</em> de <em>VSCode</em>. Esta es la opción que tenemos configurada en nuestro proyecto. <strong>No hay que abusar de ellas, porque no vale para todo. Tendremos que acudir inevitablemente a ver los valores de los registros en algún momento.</strong> Bien es cierto que, una vez el proyecto está funcionando en producción, puede ser útil tener trazas (impresas, LEDs, ficheros de <em>log</em>…) para saber qué está pasando en caso de fallo.</p>
+<p>Descarga el fichero de test HW del botón <code>test_port_button.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v1_test">https://github.com/sdg2DieUpm/simone/tree/simone_v1_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto. Puedes eliminar el fichero plantilla <code>test_template.c</code></p>
+<ol>
+<li>
+<p>Conecta la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_port_button</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Inmediatamente se habrá parado en la primera línea del test. Continúa la depuración (<img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_continue.png"/>) para ejecutar el test por completo, o pon puntos de parada si deseas ir paso a paso.</p>
+</li>
+<li>
+<p>Se habrá impreso por la terminal del <code>gdb-server</code> el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
+</li>
+<li>
+<p>La depuración se queda en bucle en la instrucción <code>exit(UNITY_END())</code>. Para terminar la depuración pulsa (<img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
+<p>Si algún test genera una situación de comportamiento inesperado, puede ser que no termine de ejecutarse. Comprueba dónde se queda pausando la depuración, y lee los mensajes de error que te proporciona el test.</p>
+</li>
+</ol>
+<p>Un ejemplo de ejecución del test se muestra en la <a href="#fig:test_port_button">ejecución de test de la figura</a>. En este caso, la segunda comprobación ha fallado indicándonos que la GPIO elegida para el botón no es la correcta. Luego aparecen más errores, pero son derivados de este. Corrigiéndolo, pasan todos los test correctamente. Por eso, se recomienda <strong>arreglar los errores en el orden en que aparecen</strong>.</p>
+<figure><img alt="Ejecución de los test unitarios de la parte &lt;code&gt;PORT&lt;/code&gt; del botón." id="fig:test_port_button" src="/assets/notebook_imgs/pr_chapters/version_1/unit_test_port_button.png" style="width:100.0%"/><figcaption aria-hidden="true">Ejecución de los test unitarios de la parte <code>PORT</code> del botón.</figcaption></figure>
+<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del botón!</strong> Vamos ahora a implementar la parte <code>COMMON</code> de la librería del botón.</p>
+<h2 id="common-cabecera-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4</span> <code>COMMON</code>: cabecera de la FSM del botón<a class="headerlink" href="#common-cabecera-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
+<h3 id="consideraciones-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4.1</span> Consideraciones de la FSM del botón<a class="headerlink" href="#consideraciones-de-la-fsm-del-boton" title="Permanent link">¶</a></h3>
+<p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
+<ul>
+<li>
+<p>La FSM <strong>almacena la duración de la última pulsación de botón</strong>.</p>
+</li>
+<li>
+<p>El usuario debe solicitar/ comprobar la duración mediante la función <code>fsm_button_get_duration()</code>.</p>
+</li>
+<li>
+<p>El valor de inicio de duración al arrancar la FSM, y el de reinicio, debe ser <span class="arithmatex">\(0 ms\)</span>.</p>
+</li>
+<li>
+<p><strong>Un valor de <span class="arithmatex">\(0 ms\)</span> significa que no ha habido una nueva pulsación del botón.</strong></p>
+</li>
+<li>
+<p><strong>El usuario debe reiniciar el valor de duración una vez leído</strong>, de lo contrario, este valor puede ser malinterpretado por el usuario si se realizan sucesivas comprobaciones sin haber pulsado el botón. En tal caso estaríamos leyendo información del pasado. Para reiniciar el valor se debe llamar a la función <code>fsm_button_reset_duration()</code>.</p>
+<p>Visto de otro modo, <strong>el <em>“flag”</em> de estado de esta FSM es la variable duración.</strong> Una duración de 0 significa que no ha habido ninguna nueva pulsación de botón. Un valor distinto de 0 representa que ha sido pulsado y el valor es su duración. Es por tanto responsabilidad del usuario borrar este <em>“flag”</em> de estado.</p>
+</li>
+<li>
+<p>La FSM contiene información del identificador (<code>ID</code>) del botón. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIO a la que está conectado y tiempo de anti-rebotes) para todos los botones de su sistema.</p>
+</li>
+</ul>
+<figure><embed id="fig:fsm_boton" src="/assets/notebook_imgs/pr_chapters/version_1/fsm_button.svg" style="width:140.0%"/><figcaption aria-hidden="true">Máquina de estados del botón.</figcaption></figure>
+<p>Nuestra librería implementa la lógica de la <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> mostrada en la <a href="#fig:fsm_boton">FSM de la figura</a> y que llamaremos <code>fsm_button</code> (en los ficheros <code>.c</code> y <code>.h</code>). Tiene 4 estados porque <strong>implementa un mecanismo anti-rebotes SW</strong>. Los rebotes de botón o pulsaciones muy rápidas que duren menos que el <em>tiempo de anti-rebote</em> (<code>debounce_time</code>), se filtran. Los estados, como muestran la figura, son:</p>
+<ul>
+<li>
+<p><code>BUTTON_RELEASED</code>: es el estado inicial de la FSM. En este estado la FSM está comprobando constantemente si se ha producido un flanco de bajada, <em>i.e.</em>, si se ha pulsado el botón. Cuando este se produce, guarda el instante actual y calcula el <em>timeout</em> del tiempo de guarda.</p>
+</li>
+<li>
+<p><code>BUTTON_PRESSED_WAIT</code>: se queda esperando en este estado hasta que ha pasado el tiempo de guarda de anti-rebotes, <em>i.e.</em>, hasta que el instante actual es mayor que el <em>timeout</em>. Este es el anti-rebote de bajada. Al salir, no hace nada (función, <code>NULL</code>).</p>
+</li>
+<li>
+<p><code>BUTTON_PRESSED</code>: en este estado se queda mientras no se suelte el botón. Saldrá de él cuando se haya detectado un flanco de subida. Ya ha pasado el tiempo de guarda, por lo que si es un rebote, se detectará como falso (ver ). Cuando el flanco de subida se produce, se calcula la duración de la pulsación.</p>
+</li>
+<li>
+<p><code>BUTTON_RELEASED_WAIT</code>: se queda esperando en este estado hasta que ha pasado el tiempo de guarda de anti-rebotes, <em>i.e.</em>, hasta que el instante actual es mayor que el <em>timeout</em>. Este es el anti-rebote de subida. Al salir, no hace nada (función, <code>NULL</code>).</p>
+</li>
+</ul>
+<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la . Con <strong>pública</strong> queremos decir que está declarada en el fichero <code>.h</code> y no el el <code>.c</code>, por lo que otros ficheros pueden declarar variables de este tipo. <strong>No obstante, los campos de la estructura son privados y no deben ser accesibles desde fuera de la librería</strong>.</p>
+<ol>
+<li>Lo primero, descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>botón</em> correspondientes a la versión <code>V1</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v1">https://github.com/sdg2DieUpm/Simone/tree/simone_v1</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_button.h</code> y <code>fsm_button.c</code> y ponlos en las carpetas correspondientes de tu proyecto.</li>
+</ol>
+<p>Ahora, vamos a completar la cabecera de la <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> del botón, <code>fsm_button.h</code>.</p>
+<ol>
+<li>
+<p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
+</li>
+<li>
+<p>Ahora vamos a definir el enumerado con los nombres de los 4 estados de la FSM. Escribe un <code>enum</code> <code>FSM_BUTTON</code> con los nombres de los estados del diagrama de la separados por <code>,</code>. No olvides poner un <code>;</code> al final del <code>enum</code>.</p>
+</li>
+<li>
+<p>Seguidamente <strong>declararemos</strong> la estructura <code>fsm_button_t</code> para hacerla pública como indica la <a href="#fig:fsm_button_t">figura de la estructura de la FSM</a>.</p>
+</li>
+<li>
+<p>Es buen momento para aprovechar a documentar la estructura, del mismo modo que se hizo anteriormente y se muestra en <a href="#fig:doxygen_struct">la figura de comentario</a>.</p>
+<p><figure><img alt="Comentario de Doxygen en un campo de una estructura." id="fig:doxygen_struct" src="/assets/notebook_imgs/pr_chapters/version_1/doxygen_struct.png" style="width:75.0%"/><figcaption aria-hidden="true">Comentario de Doxygen en un campo de una estructura.</figcaption></figure></p>
+<p>Continuamos con las declaraciones de funciones públicas de la librería. <strong>Procedamos</strong>:</p>
+</li>
+<li>
+<p>Escribe los prototipos de las <strong>funciones públicas</strong> que aparecen en la API del fichero <code>fsm_button.h</code>.</p>
+<p>Como puedes intuir, estas no son todas las funciones de la librería, sino solo aquellas que podrán ser llamadas desde el exterior. Hemos establecido un criterio general por el que diremos que, si una función va a ser accesible desde el exterior, el nombre de la función debe empezar por <code>fsm_</code>.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. En este caso, la documentación va encima del nombre de cada función.</p>
+</li>
+</ol>
+<p>Ya hemos acabado con el encabezado. Quizás de errores al compilar. Vamos ahora a programar el fichero fuente <code>fsm_button.c</code>.</p>
+<h2 id="common-fuente-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5</span> <code>COMMON</code>: fuente de la FSM del botón<a class="headerlink" href="#common-fuente-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
+<p>Vamos a proceder con la implementación de las funciones del <em>botón</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y el resto de <strong>funciones privadas</strong> que aparecen en la API del fichero <code>fsm_button.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
+<ol>
+<li>
+<p>Lo primero que debe aparecer es la inclusión de cabeceras; en nuestro caso <code>fsm_button.h</code>, <code>port_button.h</code>, y <code>port_system.h</code> como indica la API.</p>
+<p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. <strong>Empezaremos con las funciones de entrada o comprobación de la FSM</strong>. Hemos establecido un criterio general por el que, <strong>si una función es de entrada o comprobación, será privada y estática, y el nombre de la función va empezar por <code>check_</code></strong> (porque comprueba la condición de salto de la máquina de estados). Es muy importante aquí que hayas entendido bien los ejemplos con FSM de los tutoriales <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/gen_book_icon.png"/> <em>“Capítulo 2. Introducción a las máquinas de estados en C”</em> y <em>“Capítulo 3. Máquinas de Estados Combinadas”</em>.</p>
+<div class="admonition danger">
+<p class="admonition-title">IMPORTANTE</p>
+<p>Si te fijas en la API, todas las funciones de la máquina de estados reciben el mismo argumento: <code>fsm_t*</code>, un puntero a una máquina de estados. </p>
+<p><code>fsm_button_t *p_fsm = (fsm_button_t *)(p_this);</code></p>
+<p>Esto es ası́ porque la librerı́a <code>fsm.c</code> no sabe qué tipo de máquina de estados es. Nosotros sabemos que esta máquina de estados es una máquina con esteroides porque incluye, además, la estructura del botón. En realidad es tipo <code>fsm_button_t*</code>, un puntero a una máquina de estados de la estructura del botón, que por tener en su primer campo una <code>fsm_t*</code>, podemos hacer un cast y convertirla. Ası́ pues, <strong>en las funciones de la máquina de estados, siempre tendremos que recuperar nuestro tipo haciendo este <em>cast</em></strong> como nos dice la API y hace, por ejemplo, la función <code>fsm_button_init()</code>. <strong>En el resto de funciones que no se pasen a la librerı́a <code>fsm.c</code>, trabajaremos directamente con el tipo <code>fsm_button_t*</code> que hemos creado.</strong></p>
+</div>
+</li>
+<li>
+<p>Codifica la función <code>check_button_pressed()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Codifica la función <code>check_button_released()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Codifica la función <code>check_timeout()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. En este caso, como las funciones no están declaradas en el encabezado, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
+<p><strong>Seguiremos con las funciones de salida o actualización de la FSM</strong>. Hemos establecido el criterio de que, <strong>una función de salida o actualización será privada y estática, y el nombre de la función empezará por <code>do_</code></strong> (porque va a hacer algo). Hay veces que no hay que hacer nada, por lo que para la librería <code>fsm.c</code> será suficiente que apunte a <code>NULL</code>. Esto en el diagrama de la se ha representado como <span style="color: Green"><code>n/a</code></span>.</p>
+</li>
+<li>
+<p>Codifica la función <code>do_store_tick_pressed()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Codifica la función <code>do_set_duration()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
+<p><figure><img alt="Error de compilación durante el desarrollo de \&lt;code&gt;fsm_button.c\&lt;/code&gt;." id="fig:compile_error_3" src="/assets/notebook_imgs/pr_chapters/version_1/compile_error_3.png" style="width:100.0%"/><figcaption aria-hidden="true">Error de compilación durante el desarrollo de <code>fsm_button.c</code>.</figcaption></figure></p>
+<p>Todavía no hemos acabado con el desarrollo, pero vamos a compilar para ir depurando errores. Compile el programa. Verá errores parecidos a los que se muestran en la <a href="#fig:compile_error_3">figura de error</a>. El compilador a veces nos da alguna sugerencia de corrección, pero no tienen por qué ser correctas. Nos dice que:</p>
+<ul>
+<li>
+<p>Hay una variable que no está declarada y que se llama <code>fsm_trans_button</code>. Se trata de la tabla de transiciones. Aún tenemos que escribirla.</p>
+</li>
+<li>
+<p>Todas nuestras funciones <code>check_</code> y <code>do_</code> están declaradas pero no se usan.</p>
+<p>¿Por qué no dice lo mismo de las funciones públicas que están declaradas en el <code>.h</code> y tampoco se usan? Pues porque son públicas. El compilador no sabe quién las podrá usar y ahí están declaradas para quién la pueda llamar. ¿Por qué en el <code>.c</code> da error? Porque en el <code>Makefile</code> —donde están las reglas de compilación—, igual que tenemos el <em>flag</em> para que nos dé error si la variable no se usa, lo mismo pasa con las funciones. Esto es útil para evitar generar códigos sucios con funciones que no sirven.</p>
+<p>¿Quién va a usar las funciones de la máquina de estados? Pues las va a usar, mediante indirección, la librería <code>fsm.c</code>. ¿Cómo? Porque le vamos a pasar a la función <code>fsm_fire()</code> la tabla de transiciones. Y es ahí, donde vamos a “usar” estas funciones. ¿Y dónde se llama a <code>fsm_fire</code>? Ya lo haremos, pero se hace en <code>fsm_button_fire()</code>, que a su vez es llamada por el <code>main</code>.</p>
+</li>
+<li>
+<p>Si las usásemos, aparecería el error de que hay funciones que no están declaradas (<em>implicit declaration</em>). Son las llamadas a funciones del <code>PORT</code>, que más tarde codificaremos.</p>
+</li>
+</ul>
+<p>Mucha información hasta ahora, pero verá cómo se aclara todo enseguida. <strong>Vamos a codificar la tabla (array) de transiciones de la FSM del <em>botón</em></strong>.</p>
+</li>
+<li>
+<p>Definimos <code>static fsm_trans_t fsm_trans_button[] = ...</code> justo después de la función <code>do_set_duration()</code>.</p>
+<p>Recuerda que cada fila de la tabla de transiciones tiene la forma: <code>EstadoIni, FuncCompruebaCondicion, EstadoSig, FuncAccionesSiTransicion</code>. No olvides añadir la fila <code>-1, NULL, -1, NULL</code> que sirve a la librería <code>fsm.c</code> para detectar el fin de la tabla.</p>
+<p><span style="color: Red">¿Por qué es importante haber colocado la tabla en este punto? Bueno, puede ser en cualquier punto después de las funciones <code>check_</code> y <code>do_</code>, porque de lo contrario, de estar más arriba, al compilar, la tabla de transiciones estaría haciendo referencia a funciones que todavía no se sabe que existen (¡porque son privadas y no están en el <code>.h</code>!).</span></p>
+<p>Si ahora compilas, verás que han desaparecido muchos errores. Ya queda menos para acabar la implementación de la librería de la máquina de estados. Prosigamos:</p>
+</li>
+<li>
+<p>Codifica la función <code>fsm_button_get_duration()</code> como se indica en la API. Esta función nos servirá en el programa principal para preguntar cuánto tiempo ha durado la pulsación.</p>
+</li>
+<li>
+<p>Codifica la función <code>fsm_button_reset_duration()</code> como se indica en la API. Con esta, reiniciaremos el valor de la duración a <span class="arithmatex">\(0 ms\)</span> tras leerlo.</p>
+</li>
+<li>
+<p>Codifica la función <code>fsm_button_get_debounce_time_ms()</code> como se indica en la API. Esta función será usada en los test unitarios.</p>
+</li>
+<li>
+<p>Completa la función <code>fsm_button_init()</code> como se indica en la API.</p>
+<p>Fíjate en las funciones <code>fsm_button_fire()</code>, <code>fsm_button_get_inner_fsm()</code>, y <code>fsm_button_get_state()</code> dadas, que implementaremos también sucesivas versiones. Estas funciones sirven para lanzar y acceder a la <em>máquina de estados</em> (<code>f</code>) y acceder al campo <em>estado</em> (<code>f.current_state</code>). Serán usadas en el test unitario de la máquina de estados, y son útiles para depurar.</p>
+<p><strong>Ya hemos acabado con la programación de la librería del botón.</strong> Toda esta lógica <code>COMMON</code> <strong>puede ser usada en cualquier sistema</strong>, esté basado en microcontrolador, o sea un PC. Hemos hecho una librería de un botón que tiene un anti-rebotes y nos devuelve la duración de la última pulsación. Así pues, si compilas, no deberán aparecer errores.</p>
+</li>
+<li>
+<p>Documenta el código que esté sin comentar.</p>
+</li>
+</ol>
+<h2 id="sec:test_fsm_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.6</span> <code>COMMON</code> Test unitario de la FSM del botón<a class="headerlink" href="#sec:test_fsm_v1" title="Permanent link">¶</a></h2>
+<p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del botón y probar que funciona antes de continuar con la siguiente versión.</p>
+<p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
+<p>Descarga el fichero de test de la FSM del botón <code>test_fsm_button.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v1_test">https://github.com/sdg2DieUpm/simone/tree/simone_v1_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
+<ol>
+<li>
+<p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_fsm_button</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso.</p>
+</li>
+<li>
+<p>Se habrá impreso por la terminal del <code>gdb-server</code> el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
+</li>
+</ol>
+<h2 id="ejemplo-de-uso-de-la-version-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.7</span> Ejemplo de uso de la Versión 1<a class="headerlink" href="#ejemplo-de-uso-de-la-version-1" title="Permanent link">¶</a></h2>
+<p><strong>Comúnmente llamado test de integración, es un código de ejemplo que consiste en probar la librería en el sistema final, o en una versión particular, con el resto de librerías y módulos</strong>. El test de integración no hace uso de la librería <code>unity</code>, sino que es como un pequeño programa de prueba sobre las funciones que hemos implementado. Tiene su propio <code>main</code>.</p>
+<p>En los test de integración es responsabilidad del alumno comprobar que la funcionalidad es la esperada, porque aquí no hay test unitarios que nos ayuden.</p>
+<p>Nuestra librería de botón devuelve la duración de la última pulsación. Así pues, algunas de las comprobaciones que podemos hacer son: que la duración de la pulsación es la que esperamos, que se reinicia adecuadamente el valor, que se funciona el anti-rebotes…</p>
+<p>Descarga el fichero de ejemplo <code>example1.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v1_test">https://github.com/sdg2DieUpm/simone/tree/simone_v1_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
+<p><strong>Procedamos</strong>:</p>
+<ol>
+<li>
+<p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>example_v1</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Se parará en la primera línea del <code>main()</code>. Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso. Este código no termina, pues es un bucle <code>while</code> infinito.</p>
+</li>
+<li>
+<p>Abre la terminal del <code>gdb-server</code> para ver los mensajes que se van imprimiendo.</p>
+</li>
+<li>
+<p>Pulsa el botón de usuario <code>B1</code> de la placa. Deberías ver que se imprime por pantalla la duración de la pulsación. Si no es así, revisa tu código.</p>
+</li>
+<li>
+<p>Haz distintas pruebas y asegúrate de que el comportamiento es el adecuado.</p>
+</li>
+</ol>
+<p>¡Hemos creado nuestra primera librería! Fíjate que es <em>portable</em> a cualquier plataforma solo con adaptar las funciones del <code>PORT</code>.</p>
+<p>No dejes de documentar el código. <strong>Comprueba que la documentación del código se ha generado correctamente como se explica en la <em>“Guía de instalación de herramientas para compilación multiplataforma en C”</em> <sup id="fnref3:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">7</a></sup>.</strong>, o en el vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a>.</p>
+<p>Guarda una copia de su proyecto como <code>simone_v1</code> para tener un punto de partida para la siguiente versión, y una copia de seguridad por si algo falla.</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>No nos hacemos responsables de posibles daños que puedas ocasionar . <a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>Se recomienda documentar sus códigos siempre en inglés, aunque su nivel no sea muy bueno, porque si trabajamos en una empresa, no sabemos quién lo tendrá que leer. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:stm322025fundamentos">
+<p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref2:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref3:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:st2021datasheet">
+<p>STMicroelectronics. Stm32f446xc/e. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</a>. <a class="footnote-backref" href="#fnref:st2021datasheet" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:st2021reference">
+<p>STMicroelectronics. Rm0390 reference manual. stm32f446xx advanced arm-based 32-bit mcus. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf</a>. <a class="footnote-backref" href="#fnref:st2021reference" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:stm322025tutoriales">
+<p>Román Cárdenas Rodríguez, Josué Pagán Ortiz, and Alberto Boscá Mojena. <em>Tutoriales sobre los fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025tutoriales" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+<li id="fn:stm322025guiainstalacion">
+<p>Josué Pagán Ortiz, Pedro José Malagón Marzo, Daniel Capellán Martín, Román Cárdenas Rodríguez, and Amadeo de Gracia Herranz. <em>Guía de instalación de herramientas para compilación multiplataforma en C</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025guiainstalacion" title="Jump back to footnote 7 in the text">↩</a><a class="footnote-backref" href="#fnref2:stm322025guiainstalacion" title="Jump back to footnote 7 in the text">↩</a><a class="footnote-backref" href="#fnref3:stm322025guiainstalacion" title="Jump back to footnote 7 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Volver al principio
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

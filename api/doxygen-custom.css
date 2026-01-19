@@ -1,0 +1,31 @@
+/* doxygen-custom.css 
+
+    Personalización de estilos para la documentación generada por Doxygen
+    utilizando la plantilla Doxygen Awesome.
+
+    Esta hoja de estilos ajusta los colores y la tipografía para que coincidan
+    con el tema Material Design utilizado en la documentación principal del proyecto.
+
+    Autor: Josué Pagán
+    Fecha: 2025-12
+*/
+
+html {
+    /* Color principal de la cabecera (Blue Grey de Material) */
+    --primary-color: #37474f;
+    --primary-dark-color: #263238;
+    --primary-light-color: #455a64;
+    
+    /* Color de acento (Deep Orange de Material) */
+    --accent-color: #ff5722;
+    --accent-dark-color: #e64a19;
+    
+    /* Ajustes de tipografía para que coincida con Roboto */
+    --page-font-size: 16px;
+}
+
+/* Sincronización del modo oscuro para Doxygen Awesome */
+html.dark-mode {
+    --primary-color: #263238;
+    --accent-color: #ff7043;
+}

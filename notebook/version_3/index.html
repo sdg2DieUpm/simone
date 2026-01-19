@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../version_2/" rel="prev"/>
+<link href="../version_4/" rel="next"/>
+<link href="../../assets/general/favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
+<title>Versión 3 - Laboratorio de Sistemas Digitales II</title>
+<link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/notebook-extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#cha:version3">
+          Saltar a contenido
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Cabecera" class="md-header__inner md-grid">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Laboratorio de Sistemas Digitales II
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Versión 3
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Cambiar a modo oscuro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Cambiar a modo oscuro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Cambiar a modo claro" class="md-option" data-md-color-accent="deep_orange" data-md-color-media="" data-md-color-primary="blue_grey" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Cambiar a modo claro">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Búsqueda" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Búsqueda" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Buscar" class="md-search__options">
+<button aria-label="Limpiar" class="md-search__icon md-icon" tabindex="-1" title="Limpiar" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navegación" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Laboratorio de Sistemas Digitales II" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Laboratorio de Sistemas Digitales II">
+<img alt="logo" src="../../assets/notebook_imgs/general/etsit.png"/>
+</a>
+    Laboratorio de Sistemas Digitales II
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Portada
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    Introducción general
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Introducción general
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../intro/">
+<span class="md-ellipsis">
+    Introducción a SDG2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sesion_introduccion/">
+<span class="md-ellipsis">
+    Sesión de introducción
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    Proyecto
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Proyecto
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../proyecto_base/">
+<span class="md-ellipsis">
+    Proyecto base
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_1/">
+<span class="md-ellipsis">
+    Versión 1
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_2/">
+<span class="md-ellipsis">
+    Versión 2
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Versión 3
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Versión 3
+    
+  </span>
+</a>
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:headers_rgb_light">
+<span class="md-ellipsis">
+      PORT: cabeceras de la librería del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:port_rgb_light">
+<span class="md-ellipsis">
+      PORT: fuente de la librería del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_port_v3">
+<span class="md-ellipsis">
+      PORT: Test unitario del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-cabecera-de-la-fsm-del-rgb-light">
+<span class="md-ellipsis">
+      COMMON: cabecera de la FSM del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-rgb-light">
+<span class="md-ellipsis">
+      COMMON: fuente de la FSM del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_fsm_v3">
+<span class="md-ellipsis">
+      COMMON Test unitario de la FSM del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-3">
+<span class="md-ellipsis">
+      Ejemplo de uso de la Versión 3
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_4/">
+<span class="md-ellipsis">
+    Versión 4
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../version_5/">
+<span class="md-ellipsis">
+    Versión 5
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    API
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../api/">
+<span class="md-ellipsis">
+    Documentación API
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+<span class="md-ellipsis">
+    Apéndices
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            Apéndices
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bom/">
+<span class="md-ellipsis">
+    BOM
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            Acrónimos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../acronimos/">
+<span class="md-ellipsis">
+    Acrónimos
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Tabla de contenidos" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:headers_rgb_light">
+<span class="md-ellipsis">
+      PORT: cabeceras de la librería del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:port_rgb_light">
+<span class="md-ellipsis">
+      PORT: fuente de la librería del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_port_v3">
+<span class="md-ellipsis">
+      PORT: Test unitario del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-cabecera-de-la-fsm-del-rgb-light">
+<span class="md-ellipsis">
+      COMMON: cabecera de la FSM del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-rgb-light">
+<span class="md-ellipsis">
+      COMMON: fuente de la FSM del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_fsm_v3">
+<span class="md-ellipsis">
+      COMMON Test unitario de la FSM del RGB light
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-3">
+<span class="md-ellipsis">
+      Ejemplo de uso de la Versión 3
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="cha:version3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.</span> Versión 3: RGB light RGB<a class="headerlink" href="#cha:version3" title="Permanent link">¶</a></h1>
+<p>Ya tenemos una librería que nos permite tener botones que funcionan autónomamente mediante <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a>. De ella hemos creado un botón que representa la marcha atrás del coche. Además, hemos creado una librería que nos permite crear transceptores de ultrasonido, también gestionados mediante <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a>. De esta última, hemos creado un transceptor que estaría colocado en la parte trasera del coche para detectar obstáculos mientras se aparca.</p>
+<div class="admonition example">
+<p class="admonition-title">Bibliografía</p>
+<ol>
+<li>
+<p><em>"Fundamentos teóricos de sistemas basados en microcontrolador STM32”</em> <sup id="fnref5:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup></p>
+</li>
+<li>
+<p><em>Datasheet "STM32F446xC/E”</em> <sup id="fnref3:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup></p>
+</li>
+<li>
+<p><em>Reference manual "RM0390. STM32F446xx advanced Arm-based 32-bit MCUs’</em> <sup id="fnref:st2021reference"><a class="footnote-ref" href="#fn:st2021reference">3</a></sup></p>
+</li>
+</ol>
+</div>
+<div class="admonition info">
+<p class="admonition-title"><a href="https://www.youtube.com/channel/UCYIw_gl745WMJ1n0MamDzQw/">Vídeos del canal de SDGII</a></p>
+<ul>
+<li>
+<p><a href="#TO-DO">Demostración Simone</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/playlist?list=PLTFFovUxjNnn19myGVw1kwh6GPbRxwIcC">Conceptos básicos de C (canal SDG1)</a></p>
+</li>
+<li>
+<p><a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a></p>
+</li>
+</ul>
+</div>
+<p>En este capítulo vamos a crear una librería que nos permita mostrar un RGB light (<a href="../acronimos/#acro:LED"><strong>LED</strong></a>) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> donde cada color estará controlado por una señal <a href="../acronimos/#acro:PWM"><strong>PWM</strong></a>. Este RGB light nos permitirá mostrar a qué distancia se encuentra un obstáculo del coche.</p>
+<p>Como ya hicimos en las versiones anteriores, (i) vamos a implementar la parte <em>portable</em> <code>PORT</code> dependiente del <a href="../acronimos/#acro:HW"><strong>HW</strong></a> para comunicarnos con el RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>, y lo probaremos con un test unitario. (ii) Después, vamos a crear la lógica de la <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> para gestionar la representación de la distancia con los distintos colores (la parte <code>COMMON</code>), y lo probaremos con un test unitario. (iii) Por último, montaremos el <a href="../acronimos/#acro:HW"><strong>HW</strong></a> y probaremos el funcionamiento del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> con un programa de ejemplo.</p>
+<p>Cuando lea esta introducción conviene que lea y entienda el capítulo <em>"Circuito de reloj”</em> del libro <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>, prestando especial atención al ejemplo proporcionado sobre PWM.</p>
+<p>Cada uno de los LED (, y ) del RGB light RGB estará conectado a una GPIO del <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Los tres LED están controlados por el mismo temporizador en modo <a href="../acronimos/#acro:PWM"><strong>PWM</strong></a>, pero cada uno con un canal de dicho temporizador. La señal <a href="../acronimos/#acro:PWM"><strong>PWM</strong></a> es una señal cuadrada que tiene un periodo fijo y un ciclo de trabajo variable. Si el ciclo de trabajo es del 100\%, el LED estará a máxima intensidad, y si es del 0\%, el LED estará apagado. Las características a destacar del sistema de la Versión 3 se muestran en el .</p>
+<p>Un color se representa en el RGB light RGB mediante la combinación de los tres colores básicos: rojo, verde y azul. La combinación de los tres colores básicos en diferentes proporciones nos permite obtener una amplia gama de colores. La intensidad la controla el ciclo de trabajo (canal del temporizador), pero la frecuencia para los tres colores será la misma. La frecuencia de la señal PWM será de <span class="arithmatex">\(50 Hz\)</span>, valor lo suficientemente alto para que no se perciba el parpadeo de los LED. Nuestro ojo integrará esos trenes de pulsos y lo veremos como un color determinado. <strong>Si se cambia el ciclo de trabajo, estaremos controlando la intensidad de cada LED, y por tanto el color mostrado.</strong></p>
+<p>¿Cuándo cambiaremos los valores del ciclo de trabajo? Pues depende de la distancia a la que se encuentre el objeto detectado por el sensor de RGB light. Cuanto más cerca, más rojo, y cuanto más lejos, más azul. El verde se usará para mostrar distancias intermedias y entre medias tendremos una mezcla de colores. En el se muestran los valores de ciclo de trabajo para seis situaciones de distancia que se contemplan en el sistema <em>Simone</em>. En la Versión 5 puedes implementar funciones de interpolación para que el cambio de color sea más suave. Tienes una lista de colores en la <a href="https://www.downtownuplighting.com/rgb-color-chart">www.downtownuplighting.com</a>—aunque no todos se pueden mostrar en un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>.</p>
+<p>La muestra un ejemplo de señal PWM para un color amarillento (que no el amarillo de el ). Se muestran en el osciloscopio dos de los LED del RGB light RGB. En la parte superior se muestra el canal de osciloscopio para el LED rojo, y en la parte inferior el canal de osciloscopio para el LED verde. Fíjate que el periodo de la señal PWM es el mismo para los dos LED (<span class="arithmatex">\(20 ms\)</span>), pero el ciclo de trabajo es distinto: <span class="arithmatex">\(20.8\%\)</span> para el LED rojo y <span class="arithmatex">\(36.6\%\)</span> para el LED verde.</p>
+<figure><img alt="Ejemplo de señales PWM para un color amarillento." id="fig:pwm_colors" src="/assets/notebook_imgs/pr_chapters/version_3/pwm_colors.png" style="width:100.0%"><figcaption aria-hidden="true">Ejemplo de señales PWM para un color amarillento.</figcaption></img></figure>
+<p>Igual que hemos hecho hasta ahora, <strong>estamos desarrollando una librería.</strong> Así, cada vez que se quiera añadir un RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> le asociaré una <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a>. Las particularidades de dónde está conectado cada nuevo RGB light, sus características físicas, <em>etc.</em>, son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
+<p>La muestra las estructuras que vamos a necesitar para el RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. La estructura del HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> (en <code>PORT</code>) se muestra en la . La estructura de la <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> (en <code>COMMON</code>) se muestra en la .</p>
+<h5 id="section"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.0.0.0.1</span> { #section }<a class="headerlink" href="#section" title="Permanent link">¶</a></h5>
+<p>Preparemos el proyecto para poder añadir el RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>:</p>
+<ol>
+<li>
+<p>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT</strong> de la librería del <em>RGB light</em> correspondientes a la versión <code>V3</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v3">https://github.com/sdg2DieUpm/Simone/tree/simone_v3</a>. Solo descarga por ahora: <code>port_rgb_light.h</code>, <code>stm32f4_rgb_light.h</code>, y <code>stm32f4_rgb_light.c</code> y colócalos en las carpetas correspondientes. <strong>No añadas los ficheros de la parte COMMON.</strong></p>
+</li>
+<li>
+<p>Coloca cada uno donde corresponde: <code>PORT</code> o <code>COMMON</code>, en <code>include</code>, o <code>src</code>, como se explicó en el los capítulos anteriores.</p>
+</li>
+<li>
+<p>Verás que no compila, y es que solo se proporciona un esqueleto del código.</p>
+</li>
+</ol>
+<h2 id="sec:headers_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1</span> <code>PORT</code>: cabeceras de la librería del RGB light<a class="headerlink" href="#sec:headers_rgb_light" title="Permanent link">¶</a></h2>
+<p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del RGB light. Esta es la interfaz que vamos a proporcionar al usuario para que pueda usar la librería y añadir LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> como necesite. Vamos a <em>portar</em> las funciones necesarias para usar la librería, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Comenzaremos de nuevo por la cabecera y luego los códigos fuente. El montaje de nuestro RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> con la <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span> se muestra en la .</p>
+<figure><img alt='Montaje del LED &lt;span style="color: red; font-weight: bold;"&gt;R&lt;/span&gt;&lt;span style="color: green; font-weight: bold;"&gt;G&lt;/span&gt;&lt;span style="color: blue; font-weight: bold;"&gt;B&lt;/span&gt; de cátodo común con la &lt;span style="color: RoyalBlue; font-weight: bold;"&gt;Nucleo-STM32F446RE&lt;/span&gt;.' id="fig:fritzing_rgb_light" src="/assets/notebook_imgs/pr_chapters/version_3/fritzing_rgb_light.png" style="width:100.0%"><figcaption aria-hidden="true">Montaje del LED &lt;span style="color: red; font-weight: bold;"&gt;R&lt;/span&gt;&lt;span style="color: green; font-weight: bold;"&gt;G&lt;/span&gt;&lt;span style="color: blue; font-weight: bold;"&gt;B&lt;/span&gt; de cátodo común con la &lt;span style="color: RoyalBlue; font-weight: bold;"&gt;Nucleo-STM32F446RE&lt;/span&gt;.</figcaption></img></figure>
+<p>En el mercado existen numerosos LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En este proyecto utilizaremos un LED de cátodo común. En este tipo de LED, el ánodo de cada LED está conectado a un pin del microcontrolador a través de una resistencia, y los cátodos de los tres LED están internamente conectados a un pin común que irá a tierra. Para adquirir uno, ve al ).</p>
+<h3 id="cabecera-port_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.1</span> Cabecera port_rgb_light.h<a class="headerlink" href="#cabecera-port_rgb_lighth" title="Permanent link">¶</a></h3>
+<p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Vamos a seguir los siguientes pasos:</p>
+<ul>
+<li>
+<p>Incluye todas las cabeceras necesarias según indica la API.</p>
+</li>
+<li>
+<p>Incluye los (<code>#define</code>) que se indican en la API para RGB light <code>PORT_RGB_LIGHT_ID</code> que refleja la distancia al objeto en la parte trasera del coche.</p>
+<ul>
+<li>
+<p><code>PORT_RGB_LIGHT_ID</code>: valor numérico natural que será el identificador del RGB light trasero. Si es el único RGB light del sistema, le asignaremos el 0.</p>
+</li>
+<li>
+<p><code>COLOR_RGB_MAX_VALUE</code>: valor máximo que puede tomar el ciclo de trabajo de un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. <strong>Usaremos 255</strong> que es el máximo valor que puede tomar un <code>uint8_t</code>.</p>
+</li>
+<li>
+<p><code>COLOR_RED</code>, <code>COLOR_GREEN</code>, …: son estructuras de tipo <code>rgb_color_t</code> que representan los colores de el . Cada estructura tiene tres campos: <code>red</code>, <code>green</code> y <code>blue</code> que representan el ciclo de trabajo en 8 bits. Siendo 0 el ciclo de trabajo mínimo y 255 el máximo. <strong>Es opcional usar estas estructuras, pero es una buena práctica para que el código sea más legible.</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_rgb_light.h</code>.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar con Doxygen.</p>
+</li>
+</ul>
+<p>Ya hemos acabado con el encabezado que interactúa con el HW del RGB light y que no depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_rgb_light.h</code>.</p>
+<h3 id="cabecera-stm32f4_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.2</span> Cabecera stm32f4_rgb_light.h<a class="headerlink" href="#cabecera-stm32f4_rgb_lighth" title="Permanent link">¶</a></h3>
+<p>Esta cabecera solo define los pines a los que está conectado el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> de cada RGB light asociado.</p>
+<ul>
+<li>
+<p>Incluye todas las cabeceras necesarias según indica la API.</p>
+</li>
+<li>
+<p>Define (<code>#define</code>) los valores de las GPIO de los pines de los LED rojo, verde y azul.</p>
+</li>
+<li>
+<p>Documenta los <code>#define</code> con Doxygen.</p>
+</li>
+</ul>
+<p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW del RGB light conectado al microcontrolador <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas en <code>port_rgb_light.h</code>.</p>
+<h2 id="sec:port_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2</span> <code>PORT</code>: fuente de la librería del RGB light<a class="headerlink" href="#sec:port_rgb_light" title="Permanent link">¶</a></h2>
+<p>Vamos a <em>portar</em> las funciones necesarias para usar la librería del RGB light y comprobar que la parte HW está bien programada. Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_rgb_light.c</code></strong>. Deberás implementar o completar todas las funciones públicas de las que se hayan declarado el prototipo en el encabezado y algunas funciones privadas.</p>
+<h3 id="fuentes-stm32f4_rgb_lightc"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1</span> Fuentes stm32f4_rgb_light.c<a class="headerlink" href="#fuentes-stm32f4_rgb_lightc" title="Permanent link">¶</a></h3>
+<p>Este fichero es mucho menos extenso que el de la versión anterior. La mayor complejidad está en la configuración de los canales del temporizador, pero si ha leído el capítulo del libro relativo a PWM y lo ha entendido, no debería tener problema <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. Vamos a ello.</p>
+<ol>
+<li>
+<p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
+</li>
+<li>
+<p>Hay que definir la estructura <code>stm32f4_rgb_light_hw_t</code>. En la estructura se definen los campos que se muestran en la y en la API.</p>
+<p>Esta estructura es genérica para cualquier LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> que vayamos a usar, no solo el referente al trasero del coche, sino cualquier otro que queramos añadir. Es muy sencilla y básicamente contiene los campos de las GPIO de los pines de los LED rojo, verde y azul.</p>
+</li>
+<li>
+<p>Igual que hicimos con el botón, ahora vamos a definir una <strong>variable global privada</strong> <code>static stm32f4_rgb_light_hw_t rgb_lights_arr[]</code>. Se trata del array de estructuras de tipo <code>stm32f4_rgb_light_hw_t</code>, que representa al HW de cada RGB light que tengamos en nuestro coche.</p>
+<p>Asigna los valores HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> de aparcamiento trasero <code>PORT_RGB_LIGHT_ID</code> utilizando los <code>#define</code> de <code>stm32f4_rgb_light.h</code>.</p>
+</li>
+<li>
+<p>Codifica la función <code>_stm32f4_rgb_light_get()</code> de manera análoga a como se ha hecho en las versiones anteriores.</p>
+</li>
+</ol>
+<h5 id="_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1.0.1</span> <a class="headerlink" href="#_1" title="Permanent link">¶</a></h5>
+<p>Ahora vamos a codificar las funciones más importantes de la parte <code>PORT</code> del RGB light, y son las que configuran el temporizador asociado al LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> trasero.</p>
+<ol>
+<li>
+<p>Codifica la función <code>_timer_pwm_config()</code> como indica la API. Esta función configura el temporizador que controla los ciclos de trabajo de los LED rojo, verde y azul. Para ello, apóyate en el ejemplo <em>"timer para PWM”</em> del libro de Fundamentos <sup id="fnref4:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
+<p>Esta función configura un temporizador para que genere una señal <a href="../acronimos/#acro:PWM"><strong>PWM</strong></a> con una frecuencia fija y un ciclo de trabajo variable. El temporizador elegido y la frecuencia se muestra en el .</p>
+<p>Esta función recibe el identificador del RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Cada RGB light tendrá su propio temporizador, pero esta función será llamada para configurar todos ellos. Asegúrate de que el código se ejecuta dentro de un bloque condicional que compruebe el identificador del RGB light.</p>
+<p>Para saber qué fuente de reloj habilitar para el temporizador, consulta la tabla <em>"Figure 3. STM32F446xC/E block diagram”</em> del <em>datasheet</em> <sup id="fnref2:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>. Allí podrás ver si nuestro temporizador está conectado al <strong>APB1</strong> o al <strong>APB2</strong>, y tenemos que habilitar el reloj en el registro <code>RCC-&gt;APB1ENR</code> o <code>RCC-&gt;APB2ENR</code> respectivamente.</p>
+<p>Puedes poner los valores de los registros <code>TIMx-&gt;PSC</code> y <code>TIMx-&gt;ARR</code> a mano, o usando las ecuaciones. Puedes crear un <code>#define</code> para la frecuencia de la señal PWM, si te es más cómodo. Si lo haces a mano, asegúrate de que los valores son correctos.</p>
+<p>Asegúrate de que los registro <em>Capture Compare Enable Register</em> (<code>CCER</code>) y <em>Capture Compare Mode Register</em> (<code>CCMRx</code>) están configurados correctamente. En el <em>CCER</em> se habilitan los canales de salida y en el <em>CCMRx</em> se configura el modo PWM. La <em>x</em> es el registro 1 o 2, dependiendo del canal que estés configurando.</p>
+<p><strong>Es muy importante que la función <code>_timer_pwm_config()</code> se llame desde la función <code>port_rgb_light_init()</code></strong>. Si no, no se podrán generar las señales PWM.</p>
+</li>
+</ol>
+<p>Vamos a continuar con las funciones públicas de la parte <code>PORT</code> del RGB light.</p>
+<ol>
+<li>
+<p>Completa la función <code>port_rgb_light_init()</code> como se indica en la API.</p>
+<p>Configura las GPIO y el modo alternativo de los tres LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Para ello, consulta la tabla de <em>Función Alternativa</em> del <em>datasheet</em> <sup id="fnref:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>.</p>
+<p>Asegúrate de que la función <code>_timer_pwm_config()</code> se llama desde esta función y que el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> comienza apagado.</p>
+</li>
+<li>
+<p>Codifica la función <code>port_rgb_light_set_rgb</code> siguiendo la API.</p>
+<p>Esta función se encarga de configurar el ciclo de trabajo de los LED rojo, verde y azul. Lo hace con la proporción de los valores recibidos en la estructura <code>rgb_color_t</code> sobre el máximo valor definido en <code>COLOR_RGB_MAX_VALUE</code>. Si el valor recibido es 0, el LED estará apagado, deshabilitando el canal correspondiente.</p>
+<p>Fíjate que la función recibe el identificador del RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Asegúrate de que el código se ejecuta dentro de un bloque condicional que compruebe el identificador del RGB light.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
+</ol>
+<p>Si ahora compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>!</strong> Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
+<h2 id="sec:test_port_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3</span> <code>PORT</code>: Test unitario del RGB light<a class="headerlink" href="#sec:test_port_v3" title="Permanent link">¶</a></h2>
+<p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado de la librería del RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> antes de continuar con la FSM.</p>
+<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/gen_book_icon.png"/> Ten a mano y revisa el capítulo <em>"Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
+<p>Descarga el fichero de test HW del RGB light <code>test_port_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
+<ol>
+<li>
+<p>Conecta la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_port_rgb_light</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Comprueba que todos los test pasan correctamente en el texto mostrado en la terminal de depuración. Si no es así, lee los mensajes de error y corrige tu código hasta que pase todas las pruebas. <strong>Si no pasa las pruebas, no continúes con el siguiente test.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pase todos los test.</p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del RGB light!</strong> Vamos ahora a implementar la parte <code>COMMON</code>.</p>
+<h2 id="common-cabecera-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4</span> <code>COMMON</code>: cabecera de la FSM del RGB light<a class="headerlink" href="#common-cabecera-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
+<h5 id="consideraciones-de-la-fsm-del-RGB" light="light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4.0.0.1</span> Consideraciones de la FSM del RGB light<a class="headerlink" href="#consideraciones-de-la-fsm-del-RGB" title="Permanent link">¶</a></h5>
+<h5 id="_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4.0.0.2</span> <a class="headerlink" href="#_2" title="Permanent link">¶</a></h5>
+<p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
+<ul>
+<li>
+<p>La FSM <strong>almacena la última distancia que se le ha indicado que tiene que representar</strong>.</p>
+</li>
+<li>
+<p>La FSM contiene un campo de estado (<code>status</code>) que indica si el RGB light está activo. <strong>El sistema Simone puede estar en modo aparcamiento y el ultrasonidos puede estar tomando medidas, pero el RGB light se puede desactivar para que no moleste.</strong> Si el RGB light está desactivado, no se mostrará ningún color. Esto es habitual, sobre todo cuando el sistema de notificación de obstáculos es un pitido. En otras situaciones, por ejemplo, con más sensores alrededor del coche, el RGB light puede estar activo.</p>
+<p>La máquina de estados superior, la del sistema Simone, será la que indique si el RGB light está activo o no. La FSM del RGB light solo se encargará de representar la distancia en colores si está activo.</p>
+</li>
+<li>
+<p>La FSM contiene otro <em>flag</em> que indica si el RGB light está en modo ocioso (<code>idle</code>). En este estado, el RGB light ya ha puesto un color, no se ha cambiado la distancia, y podemos entrar en un modo de bajo consumo <em>Sleep Mode</em> (Versión 4). Esto puede ser normal en una situación en la que se está aparcando (marcha atrás) y no se está moviendo. En <em>Sleep Mode</em>, el núcleo del procesador se detiene, pero los periféricos y el sistema de reloj continúan funcionando, por eso el LED permanecerá encendido en el color que se haya quedado.</p>
+</li>
+<li>
+<p>El <em>flag</em> <code>new_color</code> lo activa la máquina de estados de Simone cuando se ha cambiado la distancia a representar. La FSM del RGB light comprobará este <em>flag</em> para saber si tiene que cambiar el color del LED.</p>
+</li>
+<li>
+<p>El valor de inicio de distancia al arrancar la FSM debe ser negativo, de tal manera que nos aseguremos que es una distancia inválida y el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> permanezca apagado. <strong>El valor de la distancia se mide en centímetros.</strong></p>
+</li>
+<li>
+<p>La FSM contiene información del identificador (<code>ID</code>) del RGB light. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIO a la que está conectado) para todos los RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> del sistema.</p>
+</li>
+</ul>
+<figure><embed id="fig:fsm_rgb_light" src="/assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light.pdf" style="width:100.0%"/><figcaption aria-hidden="true">Máquina de estados del <em>RGB light</em>.</figcaption></figure>
+<p>Nuestra librería implementa la lógica de la <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> mostrada en la y que llamaremos <code>fsm_rgb_light</code> (en los ficheros <code>.c</code> y <code>.h</code>). Tiene 2 estados en los que:</p>
+<ul>
+<li>
+<p><code>WAIT_COLOR</code>: estado inicial de la FSM. En este estado la FSM espera a que se le indique una distancia para representar. Si se le indica una distancia, se calcula el color y se cambia al estado <code>SET_COLOR</code>. También se vuelve a este estado cuando el sistema de aparcamiento no está activo (<code>status</code> es <code>false</code>).</p>
+</li>
+<li>
+<p><code>SET_COLOR</code>: en este estado la FSM calcula el color en función de la distancia que se le ha indicado. Tras poner el color, se activa el <em>flag</em> <code>idle</code> y se queda en este estado.</p>
+</li>
+</ul>
+<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la . El tipo de esta estructura está declarada en el fichero <code>fsm_rgb_light.h</code> (<code>typedef struct fsm_rgb_light_t fsm_rgb_light_t;</code>), pero la definición de la estructura está en el fichero <code>.c</code>.</p>
+<ol>
+<li>Lo primero, descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>RGB light</em> correspondientes a la versión <code>V3</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v3">https://github.com/sdg2DieUpm/Simone/tree/simone_v3</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_rgb_light.h</code> y <code>fsm_rgb_light.c</code>. Ponlos en las carpetas correspondientes de tu proyecto.</li>
+</ol>
+<p>Ahora, vamos a completar la cabecera de la <a href="../acronimos/#acro:FSM"><strong>FSM</strong></a> del RGB light, <code>fsm_rgb_light.h</code>.</p>
+<ol>
+<li>
+<p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
+</li>
+<li>
+<p>Ahora vamos a definir el enumerado con los nombres de los estados de la FSM. Escribe el <code>enum</code> <code>FSM_RGB_LIGHT_SYSTEM</code> con los nombres de los estados del diagrama de la .</p>
+</li>
+<li>
+<p>Defina los <code>#define</code> que se indican en la API para las distancias máximas y mínimas que se pueden representar en el RGB light. Estas distancias son las que se indican en el . <strong>El valor de la distancia se mide en centímetros, y el máximo de un umbral coincide con el mínimo del siguiente,</strong> *e.g.* <code>DANGER_MAX_CM</code> es igual a <code>LEVEL_MEDIUM_MIN_INTENSITY</code>, <em>etc.</em></p>
+</li>
+<li>
+<p>Es buena práctica ir documentado el código a la vez que se programa.</p>
+</li>
+<li>
+<p>Seguidamente <strong>declararemos</strong> la estructura <code>fsm_rgb_light_t</code> para hacerla pública. No obstante, no vamos definir sus campos públicamente, como se ha indicado anteriormente.</p>
+</li>
+</ol>
+<p>Continuamos con las declaraciones de funciones públicas de la librería. <strong>Procedamos</strong>:</p>
+<ol>
+<li>
+<p>Escribe los prototipos de las <strong>funciones públicas</strong> que aparecen en la API del fichero <code>fsm_rgb_light.h</code>. Añada la función <code>fsm_rgb_light_check_activity()</code> aunque la usaremos en la siguiente versión, también será necesaria para el test de la FSM.</p>
+</li>
+<li>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen.</p>
+</li>
+</ol>
+<p>Vamos ahora a programar el fichero fuente <code>fsm_rgb_light.c</code>.</p>
+<h2 id="common-fuente-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5</span> <code>COMMON</code>: fuente de la FSM del RGB light<a class="headerlink" href="#common-fuente-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
+<p>Vamos a proceder con la implementación de las funciones del <em>RGB light</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y la <strong>función privada</strong> que aparece en la API del fichero <code>fsm_rgb_light.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
+<ul>
+<li>
+<p>Lo primero que debe aparecer es la inclusión de cabeceras como indica la API.</p>
+</li>
+<li>
+<p>Vamos a declarar la estructura <code>fsm_rgb_light_t</code>. Definiremos la estructura con los campos que se muestran en la . <span style="color: Red"><strong>Es muy importante que la máquina de estados del RGB light</strong> <code>fsm_t</code> <strong>sea el primer campo</strong></span>.</p>
+</li>
+<li>
+<p>De igual modo, es buen momento para aprovechar a documentar la estructura.</p>
+</li>
+</ul>
+<p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. Bajo la línea de <code>/* Private functions */</code> vamos a codificar la función <code>_compute_rgb_light_levels()</code>.</p>
+<ol>
+<li>
+<p>Codifica la función <code>_compute_rgb_light_levels()</code> que se encarga de calcular los niveles de ciclo de trabajo de cada LED rejo, verde y azul. Esta función recoge de la estructura de la FSM la distancia, y sigue el flujograma de la API. <strong>Puedes asignar el valor a cada campo de la estructura</strong> <code>rgb_color_t *p_color</code> <strong>directamente o, si definiste las estructuras de colores en el <code>.h</code>, puedes asignarlas a la estructura de color.</strong> <strong><span style="color: red">Ten en cuenta que el valor que almacenan no es el ciclo de trabajo entre 0 y 100, sino entre 0 y 255.</span></strong></p>
+</li>
+<li>
+<p>Documenta la función con Doxygen.</p>
+</li>
+</ol>
+<p><strong>Continuamos con las funciones de entrada o comprobación <code>check_</code> de la FSM</strong> bajo la línea de <code>/* State machine input or transition functions */</code>.</p>
+<ol>
+<li>
+<p>Codifica las funciones <code>check_active()</code>, <code>check_set_new_color()</code> y, <code>check_off()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Documenta las funciones con Doxygen, encima del nombre de cada función.</p>
+</li>
+</ol>
+<p><strong>Seguiremos con las funciones de salida o actualización de la FSM <code>do_</code></strong>.</p>
+<ol>
+<li>
+<p>Codifica las funciones <code>do_set_on()</code>, <code>do_set_color()</code> y, <code>do_set_off()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
+</li>
+</ol>
+<h5 id="_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5.0.0.1</span> <a class="headerlink" href="#_3" title="Permanent link">¶</a></h5>
+<p>Todavía no hemos acabado con el desarrollo, pero puedes compilar para ir depurando errores.</p>
+<ol>
+<li>
+<p>Declara la tabla de transiciones de la FSM <code>fsm_trans_rgb_light</code>. Esto eliminará muchos errores de compilación.</p>
+</li>
+<li>
+<p>Completa la función de inicialización de la FSM <code>fsm_rgb_light_init()</code> como se indica en la API. En esta función se inicializan los campos de la estructura de la FSM, y se llama a la función <code>fsm_init()</code> para inicializar la máquina de estados. También se llama a la función <code>port_rgb_light_init()</code> para inicializar el HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>fsm_rgb_light_fire()</code> y <code>fsm_rgb_light_destroy()</code> igual que hiciste en las versiones anteriores. Estas funciones lanzan la FSM y liberan la memoria respectivamente.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>fsm_rgb_light_get_inner_fsm()</code> y <code>fsm_rgb_light_get_state()</code>. Se usarán en el test de la FSM.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>fsm_rgb_light_get_intensity()</code>, <code>fsm_rgb_light_set_level()</code>, <code>fsm_rgb_light_get_status()</code> y <code>fsm_rgb_light_set_status()</code> como se indica en la API.</p>
+</li>
+</ol>
+<p><strong>Ya hemos acabado con la programación de la librería del RGB light.</strong> Ahora, si compilas, no deberán aparecer errores.</p>
+<ol>
+<li>Documenta el código que esté sin comentar todavía.</li>
+</ol>
+<h2 id="sec:test_fsm_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.6</span> <code>COMMON</code> Test unitario de la FSM del RGB light<a class="headerlink" href="#sec:test_fsm_v3" title="Permanent link">¶</a></h2>
+<p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del RGB light y probar que funciona antes de continuar con la siguiente versión.</p>
+<p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
+<p>Descarga el fichero de test de la FSM del RGB light <code>test_fsm_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
+<ol>
+<li>
+<p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_fsm_rgb_light</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso.</p>
+</li>
+<li>
+<p>Comprueba los mensajes del <code>gdb-server</code> para ver el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
+</li>
+</ol>
+<h2 id="ejemplo-de-uso-de-la-version-3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.7</span> Ejemplo de uso de la Versión 3<a class="headerlink" href="#ejemplo-de-uso-de-la-version-3" title="Permanent link">¶</a></h2>
+<p>En este test de integración del RGB light es responsabilidad del alumno comprobar que la funcionalidad es la esperada. El ejemplo que se da no contempla todas las situaciones.</p>
+<p>Descarga el fichero de ejemplo <code>example3̌.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
+<p><strong>Procedamos</strong>:</p>
+<p>Para poder hacer el ejemplo del RGB light, necesitamos montar el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En la se muestra un ejemplo de montaje.</p>
+<ol>
+<li>
+<p>Monte el HW como se muestra en la .</p>
+</li>
+<li>
+<p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>example_v3</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Se parará en la primera línea del <code>main()</code>. Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso. Este código no termina, pues es un bucle <code>while</code> infinito.</p>
+</li>
+<li>
+<p>Abre la terminal del <code>gdb-server</code> para ver los mensajes que se van imprimiendo.</p>
+</li>
+<li>
+<p>Comprueba que los colores del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> cambian en función de la distancia que se le indica en los mensajes de la terminal.</p>
+</li>
+<li>
+<p>Haz distintas pruebas y asegúrate de que el comportamiento es el adecuado.</p>
+</li>
+</ol>
+<p>¡Hemos creado nuestra tercera librería! Fíjate que es <em>portable</em> a cualquier plataforma solo con adaptar las funciones del <code>PORT</code>.</p>
+<p>No dejes de documentar el código. <strong>Comprueba que la documentación del código se ha generado correctamente como se explica en la <em>"Guía de instalación de herramientas para compilación multiplataforma en C”</em> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">4</a></sup>.</strong>, o en el vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a>.</p>
+<p>Guarda una copia de su proyecto como <code>simone_v3</code> para tener un punto de partida para la siguiente versión, y una copia de seguridad por si algo falla.</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:stm322025fundamentos">
+<p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref4:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref5:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:st2021datasheet">
+<p>STMicroelectronics. Stm32f446xc/e. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</a>. <a class="footnote-backref" href="#fnref:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref3:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:st2021reference">
+<p>STMicroelectronics. Rm0390 reference manual. stm32f446xx advanced arm-based 32-bit mcus. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf</a>. <a class="footnote-backref" href="#fnref:st2021reference" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:stm322025guiainstalacion">
+<p>Josué Pagán Ortiz, Pedro José Malagón Marzo, Daniel Capellán Martín, Román Cárdenas Rodríguez, and Amadeo de Gracia Herranz. <em>Guía de instalación de herramientas para compilación multiplataforma en C</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025guiainstalacion" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Volver al principio
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
+</body>
+</html>

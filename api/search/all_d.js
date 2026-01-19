@@ -1,0 +1,11 @@
+var searchData=
+[
+  ['new_5fcolor_181',['new_color',['../structfsm__rgb__light__t.html#a02c2edc48a05392c68079e5470c9d905',1,'fsm_rgb_light_t']]],
+  ['next_5ftimeout_182',['next_timeout',['../structfsm__button__t.html#a2cb938cc094cc3668b120954f69dcaab',1,'fsm_button_t::next_timeout()'],['../structfsm__keyboard__t.html#a2807fedceaba89ae28c89937d9ad824f',1,'fsm_keyboard_t::next_timeout()']]],
+  ['null_5fkey_183',['null_key',['../structkeyboard__t.html#a09c406047a8d4c37720f5fed9372b532',1,'keyboard_t']]],
+  ['num_5fcols_184',['num_cols',['../structkeyboard__t.html#af1cec842e8713aa0e65dadba12c04ae7',1,'keyboard_t']]],
+  ['num_5frows_185',['num_rows',['../structkeyboard__t.html#aef159540ca9b9ad3dd9b66133b9d948d',1,'keyboard_t']]],
+  ['number_5fof_5fcolors_5fgame_186',['NUMBER_OF_COLORS_GAME',['../fsm__simone_8h.html#a0d97c8adf760048a0bb2119664ec42cb',1,'fsm_simone.h']]],
+  ['nvic_5fpriority_5fgroup_5f0_187',['NVIC_PRIORITY_GROUP_0',['../stm32f4__system_8c.html#a63af9a501c857ba12e0e977df6e38fb6',1,'stm32f4_system.c']]],
+  ['nvic_5fpriority_5fgroup_5f5_188',['NVIC_PRIORITY_GROUP_5',['../stm32f4__system_8c.html#a54f43dacfdf01604e5753b1b60a4abf7',1,'stm32f4_system.c']]]
+];
