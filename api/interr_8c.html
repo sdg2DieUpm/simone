@@ -282,6 +282,10 @@ Functions</h2></td></tr>
 
 <p>Interrupt service routine for the System tick timer (SysTick). </p>
 <dl class="section note"><dt>Note</dt><dd>This ISR is called when the SysTick timer generates an interrupt. The program flow jumps to this ISR and increments the tick counter by one millisecond.</dd></dl>
+<blockquote class="doxtable">
+<p><b>TO-DO alumnos:</b></p>
+<p>✅ 1. <b>Increment the System tick counter <code>msTicks</code> in 1 count.</b> To do so, use the function <code><a class="el" href="port__system_8h.html#ab415270cfcefc90ed8b8842da4e3d4c6" title="Returns the number of milliseconds since the system started.">port_system_get_millis()</a></code> and <code><a class="el" href="port__system_8h.html#abb94f01f1901334f3df650392be23009" title="Sets the number of milliseconds since the system started.">port_system_set_millis()</a></code>. </p>
+</blockquote>
 <dl class="section warning"><dt>Warning</dt><dd><b>The variable <code>msTicks</code> must be declared volatile!</b> Just because it is modified by a call of an ISR, in order to avoid <a href="https://en.wikipedia.org/wiki/Race_condition"><em>race conditions</em></a> . <b>Added to the definition</b> after <em>static</em>. </dd></dl>
 
 </div>
