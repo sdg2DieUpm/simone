@@ -137,7 +137,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a9c1561b04dab053d665f90a44c03c53e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the player has finished the current sequence.  <a href="fsm__simone_8c.html#a9c1561b04dab053d665f90a44c03c53e">More...</a><br /></td></tr>
 <tr class="separator:a9c1561b04dab053d665f90a44c03c53e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4438a26e171cc6e0d90a40b3cf10d13"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__simone_8c.html#af4438a26e171cc6e0d90a40b3cf10d13">check_player_key_timeout</a> (fsm_t *p_this)</td></tr>
-<tr class="memdesc:af4438a26e171cc6e0d90a40b3cf10d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the player has pressed the correct key.  <a href="fsm__simone_8c.html#af4438a26e171cc6e0d90a40b3cf10d13">More...</a><br /></td></tr>
+<tr class="memdesc:af4438a26e171cc6e0d90a40b3cf10d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the player key timeout has occurred. This is, the player has taken too long to press a key.  <a href="fsm__simone_8c.html#af4438a26e171cc6e0d90a40b3cf10d13">More...</a><br /></td></tr>
 <tr class="separator:af4438a26e171cc6e0d90a40b3cf10d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932bf64a9560e6cea344f122c2db540c"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__simone_8c.html#a932bf64a9560e6cea344f122c2db540c">check_color_added</a> (fsm_t *p_this)</td></tr>
 <tr class="memdesc:a932bf64a9560e6cea344f122c2db540c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a new color has been added to the sequence.  <a href="fsm__simone_8c.html#a932bf64a9560e6cea344f122c2db540c">More...</a><br /></td></tr>
@@ -397,7 +397,7 @@ false </dd></dl>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
 <p>✅ 1. Call the appropriate function from the <code>fsm_keyboard</code> module to get the current key value. <br  />
-✅ 2. Return <code>true</code> if key value is a valid key (not <code>KEY_NO_KEY_PRESSED</code>), otherwise return <code>false</code>. <br  />
+✅ 2. Return <code>true</code> if key value is a valid key (not <code>invalid_key</code>), otherwise return <code>false</code>. <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -780,41 +780,7 @@ false </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p>Check if the player has pressed the correct key. </p>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b></p>
-<p>✅ 1. Get the current key pressed from the keyboard saved in the struct. <br  />
-✅ 2. If no key is pressed, return <code>false</code>. <br  />
-✅ 3. Compare the pressed key with the expected key in the sequence to check if they are equal. You might use the auxiliar function <code><a class="el" href="fsm__simone_8c.html#aa7a8630d94f6f5e425bbbf52707907af" title="Get the expected key from a given color.">_get_key_from_color()</a></code> to get the expected key from the expected color in the sequence. <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_this</td><td>Pointer to an <code>fsm_t</code> struct that contains an <code><a class="el" href="structfsm__simone__t.html" title="Structure that contains the information of the Simone FSM.">fsm_simone_t</a></code>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false</dd></dl>
-<p>Check if the player has pressed an invalid key.</p>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b></p>
-<p>✅ 1. Get the current key pressed from the keyboard which is already stored in the struct. <br  />
-✅ 2. If no key is pressed, return <code>false</code>. <br  />
-✅ 3. Compare the pressed key with the expected key in the sequence to check if they are different. You might use the auxiliar function <code><a class="el" href="fsm__simone_8c.html#aa7a8630d94f6f5e425bbbf52707907af" title="Get the expected key from a given color.">_get_key_from_color()</a></code> to get the expected key from the expected color in the sequence. <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_this</td><td>Pointer to an <code>fsm_t</code> struct that contains an <code><a class="el" href="structfsm__simone__t.html" title="Structure that contains the information of the Simone FSM.">fsm_simone_t</a></code>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false</dd></dl>
-<p>Check if the player key timeout has occurred. This is, the player has taken too long to press a key.</p>
+<p>Check if the player key timeout has occurred. This is, the player has taken too long to press a key. </p>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
 <p>✅ 1. Call the appropriate function from the <code>port_simone</code> module to check if the player key timer has timed out. <br  />

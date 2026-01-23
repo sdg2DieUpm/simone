@@ -113,8 +113,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ab6d73a385387a3fc0d0a2d2ded42e5d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#ab6d73a385387a3fc0d0a2d2ded42e5d8">port_keyboard_init</a> (uint8_t keyboard_id)</td></tr>
 <tr class="memdesc:ab6d73a385387a3fc0d0a2d2ded42e5d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the HW specifications of a given keyboard.  <a href="stm32f4__keyboard_8c.html#ab6d73a385387a3fc0d0a2d2ded42e5d8">More...</a><br /></td></tr>
 <tr class="separator:ab6d73a385387a3fc0d0a2d2ded42e5d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ca9463c0c87fa80c6a08c5d71d23d4f"><td class="memItemLeft" align="right" valign="top"><a id="a1ca9463c0c87fa80c6a08c5d71d23d4f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>port_keyboard_excite_row</b> (uint8_t keyboard_id, uint8_t row_idx)</td></tr>
+<tr class="memitem:a1ca9463c0c87fa80c6a08c5d71d23d4f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a1ca9463c0c87fa80c6a08c5d71d23d4f">port_keyboard_excite_row</a> (uint8_t keyboard_id, uint8_t row_idx)</td></tr>
+<tr class="memdesc:a1ca9463c0c87fa80c6a08c5d71d23d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the given row to high and lower the others.  <a href="stm32f4__keyboard_8c.html#a1ca9463c0c87fa80c6a08c5d71d23d4f">More...</a><br /></td></tr>
 <tr class="separator:a1ca9463c0c87fa80c6a08c5d71d23d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1320216867d7f6b27a77b4a597243b95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a1320216867d7f6b27a77b4a597243b95">port_keyboard_start_scan</a> (uint8_t keyboard_id)</td></tr>
 <tr class="memdesc:a1320216867d7f6b27a77b4a597243b95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the scanning of a keyboard.  <a href="stm32f4__keyboard_8c.html#a1320216867d7f6b27a77b4a597243b95">More...</a><br /></td></tr>
@@ -140,6 +140,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>port_keyboard_excite_
 <tr class="memitem:a5e84e1f30a5de2c507f98f9a9972a8d0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a5e84e1f30a5de2c507f98f9a9972a8d0">port_keyboard_get_key_value</a> (uint8_t keyboard_id)</td></tr>
 <tr class="memdesc:a5e84e1f30a5de2c507f98f9a9972a8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the char representing the key pressed of a given keyboard based on its row that is being excited. This assumes that the matrix of chars is flattened (i.e., it is not a 2D array, but all rows are in a single array), thus it is necessary to calculate only one index.  <a href="stm32f4__keyboard_8c.html#a5e84e1f30a5de2c507f98f9a9972a8d0">More...</a><br /></td></tr>
 <tr class="separator:a5e84e1f30a5de2c507f98f9a9972a8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c5d7b4fe5f2da20f60a2551c990fe17"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="stm32f4__keyboard_8c.html#a0c5d7b4fe5f2da20f60a2551c990fe17">port_keyboard_get_invalid_key_value</a> (uint8_t keyboard_id)</td></tr>
+<tr class="memdesc:a0c5d7b4fe5f2da20f60a2551c990fe17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the null key value of a given keyboard.  <a href="stm32f4__keyboard_8c.html#a0c5d7b4fe5f2da20f60a2551c990fe17">More...</a><br /></td></tr>
+<tr class="separator:a0c5d7b4fe5f2da20f60a2551c990fe17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -210,9 +213,9 @@ NULL If the keyboard ID is not valid. </dd></dl>
 </div><div class="memdoc">
 
 <p>Configure the timer that controls the duration of the column scanning. </p>
-<p>This function configures the timer to generate an internal interrupt to control the duration of a column scanning. The duration of the column scanning is defined in the <code>PORT_KEYBOARD_MAIN_TIMEOUT_MS</code> macro. This function is called by the <code><a class="el" href="stm32f4__keyboard_8c.html#ab6d73a385387a3fc0d0a2d2ded42e5d8" title="Configure the HW specifications of a given keyboard.">port_keyboard_init()</a></code> public function to configure the timer that controls the column scanning.</p>
+<p>This function configures the timer to generate an internal interrupt to control the duration of a column scanning. The duration of the column scanning is defined in the <code>PORT_KEYBOARDS_TIMEOUT_MS</code> macro. This function is called by the <code><a class="el" href="stm32f4__keyboard_8c.html#ab6d73a385387a3fc0d0a2d2ded42e5d8" title="Configure the HW specifications of a given keyboard.">port_keyboard_init()</a></code> public function to configure the timer that controls the column scanning.</p>
 <p><b>Use the timer indicated in the <a href="index.html">main page</a>.</b></p>
-<p><b>There are 2 ways to calculate the <code>ARR</code> and <code>PSC</code> values.</b> You can implement any of them to configure the timer duration according to the <code>PORT_KEYBOARD_MAIN_TIMEOUT_MS</code> macro. <b>Do not set the values directly!</b></p>
+<p><b>There are 2 ways to calculate the <code>ARR</code> and <code>PSC</code> values.</b> You can implement any of them to configure the timer duration according to the <code>PORT_KEYBOARDS_TIMEOUT_MS</code> macro. <b>Do not set the values directly!</b></p>
 <p><b>Option 1. Efficient algorithm.</b> <br  />
 This option is the most efficient way to calculate the <code>ARR</code> and <code>PSC</code> values. It is based on the fact that the <code>ARR</code> value is near or equal to its maximum value (65535.0). And only one update of the <code>PSC</code> is needed. This eliminates the need for a loop, which could be slow if <code>ARR</code> is much larger than 0xFFFF. <br  />
 <br  />
@@ -234,7 +237,7 @@ An arbitrary example of C code: <div class="fragment"><div class="line"><span cl
 ✅ 2. Disable the counter of the timer (register <code>CR1</code> of the timer) because we want to configure it. <br  />
 ✅ 3. Enable the autoreload preload (bit <code>ARPE</code> of the register <code>CR1</code>) to enable the autoreload register. <br  />
 ✅ 4. Set the counter of the timer to 0 (register <code>CNT</code>) to start counting from 0. <br  />
-✅ 5. Compute the prescaler and the auto-reload register to set the duration of the timer interrupt. The duration is defined in the <code>PORT_KEYBOARD_MAIN_TIMEOUT_MS</code> macro. Use any of the two options to calculate the <code>ARR</code> and <code>PSC</code> values:</p>
+✅ 5. Compute the prescaler and the auto-reload register to set the duration of the timer interrupt. The duration is defined in the <code>PORT_KEYBOARDS_TIMEOUT_MS</code> macro. Use any of the two options to calculate the <code>ARR</code> and <code>PSC</code> values:</p>
 <p><b>Option 1. Efficient algorithm.</b> <br  />
 &#160;&#160;&#160;&#160; ➡️ <b>6a</b>. Convert <code>SystemCoreClock</code> to double and store them in local variables. This is to ensure that the subsequent calculations are performed in floating-point arithmetic. <br  />
 &#160;&#160;&#160;&#160; ➡️ <b>6b</b>. Compute an initial value for the <code>PSC</code> register considering the maximum value of <code>ARR</code> (65535.0). Store it in a local variable of type <code>double</code>. <br  />
@@ -289,7 +292,7 @@ An arbitrary example of C code: <div class="fragment"><div class="line"><span cl
 <blockquote class="doxtable">
 <p>✅ 1. Update the <code>current_excited_row</code> to move to the next row. If the index equals or greater than the number of rows <b>indicated in the layout</b>, move to the first row. <br  />
 &#160;&#160;&#160;&#160;💡 You can use the <code>%</code> (modulo) operator to get the remainder of the division <br  />
-✅ 2. Call the function <code>port_keyboard_excite_row()</code> to excite the new row. <br  />
+✅ 2. Call the function <code><a class="el" href="port__keyboard_8h.html#a1ca9463c0c87fa80c6a08c5d71d23d4f" title="Set the given row to high and lower the others.">port_keyboard_excite_row()</a></code> to excite the new row. <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -298,6 +301,83 @@ An arbitrary example of C code: <div class="fragment"><div class="line"><span cl
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a1ca9463c0c87fa80c6a08c5d71d23d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ca9463c0c87fa80c6a08c5d71d23d4f">&#9670;&nbsp;</a></span>port_keyboard_excite_row()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void port_keyboard_excite_row </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>keyboard_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>row_idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the given row to high and lower the others. </p>
+<blockquote class="doxtable">
+<p><b>TODO alumnos:</b></p>
+<p>✅ 1. Retrieve the keyboard configuration struct calling <code><a class="el" href="stm32f4__keyboard_8c.html#aa3330d22a2fcd66831baa9cdef648e48" title="Get the keyboard struct with the given ID.">_stm32f4_keyboard_get()</a></code> <br  />
+✅ 2. Iterate through all the rows indexes (you can get the number of rows from the keyboard's layout). In the iteration, if the row coincides with the row index, set it HIGH. Otherwise, set it to LOW to ensure that only one row is excited at the same time. <br  />
+&#160;&#160;&#160;&#160;💡 You can use the <code>BSRR</code> or call the <code><a class="el" href="stm32f4__system_8h.html#af46cdd939024e157ed6f7468edaee4e3" title="Write a digital value in a GPIO atomically.">stm32f4_system_gpio_write()</a></code> function. <br  />
+</p>
+</blockquote>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyboard_id</td><td>ID of the keyboard to be scanned. </td></tr>
+    <tr><td class="paramname">row_idx</td><td>Index of the row to be excited. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c5d7b4fe5f2da20f60a2551c990fe17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c5d7b4fe5f2da20f60a2551c990fe17">&#9670;&nbsp;</a></span>port_keyboard_get_invalid_key_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char port_keyboard_get_invalid_key_value </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>keyboard_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the null key value of a given keyboard. </p>
+<p>This function retrieves the null key value defined in the keyboard layout.</p>
+<blockquote class="doxtable">
+<p><b>TODO alumnos:</b></p>
+<p>✅ 1. Retrieve and return the <code>null_key</code> field from the keyboard layout. Call the function <code><a class="el" href="stm32f4__keyboard_8c.html#aa3330d22a2fcd66831baa9cdef648e48" title="Get the keyboard struct with the given ID.">_stm32f4_keyboard_get()</a></code> to get the keyboard struct. <br  />
+ </p>
+</blockquote>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">keyboard_id</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>char </dd></dl>
 
 </div>
 </div>
@@ -360,7 +440,6 @@ false If the keyboard has not been pressed </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">keyboard_id</td><td>Keyboard ID. This index is used to get the correct keyboard status struct. </td></tr>
-    <tr><td class="paramname">row_index</td><td>Index of the row being excited. </td></tr>
   </table>
   </dd>
 </dl>

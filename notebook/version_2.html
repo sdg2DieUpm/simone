@@ -234,9 +234,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sec:test_port_v2">
+<a class="md-nav__link" href="#sec:test_port_keyboard">
 <span class="md-ellipsis">
-      PORT: Test unitario del teclado
+      PORT: Test unitario del teclado matricial
     </span>
 </a>
 </li>
@@ -244,27 +244,6 @@
 <a class="md-nav__link" href="#common-cabecera-de-la-fsm-del-teclado">
 <span class="md-ellipsis">
       COMMON: cabecera de la FSM del teclado
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-teclado">
-<span class="md-ellipsis">
-      COMMON: fuente de la FSM del teclado
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sec:test_fsm_v2">
-<span class="md-ellipsis">
-      COMMON Test unitario de la FSM del teclado
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-2">
-<span class="md-ellipsis">
-      Ejemplo de uso de la Versión 2
     </span>
 </a>
 </li>
@@ -419,9 +398,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#sec:test_port_v2">
+<a class="md-nav__link" href="#sec:test_port_keyboard">
 <span class="md-ellipsis">
-      PORT: Test unitario del teclado
+      PORT: Test unitario del teclado matricial
     </span>
 </a>
 </li>
@@ -429,27 +408,6 @@
 <a class="md-nav__link" href="#common-cabecera-de-la-fsm-del-teclado">
 <span class="md-ellipsis">
       COMMON: cabecera de la FSM del teclado
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-teclado">
-<span class="md-ellipsis">
-      COMMON: fuente de la FSM del teclado
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sec:test_fsm_v2">
-<span class="md-ellipsis">
-      COMMON Test unitario de la FSM del teclado
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-2">
-<span class="md-ellipsis">
-      Ejemplo de uso de la Versión 2
     </span>
 </a>
 </li>
@@ -467,10 +425,10 @@
 <p class="admonition-title">Bibliografía</p>
 <ol>
 <li>
-<p><em>“Fundamentos teóricos de sistemas basados en microcontrolador STM32”</em> <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup></p>
+<p><em>“Fundamentos teóricos de sistemas basados en microcontrolador STM32”</em> <sup id="fnref4:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup></p>
 </li>
 <li>
-<p><em>Datasheet “STM32F446xC/E”</em> <sup id="fnref:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">4</a></sup></p>
+<p><em>Datasheet “STM32F446xC/E”</em> <sup id="fnref2:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">4</a></sup></p>
 </li>
 <li>
 <p><em>Reference manual “RM0390. STM32F446xx advanced Arm-based 32-bit MCUs’</em> <sup id="fnref:st2021reference"><a class="footnote-ref" href="#fn:st2021reference">5</a></sup></p>
@@ -581,16 +539,16 @@
 <p>Recuerda que, como hicimos con el botón, <strong>estamos desarrollando una librería.</strong> El teclado matricial no tiene por qué saber nada de las acciones que hace el sistema cuando se pulsa una tecla. Es por eso que en nuestro proyecto, el teclado se encargará solo de guardar la tecla pulsada y de avisar de que ha habido una pulsación. El sistema que use esta librería —sea en este proyecto u otro— deberá comprobar dicho valor guardado con un <em>get</em>. La idea es exactamente la misma que la que implementó en el botón. Así, cada vez que se quiera añadir un teclado, le asociaremos una <strong><a href="acronimos.html#acro:FSM">FSM</a></strong>. Las particularidades de dónde están conectadas las filas y columnas son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
 <figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <img alt="Estructura HW teclado" id="fig:stm32f4_keyboard_hw_t" src="../assets/notebook_imgs/pr_chapters/version_2/stm32f4_keyboard_hw_t.svg" style="width:50%;"/> <img alt="Estructura FSM teclado" id="fig:fsm_keyboard_t" src="../assets/notebook_imgs/pr_chapters/version_2/fsm_keyboard_t.svg" style="width:50%;"/> </div> <figcaption>(a) Estructura del HW del teeclado en PORT, (b) Estructura de la FSM del teclado en COMMON.</figcaption> </figure>
 <p>Las <a href="#stm32f4_keyboard_hw_t">figuras de estructuras HW</a> <a href="#fms_keyboard_t">y SW</a> muestran las estructuras que vamos a necesitar para el teclado. La estructura del HW del teclado en <code>PORT</code>. El <code>PORT</code> de otro microcontrolador podría implementar internamente una estructura diferente, por eso está dentro de la carpeta <code>stm32f4</code>. Por ejemplo, al <em>portar</em> el código para PC no tendría sentido definir la estructura de una GPIO. La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del teclado en <code>COMMON</code> se muestra en la <a href="#fsm_keyboard_t">figura de la FSM</a>.</p>
-<p>Como en el caso del botón, aquí, aunque no hay muelles, puede haber igualmente inestabilidades en la pulsación, <strong>rebotes</strong>, por lo e vamos a implementar, igualmente, un mecanismo antirebotes. Dejaremos unos tiempos de guarda de antirebotes también entre <span class="arithmatex">\(100-200 ms\)</span>.</p>
-<p>En el caso del teclado matricial no tenemos circuito preestablecido, por lo que podemos elegir libremente si queremos usar resistencias de <em>pull-up</em> o <em>pull-down</em> en las columnas. <strong>En este caso, usaremos resistencias de <em>pull-down</em> en las columnas y excitaremos las filas poniendo un nivel lógico alto. Así, cuando se pulsa una tecla, la columna correspondiente pasa a nivel alto.</strong> Esto es al revés de como pasaba en el botón. </p>
+<p>Como en el caso del botón aquí, aunque no hay muelles, puede haber igualmente inestabilidades en la pulsación, <strong>rebotes</strong>, por lo e vamos a implementar, igualmente, un mecanismo antirebotes. Dejaremos unos tiempos de guarda de antirebotes también entre <span class="arithmatex">\(100-200 ms\)</span>.</p>
+<p>En el caso del teclado matricial no tenemos circuito preestablecido, por lo que podemos elegir libremente si queremos usar resistencias de <em>pull-up</em> o <em>pull-down</em> en las columnas. <strong>En este caso, usaremos resistencias de <em>pull-down</em> en las columnas y excitaremos las filas poniendo un nivel lógico alto. Así, cuando se pulsa una tecla, la columna correspondiente pasa a nivel alto.</strong> Esto es al revés de como pasaba en el botón.</p>
 <p>Ahora sí, comencemos. Preparemos el proyecto para poder añadir el <em>teclado matricial</em>:</p>
 <ol>
-<li>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT</strong> de la librería del <em>keyboard</em> correspondientes a la versión <code>V2</code>: <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2">https://github.com/sdg2DieUpm/simone/tree/simone_v2</a>. Solo descarga por ahora: <code>port_keyboard.h</code>, <code>stm32f4_keyboard.h</code>, y <code>stm32f4_keyboard.c</code> y colócalos en las carpetas correspondientes. <strong>De la parte COMMON descarga solo <code>keyboards.h</code>, y <code>keyboards.c</code></strong>, que incluyen los <em>layouts</em> de los teclados matriciales. </li>
+<li>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT</strong> de la librería del <em>keyboard</em> correspondientes a la versión <code>V2</code>: <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2">https://github.com/sdg2DieUpm/simone/tree/simone_v2</a>. Solo descarga por ahora: <code>port_keyboard.h</code>, <code>stm32f4_keyboard.h</code>, y <code>stm32f4_keyboard.c</code> y colócalos en las carpetas correspondientes. <strong>De la parte COMMON descarga solo <code>keyboards.h</code>, y <code>keyboards.c</code></strong>, que incluyen los <em>layouts</em> de los teclados matriciales.</li>
 <li>Coloca cada uno donde corresponde: <code>PORT</code> o <code>COMMON</code>, en <code>include</code>, o <code>src</code>. <strong>Ten en cuenta que algunos ficheros de <code>PORT</code> están en la carpeta <code>stm32f4</code> porque sus funciones reciben o devuelven estructuras específicas de la <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</strong></li>
 </ol>
 <p>Verás que no compila, y es que solo se te proporciona cierta parte del código. Los prototipos de gran parte de las funciones públicas no están definidos.</p>
 <h2 id="sec:layouts_keyboards"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.2</span> Layouts de teclados matriciales<a class="headerlink" href="#sec:layouts_keyboards" title="Permanent link">¶</a></h2>
-<p>Antes de ponernos a programar, conviene explicar qué son los ficheros <code>keyboards.h</code> y <code>keyboards.c</code>. Estos ficheros se han de colocar en la carpeta <code>common/include</code> y <code>common/src</code> respectivamente. Estos ficheros contienen los <em>layouts</em> de los teclados matriciales que queramos usar en nuestro proyecto. Un <em>layout</em> es una matriz que define qué carácter representa cada tecla del teclado. Por ejemplo, en un teclado 4x4 típico, la primera fila podría representar los caracteres '1', '2', '3', 'A'; la segunda fila '4', '5', '6', 'B'; y así sucesivamente, pero otro también de 4x4 podría tener una distribución diferente (solo letras, o solo números).</p>
+<p>Antes de ponernos a programar, conviene explicar qué son los ficheros <code>keyboards.h</code> y <code>keyboards.c</code>. Estos ficheros se han de colocar en la carpeta <code>common/include</code> y <code>common/src</code> respectivamente. Estos ficheros contienen los <em>layouts</em> de los teclados matriciales que queramos usar en nuestro proyecto. Un <em>layout</em> es una matriz que define qué carácter representa cada tecla del teclado. Por ejemplo, en un teclado 4x4 típico, la primera fila podría representar los caracteres '1', '2', '3', 'A'; la segunda fila '4', '5', '6', 'B'; y así sucesivamente, pero otro de 4x4 también podría tener una distribución diferente (solo letras, o solo números), ¡o tener otro de 1x3 de colores!...</p>
 <p>Estos ficheros permiten definir múltiples <em>layouts</em> para diferentes teclados matriciales, facilitando su uso en la librería del teclado. En la <a href="#cha:version5">Versión 5</a> podrías querer añadir un nuevo <em>layout</em> de algún teclado extra, o modificar el existente.</p>
 <p>La estructura <code>keyboard_t</code> definida en <code>keyboards.h</code> contiene:</p>
 <ul>
@@ -598,25 +556,45 @@
 <li>El número de filas (<code>uint8_t rows</code>) y columnas (<code>uint8_t cols</code>) del teclado.</li>
 <li>Un caracter especial (<code>char null_key</code>) que indica que no se ha pulsado ninguna tecla. Por ejemplo el caracter <a href="acronimos.html#acro:ASCII">ASCII</a> nulo <code>'\0'</code>.</li>
 </ul>
-<p>En el mismo fichero se declara <code>standard_keyboard</code> como un ejemplo de <em>layout</em> para un teclado matricial 4x4. Este <em>layout</em> se define en <code>keyboards.c</code> como una matriz de caracteres que representa las teclas del teclado. Aquí se hace público para que pueda ser usado en otras partes del código; sus particularidades se definen en el <code>.c</code>.</p>
+<p>En el mismo fichero se declara <code>standard_keyboard</code> como un ejemplo de <em>layout</em> para un teclado matricial 4x4. El nombre es algo genérico y representativo. Este <em>layout</em> se define en <code>keyboards.c</code> como una matriz de caracteres que representa las teclas del teclado. Aquí se hace público para que pueda ser usado en otras partes del código; sus particularidades se definen en el <code>.c</code>.</p>
 <h2 id="sec:headers_keyboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3</span> <code>PORT</code>: cabeceras de la librería del teclado<a class="headerlink" href="#sec:headers_keyboard" title="Permanent link">¶</a></h2>
-<p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del teclado. Esta interfaz permitirá definir cuántas filas y columnas tiene nuestro teclado y qué caracteres representa cada tecla. Comenzaremos de nuevo por la cabecera y luego los códigos fuente.</p>
+<p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del teclado. Esta interfaz permitirá configurar las filas y columnas de nuestro teclado y realizar el barrido de excitación de filas y lectura de columnas para identificar la tecla pulsada.</p>
+<p>El montaje de nuestro módulo teclado matricial tendrá un aspecto como el mostrado en la <a href="#fig:fritzing_keyboard">figura</a>.</p>
+<figure><img alt="Montaje del teclado matricial con la Nucleo-STM32F446RE." id="fig:fritzing_keyboard" src="../assets/notebook_imgs/pr_chapters/version_2/fritzing_keyboard.png" style="width:100.0%"><figcaption aria-hidden="true">Montaje del teclado matricial con la <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span></figcaption></img></figure>
+<p>Más adelante lo implementaremos.</p>
 <h3 id="cabecera-port_keyboardh"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3.1</span> Cabecera port_keyboard.h<a class="headerlink" href="#cabecera-port_keyboardh" title="Permanent link">¶</a></h3>
 <p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Vamos a seguir los siguientes pasos:</p>
 <ul>
 <li>Incluye todas las cabeceras necesarias según indica la API.</li>
-<li>Incluye los (<code>#define</code>) necesarios para el teclado: el identificador <code>PORT_KEYBOARD_MAIN_ID</code> que usaremos en el proyecto Simone, el <em>timeout</em> de excitación de filas, y el tiempo de antirebotes de las teclas.</li>
-<li>Define los enumerados que identifican los indices de las columnas del teclado, y uqe serán de utilidad para hacer el código más legible en el manejo de las interrupciones.</li>
-<li>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_keyboard.h</code>. </li>
-<li>Puede ser buen momento ahora para documentar con Doxygen.</li>
+<li>
+<p>Incluye los (<code>#define</code>) necesarios para el teclado: el identificador <code>PORT_KEYBOARD_MAIN_ID</code> que usaremos en el proyecto Simone, el <em>timeout</em> de excitación de filas, y el tiempo de antirebotes de las teclas (<strong>mismo tiempo para todas</strong>).</p>
+<p>Hemos decidido darle el nombre <code>PORT_KEYBOARD_MAIN_ID</code> al teclado que usaremos en el juego. En la <a href="#cha:version5">Versión 5</a> podríamos querer añadir más teclados, y entonces habría que definir más identificadores con otros nombres representativos.
+- Define el enumerado que identifica los índices de las columnas del teclado, y que será de utilidad para hacer el código más legible en el manejo de las interrupciones.
+- Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_keyboard.h</code>.
+- Puede ser buen momento ahora para documentar con Doxygen.</p>
+</li>
 </ul>
 <h3 id="cabecera-stm32f4_keyboardh"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.3.2</span> Cabecera stm32f4_keyboard.h<a class="headerlink" href="#cabecera-stm32f4_keyboardh" title="Permanent link">¶</a></h3>
-<p>Esta cabecera define los pines físicos a los que están conectadas las filas y columnas del teclado en nuestra placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</p>
-<ul>
+<p>Esta cabecera define los pines físicos a los que están conectadas las filas y columnas de los teclados que usemos con nuestra placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</p>
+<ol>
 <li>Incluye todas las cabeceras necesarias.</li>
-<li>Define (<code>#define</code>) los valores de las GPIO y pines para las 4 Filas (<code>ROW</code>) y las 3 o 4 Columnas (<code>COL</code>). Es recomendable usar nombres descriptivos como <code>STM32F4_KEYBOARD_ROW_1_PIN</code>, etc.</li>
-<li>Documenta los <code>#define</code> con Doxygen.</li>
-</ul>
+<li>
+<p>Define (<code>#define</code>) los valores de las GPIO y pines para las 4 filas y las 4 columnas según indica la <a href="#tbl:version2_keypad">tabla de características del teclado matricial</a>.</p>
+</li>
+<li>
+<p>Declara la estructura <code>stm32f4_keyboard_hw_t</code> que contendrá la configuración física del teclado. </p>
+<p>Presta atención a la documentación que explica en cada campo qué deberá contener. Recuerda que las filas son salidas y las columnas entradas.</p>
+<p>Especial mención merecen los campos <code>p_row_ports</code> y <code>p_col_ports</code>, que <strong>son dobles punteros: punteros a arrays de punteros a estructuras</strong> <code>GPIO_TypeDef</code>. Estos campos permiten almacenar las referencias a los puertos GPIO de cada fila y columna del teclado. Esta es la forma de poder definir una estructura genérica sin saber el tamaño del teclado que va a gestionar. Nos da lo mismo que definamos un teclado de 2x2, 4x4 o 5x3; por eso estos campos son punteros que apuntarán a arrays de elementos de tipo <code>GPIO_TypeDef*</code> (por ejemplo, <code>GPIOA</code>, <code>GPIOB</code>, etc.). Así, podemos tener una lista dinámica de puertos para las filas y columnas del teclado, adaptándonos a cualquier configuración física que necesitemos.</p>
+<p>El campo <code>p_layout</code> es un <strong>puntero a una estructura <code>keyboard_t</code>, que contiene el <a href="#sec:layouts_keyboards"><em>layout</em> del teclado</a></strong>. Esto nos permite asociar el diseño lógico del teclado con su configuración física. Se declara <code>const</code> porque el <em>layout</em> no debe modificarse en tiempo de ejecución.</p>
+<p>Fíjate también que <strong>la estructura NO guarda la tecla pulsada</strong>, sino que guarda el índice de la fila que se está excitando y la columna que genera la interrupción. La gestión de la tecla pulsada se hará en la FSM del teclado, que es independiente del HW.</p>
+</li>
+<li>
+<p>Declarar el array de estructuras de tipo <code>stm32f4_keyboard_hw_t</code> como se hizo con el botón. Este array contendrá las características de todos los teclados que tengamos en el sistema.</p>
+</li>
+<li>
+<p>Documenta los <code>#define</code> con Doxygen.</p>
+</li>
+</ol>
 <p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas en <code>port_keyboard.h</code>.</p>
 <h2 id="sec:port_keyboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4</span> <code>PORT</code>: fuente de la librería del teclado<a class="headerlink" href="#sec:port_keyboard" title="Permanent link">¶</a></h2>
 <p>Vamos a <em>portar</em> las funciones necesarias para controlar los pines del teclado. Programaremos los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_keyboard.c</code></strong>.</p>
@@ -624,118 +602,138 @@
 <p>La complejidad aquí reside en la gestión de múltiples pines y en la lógica de configuración de entrada/salida.</p>
 <ol>
 <li>Incluye las librerías necesarias.</li>
-<li>Define la estructura <code>stm32f4_keyboard_hw_t</code>. A diferencia del botón simple, esta estructura debe contener arrays o listas de los pines correspondientes a las filas y a las columnas.</li>
-<li>Define la <strong>variable global privada</strong> <code>static stm32f4_keyboard_hw_t keyboards_arr</code></li>
-</ol>
-<p> con la configuración física de nuestro teclado.
-4. Codifica la función <code>_stm32f4_keyboard_get()</code> para recuperar la configuración del hardware.</p>
-<p>Ahora vamos a codificar las funciones que permiten la magia del barrido:</p>
-<ol>
-<li>Codifica la función <code>port_keyboard_init()</code>. Esta función es crítica:</li>
-<li>Debe configurar los pines de las <strong>FILAS</strong> como salidas digitales.</li>
-<li>Debe configurar los pines de las <strong>COLUMNAS</strong> como entradas digitales con resistencia de <em>pull-up</em> (o <em>pull-down</em> según tu diseño).</li>
+<li>Verás que en la plantilla proporcionada se han definido 4 arrays que corresponden con laos puertos y pines de las filas y columnas del teclado. Estos arrays se usan para inicializar la estructura del teclado. Estos son los arrays de elementos <code>GPIO_TypeDef*</code> (y <code>uint8_t</code>) de los que hablabamos anteriormente y alos que apuntará la estructura <code>stm32f4_keyboard_hw_t</code> del teclado principal <code>KEYBOARD_MAIN</code>.</li>
 <li>
-<p>Inicialmente, pon todas las filas en estado inactivo (alto si usas pull-up en columnas, o bajo si usas pull-down).</p>
+<p>Define la <strong>variable global privada</strong> <code>stm32f4_keyboard_hw_t keyboards_arr</code> con la configuración física de nuestro teclado tal y como hicimos con el botón. Los campos <code>p_row_ports</code>, <code>p_row_pins</code>, <code>p_col_ports</code>, y <code>p_col_pins</code> deben apuntar a los arrays definidos en el paso anterior. El campo <code>p_layout</code> <strong>debe apuntar a la dirección de memoria</strong> del <em>layout</em> del teclado estándar definido en <code>keyboards.c</code>. El resto de campos se inicializan en la función <code>port_keyboard_init()</code>.</p>
 </li>
 <li>
-<p>Codifica la función <code>port_keyboard_set_row()</code>. Esta función recibe un índice de fila y un valor (0 o 1). Su misión es escribir en el pin físico correspondiente a esa fila.</p>
+<p>Codifica la función <code>_stm32f4_keyboard_get()</code> para recuperar la configuración del hardware, de modo análogo a como se hizo para el botón.</p>
 </li>
-<li>Codifica la función <code>port_keyboard_get_cols()</code>. Esta función debe leer el estado de todos los pines de columna y devolver un valor (puede ser una máscara de bits o un booleano compuesto) que indique si alguna columna está activa.</li>
+<li>
+<p>Codifica la función <code>port_keyboard_init()</code> como se indica en la API.</p>
+<p><span style="color: Red">Recuerda que es muy importante indicar en el modo de las interrupciones de las columnas del teclado que, <strong>además de detectar ambos flancos (subida y bajada), debe habilitar la petición de interrupción (registro <code>EXTI_IMR</code>)</strong></span>.</p>
+<p>Se recomienda usar bucles para configurar las filas y columnas, y evitar el <em>spaghetti code</em>. Esto hace que el código sea más compacto y fácil de leer y mantener.</p>
+</li>
+<li>
+<p>Codifica la función <code>port_keyboard_excite_row()</code> como se indica en la API. Esta función debe <strong>activar la fila indicada y ¡desactivar las restantes!</strong></p>
+</li>
+<li>
+<p>Codifica la función <code>port_keyboard_get_cols()</code> como se indica en la API. Esta función llama a la anterior pero antes actualiza <code>current_excited_row</code>, que es el índice de la fila a ser excitada.</p>
+</li>
+<li>
+<p>Codifica todos los <em>getters</em> y <em>setters</em> que aparecen en el <code>.h</code> como indica la API. Especial atención a la función <code>port_keyboard_get_key_value()</code>, que debe devolver el carácter ASCII correspondiente a la tecla pulsada, usando el <em>layout</em> del teclado.</p>
+<p>Como en nuestra estructura <strong>no tenemos definida de manera fija el array del <em>layout</em> del teclado</strong>, sino que tenemos un puntero a una estructura <code>keyboard_t</code>, no podemos acceder directamente al array de teclas tratado como matriz bidimensional con los índices de la fila y columna. En su lugar, <strong>debemos tratar el array como unidimensional</strong> -que es, por otro lado, como está almacenado en memoria- y calcular la posición del caracter de la tecla pulsada usando la fórmula:</p>
+<div class="highlight"><pre><span></span><code><span class="n">key</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">excited</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">num</span><span class="w"> </span><span class="n">columns</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="n">interrupting</span>
+</code></pre></div>
+<p>Vamos a codificar ahora las funciones que gestionan el temporizador que controla la excitación de las filas.</p>
+<p><div id="tbl:version2_timer"></div></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parámetro</strong></th>
+<th style="text-align: center;"><strong>Valor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Temporizador</td>
+<td style="text-align: center;"><code>TIM5</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Prescaler</td>
+<td style="text-align: center;">(a calcular para <code>PORT_KEYBOARDS_TIMEOUT_MS</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Periodo</td>
+<td style="text-align: center;">(a calcular para <code>PORT_KEYBOARDS_TIMEOUT_MS</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">ISR</td>
+<td style="text-align: center;"><code>TIM5_IRQHandler</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Prioridad</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Subrioridad</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Codifica la función <code>_timer_trigger_setup()</code> como indica la API. Esta función configura el <em><em>temporizador que controla el tiempo de excitación de las filas de cualquier teclado que se monte en el juego; si hubiese más de uno, todos se excitarían a la vez. Para ello, apóyate en el ejemplo </em>"timer para interrupción periódica"</em> del libro de fundamentos teóricos <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>.</p>
+<p>Esta función configura un temporizador para que genere una interrupción de <code>PORT_KEYBOARDS_TIMEOUT_MS</code> milisegundos desde que se habilita el mismo. El temporizador elegido se muestra en la <a href="#tbl:version2_timer">tabla de características del teclado</a>.</p>
+<p>Lo vamos a usar para que genere interrupciones periódicas. Lo activaremos cuando durante el juego sea turno del jugador que use el teclado matricial, y lo desactivaremos cuando se esté reproduciendo la secuencia de colores.</p>
+<p>Para saber qué fuente de reloj habilitar para el temporizador, consulta la tabla <em>"Figure 3. STM32F446xC/E block diagram"</em> del <em>datasheet "STM32F446xC/E"</em> <sup id="fnref:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">4</a></sup>. Allí podrás ver si nuestro temporizador está conectado al <strong>APB1</strong> o al <strong>APB2</strong>, y tenemos que habilitar el reloj en el registro <code>RCC-&gt;APB1ENR</code> o <code>RCC-&gt;APB2ENR</code> respectivamente.</p>
+<p>Es importante que no pongas los valores de los registros de configuración del temporizador a mano, sino que uses las ecuaciones que se proporcionan en el libro de fundamentos teóricos <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup> para calcular los valores de los registros <code>TIMx-&gt;PSC</code> y <code>TIMx-&gt;ARR</code>. En cualquier momento podríamos querer cambiar el periodo de excitación de filas y, si lo hacemos a mano, podríamos cometer errores, además de que es menos legible.</p>
+<p>**Es muy importante que la función <code>_timer_scan_column_config()</code> se llame desde la función <code>port_keyboard_init()</code>. Si no, no se podrán generar interrupciones para excitar filas y leer columnas.</p>
+</li>
+<li>
+<p>Codifica la función <code>port_keyboard_start_scan()</code> que se encarga de habilitar las interrupciones del temporizador y activar la cuenta (reseteando el contador). En esta función se resetea el flag <code>flag_row_timeout</code>, y se excita la primera fila del teclado.</p>
+</li>
+<li>Codifica la función <code>port_keyboard_stop_scan()</code> que deshabilita las interrupciones del temporizador y detiene la cuenta. Del mismo modo, apaga todas las filas del teclado.</li>
 </ol>
-<p>Si ahora compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del teclado!</strong> Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
-<h2 id="sec:test_port_v2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> <code>PORT</code>: Test unitario del teclado<a class="headerlink" href="#sec:test_port_v2" title="Permanent link">¶</a></h2>
-<p>Antes de intentar detectar pulsaciones complejas con la FSM, debemos asegurarnos de que podemos encender las filas y leer las columnas correctamente.</p>
-<p><span style="color: Red"><strong>¡Importante! Revisa que las conexiones físicas coincidan con los defines de tu cabecera.</strong></span></p>
-<p>Descarga el fichero de test HW del teclado <code>test_port_keyboard.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code>.</p>
+<p>**¡Ya hemos acabado con la implementación de la parte HW <code>stm32f\_keyboard.c</code> del teclado. Ahora solo queda la ISR asociada a dicho temporizador en el fichero `interr.c``. Vamos a ello.</p>
+<h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
+<p>Abre el fichero <code>interr.c</code> y:</p>
 <ol>
-<li>Conecta la placa y el teclado matricial.</li>
-<li>Pulsa sobre el <strong>icono de depuración { .inline-img }</strong>.</li>
-<li>Selecciona el test <code>test_port_keyboard</code>.</li>
-<li>Este test probablemente te pedirá que pulses teclas específicas (ej: "Pulsa la tecla de la Fila 1, Columna 1") y verificará si el software detecta el cambio de nivel lógico.</li>
-<li>Comprueba que todos los test pasan correctamente.</li>
+<li>
+<p>Codifica la ISR <code>TIM5_IRQHandler</code> como se indica en la API. Recuerda que las ISR no reciben ni devuelven nada.</p>
+<p>Esta ISR, cuando salta, se encarga de llamar a la función correspondiente para <em>settear</em> el estado del flag de <em>timeout</em>.</p>
+</li>
+<li>
+<p>Si queda algo por documentar puede ser buen momento ahora.</p>
+</li>
 </ol>
-<p><strong>¡Ya hemos acabado con la parte <code>PORT</code>!</strong> Vamos ahora a implementar la parte <code>COMMON</code>.</p>
+<p>Si ahora compilas, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> de excitación de filas para lectura de teclas en un teclado matricial!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code> para esta parte.</p>
+<h2 id="sec:test_port_keyboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.5</span> <code>PORT</code>: Test unitario del teclado matricial<a class="headerlink" href="#sec:test_port_keyboard" title="Permanent link">¶</a></h2>
+<p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado antes de continuar.</p>
+<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"> Ten a mano y revisa el capítulo <em>“Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>.</img></p>
+<p>Descarga el fichero de test HW del teclado <code>test_port_keyboard.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
+<ol>
+<li>
+<p>Conecta la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"> y selecciona <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"> Clean and Debug</img></img></strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_port_keyboard</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Comprueba que todos los test pasan correctamente en el texto mostrado en la terminal de depuración. Si no es así, lee los mensajes de error y corrige tu código hasta que pase todas las pruebas. <strong>Si no pasa las pruebas, no continúes programando, corrigelas.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png">) y repite el proceso hasta que pase todos los test.</img></p>
+</li>
+</ol>
+<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del teclado!</strong> Vamos ahora a implementar la parte <code>COMMON</code> de la librería del teclado.</p>
 <h2 id="common-cabecera-de-la-fsm-del-teclado"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.6</span> <code>COMMON</code>: cabecera de la FSM del teclado<a class="headerlink" href="#common-cabecera-de-la-fsm-del-teclado" title="Permanent link">¶</a></h2>
-<h5 id="consideraciones-fsm-keyboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.6.0.0.1</span> Consideraciones de la FSM del teclado<a class="headerlink" href="#consideraciones-fsm-keyboard" title="Permanent link">¶</a></h5>
-<p>Antes de empezar, entendamos cómo funciona el barrido lógico.</p>
+<h3 id="consideraciones-de-la-fsm-del-teclado"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.6.1</span> Consideraciones de la FSM del teclado<a class="headerlink" href="#consideraciones-de-la-fsm-del-teclado" title="Permanent link">¶</a></h3>
+<p>Antes de ponernos a programar, conviene explicar algunos aspectos importantes de la FSM del teclado matricial.</p>
 <ul>
-<li>La FSM no lee todo el teclado de golpe. En cada ciclo (o <em>tick</em>), activa una fila, espera un instante para que la señal se estabilice, lee las columnas y luego desactiva la fila para pasar a la siguiente.</li>
-<li>Necesitaremos gestionar el <strong>anti-rebotes</strong> (<em>debouncing</em>) igual que con el botón, pero teniendo en cuenta que estamos saltando de fila en fila.</li>
-<li>La FSM debe almacenar la <strong>última tecla válida pulsada</strong> en el campo <code>key</code> de su estructura.</li>
+<li>
+<p>La FSM <strong>almacena el caracter <code>char</code> de la última  tecla pulsada</strong>.</p>
+</li>
+<li>
+<p>El usuario debe solicitar/ comprobar el caracter mediante la función <code>fsm_keyboard_get_key_value()</code>.</p>
+</li>
+<li>
+<p>El valor de inicio del caracter al arrancar la FSM, y el valor de reinicio, debe ser le valor de tecla inválida que haya definido el <em>layout</em> del teclado. En nuestro caso, el valor de tecla inválida es el caracter nulo <code>'\0'</code>, que está definido en la estructura <code>keyboard_t</code> del <em>layout</em> del teclado. En otro teclado podría ser otro, por lo que no hay que poner este valor <em>a pincho</em>, sino el que nos devuelva <code>port_keyboard_get_invalid_key_value()</code>. ¡Ojo! <strong>Al inicializar la FSM, hay que inicializar el <code>port_keyboard_init()</code>, porque de lo contrario, no podremos leer qué tecla es inválida según el <em>layout</em>!</strong></p>
+</li>
+<li>
+<p><strong>Un valor de <code>invalid_key</code> significa que no ha habido una nueva pulsación del teclado.</strong></p>
+</li>
+<li>
+<p><strong>El usuario debe reiniciar el valor de tecla pulsada una vez leído</strong>, de lo contrario, este valor puede ser malinterpretado por el usuario si se realizan sucesivas comprobaciones sin haber pulsado el teclado. Es análogo a lo que hacíamos con el botón.  Para reiniciar el valor se debe llamar a la función <code>fsm_keyboard_reset_key_value()</code>.</p>
+</li>
+<li>
+<p>La FSM contiene información del identificador (<code>ID</code>) del teclado que maneja. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIOs a la que está conectado y tiempo de anti-rebotes) para todos los teclados de su sistema.</p>
+</li>
 </ul>
-<figure><embed id="fig:fsm_keyboard" src="../assets/notebook_imgs/pr_chapters/version_2/fsm_keyboard.svg" style="width:100.0%"/><figcaption aria-hidden="true">Máquina de estados del teclado matricial..</figcaption></figure>
-<p>Nuestra librería implementa la lógica de la <strong><a href="acronimos.html#acro:FSM">FSM</a></strong> mostrada en la y que llamaremos <code>fsm_keyboard</code>. Los estados principales son:</p>
-<ul>
-<li><code>WAIT_ROW</code>: Estado de espera. La FSM aguarda a que el temporizador indique que es momento de escanear la siguiente fila.</li>
-<li><code>SCAN_COL</code>: Se ha activado una fila. En este estado se leen las columnas para ver si hay alguna tecla pulsada en dicha fila.</li>
-<li><code>KEY_PRESSED</code>: Se ha detectado una pulsación. Aquí se realiza la validación (anti-rebotes) y se decodifica qué tecla es basándose en la fila activa y la columna detectada.</li>
-<li>
-<p><code>KEY_RELEASED</code>: Esperamos a que el usuario suelte la tecla para evitar lecturas múltiples de una sola pulsación.</p>
-</li>
-<li>
-<p>Descarga los ficheros <code>fsm_keyboard.h</code> y <code>fsm_keyboard.c</code> de la parte <strong>COMMON</strong>.</p>
-</li>
-</ul>
-<p>Ahora, vamos a completar la cabecera <code>fsm_keyboard.h</code>.</p>
-<ol>
-<li>Incluye las librerías necesarias.</li>
-<li>Define el enumerado <code>FSM_KEYBOARD</code> con los estados descritos.</li>
-<li>Define la estructura <code>fsm_keyboard_t</code>. Recuerda que debe comenzar con el objeto <code>fsm_t</code>. Necesitará campos para almacenar:</li>
-<li>El <code>ID</code> del teclado.</li>
-<li>La fila actual que se está escaneando (<code>current_row</code>).</li>
-<li>La tecla detectada (<code>key_pressed</code>).</li>
-<li>
-<p>Punteros a funciones o tablas para mapear coordenadas (fila, col) a caracteres ASCII.</p>
-</li>
-<li>
-<p>Escribe los prototipos de las funciones públicas como <code>fsm_keyboard_get_key()</code> o <code>fsm_keyboard_reset()</code>.</p>
-</li>
-</ol>
-<h2 id="common-fuente-de-la-fsm-del-teclado"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7</span> <code>COMMON</code>: fuente de la FSM del teclado<a class="headerlink" href="#common-fuente-de-la-fsm-del-teclado" title="Permanent link">¶</a></h2>
-<p>Vamos a implementar la lógica de barrido en <code>fsm_keyboard.c</code>.</p>
-<ul>
-<li>Incluye las cabeceras necesarias.</li>
-<li>Implementa la estructura opaca si no lo hiciste en el .h.</li>
-</ul>
-<p><strong>Funciones privadas (Entrada/Salida):</strong></p>
-<ol>
-<li>Codifica las funciones de chequeo <code>check_</code>. Por ejemplo, <code>check_timer_expire()</code> verificará si ha pasado el tiempo suficiente para saltar a la siguiente fila. <code>check_col_active()</code> leerá del puerto si hay pulsación.</li>
-<li>Codifica las funciones de acción <code>do_</code>.</li>
-<li><code>do_next_row()</code>: Incrementa el índice de fila, hace <em>wrap-around</em> si llega al final, y llama a <code>port_keyboard_set_row()</code> para activar la nueva fila físicamente.</li>
-<li><code>do_save_key()</code>: Si se detecta pulsación, cruza el dato de la fila actual y la columna leída con tu mapa de caracteres para guardar el valor en <code>key_pressed</code>.</li>
-</ol>
-<p><strong>Tabla de Transiciones:</strong></p>
-<ol>
-<li>Declara la tabla <code>fsm_trans_keyboard</code>. Asegúrate de cubrir el ciclo completo: esperar timer -&gt; activar fila -&gt; leer columnas -&gt; (si nada) esperar timer... o (si pulsación) -&gt; gestionar pulsación.</li>
-</ol>
-<p><strong>Funciones Públicas:</strong></p>
-<ol>
-<li>Codifica <code>fsm_keyboard_fire()</code>.</li>
-<li>Codifica <code>fsm_keyboard_get_key_value()</code> para que el usuario pueda recuperar la tecla detectada.</li>
-<li>Completa la inicialización en <code>fsm_keyboard_init()</code>.</li>
-</ol>
-<p><strong>¡Ya hemos acabado con la programación de la librería del teclado!</strong></p>
-<h2 id="sec:test_fsm_v2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.8</span> <code>COMMON</code> Test unitario de la FSM del teclado<a class="headerlink" href="#sec:test_fsm_v2" title="Permanent link">¶</a></h2>
-<p>Vamos a verificar que la lógica de barrido funciona independientemente del hardware (usando <em>mocks</em> o simulación de puertos en el test).</p>
-<p><span style="color: Red"><strong>¡Importante! Los test comprueban la lógica de estados, no si tu cableado está bien.</strong></span></p>
-<p>Descarga <code>test_fsm_keyboard.c</code> y ponlo en la carpeta <code>test/</code>.</p>
-<ol>
-<li>Selecciona el test <code>test_fsm_keyboard</code> en tu entorno de depuración.</li>
-<li>Ejecuta el test. Este simulará el paso del tiempo y las señales de columnas para verificar que la FSM transiciona correctamente y decodifica el carácter esperado.</li>
-<li>Si falla, usa el depurador para ver en qué estado se queda la máquina.</li>
-</ol>
-<h2 id="ejemplo-de-uso-de-la-version-2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.9</span> Ejemplo de uso de la Versión 2<a class="headerlink" href="#ejemplo-de-uso-de-la-version-2" title="Permanent link">¶</a></h2>
-<p>Vamos a integrar todo. Crearemos un pequeño programa que escanee el teclado y envíe por puerto serie (o muestre en depuración) la tecla pulsada.</p>
-<p>Descarga <code>example2.c</code> y ponlo en <code>example/</code>.</p>
-<p><strong>Procedamos</strong>:</p>
-<ol>
-<li>Monta el teclado matricial con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span>.</li>
-<li>Ejecuta el ejemplo <code>example_v2</code>.</li>
-<li>Abre la terminal o pon un <em>breakpoint</em> donde se lea la tecla.</li>
-<li>Pulsa varias teclas y verifica que el carácter recibido coincide con la etiqueta física de la tecla.</li>
-</ol>
-<p>¡Hemos dominado el barrido de entradas! Esta base es fundamental para el proyecto final.</p>
-<p>No dejes de documentar el código con Doxygen. Guarda una copia de tu proyecto como <code>simone_v2</code>.</p>
+<figure><embed id="fig:fsm_keyboard" src="../assets/notebook_imgs/pr_chapters/version_2/fsm_keyboard.svg" style="width:100.0%"/><figcaption aria-hidden="true">Máquina de estados del teclado matricial.</figcaption></figure>
 <div class="footnote">
 <hr/>
 <ol>
@@ -746,10 +744,10 @@
 <p>Para un mejor contacto, el circuito de la imagen son dos pistas de cobre en zig-zag que se cortocircuitan al pulsar el botón. Lo más simple sería una cruz que no se toca, pero su contacto es menos fiable. En teclados más avanzados, puede haber circuitos adicionales para mejorar la durabilidad o la respuesta táctil. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:stm322025fundamentos">
-<p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a></p>
+<p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref2:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref3:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref4:stm322025fundamentos" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 <li id="fn:st2021datasheet">
-<p>STMicroelectronics. Stm32f446xc/e. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</a>. <a class="footnote-backref" href="#fnref:st2021datasheet" title="Jump back to footnote 4 in the text">↩</a></p>
+<p>STMicroelectronics. Stm32f446xc/e. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</a>. <a class="footnote-backref" href="#fnref:st2021datasheet" title="Jump back to footnote 4 in the text">↩</a><a class="footnote-backref" href="#fnref2:st2021datasheet" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 <li id="fn:st2021reference">
 <p>STMicroelectronics. Rm0390 reference manual. stm32f446xx advanced arm-based 32-bit mcus. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf</a>. <a class="footnote-backref" href="#fnref:st2021reference" title="Jump back to footnote 5 in the text">↩</a></p>

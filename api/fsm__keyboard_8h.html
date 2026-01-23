@@ -84,7 +84,6 @@ $(document).ready(function(){initNavTree('fsm__keyboard_8h.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
@@ -103,11 +102,6 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfsm__keyboard__t.html">fsm_keyboard_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure of the Keyboard FSM.  <a href="structfsm__keyboard__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a668033e3723bb878564789fd89bc39a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__keyboard_8h.html#a668033e3723bb878564789fd89bc39a6">FSM_KEYBOARD_NULL_KEY</a>&#160;&#160;&#160;'\0'</td></tr>
-<tr class="separator:a668033e3723bb878564789fd89bc39a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -147,12 +141,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ad70aab22ee8dd2d3ca43decfbf564fb1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__keyboard_8h.html#ad70aab22ee8dd2d3ca43decfbf564fb1">fsm_keyboard_get_state</a> (<a class="el" href="structfsm__keyboard__t.html">fsm_keyboard_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:ad70aab22ee8dd2d3ca43decfbf564fb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state of the keyboard FSM.  <a href="fsm__keyboard_8h.html#ad70aab22ee8dd2d3ca43decfbf564fb1">More...</a><br /></td></tr>
 <tr class="separator:ad70aab22ee8dd2d3ca43decfbf564fb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d3ab1e1d8dd33c02cf32c03e33879b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__keyboard_8h.html#a0d3ab1e1d8dd33c02cf32c03e33879b6">fsm_keyboard_get_key_pressed_status</a> (<a class="el" href="structfsm__keyboard__t.html">fsm_keyboard_t</a> *p_fsm)</td></tr>
-<tr class="memdesc:a0d3ab1e1d8dd33c02cf32c03e33879b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the keyboard has been pressed.  <a href="fsm__keyboard_8h.html#a0d3ab1e1d8dd33c02cf32c03e33879b6">More...</a><br /></td></tr>
-<tr class="separator:a0d3ab1e1d8dd33c02cf32c03e33879b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8538a0c128e72aab9b469ed0ace3ddf0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__keyboard_8h.html#a8538a0c128e72aab9b469ed0ace3ddf0">fsm_keyboard_get_key_value</a> (<a class="el" href="structfsm__keyboard__t.html">fsm_keyboard_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a8538a0c128e72aab9b469ed0ace3ddf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the key pressed of the last keyboard press.  <a href="fsm__keyboard_8h.html#a8538a0c128e72aab9b469ed0ace3ddf0">More...</a><br /></td></tr>
 <tr class="separator:a8538a0c128e72aab9b469ed0ace3ddf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5c963d23ba40e1e2e16349c90d90a8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__keyboard_8h.html#a2c5c963d23ba40e1e2e16349c90d90a8">fsm_keyboard_get_is_valid_key</a> (<a class="el" href="structfsm__keyboard__t.html">fsm_keyboard_t</a> *p_fsm)</td></tr>
+<tr class="memdesc:a2c5c963d23ba40e1e2e16349c90d90a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the last key pressed is valid.  <a href="fsm__keyboard_8h.html#a2c5c963d23ba40e1e2e16349c90d90a8">More...</a><br /></td></tr>
+<tr class="separator:a2c5c963d23ba40e1e2e16349c90d90a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38ecbf29d78b69cf47621bd74d521a38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__keyboard_8h.html#a38ecbf29d78b69cf47621bd74d521a38">fsm_keyboard_reset_key_value</a> (<a class="el" href="structfsm__keyboard__t.html">fsm_keyboard_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a38ecbf29d78b69cf47621bd74d521a38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the key pressed of the last keyboard press.  <a href="fsm__keyboard_8h.html#a38ecbf29d78b69cf47621bd74d521a38">More...</a><br /></td></tr>
 <tr class="separator:a38ecbf29d78b69cf47621bd74d521a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,23 +164,7 @@ Functions</h2></td></tr>
 <div class="textblock"><p>Header for <a class="el" href="fsm__keyboard_8c.html" title="Keyboard FSM main file.">fsm_keyboard.c</a> file. </p>
 <dl class="section author"><dt>Author</dt><dd>Sistemas Digitales II </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026-01-01 </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a668033e3723bb878564789fd89bc39a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a668033e3723bb878564789fd89bc39a6">&#9670;&nbsp;</a></span>FSM_KEYBOARD_NULL_KEY</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define FSM_KEYBOARD_NULL_KEY&#160;&#160;&#160;'\0'</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Value to indicate that no key has been pressed </p>
-
-</div>
-</div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="acf461865490ce39e6365bfb5fab9a937"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf461865490ce39e6365bfb5fab9a937">&#9670;&nbsp;</a></span>FSM_KEYBOARD</h2>
 
@@ -415,14 +393,14 @@ false </dd></dl>
 
 </div>
 </div>
-<a id="a0d3ab1e1d8dd33c02cf32c03e33879b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d3ab1e1d8dd33c02cf32c03e33879b6">&#9670;&nbsp;</a></span>fsm_keyboard_get_key_pressed_status()</h2>
+<a id="a2c5c963d23ba40e1e2e16349c90d90a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c5c963d23ba40e1e2e16349c90d90a8">&#9670;&nbsp;</a></span>fsm_keyboard_get_is_valid_key()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool fsm_keyboard_get_key_pressed_status </td>
+          <td class="memname">bool fsm_keyboard_get_is_valid_key </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structfsm__keyboard__t.html">fsm_keyboard_t</a> *&#160;</td>
           <td class="paramname"><em>p_fsm</em></td><td>)</td>
@@ -431,9 +409,11 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Check if the keyboard has been pressed. </p>
+<p>Check if the last key pressed is valid. </p>
+<p>This function checks if the last key pressed is valid by comparing it with the invalid key value.</p>
 <blockquote class="doxtable">
-<p><b>TODO alumnos:</b> ✅ 1. Call function <code><a class="el" href="port__keyboard_8h.html#ad9d95c098d9ce87863ae191c65246830" title="Return the status of the keyboard (pressed or not).">port_keyboard_get_key_pressed_status()</a></code> and return the status <br  />
+<p><b>TODO alumnos:</b></p>
+<p>✅ 1. Return true if the field <code>key_pressed</code> is different from <code>invalid_key</code>, otherwise return false. <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -575,7 +555,7 @@ false </dd></dl>
 <p>Reset the key pressed of the last keyboard press. </p>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
-<p>✅ 1. Set the field <code>key_pressed</code> to <code>NULL_KEY</code> <br  />
+<p>✅ 1. Set the field <code>key_pressed</code> to <code>invalid_key</code> <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>

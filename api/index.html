@@ -147,7 +147,7 @@ Version 2</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Pull up/ down rows </td><td class="markdownTableBodyNone">No push, no pull  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Timeout excitation rows </td><td class="markdownTableBodyNone">$25 ms$  </td></tr>
+<td class="markdownTableBodyNone">Timeout excitation rows </td><td class="markdownTableBodyNone">25 ms  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Pin/ EXTI/ ISR column 1 </td><td class="markdownTableBodyNone">PA8/ EXTI8/ EXTI9_5_IRQHandler  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -167,16 +167,16 @@ Version 2</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Debounce time all columns </td><td class="markdownTableBodyNone">100-200 ms  </td></tr>
 </table>
-<p>The system uses 1 timer to control the duration of the <b>excitation of each row</b> in the keyboard matrix. The characteristics of this timer are shown in the table below. The FSM will give a value every <code>PORT_KEYBOARD_MAIN_TIMEOUT_MS</code> milliseconds.</p>
+<p>The system uses 1 timer to control the duration of the <b>excitation of each row</b> in the keyboard matrix. The characteristics of this timer are shown in the table below. The FSM will give a value every <code>PORT_KEYBOARDS_TIMEOUT_MS</code> milliseconds.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter </th><th class="markdownTableHeadNone">Value  </th></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Timer </td><td class="markdownTableBodyNone">TIM5  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Prescaler </td><td class="markdownTableBodyNone">(to be calculated for <code>PORT_KEYBOARD_MAIN_TIMEOUT_MS</code>)  </td></tr>
+<td class="markdownTableBodyNone">Prescaler </td><td class="markdownTableBodyNone">(to be calculated for <code>PORT_KEYBOARDS_TIMEOUT_MS</code>)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Period </td><td class="markdownTableBodyNone">(to be calculated for <code>PORT_KEYBOARD_MAIN_TIMEOUT_MS</code>)  </td></tr>
+<td class="markdownTableBodyNone">Period </td><td class="markdownTableBodyNone">(to be calculated for <code>PORT_KEYBOARDS_TIMEOUT_MS</code>)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">ISR </td><td class="markdownTableBodyNone"><a class="el" href="interr_8c.html#a5e66446caf21dd90191dc07a13ce2378" title="Interrupt service routine for the TIM5 timer.">TIM5_IRQHandler()</a>  </td></tr>
 <tr class="markdownTableRowOdd">

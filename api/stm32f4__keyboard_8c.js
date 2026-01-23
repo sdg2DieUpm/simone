@@ -4,6 +4,7 @@ var stm32f4__keyboard_8c =
     [ "_timer_scan_column_config", "stm32f4__keyboard_8c.html#a02d1f396d821890ec121fde3292f3ed4", null ],
     [ "port_keyboard_excite_next_row", "stm32f4__keyboard_8c.html#a76ff0a28d6cad5c0b67c4bc2f37cc2d2", null ],
     [ "port_keyboard_excite_row", "stm32f4__keyboard_8c.html#a1ca9463c0c87fa80c6a08c5d71d23d4f", null ],
+    [ "port_keyboard_get_invalid_key_value", "stm32f4__keyboard_8c.html#a0c5d7b4fe5f2da20f60a2551c990fe17", null ],
     [ "port_keyboard_get_key_pressed_status", "stm32f4__keyboard_8c.html#ad9d95c098d9ce87863ae191c65246830", null ],
     [ "port_keyboard_get_key_value", "stm32f4__keyboard_8c.html#a5e84e1f30a5de2c507f98f9a9972a8d0", null ],
     [ "port_keyboard_get_row_timeout_status", "stm32f4__keyboard_8c.html#a82b195430e43df585ddebe86f06a2cdc", null ],
