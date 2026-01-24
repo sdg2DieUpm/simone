@@ -1,16 +1,14 @@
-# Urbanite Version 2 Test files
+# Simone Version 2 Test files
 
-This folder contains the test files for unit testing and example of use of **Version 2 of the Urbanite** project. You can add more test items on the corresponding files at your own.
+This folder contains the test files for unit testing and example of use of **Version 2 of the Simone** project. You can add more test items on the corresponding files at your own.
 
 Unit tests are located in the `test` folder. Example tests are located in the `example` folder. The folders also contain the `CMakeLists.txt` files that are used to build the binary files for the test codes.
 
 **Attention**
 You must organize the test files accordingly to the project structure. The student must **save the `test` files as follows**.
 
-The test of the PORT part is complete in the files `test_port_ultrasound.c`. Because it is large, it is divided into three parts: `test_port_ultrasound_timer_trigger.c`, `test_port_ultrasound_timer_echo.c`, and `test_port_ultrasound_timer_measurements.c`. If you prefer, you can use the `test_port_ultrasound_full.c` file, or test each part separately while developing the project step by step.
-
-- Save the file `test_port_ultrasound_*.c` in the `test/stm32f4` folder.
-- Save the file `test_fsm_ultrasound.c` directly in the `test` folder.
+- Save the file `test_port_keyboard_*.c` in the `test/stm32f4` folder.
+- Save the file `test_fsm_keyboard.c` directly in the `test` folder.
 - Save the file `example_v2.c` in the `example` folder.
 
 It looks like this:
@@ -24,13 +22,10 @@ It looks like this:
  ┣ 📂**stm32f4**  
  ┃ ┣ 📜CMakeLists.txt  
  ┃ ┃ 📑test_port_button.c  
- ┃ ┃ 📑*test_port_ultrasound_full.c*  
- ┃ ┃ 📑*test_port_ultrasound_timer_trigger.c*  
- ┃ ┃ 📑*test_port_ultrasound_timer_echo.c*  
- ┃ ┗ 📑*test_port_ultrasound_timer_measurements.c*  
+ ┃ ┗ 📑*test_port_keyboard.c*
  ┣ 📜CMakeLists.txt  
  ┃ 📑test_fsm_button.c  
- ┗ 📑*test_fsm_ultrasound.c*  
+ ┗ 📑*test_fsm_keyboard.c*  
 
 ## Unit tests
 

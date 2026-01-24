@@ -1,35 +1,36 @@
 #include <stdio.h>
 
-#include "fsm_ultrasound.h"
-#include "port_ultrasound.h"
+#include "fsm_keyboard.h"
+#include "port_keyboard.h"
 #include "port_system.h"
 #include "stm32f4_system.h"
 
 /* Defines */
-#define PORT_REAR_PARKING_SENSOR_ID 0 /*!< Ultrasound sensor identifier @hideinitializer */
 
 int main(void)
 {
     // Initialize the system
     port_system_init();
 
+    // Initialize the keyboard FSM
     // Reserve space memory in the heap for the FSM
-    fsm_ultrasound_t *p_fsm_ultrasound_rear = fsm_ultrasound_new(PORT_REAR_PARKING_SENSOR_ID);
-
-    // Request a new distance measurement and fire the FSM
-    fsm_ultrasound_set_status(p_fsm_ultrasound_rear, true);
+    fsm_keyboard_t *p_fsm_keyboard = fsm_keyboard_new(PORT_KEYBOARD_MAIN_DEBOUNCE_TIME_MS, PORT_KEYBOARD_MAIN_ID);
+    fsm_keyboard_start_scan(p_fsm_keyboard);
+    char null_key = port_keyboard_get_key_value(PORT_KEYBOARD_MAIN_ID);
 
     while (1)
     {
-        // Wait until the distance measurement has been completed
-        while (fsm_ultrasound_get_new_measurement_ready(p_fsm_ultrasound_rear) == false)
-        {
-            fsm_ultrasound_fire(p_fsm_ultrasound_rear);
-            port_system_delay_ms(10); // Wait to let the FSM to process the new measurement
-        }
+        // In every iteration, we fire the FSM and retrieve the key pressed
+        fsm_keyboard_fire(p_fsm_keyboard);
 
-        uint32_t distance = fsm_ultrasound_get_distance(p_fsm_ultrasound_rear);
-        printf("[%ld] Distance: %ld cm\n", port_system_get_millis(), distance);
+        char key_value = fsm_keyboard_get_key_value(p_fsm_keyboard);
+        if (key_value != null_key)
+        {
+            printf("Keyboard's %d key %c pressed\n", PORT_KEYBOARD_MAIN_ID, key_value);
+            
+            // We always reset the key after reading it
+            fsm_keyboard_reset_key_value(p_fsm_keyboard);
+        }
     }
 
     return 0;
