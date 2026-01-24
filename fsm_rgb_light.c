@@ -1,6 +1,6 @@
 /**
- * @file fsm_display.c
- * @brief Display system FSM main file.
+ * @file fsm_rgb_light.c
+ * @brief RGB light system FSM main file.
  * @author alumno1
  * @author alumno2
  * @date fecha
@@ -24,9 +24,9 @@
 /* Other auxiliary functions */
 
 /* Public functions -----------------------------------------------------------*/
-fsm_display_t *fsm_display_new(uint32_t display_id)
+fsm_rgb_light_t *fsm_rgb_light_new(uint32_t rgb_light_id)
 {
-    fsm_display_t *p_fsm_display = malloc(sizeof(fsm_display_t)); /* Do malloc to reserve memory of all other FSM elements, although it is interpreted as fsm_t (the first element of the structure) */
-    fsm_display_init(p_fsm_display, display_id); /* Initialize the FSM */
-    return p_fsm_display;
+    fsm_rgb_light_t *p_fsm_rgb_light = malloc(sizeof(fsm_rgb_light_t)); /* Do malloc to reserve memory of all other FSM elements, although it is interpreted as fsm_t (the first element of the structure) */
+    fsm_rgb_light_init(p_fsm_rgb_light, rgb_light_id); /* Initialize the FSM */
+    return p_fsm_rgb_light;
 }

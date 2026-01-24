@@ -1,12 +1,12 @@
 /**
- * @file stm32f4_display.h
- * @brief Header for stm32f4_display.c file.
+ * @file stm32f4_rgb_light.h
+ * @brief Header for stm32f4_rgb_light.c file.
  * @author alumno1
  * @author alumno2
  * @date fecha
  */
-#ifndef STM32F4_DISPLAY_SYSTEM_H_
-#define STM32F4_DISPLAY_SYSTEM_H_
+#ifndef STM32F4_RGB_LIGHT_SYSTEM_H_
+#define STM32F4_RGB_LIGHT_SYSTEM_H_
 
 /* Includes ------------------------------------------------------------------*/
 /* Standard C includes */
@@ -16,4 +16,4 @@
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
 
-#endif /* STM32F4_DISPLAY_SYSTEM_H_ */
+#endif /* STM32F4_RGB_LIGHT_SYSTEM_H_ */

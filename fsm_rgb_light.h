@@ -1,13 +1,13 @@
 /**
- * @file fsm_display.h
- * @brief Header for fsm_display.c file.
+ * @file fsm_rgb_light.h
+ * @brief Header for fsm_rgb_light.c file.
  * @author alumno1
  * @author alumno2
  * @date fecha
  */
 
-#ifndef FSM_DISPLAY_SYSTEM_H_
-#define FSM_DISPLAY_SYSTEM_H_
+#ifndef FSM_RGB_LIGHT_SYSTEM_H_
+#define FSM_RGB_LIGHT_SYSTEM_H_
 
 /* Includes ------------------------------------------------------------------*/
 /* Standard C includes */
@@ -21,4 +21,4 @@
 
 /* Function prototypes and explanation -------------------------------------------------*/
 
-#endif /* FSM_DISPLAY_SYSTEM_H_ */
+#endif /* FSM_RGB_LIGHT_SYSTEM_H_ */

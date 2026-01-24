@@ -1,6 +1,6 @@
-# Urbanite Version 3 support files
+# Simone Version 3 support files
 
-This folder contains the support files for the Version 3 of the Urbanite project.
+This folder contains the support files for the Version 3 of the Simone project.
 
 **Attention**
 
