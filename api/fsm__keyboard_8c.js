@@ -10,7 +10,6 @@ var fsm__keyboard_8c =
     [ "fsm_keyboard_check_activity", "fsm__keyboard_8c.html#a22bdb22f0e7fd5bc05b34c87ea7d65e5", null ],
     [ "fsm_keyboard_destroy", "fsm__keyboard_8c.html#afc7aff5223cfbb75cff915bdfd79d708", null ],
     [ "fsm_keyboard_fire", "fsm__keyboard_8c.html#afe0970ced1b57504ad5b12615739ef78", null ],
-    [ "fsm_keyboard_get_debounce_time_ms", "fsm__keyboard_8c.html#a8189da8f79e04c050b5224976b698e35", null ],
     [ "fsm_keyboard_get_inner_fsm", "fsm__keyboard_8c.html#aeafaf6fcd9ca711020deeb33b09b26ac", null ],
     [ "fsm_keyboard_get_is_valid_key", "fsm__keyboard_8c.html#a2c5c963d23ba40e1e2e16349c90d90a8", null ],
     [ "fsm_keyboard_get_key_value", "fsm__keyboard_8c.html#a8538a0c128e72aab9b469ed0ace3ddf0", null ],

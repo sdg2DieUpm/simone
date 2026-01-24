@@ -233,7 +233,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-boton">
+<a class="md-nav__link" href="#sec:fsm_button_c">
 <span class="md-ellipsis">
       COMMON: fuente de la FSM del botón
     </span>
@@ -419,7 +419,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#common-fuente-de-la-fsm-del-boton">
+<a class="md-nav__link" href="#sec:fsm_button_c">
 <span class="md-ellipsis">
       COMMON: fuente de la FSM del botón
     </span>
@@ -466,7 +466,7 @@
 <p class="admonition-title"><a href="https://www.youtube.com/channel/UCYIw_gl745WMJ1n0MamDzQw/">Vídeos del canal de SDGII</a></p>
 <ul>
 <li>
-<p><a href="#TO-DO">Demostración Simone</a></p>
+<p><a href="#TODO">Demostración Simone</a></p>
 </li>
 <li>
 <p><a href="https://youtu.be/CcbgLVfCXrw?si=A8DP1rescxJNBEb9">Blink LED y manejo de proyecto</a></p>
@@ -585,7 +585,7 @@
 <p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_button.h</code>.</p>
 </li>
 <li>
-<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. Para que aparezca en la API el campo y su definición, hay que poner <code>/*!\&lt; aqui_la_definicion */</code> junto al nombre del campo como muestra la <a href="#fig:doxygen_enum">figura de ejemplo de Doxygen en enumerados</a>.</p>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. Para que aparezca en la API el campo y su definición, hay que poner <code>/\*!\&lt; aqui_la_definicion \*/</code> junto al nombre del campo como muestra la <a href="#fig:doxygen_enum">figura de ejemplo de Doxygen en enumerados</a>.</p>
 <p><figure><img alt="Comentario de Doxygen en las claves de un enumerado." id="fig:doxygen_enum" src="../assets/notebook_imgs/pr_chapters/version_1/doxygen_enum.png" style="width:90.0%"><figcaption aria-hidden="true">Comentario de Doxygen en las claves de un enumerado.</figcaption></img></figure></p>
 <p>Puedes partir de los ejemplos dados en el fichero <code>port_system.h</code> y ayudarse con extensa documentación online. <strong>Puede hacerlo en español o inglés</strong><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 </li>
@@ -634,7 +634,7 @@
 <p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
 </li>
 <li>
-<p>Vamos a definir la <strong>variable global</strong> <code>stm32f4_button_hw_t buttons_arr[]</code> que se declaró en el <code>.h</code>. Se trata de un array que no especifica el número de elementos que tiene, pero cada uno será de tipo <code>stm32f4_button_hw_t</code>, que representa al HW de cada botón que tengamos en nuestro sistema.</p>
+<p>Vamos a definir la <strong>variable global</strong> <code>stm32f4_button_hw_t buttons_arr\[\]</code> que se declaró en el <code>.h</code>. Se trata de un array que no especifica el número de elementos que tiene, pero cada uno será de tipo <code>stm32f4_button_hw_t</code>, que representa al HW de cada botón que tengamos en nuestro sistema.</p>
 <p>La declaración e inicialización de este array podemos hacerla a la vez, que será lo más aconsejable. También podríamos hacer solo la declaración e inicializar los valores de cada botón en una función aparte —que ahora mismo no tenemos definida—. Convendría recordar las secciones correspondientes de los vídeos de SDG1: <a href="https://youtu.be/U395gYoCHbQ?t=223">inicialización de arrays</a> y <a href="https://youtu.be/X33jHui_l0k?t=378">arrays de estructuras</a>.</p>
 <p>Asigna los valores del botón <code>PORT_USER_BUTTON_ID</code> utilizando los <code>#define</code> de <code>stm32f4_button.h</code>. Deberá quedarte algo como lo de la <a href="#fig:buttons_array">figura de arrays</a>. Si tienes más botones en el sistema, simplemente añadirías una fila para cada botón con sus características correspondientes.</p>
 <p><figure><img alt="Array de botones con las características del botón de usuario." id="fig:buttons_array" src="../assets/notebook_imgs/pr_chapters/version_1/buttons_array.png" style="width:90.0%"><figcaption aria-hidden="true">Array de botones con las características del botón de usuario.</figcaption></img></figure></p>
@@ -644,15 +644,18 @@
 <p>Si el botón no existe, la función devuelve <code>NULL</code>. Esto es habitual en funciones que devuelven punteros y es muy útil para detectar errores en la programación.</p>
 </li>
 <li>
-<p>Completa la función <code>port_button_init()</code> como se indica en la API. Fíjate cómo la parte de código proporcionada define la variable local <code>*p_button</code> que nos permite acceder al botón. También podría haberse hecho con acceso directo al elemento del array de botones <code>buttons_arr[button_id]</code>, pero es más elegante, seguro, y legible hacerlo con la función <code>_stm32f4_button_get()</code>.</p>
+<p>Completa la función <code>port_button_init()</code> como se indica en la API. Fíjate cómo la parte de código proporcionada define la variable local <code>\*p_button</code> que nos permite acceder al botón. También podría haberse hecho con acceso directo al elemento del array de botones <code>buttons_arr\[button_id\]</code>, pero es más elegante, seguro, y legible hacerlo con la función <code>_stm32f4_button_get()</code>.</p>
 <p><span style="color: Red">Recuerda que es muy importante indicar en el modo de la interrupción del botón que, <strong>además de detectar ambos flancos (subida y bajada), debe habilitar la petición de interrupción (registro <code>EXTI_IMR</code>)</strong></span>.</p>
 </li>
 <li>
 <p>Codifica la función pública declarada en el fichero <code>port_button.h</code> siguiendo la API: <code>port_button_get_pressed()</code>.</p>
 <p><strong>¡Ya hemos acabado con la implementación de la parte HW <code>stm32f_button.c</code>!</strong> Ahora solo queda la ISR asociada al pin del botón para poder probarlo. Vamos a ello.</p>
-<h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.3.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
-<p>Abre el fichero <code>interr.c</code> e implementa la <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a> <code>EXTI15_10_IRQHandler</code>.</p>
 </li>
+</ol>
+<p>### interr.c {#sec:interr_button }</p>
+<pre><code>Abre el fichero `interr.c` e implementa la [**ISR**](../notebook/acronimos.md#acro:ISR) `EXTI15_10_IRQHandler`. Hay que implementar la parte correspondiente a la **Versión 1** que indica la [**API**](../notebook/acronimos.md#acro:API) solo.
+</code></pre>
+<ol>
 <li>
 <p>Copia este esqueleto en el documento:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">EXTI15_10_IRQHandler</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
@@ -706,10 +709,10 @@
 </li>
 </ol>
 <p>Un ejemplo de ejecución del test se muestra en la <a href="#fig:test_port_button">ejecución de test de la figura</a>. En este caso, la segunda comprobación ha fallado indicándonos que la GPIO elegida para el botón no es la correcta. Luego aparecen más errores, pero son derivados de este. Corrigiéndolo, pasan todos los test correctamente. Por eso, se recomienda <strong>arreglar los errores en el orden en que aparecen</strong>.</p>
-<figure><img alt="Ejecución de los test unitarios de la parte &lt;code&gt;PORT&lt;/code&gt; del botón." id="fig:test_port_button" src="../assets/notebook_imgs/pr_chapters/version_1/unit_test_port_button.png" style="width:100.0%"/><figcaption aria-hidden="true">Ejecución de los test unitarios de la parte <code>PORT</code> del botón.</figcaption></figure>
+<figure><img alt="Ejecución de los test unitarios de la parte `PORT` del botón." id="fig:test_port_button" src="../assets/notebook_imgs/pr_chapters/version_1/unit_test_port_button.png" style="width:100.0%"/><figcaption aria-hidden="true">Ejecución de los test unitarios de la parte `PORT` del botón.</figcaption></figure>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del botón!</strong> Vamos ahora a implementar la parte <code>COMMON</code> de la librería del botón.</p>
 <h2 id="common-cabecera-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5</span> <code>COMMON</code>: cabecera de la FSM del botón<a class="headerlink" href="#common-cabecera-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
-<h3 id="consideraciones-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5.1</span> Consideraciones de la FSM del botón<a class="headerlink" href="#consideraciones-de-la-fsm-del-boton" title="Permanent link">¶</a></h3>
+<h3 id="sec:consideraciones_fsm_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5.1</span> Consideraciones de la FSM del botón<a class="headerlink" href="#sec:consideraciones_fsm_button" title="Permanent link">¶</a></h3>
 <p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
 <ul>
 <li>
@@ -748,12 +751,12 @@
 <p><code>BUTTON_RELEASED_WAIT</code>: se queda esperando en este estado hasta que ha pasado el tiempo de guarda de anti-rebotes, <em>i.e.</em>, hasta que el instante actual es mayor que el <em>timeout</em>. Este es el anti-rebote de subida. Al salir, no hace nada (función, <code>NULL</code>).</p>
 </li>
 </ul>
-<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la . Con <strong>pública</strong> queremos decir que está declarada en el fichero <code>.h</code> y no el el <code>.c</code>, por lo que otros ficheros pueden declarar variables de este tipo. <strong>No obstante, los campos de la estructura son privados y no deben ser accesibles desde fuera de la librería</strong>.</p>
+<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la <a href="#fig:fsm_button_t">figura (b) de estructuras</a>. Con <strong>pública</strong> queremos decir que está declarada en el fichero <code>.h</code> y no el el <code>.c</code>, por lo que otros ficheros pueden declarar variables de este tipo.</p>
 <ol>
-<li>Lo primero, descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>botón</em> correspondientes a la versión <code>V1</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v1">https://github.com/sdg2DieUpm/Simone/tree/simone_v1</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_button.h</code> y <code>fsm_button.c</code> y ponlos en las carpetas correspondientes de tu proyecto.</li>
-</ol>
+<li>
+<p>Lo primero, descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>botón</em> correspondientes a la versión <code>V1</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v1">https://github.com/sdg2DieUpm/Simone/tree/simone_v1</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_button.h</code> y <code>fsm_button.c</code> y ponlos en las carpetas correspondientes de tu proyecto.</p>
 <p>Ahora, vamos a completar la cabecera de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del botón, <code>fsm_button.h</code>.</p>
-<ol>
+</li>
 <li>
 <p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
 </li>
@@ -777,7 +780,7 @@
 </li>
 </ol>
 <p>Ya hemos acabado con el encabezado. Quizás de errores al compilar. Vamos ahora a programar el fichero fuente <code>fsm_button.c</code>.</p>
-<h2 id="common-fuente-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.6</span> <code>COMMON</code>: fuente de la FSM del botón<a class="headerlink" href="#common-fuente-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
+<h2 id="sec:fsm_button_c"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.6</span> <code>COMMON</code>: fuente de la FSM del botón<a class="headerlink" href="#sec:fsm_button_c" title="Permanent link">¶</a></h2>
 <p>Vamos a proceder con la implementación de las funciones del <em>botón</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y el resto de <strong>funciones privadas</strong> que aparecen en la API del fichero <code>fsm_button.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
 <ol>
 <li>
@@ -785,7 +788,7 @@
 <p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. <strong>Empezaremos con las funciones de entrada o comprobación de la FSM</strong>. Hemos establecido un criterio general por el que, <strong>si una función es de entrada o comprobación, será privada y estática, y el nombre de la función va empezar por <code>check_</code></strong> (porque comprueba la condición de salto de la máquina de estados). Es muy importante aquí que hayas entendido bien los ejemplos con FSM de los tutoriales <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> <em>“Capítulo 2. Introducción a las máquinas de estados en C”</em> y <em>“Capítulo 3. Máquinas de Estados Combinadas”</em>.</p>
 <div class="admonition danger">
 <p class="admonition-title">IMPORTANTE</p>
-<p>Si te fijas en la API, todas las funciones de la máquina de estados reciben el mismo argumento: <code>fsm_t*</code>, un puntero a una máquina de estados. </p>
+<p>Si te fijas en la API, todas las funciones de la máquina de estados reciben el mismo argumento: <code>fsm_t*</code>, un puntero a una máquina de estados.</p>
 <p><code>fsm_button_t *p_fsm = (fsm_button_t *)(p_this);</code></p>
 <p>Esto es ası́ porque la librerı́a <code>fsm.c</code> no sabe qué tipo de máquina de estados es. Nosotros sabemos que esta máquina de estados es una máquina con esteroides porque incluye, además, la estructura del botón. En realidad es tipo <code>fsm_button_t*</code>, un puntero a una máquina de estados de la estructura del botón, que por tener en su primer campo una <code>fsm_t*</code>, podemos hacer un cast y convertirla. Ası́ pues, <strong>en las funciones de la máquina de estados, siempre tendremos que recuperar nuestro tipo haciendo este <em>cast</em></strong> como nos dice la API y hace, por ejemplo, la función <code>fsm_button_init()</code>. <strong>En el resto de funciones que no se pasen a la librerı́a <code>fsm.c</code>, trabajaremos directamente con el tipo <code>fsm_button_t*</code> que hemos creado.</strong></p>
 </div>
@@ -811,7 +814,7 @@
 </li>
 <li>
 <p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
-<p><figure><img alt="Error de compilación durante el desarrollo de \&lt;code&gt;fsm_button.c\&lt;/code&gt;." id="fig:compile_error_3" src="../assets/notebook_imgs/pr_chapters/version_1/compile_error_3.png" style="width:100.0%"/><figcaption aria-hidden="true">Error de compilación durante el desarrollo de <code>fsm_button.c</code>.</figcaption></figure></p>
+<p><figure><img alt="Error de compilación durante el desarrollo de &lt;code&gt;fsm_button.c&lt;/code&gt;." id="fig:compile_error_3" src="../assets/notebook_imgs/pr_chapters/version_1/compile_error_3.png" style="width:100.0%"/><figcaption aria-hidden="true">Error de compilación durante el desarrollo de <code>fsm_button.c</code>.</figcaption></figure></p>
 <p>Todavía no hemos acabado con el desarrollo, pero vamos a compilar para ir depurando errores. Compile el programa. Verá errores parecidos a los que se muestran en la <a href="#fig:compile_error_3">figura de error</a>. El compilador a veces nos da alguna sugerencia de corrección, pero no tienen por qué ser correctas. Nos dice que:</p>
 <ul>
 <li>
@@ -829,7 +832,7 @@
 <p>Mucha información hasta ahora, pero verá cómo se aclara todo enseguida. <strong>Vamos a codificar la tabla (array) de transiciones de la FSM del <em>botón</em></strong>.</p>
 </li>
 <li>
-<p>Definimos <code>static fsm_trans_t fsm_trans_button[] = ...</code> justo después de la función <code>do_set_duration()</code>.</p>
+<p>Definimos <code>static fsm_trans_t fsm_trans_button\[\] = ...</code> justo después de la función <code>do_set_duration()</code>.</p>
 <p>Recuerda que cada fila de la tabla de transiciones tiene la forma: <code>EstadoIni, FuncCompruebaCondicion, EstadoSig, FuncAccionesSiTransicion</code>. No olvides añadir la fila <code>-1, NULL, -1, NULL</code> que sirve a la librería <code>fsm.c</code> para detectar el fin de la tabla.</p>
 <p><span style="color: Red">¿Por qué es importante haber colocado la tabla en este punto? Bueno, puede ser en cualquier punto después de las funciones <code>check_</code> y <code>do_</code>, porque de lo contrario, de estar más arriba, al compilar, la tabla de transiciones estaría haciendo referencia a funciones que todavía no se sabe que existen (¡porque son privadas y no están en el <code>.h</code>!).</span></p>
 <p>Si ahora compilas, verás que han desaparecido muchos errores. Ya queda menos para acabar la implementación de la librería de la máquina de estados. Prosigamos:</p>
@@ -853,8 +856,8 @@
 </li>
 </ol>
 <h2 id="sec:test_fsm_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.7</span> <code>COMMON</code> Test unitario de la FSM del botón<a class="headerlink" href="#sec:test_fsm_v1" title="Permanent link">¶</a></h2>
-<p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del botón y probar que funciona antes de continuar con la siguiente versión.</p>
-<p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
+<p>Vamos a probar el test del código que hemos desarrollado de la librería de la máquina de estados del botón y probar que funciona antes de continuar con la siguiente versión.
+<span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
 <p>Descarga el fichero de test de la FSM del botón <code>test_fsm_button.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v1_test">https://github.com/sdg2DieUpm/simone/tree/simone_v1_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
 <ol>
 <li>
@@ -879,7 +882,7 @@
 <h2 id="ejemplo-de-uso-de-la-version-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.8</span> Ejemplo de uso de la Versión 1<a class="headerlink" href="#ejemplo-de-uso-de-la-version-1" title="Permanent link">¶</a></h2>
 <p><strong>Comúnmente llamado test de integración, es un código de ejemplo que consiste en probar la librería en el sistema final, o en una versión particular, con el resto de librerías y módulos</strong>. El test de integración no hace uso de la librería <code>unity</code>, sino que es como un pequeño programa de prueba sobre las funciones que hemos implementado. Tiene su propio <code>main</code>.</p>
 <p>En los test de integración es responsabilidad del alumno comprobar que la funcionalidad es la esperada, porque aquí no hay test unitarios que nos ayuden.</p>
-<p>Nuestra librería de botón devuelve la duración de la última pulsación. Así pues, algunas de las comprobaciones que podemos hacer son: que la duración de la pulsación es la que esperamos, que se reinicia adecuadamente el valor, que se funciona el anti-rebotes…</p>
+<p>Nuestra librería de botón devuelve la duración de la última pulsación. Así pues, algunas de las comprobaciones que podemos hacer son: que la duración de la pulsación es la que esperamos, que se reinicia adecuadamente el valor, que funciona el anti-rebotes…</p>
 <p>Descarga el fichero de ejemplo <code>example_v1.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v1_test">https://github.com/sdg2DieUpm/simone/tree/simone_v1_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
 <p><strong>Procedamos</strong>:</p>
 <ol>

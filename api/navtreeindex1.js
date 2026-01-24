@@ -1,7 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"interr_8c.html#ac8e51d2183b5230cbd5481f8867adce9":[2,0,1,1,1,0,5],
-"interr_8c.html#ae4c79b53301f3eab9953e4dc8a89ba39":[2,0,1,1,1,0,0],
 "keyboards_8c.html":[2,0,0,1,4],
 "keyboards_8c.html#a2fce6fe98c46f395ebb7790e26cc0fbb":[2,0,0,1,4,1],
 "keyboards_8c.html#a592e2e8406cf31650041c530ea4faa5e":[2,0,0,1,4,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX1 =
 "structrgb__color__t.html":[1,0,5],
 "structrgb__color__t.html#a43cb2f2dc1e60fa14bf93d90f9d7015e":[1,0,5,2],
 "structrgb__color__t.html#a6e7156f19f70236f20113f612b7ea1d2":[1,0,5,0],
-"structrgb__color__t.html#ae73935f5f2386b4c62fd24a8ec6d5512":[1,0,5,1]
+"structrgb__color__t.html#ae73935f5f2386b4c62fd24a8ec6d5512":[1,0,5,1],
+"structstm32f4__button__hw__t.html":[1,0,6],
+"structstm32f4__button__hw__t.html#a4bc887d1a141353115f5d6a1d9d16b52":[1,0,6,2]
 };

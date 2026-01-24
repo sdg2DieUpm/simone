@@ -247,6 +247,27 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_keyboard">
+<span class="md-ellipsis">
+      COMMON: fuente de la FSM del teclado
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_fsm_v2">
+<span class="md-ellipsis">
+      COMMON Test unitario de la FSM del teclado
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-2">
+<span class="md-ellipsis">
+      Ejemplo de uso de la Versión 2
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -411,6 +432,27 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:fsm_keyboard">
+<span class="md-ellipsis">
+      COMMON: fuente de la FSM del teclado
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sec:test_fsm_v2">
+<span class="md-ellipsis">
+      COMMON Test unitario de la FSM del teclado
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-uso-de-la-version-2">
+<span class="md-ellipsis">
+      Ejemplo de uso de la Versión 2
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -419,7 +461,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="cha:version2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.</span> Versión 2: teclado matricial<a class="headerlink" href="#cha:version2" title="Permanent link">¶</a></h1>
-<p>En la versión anterior aprendimos a gestionar un único botón mediante interrupciones. Sin embargo, ¿qué ocurre si nuestro sistema necesita 12, 16 o más botones? Si utilizáramos la estrategia anterior, necesitaríamos una línea de interrupción y un pin GPIO por cada botón, agotando rápidamente los recursos del microcontrolador.</p>
+<p>En la Versión 1 aprendimos a gestionar un único botón mediante interrupciones. Sin embargo, ¿qué ocurre si nuestro sistema necesita 12, 16 o más botones? Si utilizáramos la estrategia anterior, necesitaríamos una línea de interrupción y un pin GPIO por cada botón, agotando rápidamente los recursos del microcontrolador.</p>
 <p>Para solucionar esto, utilizamos la técnica del <strong>barrido</strong> o <em>scanning</em> en un teclado matricial. Esta técnica aprovecha la persistencia temporal para leer muchos pulsadores utilizando pocos pines, organizándolos en filas y columnas.</p>
 <div class="admonition example">
 <p class="admonition-title">Bibliografía</p>
@@ -439,7 +481,7 @@
 <p class="admonition-title"><a href="https://www.youtube.com/channel/UCYIw_gl745WMJ1n0MamDzQw/">Vídeos del canal de SDGII</a></p>
 <ul>
 <li>
-<p><a href="#TO-DO">Demostración Simone</a></p>
+<p><a href="#TODO">Demostración Simone</a></p>
 </li>
 <li>
 <p><a href="https://youtu.be/CcbgLVfCXrw?si=A8DP1rescxJNBEb9">Blink LED y manejo de proyecto</a></p>
@@ -452,7 +494,8 @@
 </li>
 </ul>
 </div>
-<p>En este capítulo vamos a crear una librería que nos permita gestionar un teclado matricial de 4x4 (16 teclas). A diferencia del botón, que funcionaba solo teníamos una interrupción, aquí <strong>utilizaremos un temporizador que nos interrumpe para realizar una excitación periódica de las filas y esperaremos interrupciones de las columnas.</strong></p>
+<p>En este capítulo vamos a crear una librería que nos permita gestionar un teclado matricial 4x4 (16 teclas) <a href="#fig:keyboard">como el de la figura</a>. A diferencia del botón, que funcionaba solo teníamos una interrupción, aquí <strong>utilizaremos un temporizador que nos interrumpe para realizar una excitación periódica de las filas y esperaremos interrupciones de las columnas.</strong></p>
+<figure><img alt="Teclado matricial de membrana 4x4 usado en el proyecto Simone." id="fig:keyboard" src="../assets/notebook_imgs/pr_chapters/version_2/keyboard.png" style="width:65.0%"><figcaption aria-hidden="true">Teclado matricial de membrana 4x4 usado en el proyecto Simone.</figcaption></img></figure>
 <p>Como ya hicimos en las versiones anteriores, (i) vamos a implementar la parte <em>portable</em> <code>PORT</code> dependiente del <strong><a href="acronimos.html#acro:HW">HW</a></strong> para gestionar los niveles lógicos de las filas y la lectura de las columnas, y lo probaremos con un test unitario. (ii) Después, vamos a crear la lógica de la <strong><a href="acronimos.html#acro:FSM">FSM</a></strong> para gestionar el barrido y el <em>anti-rebotes</em> (la parte <code>COMMON</code>), y lo probaremos con un test unitario. (iii) Por último, montaremos el <strong><a href="acronimos.html#acro:HW">HW</a></strong> y probaremos el funcionamiento con un programa de ejemplo.</p>
 <p>El teclado matricial es un array de pulsadores conectados en intersecciones de filas y columnas. Cuando no se pulsa ninguna tecla, no hay conexión entre filas y columnas. Al pulsar una tecla, se cortocircuita una fila con una columna específica. Las características a destacar del sistema de la Versión 2 se muestran en la <a href="#tbl:version2_keypad">siguiente tabla</a>.</p>
 <div id="tbl:version2_keypad"></div>
@@ -494,19 +537,19 @@
 </tr>
 <tr>
 <td style="text-align: left;">Pin/ EXTI/ ISR columna 1</td>
-<td style="text-align: center;"><code>PA8</code>/ <code>EXTI8</code>/ <code>EXTI9_5_IRQHandler()</code></td>
+<td style="text-align: center;"><code>PA8</code>/ <code>EXTI8</code>/ <code>EXTI9_5_IRQHandler</code></td>
 </tr>
 <tr>
 <td style="text-align: left;">Pin/ EXTI/ ISR columna 2</td>
-<td style="text-align: center;"><code>PB10</code>/ <code>EXTI10</code>/ <code>EXTI15_10_IRQHandler()</code></td>
+<td style="text-align: center;"><code>PB10</code>/ <code>EXTI10</code>/ <code>EXTI15_10_IRQHandler</code></td>
 </tr>
 <tr>
 <td style="text-align: left;">Pin/ EXTI/ ISR columna 3</td>
-<td style="text-align: center;"><code>PB4</code>/ <code>EXTI4</code>/ <code>EXTI4_IRQHandler()</code></td>
+<td style="text-align: center;"><code>PB4</code>/ <code>EXTI4</code>/ <code>EXTI4_IRQHandler</code></td>
 </tr>
 <tr>
 <td style="text-align: left;">Pin/ EXTI/ ISR columna 4</td>
-<td style="text-align: center;"><code>PB5</code>/ <code>EXTI5</code>/ <code>EXTI9_5_IRQHandler()</code></td>
+<td style="text-align: center;"><code>PB5</code>/ <code>EXTI5</code>/ <code>EXTI9_5_IRQHandler</code></td>
 </tr>
 <tr>
 <td style="text-align: left;">Modo columnas</td>
@@ -536,6 +579,9 @@
 <p>La idea de colocar los botones así, haciendo una rejilla, es muy inteligente. Haciendo un enrejillado no es necesario tener un cable para cada botón, porque un cable por cada botón implicaría tener un pin de entrada en nuestro microcontrolador por cada uno (si no se usan multiplexores, claro), y los pines no es algo que sobre, generalmente, en los encapsulados de los chips. Por ejemplo, en el <a href="#fig:keypad">reclado de la figura (a)</a> se usan 10 cables para 24 botones (ahorro del <span class="arithmatex">\(58.3\%\)</span> de conexiones/pines), y en el del teclado del laboratorio se usarán 8 conexiones para 16 botones (ahorro del <span class="arithmatex">\(50.0\%\)</span>).</p>
 <p>Pero esta idea no sale gratis. A cambio de reducir el hardware necesario, tenemos que complicar el software un poquito. Debemos ir excitando —poniendo tensión— las filas o columnas de forma cíclica para poder detectar qué botón se ha pulsado (lo hacemos leyendo las columnas o filas respectivamente). Si alguna columna detecta esa tensión, sabemos qué tecla exacta (intersección fila-columna) se ha pulsado. Este proceso se repite para todas las filas rápidamente. <strong>En nuestro caso excitaremos filas</strong>. Fíjate que solo podemos tener una fila con tensión a la vez porque, de otro modo, no seríamos capaces de distinguir entre los botones de una misma columna. Si haces un dibujo, lo verás fácilmente.</p>
 <p>No te preocupes, la gestión de filas y columnas tiene fácil solución si trabajamos con las máquinas de estado; pues para controlar la excitación de las filas del teclado matricial tendremos la <a href="#fig:fsm_keyboard">FSM del teclado</a>.</p>
+<figure><img alt="Ejemplo de excitación de fila R1, pulsando tecla 3, generando interrupción en pin conectado a columna C3." id="fig:keyboard_connections" src="../assets/notebook_imgs/pr_chapters/version_2/keyboard_connections.svg" style="width:100.0%"><figcaption aria-hidden="true">Ejemplo de excitación de fila R1, pulsando tecla 3, generando interrupción en pin conectado a columna C3.</figcaption></img></figure>
+<p>La <a href="#fig:keyboard_connections">figura</a> muestra un ejemplo de cómo funcionará el sistema. En este caso, la FSM del teclado está excitando la fila R1 poniendo un nivel lógico alto en el pin correspondiente (cada <span class="arithmatex">\(25 ms\)</span> excita una fila). Cuando se pulsa la tecla '3', se cierra el circuito entre la fila R1 y la columna C3, lo que hace que el pin conectado a C3 detecte un nivel lógico alto (<span class="arithmatex">\(3.3 V\)</span>).</p>
+<p><strong>En este circuito vamos a activar las resistencias de pull-down ¡internas! de los pines del microcontrolador conectados a las columnas</strong>, por lo que cuando no se pulsa ninguna tecla, las columnas estarán a nivel lógico bajo (<span class="arithmatex">\(0 V\)</span>). Al pulsar la tecla '3', la columna C3 pasa a nivel lógico alto debido a la conexión con la fila R1 que está excitada. <strong>Pasa lo contrario que con el circuito del botón, que tenía una resistencia de pull-up ¡externa!</strong> Esto genera una interrupción en el microcontrolador, que puede entonces identificar qué tecla se ha pulsado basándose en la fila actualmente excitada y la columna que ha generado la interrupción.</p>
 <p>Recuerda que, como hicimos con el botón, <strong>estamos desarrollando una librería.</strong> El teclado matricial no tiene por qué saber nada de las acciones que hace el sistema cuando se pulsa una tecla. Es por eso que en nuestro proyecto, el teclado se encargará solo de guardar la tecla pulsada y de avisar de que ha habido una pulsación. El sistema que use esta librería —sea en este proyecto u otro— deberá comprobar dicho valor guardado con un <em>get</em>. La idea es exactamente la misma que la que implementó en el botón. Así, cada vez que se quiera añadir un teclado, le asociaremos una <strong><a href="acronimos.html#acro:FSM">FSM</a></strong>. Las particularidades de dónde están conectadas las filas y columnas son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
 <figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <img alt="Estructura HW teclado" id="fig:stm32f4_keyboard_hw_t" src="../assets/notebook_imgs/pr_chapters/version_2/stm32f4_keyboard_hw_t.svg" style="width:50%;"/> <img alt="Estructura FSM teclado" id="fig:fsm_keyboard_t" src="../assets/notebook_imgs/pr_chapters/version_2/fsm_keyboard_t.svg" style="width:50%;"/> </div> <figcaption>(a) Estructura del HW del teeclado en PORT, (b) Estructura de la FSM del teclado en COMMON.</figcaption> </figure>
 <p>Las <a href="#stm32f4_keyboard_hw_t">figuras de estructuras HW</a> <a href="#fms_keyboard_t">y SW</a> muestran las estructuras que vamos a necesitar para el teclado. La estructura del HW del teclado en <code>PORT</code>. El <code>PORT</code> de otro microcontrolador podría implementar internamente una estructura diferente, por eso está dentro de la carpeta <code>stm32f4</code>. Por ejemplo, al <em>portar</em> el código para PC no tendría sentido definir la estructura de una GPIO. La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del teclado en <code>COMMON</code> se muestra en la <a href="#fsm_keyboard_t">figura de la FSM</a>.</p>
@@ -582,7 +628,7 @@
 <p>Define (<code>#define</code>) los valores de las GPIO y pines para las 4 filas y las 4 columnas según indica la <a href="#tbl:version2_keypad">tabla de características del teclado matricial</a>.</p>
 </li>
 <li>
-<p>Declara la estructura <code>stm32f4_keyboard_hw_t</code> que contendrá la configuración física del teclado. </p>
+<p>Declara la estructura <code>stm32f4_keyboard_hw_t</code> que contendrá la configuración física del teclado.</p>
 <p>Presta atención a la documentación que explica en cada campo qué deberá contener. Recuerda que las filas son salidas y las columnas entradas.</p>
 <p>Especial mención merecen los campos <code>p_row_ports</code> y <code>p_col_ports</code>, que <strong>son dobles punteros: punteros a arrays de punteros a estructuras</strong> <code>GPIO_TypeDef</code>. Estos campos permiten almacenar las referencias a los puertos GPIO de cada fila y columna del teclado. Esta es la forma de poder definir una estructura genérica sin saber el tamaño del teclado que va a gestionar. Nos da lo mismo que definamos un teclado de 2x2, 4x4 o 5x3; por eso estos campos son punteros que apuntarán a arrays de elementos de tipo <code>GPIO_TypeDef*</code> (por ejemplo, <code>GPIOA</code>, <code>GPIOB</code>, etc.). Así, podemos tener una lista dinámica de puertos para las filas y columnas del teclado, adaptándonos a cualquier configuración física que necesitemos.</p>
 <p>El campo <code>p_layout</code> es un <strong>puntero a una estructura <code>keyboard_t</code>, que contiene el <a href="#sec:layouts_keyboards"><em>layout</em> del teclado</a></strong>. Esto nos permite asociar el diseño lógico del teclado con su configuración física. Se declara <code>const</code> porque el <em>layout</em> no debe modificarse en tiempo de ejecución.</p>
@@ -677,11 +723,29 @@
 </ol>
 <p>**¡Ya hemos acabado con la implementación de la parte HW <code>stm32f\_keyboard.c</code> del teclado. Ahora solo queda la ISR asociada a dicho temporizador en el fichero `interr.c``. Vamos a ello.</p>
 <h3 id="interrc"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.4.2</span> interr.c<a class="headerlink" href="#interrc" title="Permanent link">¶</a></h3>
-<p>Abre el fichero <code>interr.c</code> y:</p>
+<p>Abre el fichero <code>interr.c</code>. Tenemos que codificar las <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a> para gestionar las interrupciones de cada una de las columnas y del temporizador de excitación de filas.</p>
+<p>Es muy importante que notes que algunas  están compartidas <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a> por distintas líneas. Esto ya lo vimos en la <a href="#sec:interr_button">Versión 1 con el botón</a>. Por ejemplo la ISR <code>EXTI15_10_IRQHandler()</code> gestiona las interrupciones de las líneas 10 a la 15 <strong>de cualquier <a href="acronimos.html#acro:GPIO">GPIO</a></strong>, y es por ello que habíamos puesto un <code>if</code> para identificar la fuente. Es ahora cuando le vas a encontrar más sentido a ese bloque condicional.</p>
+<p>Fíjate en las <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a> de las interrupciones de las columnas del teclado matricial en la <a href="#tbl:version2_keypad">tabla de características del teclado</a>: 2 de las columnas comparten <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a>, y otra de ellas la comparte con el botón. Vamos a codificar dichas <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a>:</p>
 <ol>
 <li>
-<p>Codifica la ISR <code>TIM5_IRQHandler</code> como se indica en la API. Recuerda que las ISR no reciben ni devuelven nada.</p>
-<p>Esta ISR, cuando salta, se encarga de llamar a la función correspondiente para <em>settear</em> el estado del flag de <em>timeout</em>.</p>
+<p>Completa la ISR <code>EXTI15_10_IRQHandler</code> para gestionar la interrupción de la columna <code>PORT_KEYBOARD_COL_1</code> (la segunda) del teclado matricial. Recuerda que esta ISR también gestiona la interrupción del botón, por lo que debes mantener el bloque condicional <code>if</code> que ya estaba implementado.</p>
+<p>Fíjate, en la API, en el <em>TODO</em> para Versión 2.</p>
+<div class="admonition note función auxiliar">
+<p class="admonition-title">Note</p>
+<p>Tanto esta ISR como las siguientes hacen llamadas la función privada <code>_check_column_interrupt()</code>, que se encargará de gestionar el flag de pulsación de tecla y guardar el índice de la columna que ha generado la interrupción. <strong>Esta función auxiliar es opcional implementarla, pero hace el código más legible y evita repetir código.</strong> Si no quieres implementarla, asegúrate de hacer en cada ISR de cada columna lo que la API indica para esta función.</p>
+<p>Si quieres implementar <code>_check_column_interrupt()</code>, hazlo ahora. Debes colocarla antes de cualquier función que la use.</p>
+</div>
+<p>Esta ISR, cuando salta, se encarga de llamar a la función correspondiente para <em>settear</em> el estado del flag de pulsación de tecla y guardar el índice de la columna que ha generado la interrupción.</p>
+</li>
+<li>
+<p>Codifica la ISR <code>EXTI9_5_IRQHandler</code> para gestionar las interrupciones de las columnas <code>PORT_KEYBOARD_COL_0</code> (la primera) y <code>PORT_KEYBOARD_COL_3</code> (la cuarta) del teclado matricial. Esta ISR gestiona las interrupciones de dos líneas del teclado matricial, por lo que debes mantener un bloque condicional <code>if</code> como en de la ISR anterior.</p>
+</li>
+<li>
+<p>Codifica la ISR <code>EXTI4_IRQHandler</code> para gestionar la interrupción de la columna <code>PORT_KEYBOARD_COL_2</code> (la tercera) del teclado matricial. Como esta ISR no está compartida entre líneas del <code>EXTI</code>, no es necesario un bloque condicional.</p>
+</li>
+<li>
+<p>Por último, codifica la ISR <code>TIM5_IRQHandler</code> como se indica en la API. Recuerda que las ISR no reciben ni devuelven nada.</p>
+<p>Esta ISR, cuando salta, se encarga de llamar a la función correspondiente para <em>settear</em> el estado del flag de <em>timeout</em> que permitirá excitar la siguiente fila del teclado.</p>
 </li>
 <li>
 <p>Si queda algo por documentar puede ser buen momento ahora.</p>
@@ -706,7 +770,7 @@
 <p>Comprueba que todos los test pasan correctamente en el texto mostrado en la terminal de depuración. Si no es así, lee los mensajes de error y corrige tu código hasta que pase todas las pruebas. <strong>Si no pasa las pruebas, no continúes programando, corrigelas.</strong></p>
 </li>
 <li>
-<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png">) y repite el proceso hasta que pase todos los test.</img></p>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pase todos los test.</p>
 </li>
 </ol>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del teclado!</strong> Vamos ahora a implementar la parte <code>COMMON</code> de la librería del teclado.</p>
@@ -721,7 +785,8 @@
 <p>El usuario debe solicitar/ comprobar el caracter mediante la función <code>fsm_keyboard_get_key_value()</code>.</p>
 </li>
 <li>
-<p>El valor de inicio del caracter al arrancar la FSM, y el valor de reinicio, debe ser le valor de tecla inválida que haya definido el <em>layout</em> del teclado. En nuestro caso, el valor de tecla inválida es el caracter nulo <code>'\0'</code>, que está definido en la estructura <code>keyboard_t</code> del <em>layout</em> del teclado. En otro teclado podría ser otro, por lo que no hay que poner este valor <em>a pincho</em>, sino el que nos devuelva <code>port_keyboard_get_invalid_key_value()</code>. ¡Ojo! <strong>Al inicializar la FSM, hay que inicializar el <code>port_keyboard_init()</code>, porque de lo contrario, no podremos leer qué tecla es inválida según el <em>layout</em>!</strong></p>
+<p>El valor de inicio del caracter al arrancar la FSM, y el valor de reinicio, debe ser le valor de tecla inválida que haya definido el <em>layout</em> del teclado. En nuestro caso, el valor de tecla inválida es el caracter nulo <code>'\0'</code>, que está definido en la estructura <code>keyboard_t</code> del <em>layout</em> del teclado. En otro teclado podría ser otro, por lo que no hay que poner este valor <em>a pincho</em>, sino el que nos devuelva <code>port_keyboard_get_invalid_key_value()</code>.</p>
+<p>¡Ojo! 👁 <strong>¡Al inicializar la FSM, hay que inicializar el <code>port_keyboard_init()</code>, porque de lo contrario, no podremos leer qué tecla es inválida según el <em>layout</em>!</strong></p>
 </li>
 <li>
 <p><strong>Un valor de <code>invalid_key</code> significa que no ha habido una nueva pulsación del teclado.</strong></p>
@@ -734,6 +799,125 @@
 </li>
 </ul>
 <figure><embed id="fig:fsm_keyboard" src="../assets/notebook_imgs/pr_chapters/version_2/fsm_keyboard.svg" style="width:100.0%"/><figcaption aria-hidden="true">Máquina de estados del teclado matricial.</figcaption></figure>
+<p>Nuestra librería implementa la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> mostrada en el <a href="#fig:fsm_keyboard">diagrama de la figura</a> y que llamaremos <code>fsm_keyboard</code> (en los ficheros <code>.c</code> y <code>.h</code>). Es análoga a la del botón, salvo por una <strong>autotransición</strong> en el primer estado. Tiene 4 estados porque <strong>implementa también un mecanismo anti-rebotes SW</strong>. Nos centramos en la descripción de ese primer estado y su autotransición, para el resto, vaya la descripción hecha en <a href="#sec:consideraciones_fsm_button">las consideraciones de la FSM del botón</a>:</p>
+<ul>
+<li>
+<p><code>KEYBOARD_RELEASED_WAIT_ROW</code>: es el estado inicial de la máquina de estados, y es al estado al que vuelve cuando se pulsa ¡y se suelta! una tecla. En este estado, además, se comprueba si ha pasado el <em>timeout</em> de excitación de filas (flag <code>flag_row_timeout</code>), y si es así, se excita la siguiente fila del teclado, <strong>permaneciendo en este estado (autotransición)</strong>. Esta excitación se hace llamando a la función <code>port_keyboard_get_cols()</code>, que devuelve el índice de la fila que se está excitando. Si, durante la excitación de una fila, se detecta una interrupción en alguna columna en <code>do_set_key_value()</code> se guardará dicho valor tras pedírselo al <code>PORT</code>.</p>
+<p><strong>Será el usuario en su programa principal quien deba reiniciar el valor de tecla pulsada una vez leído, llamando a la función <code>fsm_keyboard_reset_key_value()</code></strong>, como se hacía con el botón.</p>
+</li>
+</ul>
+<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la <a href="#fig:fsm_common_t">figura (b) de estructuras</a>.</p>
+<ol>
+<li>
+<p>Descarga del repositorio los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>teclado</em> correspondientes a la versión <code>V2</code>: <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2">https://github.com/sdg2DieUpm/simone/tree/simone_v2</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_keyboard.h</code> y <code>fsm_keyboard.c</code> y ponlos en las carpetas correspondientes de tu proyecto.</p>
+<p>Ahora, vamos a completar la cabecera de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del teclado, <code>fsm_keyboard.h</code>.</p>
+</li>
+<li>
+<p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
+</li>
+<li>
+<p>Escribe el <code>enum</code> <code>FSM_KEYBOARD</code> con los nombres de los estados del diagrama de la separados por <code>,</code>. <strong>No olvides poner un <code>;</code> al final del <code>enum</code>.</strong></p>
+</li>
+<li>
+<p><strong>Declara</strong> la estructura <code>fsm_keyboard_t</code> para hacerla pública como indica la <a href="#fig:fsm_keyboard_t">figura de la estructura de la FSM</a>, y documenta cada campo con Doxygen.</p>
+<p>Continuamos con las declaraciones de funciones públicas de la librería. <strong>Procedamos</strong>:</p>
+</li>
+<li>
+<p>Escribe los prototipos de las <strong>funciones públicas</strong> que aparecen en la API del fichero <code>fsm_keyboard.h</code> y documenta cada función con Doxygen. Recuerda que la documentación va encima del nombre de cada función.</p>
+</li>
+</ol>
+<p>Ya hemos acabado con el encabezado. Quizás de errores al compilar. Vamos ahora a programar el fichero fuente <code>fsm_keyboard.c</code>.</p>
+<h2 id="sec:fsm_keyboard"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.7</span> <code>COMMON</code>: fuente de la FSM del teclado<a class="headerlink" href="#sec:fsm_keyboard" title="Permanent link">¶</a></h2>
+<p>Vamos a proceder con la implementación de las funciones del <em>teclado</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y el resto de <strong>funciones privadas</strong> que aparecen en la API del fichero <code>fsm_keyboard.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
+<ol>
+<li>
+<p>Incluye las cabeceras que indica la API.</p>
+<p>Ahora empezamos a codificar las <strong>funciones privadas de entrada o comprobación de la FSM <code>check_</code></strong>.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>check_row_timeout()</code>, <code>check_keyboard_pressed()</code>, <code>check_keyboard_released()</code>, y <code>check_timeout()</code> como se indica en la API.</p>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. En este caso, como las funciones no están declaradas en el encabezado, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>do_excite_next_row()</code>, <code>do_store_tick_pressed()</code>, <code>do_clear_key_value()</code>, y <code>do_set_key_value()</code> como se indica en la API.</p>
+<p>Documenta las funciones con Doxygen igual que antes.</p>
+</li>
+<li>
+<p>Definimos <code>static fsm_trans_t fsm_trans_keyboard\[\] = ...</code> justo después de la función <code>do_set_key_value()</code> siguiendo el <a href="#fig:fsm_keyboard">diagrama de la FSM</a>.</p>
+<p>Recuerda que debe haber una fila en la tabla por cada flecha de transición entre estados de la forma: <code>EstadoIni, FuncCompruebaCondicion, EstadoSig, FuncAccionesSiTransicion</code>. No olvides añadir la fila <code>-1, NULL, -1, NULL</code>. No olvides que el <code>EstadoIni</code> de la primera transición es el estado inicial de la FSM.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>fsm_keyboard_start_scan()</code>, <code>fsm_keyboard_stop_scan()</code>, <code>fsm_keyboard_get_key_value()</code>, y <code>fsm_keyboard_get_is_valid_key()</code> como se indica en la API. Con esta última función, el usuario podrá comprobar si la última tecla pulsada es válida o no.</p>
+<p>Codifica también la función <code>fsm_keyboard_reset_key_value()</code> con la que el usuario podrá reiniciar el valor de la tecla pulsada a <code>invalid_key</code> tras leerla.</p>
+</li>
+<li>
+<p>Completa la función <code>fsm_keyboard_init()</code> como se indica en la API.</p>
+</li>
+<li>
+<p>Codifica las funciones <code>fsm_keyboard_fire()</code>, <code>fsm_keyboard_get_inner_fsm()</code>, y <code>fsm_keyboard_get_state()</code> de manera análoga a <a href="version_1.html#sec:fsm_button_c">como se hizo en la FSM del botón</a>.</p>
+</li>
+<li>
+<p>Documenta el código que esté sin comentar.</p>
+</li>
+</ol>
+<p><strong>Ya hemos acabado con la programación de la librería del teclado.</strong> Toda esta lógica <code>COMMON</code> <strong>puede ser usada en cualquier sistema</strong>. Hemos hecho una librería de un teclado que tiene un anti-rebotes y nos devuelve el valor de la última tecla pulsada. Así pues, si compilas, no deberían aparecer errores.</p>
+<h2 id="sec:test_fsm_v2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.8</span> <code>COMMON</code> Test unitario de la FSM del teclado<a class="headerlink" href="#sec:test_fsm_v2" title="Permanent link">¶</a></h2>
+<p>Vamos a probar el test del código que hemos desarrollado de la librería de la máquina de estados del teclado y probar que funciona antes de continuar con la siguiente versión.
+<span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
+<p>Descarga el fichero de test de la FSM del teclado <code>test_fsm_keyboard.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
+<ol>
+<li>
+<p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>test_fsm_keyboard</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso.</p>
+</li>
+<li>
+<p>Se habrá impreso por la terminal del <code>gdb-server</code> el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
+</li>
+<li>
+<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
+</li>
+</ol>
+<h2 id="ejemplo-de-uso-de-la-version-2"><span class="enumerate-headings-plugin enumerate-heading-plugin">5.9</span> Ejemplo de uso de la Versión 2<a class="headerlink" href="#ejemplo-de-uso-de-la-version-2" title="Permanent link">¶</a></h2>
+<p>El test de integración no hace uso de la librería <code>unity</code>, sino que es como un pequeño programa de prueba sobre las funciones que hemos implementado y tiene su propio <code>main</code>.</p>
+<p>En los test de integración es responsabilidad del alumno comprobar que la funcionalidad es la esperada, porque aquí no hay test unitarios que nos ayuden.</p>
+<p>Nuestra librería de teclado devuelve el valor de la última tecla pulsada. Así pues, algunas de las comprobaciones que podemos hacer son: que todas las teclas de todas las columnas aparecen impresas por pantalla, que se reinicia adecuadamente el valor tras leerlo, que funciona el anti-rebotes…</p>
+<p>Descarga el fichero de ejemplo <code>example_v2.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v2_test">https://github.com/sdg2DieUpm/simone/tree/simone_v2_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
+<p><strong>Procedamos</strong>:</p>
+<p>Para poder hacer el ejemplo del teclado matricial, necesitamos conectarlo como se muestra en el montaje de la <a href="#fig:fritzing_keyboard">figura</a>. <strong>Fíjate que las filas son los pines  de la izquierda si miramos el teclado de frente</strong>. </p>
+<ol>
+<li>
+<p>Monta el circuito del teclado matricial como se muestra en la <a href="#fig:fritzing_keyboard">figura</a>.</p>
+</li>
+<li>
+<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+</li>
+<li>
+<p>En el desplegable que se abre, selecciona el test <code>example_v2</code>. Se compilará y se cargará en la placa.</p>
+</li>
+<li>
+<p>Se parará en la primera línea del <code>main()</code>. Ejecuta el test por completo, o pon puntos de parada si deseas ir paso a paso. Este código no termina, pues es un bucle <code>while</code> infinito.</p>
+</li>
+<li>
+<p>Abre la terminal del <code>gdb-server</code> para ver los mensajes que se van imprimiendo.</p>
+</li>
+<li>
+<p>Pulsa una a una todas las teclas del teclado.Deberías ver que se imprime por pantalla el caracter de la pulsación. Si no es así, revisa tu código.</p>
+</li>
+<li>
+<p>Haz distintas pruebas y asegúrate de que el comportamiento es el adecuado.</p>
+</li>
+</ol>
+<p>¡Hemos creado nuestra primera librería! Fíjate que es <em>portable</em> a cualquier plataforma solo con adaptar las funciones del <code>PORT</code>.</p>
+<p>No dejes de documentar el código. <strong>Comprueba que la documentación del código se ha generado correctamente como se explica en la <em>“Guía de instalación de herramientas para compilación multiplataforma en C”</em> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">6</a></sup>.</strong>, o en el vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a>.</p>
+<p>Guarda una copia de su proyecto como <code>simone_v2</code> para tener un punto de partida para la siguiente versión, y una copia de seguridad por si algo falla.</p>
 <div class="footnote">
 <hr/>
 <ol>
@@ -751,6 +935,9 @@
 </li>
 <li id="fn:st2021reference">
 <p>STMicroelectronics. Rm0390 reference manual. stm32f446xx advanced arm-based 32-bit mcus. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf</a>. <a class="footnote-backref" href="#fnref:st2021reference" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:stm322025guiainstalacion">
+<p>Josué Pagán Ortiz, Pedro José Malagón Marzo, Daniel Capellán Martín, Román Cárdenas Rodríguez, and Amadeo de Gracia Herranz. <em>Guía de instalación de herramientas para compilación multiplataforma en C</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025guiainstalacion" title="Jump back to footnote 6 in the text">↩</a></p>
 </li>
 </ol>
 </div>
