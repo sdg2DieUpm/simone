@@ -1,18 +1,22 @@
 /**
- * @file port_ultrasound.h
- * @brief Header for the portable functions to interact with the HW of the ultrasound sensors. The functions must be implemented in the platform-specific code.
+ * @file stm32f4_keyboard.h
+ * @brief Header for stm32f4_keyboard.c file.
  * @author alumno1
  * @author alumno2
- * @date fecha
+ * @date date
  */
-#ifndef PORT_ULTRASOUND_H_
-#define PORT_ULTRASOUND_H_
+#ifndef STM32F4_KEYBOARD_H_
+#define STM32F4_KEYBOARD_H_
 
 /* Includes ------------------------------------------------------------------*/
 /* Standard C includes */
 
+/* HW dependent includes */
+
 /* Defines and enums ----------------------------------------------------------*/
+/* Defines */
 
 /* Function prototypes and explanation -------------------------------------------------*/
 
-#endif /* PORT_ULTRASOUND_H_ */
+
+#endif /* STM32F4_KEYBOARD_H_ */

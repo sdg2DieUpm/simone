@@ -1,6 +1,6 @@
-# Urbanite Version 2 support files
+# Simone Version 2 support files
 
-This folder contains the support files for the Version 2 of the Urbanite project.
+This folder contains the support files for the Version 2 of the Simone project.
 
 **Attention**
 
