@@ -1,6 +1,6 @@
-# Urbanite Version 1 Test files
+# Simone Version 1 Test files
 
-This folder contains the test files for unit testing and example of use of **Version 1 of the Urbanite** project. You can add more test items on the corresponding files at your own.
+This folder contains the test files for unit testing and example of use of **Version 1 of the Simone** project. You can add more test items on the corresponding files at your own.
 
 Unit tests are located in the `test` folder. Example tests are located in the `example` folder. The folders also contain the `CMakeLists.txt` files that are used to build the binary files for the test codes.
 

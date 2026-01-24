@@ -15,7 +15,7 @@ int main(void)
 
     // Initialize the button FSM
     // Reserve space memory in the heap for the FSM
-    fsm_button_t *p_fsm_button = fsm_button_new(PORT_PARKING_BUTTON_DEBOUNCE_TIME_MS, PORT_PARKING_BUTTON_ID);
+    fsm_button_t *p_fsm_button = fsm_button_new(PORT_USER_BUTTON_DEBOUNCE_TIME_MS, PORT_USER_BUTTON_ID);
 
     while (1)
     {
@@ -25,8 +25,8 @@ int main(void)
         uint32_t duration = fsm_button_get_duration(p_fsm_button);
         if (duration > 0)
         {
-            printf("Button %d pressed for %ld ms", PORT_PARKING_BUTTON_ID, duration);
-            // If the button is pressed for more than CHANGE_MODE_BUTTON_TIME_MS, we toggle the LED
+            printf("Button %d pressed for %ld ms", PORT_USER_BUTTON_ID, duration);
+            // If the button is pressed for more than CHANGE_MODE_BUTTON_TIME_MS, notify it
             if (duration >= CHANGE_MODE_BUTTON_TIME_MS)
             {
                 printf(" (long press detected)");
