@@ -17,16 +17,24 @@
 /* Defines and enums ----------------------------------------------------------*/
 /* Defines */
 
-
-/* Function prototypes and explanation -------------------------------------------------*/
+/* Typedefs --------------------------------------------------------------------*/
 /**
- * @brief Auxiliary function to change the GPIO and pin of a button. This function is used for testing purposes mainly although it can be used in the final implementation if needed.
- *
- * @param button_id ID of the button to change.
- * @param p_port New GPIO port for the button.
- * @param pin New GPIO pin for the button.
- *
+ * @brief Structure to define the HW dependencies of a button status.
  */
-void stm32f4_button_set_new_gpio(uint32_t button_id, GPIO_TypeDef *p_port, uint8_t pin);
+typedef struct
+{
+    GPIO_TypeDef *p_port;
+    uint8_t pin;
+    uint8_t pupd_mode;
+    bool flag_pressed;
+} stm32f4_button_hw_t;
+
+/* Global variables */
+/**
+ * @brief Array of elements that represents the HW characteristics of the buttons
+ *
+ * This is an **extern** variable that is defined in `stm32f4_button.c`. It represents an array of hardware buttons.
+ */
+extern stm32f4_button_hw_t buttons_arr[];
 
 #endif /* STM32F4_BUTTON_H_ */

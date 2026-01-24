@@ -17,16 +17,9 @@
 // TO-DO alumnos: include the necessary files to interact with the GPIOs
 
 
-/* Typedefs --------------------------------------------------------------------*/
-typedef struct
-{
-    GPIO_TypeDef *p_port;
-    uint8_t pin;
-    uint8_t pupd_mode;
-    bool flag_pressed;
-} stm32f4_button_hw_t;
-
 /* Global variables ------------------------------------------------------------*/
+
+
 
 /* Private functions ----------------------------------------------------------*/
 /**
@@ -60,9 +53,3 @@ void port_button_init(uint32_t button_id)
     /* TO-DO alumnos */
 }
 
-void stm32f4_button_set_new_gpio(uint32_t button_id, GPIO_TypeDef *p_port, uint8_t pin)
-{
-    stm32f4_button_hw_t *p_button = _stm32f4_button_get(button_id);
-    p_button->p_port = p_port;
-    p_button->pin = pin;
-}

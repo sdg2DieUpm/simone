@@ -46,13 +46,3 @@ void fsm_button_destroy(fsm_button_t *p_fsm)
 {
     free(&p_fsm->f);
 }
-
-fsm_t *fsm_button_get_inner_fsm(fsm_button_t *p_fsm)
-{
-    return &p_fsm->f;
-}
-
-uint32_t fsm_button_get_state(fsm_button_t *p_fsm)
-{
-    return p_fsm->f.current_state;
-}
