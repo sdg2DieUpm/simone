@@ -1,8 +1,5 @@
-
 <!DOCTYPE html>
-
-<html class="no-js" lang="es">
-<head>
+<html class="no-js" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_3.html" rel="canonical"/>
@@ -18,7 +15,17 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../stylesheets/notebook-extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
 <body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -214,6 +221,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#sec:rgb_colors">
+<span class="md-ellipsis">
+      Colores RGB predefinidos
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#sec:headers_rgb_light">
 <span class="md-ellipsis">
       PORT: cabeceras de la librería del RGB light
@@ -377,6 +391,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#sec:rgb_colors">
+<span class="md-ellipsis">
+      Colores RGB predefinidos
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#sec:headers_rgb_light">
 <span class="md-ellipsis">
       PORT: cabeceras de la librería del RGB light
@@ -432,8 +453,8 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cha:version3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.</span> Versión 3: RGB light RGB<a class="headerlink" href="#cha:version3" title="Permanent link">¶</a></h1>
-<p>Ya tenemos una librería que nos permite tener botones que funcionan autónomamente mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. De ella hemos creado un botón que representa la marcha atrás del coche. Además, hemos creado una librería que nos permite crear transceptores de ultrasonido, también gestionados mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. De esta última, hemos creado un transceptor que estaría colocado en la parte trasera del coche para detectar obstáculos mientras se aparca.</p>
+<h1 id="cha:version3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.</span> Versión 3: <em>RGB light</em><a class="headerlink" href="#cha:version3" title="Permanent link">¶</a></h1>
+<p>Ya tenemos una librería que nos permite tener botones que funcionan autónomamente mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. De ella hemos creado un botón que nos permitirá encender y apagar el juego Simone. Además, hemos creado una librería que nos permite crear teclados matriciales, también gestionados mediante <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. De esta última, hemos creado un teclado que permitirá al jugador introducir la secuencia de colores en cada turno.</p>
 <div class="admonition example">
 <p class="admonition-title">Bibliografía</p>
 <ol>
@@ -441,7 +462,7 @@
 <p><em>"Fundamentos teóricos de sistemas basados en microcontrolador STM32”</em> <sup id="fnref5:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup></p>
 </li>
 <li>
-<p><em>Datasheet "STM32F446xC/E”</em> <sup id="fnref3:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup></p>
+<p><em>Datasheet "STM32F446xC/E”</em> <sup id="fnref6:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup></p>
 </li>
 <li>
 <p><em>Reference manual "RM0390. STM32F446xx advanced Arm-based 32-bit MCUs’</em> <sup id="fnref:st2021reference"><a class="footnote-ref" href="#fn:st2021reference">3</a></sup></p>
@@ -462,21 +483,151 @@
 </li>
 </ul>
 </div>
-<p>En este capítulo vamos a crear una librería que nos permita mostrar un RGB light (<a href="acronimos.html#acro:LED"><strong>LED</strong></a>) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> donde cada color estará controlado por una señal <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a>. Este RGB light nos permitirá mostrar a qué distancia se encuentra un obstáculo del coche.</p>
-<p>Como ya hicimos en las versiones anteriores, (i) vamos a implementar la parte <em>portable</em> <code>PORT</code> dependiente del <a href="acronimos.html#acro:HW"><strong>HW</strong></a> para comunicarnos con el RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>, y lo probaremos con un test unitario. (ii) Después, vamos a crear la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> para gestionar la representación de la distancia con los distintos colores (la parte <code>COMMON</code>), y lo probaremos con un test unitario. (iii) Por último, montaremos el <a href="acronimos.html#acro:HW"><strong>HW</strong></a> y probaremos el funcionamiento del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> con un programa de ejemplo.</p>
+<p>En este capítulo vamos a crear una librería que nos permita mostrar un <a href="acronimos.html#acro:LED"><strong>LED</strong></a> <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> donde cada color estará controlado por una señal <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a>. Este elemento que llamaremos <em>RGB light</em> nos permitirá mostrar (i) los colores de la secuencia que tiene que replicar el usuario, y (ii) dar <em>feedback</em> visual al jugador cada vez que pulse una tecla.</p>
+<p>Como ya hicimos en las versiones anteriores, (i) vamos a implementar la parte <em>portable</em> <code>PORT</code> dependiente del <a href="acronimos.html#acro:HW"><strong>HW</strong></a> para comunicarnos con el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>, y lo probaremos con un test unitario. (ii) Después, vamos a crear la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> para gestionar las secuencias del juego con los distintos colores (la parte <code>COMMON</code>), y lo probaremos con un test unitario. (iii) Por último, montaremos el <a href="acronimos.html#acro:HW"><strong>HW</strong></a> y probaremos el funcionamiento del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> con un programa de ejemplo.</p>
 <p>Cuando lea esta introducción conviene que lea y entienda el capítulo <em>"Circuito de reloj”</em> del libro <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>, prestando especial atención al ejemplo proporcionado sobre PWM.</p>
-<p>Cada uno de los LED (, y ) del RGB light RGB estará conectado a una GPIO del <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Los tres LED están controlados por el mismo temporizador en modo <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a>, pero cada uno con un canal de dicho temporizador. La señal <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a> es una señal cuadrada que tiene un periodo fijo y un ciclo de trabajo variable. Si el ciclo de trabajo es del 100\%, el LED estará a máxima intensidad, y si es del 0\%, el LED estará apagado. Las características a destacar del sistema de la Versión 3 se muestran en el .</p>
-<p>Un color se representa en el RGB light RGB mediante la combinación de los tres colores básicos: rojo, verde y azul. La combinación de los tres colores básicos en diferentes proporciones nos permite obtener una amplia gama de colores. La intensidad la controla el ciclo de trabajo (canal del temporizador), pero la frecuencia para los tres colores será la misma. La frecuencia de la señal PWM será de <span class="arithmatex">\(50 Hz\)</span>, valor lo suficientemente alto para que no se perciba el parpadeo de los LED. Nuestro ojo integrará esos trenes de pulsos y lo veremos como un color determinado. <strong>Si se cambia el ciclo de trabajo, estaremos controlando la intensidad de cada LED, y por tanto el color mostrado.</strong></p>
-<p>¿Cuándo cambiaremos los valores del ciclo de trabajo? Pues depende de la distancia a la que se encuentre el objeto detectado por el sensor de RGB light. Cuanto más cerca, más rojo, y cuanto más lejos, más azul. El verde se usará para mostrar distancias intermedias y entre medias tendremos una mezcla de colores. En el se muestran los valores de ciclo de trabajo para seis situaciones de distancia que se contemplan en el sistema <em>Simone</em>. En la Versión 5 puedes implementar funciones de interpolación para que el cambio de color sea más suave. Tienes una lista de colores en la <a href="https://www.downtownuplighting.com/rgb-color-chart">www.downtownuplighting.com</a>—aunque no todos se pueden mostrar en un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>.</p>
-<p>La muestra un ejemplo de señal PWM para un color amarillento (que no el amarillo de el ). Se muestran en el osciloscopio dos de los LED del RGB light RGB. En la parte superior se muestra el canal de osciloscopio para el LED rojo, y en la parte inferior el canal de osciloscopio para el LED verde. Fíjate que el periodo de la señal PWM es el mismo para los dos LED (<span class="arithmatex">\(20 ms\)</span>), pero el ciclo de trabajo es distinto: <span class="arithmatex">\(20.8\%\)</span> para el LED rojo y <span class="arithmatex">\(36.6\%\)</span> para el LED verde.</p>
-<figure><img alt="Ejemplo de señales PWM para un color amarillento." id="fig:pwm_colors" src="../assets/notebook_imgs/pr_chapters/version_3/pwm_colors.png" style="width:100.0%"><figcaption aria-hidden="true">Ejemplo de señales PWM para un color amarillento.</figcaption></img></figure>
-<p>Igual que hemos hecho hasta ahora, <strong>estamos desarrollando una librería.</strong> Así, cada vez que se quiera añadir un RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> le asociaré una <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. Las particularidades de dónde está conectado cada nuevo RGB light, sus características físicas, <em>etc.</em>, son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
-<p>La muestra las estructuras que vamos a necesitar para el RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. La estructura del HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> (en <code>PORT</code>) se muestra en la . La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> (en <code>COMMON</code>) se muestra en la .</p>
-<h5 id="section"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.0.0.0.1</span> { #section }<a class="headerlink" href="#section" title="Permanent link">¶</a></h5>
-<p>Preparemos el proyecto para poder añadir el RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>:</p>
+<p>Cada uno de los LED (<span style="color: red; font-weight: bold;">R</span>, <span style="color: green; font-weight: bold;">G</span>, y <span style="color: blue; font-weight: bold;">B</span>) del LED estará conectado a una GPIO del <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Los tres LED están controlados por el mismo temporizador en modo <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a>, pero cada uno con un canal de dicho temporizador. La señal <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a> es una señal cuadrada que tiene un periodo fijo y un ciclo de trabajo variable. Si el ciclo de trabajo es del 100\%, el LED estará a máxima intensidad, y si es del 0\%, el LED estará apagado. Las características a destacar del sistema de la Versión 3 se muestran en la <a href="#tbl:version3_rgb">siguiente tabla</a>.</p>
+<div id="tbl:version3_rgb"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Parámetro</strong></th>
+<th style="text-align: center;"><strong>Valor</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Pin LED rojo</td>
+<td style="text-align: center;"><code>PB6</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Pin LED verde</td>
+<td style="text-align: center;"><code>PB8</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Pin LED azul</td>
+<td style="text-align: center;"><code>PB9</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Modo</td>
+<td style="text-align: center;">Alternativo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pull up/ down</td>
+<td style="text-align: center;">Sin pull</td>
+</tr>
+<tr>
+<td style="text-align: left;">Temporizador (para todos los colores)</td>
+<td style="text-align: center;"><code>TIM4</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Canal LED rojo</td>
+<td style="text-align: center;">(ver la tabla de Función Alternativa en el datasheet<sup id="fnref5:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Canal LED verde</td>
+<td style="text-align: center;">(ver la tabla de Función Alternativa en el datasheet<sup id="fnref4:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Canal LED azul</td>
+<td style="text-align: center;">(ver la tabla de Función Alternativa en el datasheet<sup id="fnref3:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Modo PWM</td>
+<td style="text-align: center;">Modo PWM 1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prescaler</td>
+<td style="text-align: center;">(Calcular para frecuencia de 50 Hz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Periodo</td>
+<td style="text-align: center;">(Calcular para frecuencia de 50 Hz)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ciclo de trabajo LED rojo</td>
+<td style="text-align: center;">(variable, depende del color a mostrar)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ciclo de trabajo LED verde</td>
+<td style="text-align: center;">(variable, depende del color a mostrar)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ciclo de trabajo LED azul</td>
+<td style="text-align: center;">(variable, depende del color a mostrar)</td>
+</tr>
+</tbody>
+</table>
+<p>Un color se representa en el <a href="acronimos.html#acro:LED"><strong>LED</strong></a> <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> mediante la combinación de los tres colores básicos: rojo, verde y azul. La combinación de los tres colores básicos en diferentes proporciones nos permite obtener una amplia gama de colores. La intensidad la controla el ciclo de trabajo (canal del temporizador), pero la frecuencia para los tres colores será la misma. La frecuencia de la señal PWM será de <span class="arithmatex">\(50 Hz\)</span>, valor lo suficientemente alto para que no se perciba el parpadeo de los LED. Nuestro ojo integrará esos trenes de pulsos y lo veremos como un color determinado. <strong>Si se cambia el ciclo de trabajo, estaremos controlando la intensidad de cada LED, y por tanto el color mostrado.</strong></p>
+<p>¿Cuándo cambiaremos los valores del ciclo de trabajo? Pues depende de la intensidad calculada de forma aleatoria según el nivel de dificultad del juego. Cuanto más difícil sea el nivel, más parecidos serán los colores (menor intensidad), y por tanto más difícil será para el usuario distinguirlos.</p>
+<p><a href="#tbl:rgb_colors">La tabla de colores</a> muestra los colores que se usarán en el juego y los valores de ciclo de trabajo asociados a cada color <strong>para máxima intensidad en tanto por ciento</strong>. Los colores están definidos en la librería que se proporciona <code>rgb_colors.c</code> de la parte <code>COMMON</code>, y que mencionaremos más adelante.</p>
+<div id="tbl:rgb_colors"></div>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Color</strong></th>
+<th style="text-align: center;"><strong>LED rojo</strong></th>
+<th style="text-align: center;"><strong>LED verde</strong></th>
+<th style="text-align: center;"><strong>LED azul</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Rojo</td>
+<td style="text-align: center;"><span class="arithmatex">\(100~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Verde</td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(100~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Azul</td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(100~\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Amarillo</td>
+<td style="text-align: center;"><span class="arithmatex">\(37~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(37~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Turquesa</td>
+<td style="text-align: center;"><span class="arithmatex">\(10~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(35~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(32~\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Blanco</td>
+<td style="text-align: center;"><span class="arithmatex">\(100~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(100~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(100~\%\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">Apagado</td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0~\%\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>En la <a href="version_5.html">Versión 5</a> puedes implementar otros colores. Tienes una lista de colores en la <a href="https://www.downtownuplighting.com/rgb-color-chart">www.downtownuplighting.com</a>—aunque no todos se pueden mostrar en un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>.</p>
+<p>La <a href="#fig:pwm_colors">figura</a> muestra un ejemplo de señal PWM para un color amarillento (que no el amarillo de <a href="#tbl:rgb_colors">la tabla</a>. Se muestran en el osciloscopio dos de los LED del <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En la parte superior se muestra el canal de osciloscopio para el LED rojo, y en la parte inferior el canal de osciloscopio para el LED verde. Fíjate que el periodo de la señal PWM es el mismo para los dos LED (<span class="arithmatex">\(20 ms\)</span>), pero el ciclo de trabajo es distinto: <span class="arithmatex">\(20.8\%\)</span> para el LED rojo y <span class="arithmatex">\(36.6\%\)</span> para el LED verde.</p>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/pwm_colors.png"><img alt="Ejemplo de señales PWM para un color amarillento." id="fig:pwm_colors" src="../assets/notebook_imgs/pr_chapters/version_3/pwm_colors.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Ejemplo de señales PWM para un color amarillento.</figcaption></figure>
+<p>Igual que hemos hecho hasta ahora, <strong>estamos desarrollando una librería.</strong> Así, cada vez que se quiera añadir un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> le asociaremos una <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. Las particularidades de dónde está conectado cada nuevo LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>, sus características físicas, <em>etc.</em>, son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
+<figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/rgb_color_t.svg"><img alt="Estructura de un color RGB" id="fig:rgb_color_t" src="../assets/notebook_imgs/pr_chapters/version_3/rgb_color_t.svg" style="width:100%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/stm32f4_rgb_light_hw_t.svg"><img alt="Estructura HW LED RGB" id="fig:stm32f4_rgb_light_hw_t" src="../assets/notebook_imgs/pr_chapters/version_3/stm32f4_rgb_light_hw_t.svg" style="width:100%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light_t.svg"><img alt="Estructura FSM del LED RGB" id="fig:fsm_rgb_light_t" src="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light_t.svg" style="width:100%;"/></a> </div> <figcaption>(a) Estructura de un color RGB, (b) Estructura del HW del LED RGB en PORT, (c) Estructura de la FSM del *RGB light* en COMMON.</figcaption> </figure>
+<p>Las figuras de estructuras de un <a href="#color_rgb_t">color RGB</a>, <a href="#stm32f4_keyboard_hw_t">del HW</a> <a href="#fms_keyboard_t">y del SW</a> muestran las estructuras que vamos a necesitar para el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>.</p>
+<p>Un color <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> se define por la estructura de la <a href="#fig:rgb_color_t">figura (a)</a> con tres valores <code>uint8_t</code> que indican la intensidad de cada componente en un rango de [0, <code>COLOR_RGB_MAX_VALUE</code>]. Donde la etiqueta <code>COLOR_RGB_MAX_VALUE</code> se ha definido con un valor de <code>255</code>, por lo que este será el número de niveles de intensidad que podremos representar para cada componente.</p>
+<p>La estructura del HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> (en <code>PORT</code>) se muestra en la <a href="#fig:stm32f4_rgb_light_hw_t">figura (b)</a>. La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> (en <code>COMMON</code>) se muestra en la <a href="#fig:fsm_rgb_light_t">figura (c)</a>.</p>
+<p>Preparemos el proyecto para poder añadir el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>:</p>
 <ol>
 <li>
-<p>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT</strong> de la librería del <em>RGB light</em> correspondientes a la versión <code>V3</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v3">https://github.com/sdg2DieUpm/Simone/tree/simone_v3</a>. Solo descarga por ahora: <code>port_rgb_light.h</code>, <code>stm32f4_rgb_light.h</code>, y <code>stm32f4_rgb_light.c</code> y colócalos en las carpetas correspondientes. <strong>No añadas los ficheros de la parte COMMON.</strong></p>
+<p>Descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte PORT</strong> de la librería del <em>RGB light</em> correspondientes a la versión <code>V3</code>: <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3">https://github.com/sdg2DieUpm/simone/tree/simone_v3</a>. Solo descarga por ahora: <code>port_rgb_light.h</code>, <code>stm32f4_rgb_light.h</code>, y <code>stm32f4_rgb_light.c</code> y colócalos en las carpetas correspondientes. <strong>De la parte COMMON descarga solo <code>rgb_color.h</code> y <code>rgb_color.c</code></strong>, que incluyen la definición de los colores que usaremos en el juego.</p>
 </li>
 <li>
 <p>Coloca cada uno donde corresponde: <code>PORT</code> o <code>COMMON</code>, en <code>include</code>, o <code>src</code>, como se explicó en el los capítulos anteriores.</p>
@@ -485,29 +636,21 @@
 <p>Verás que no compila, y es que solo se proporciona un esqueleto del código.</p>
 </li>
 </ol>
-<h2 id="sec:headers_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1</span> <code>PORT</code>: cabeceras de la librería del RGB light<a class="headerlink" href="#sec:headers_rgb_light" title="Permanent link">¶</a></h2>
-<p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del RGB light. Esta es la interfaz que vamos a proporcionar al usuario para que pueda usar la librería y añadir LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> como necesite. Vamos a <em>portar</em> las funciones necesarias para usar la librería, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Comenzaremos de nuevo por la cabecera y luego los códigos fuente. El montaje de nuestro RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> con la <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span> se muestra en la .</p>
-<figure><img alt='Montaje del LED &lt;span style="color: red; font-weight: bold;"&gt;R&lt;/span&gt;&lt;span style="color: green; font-weight: bold;"&gt;G&lt;/span&gt;&lt;span style="color: blue; font-weight: bold;"&gt;B&lt;/span&gt; de cátodo común con la &lt;span style="color: RoyalBlue; font-weight: bold;"&gt;Nucleo-STM32F446RE&lt;/span&gt;.' id="fig:fritzing_rgb_light" src="../assets/notebook_imgs/pr_chapters/version_3/fritzing_rgb_light.png" style="width:100.0%"><figcaption aria-hidden="true">Montaje del LED &lt;span style="color: red; font-weight: bold;"&gt;R&lt;/span&gt;&lt;span style="color: green; font-weight: bold;"&gt;G&lt;/span&gt;&lt;span style="color: blue; font-weight: bold;"&gt;B&lt;/span&gt; de cátodo común con la &lt;span style="color: RoyalBlue; font-weight: bold;"&gt;Nucleo-STM32F446RE&lt;/span&gt;.</figcaption></img></figure>
-<p>En el mercado existen numerosos LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En este proyecto utilizaremos un LED de cátodo común. En este tipo de LED, el ánodo de cada LED está conectado a un pin del microcontrolador a través de una resistencia, y los cátodos de los tres LED están internamente conectados a un pin común que irá a tierra. Para adquirir uno, ve al ).</p>
-<h3 id="cabecera-port_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.1</span> Cabecera port_rgb_light.h<a class="headerlink" href="#cabecera-port_rgb_lighth" title="Permanent link">¶</a></h3>
+<h2 id="sec:rgb_colors"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1</span> Colores RGB predefinidos<a class="headerlink" href="#sec:rgb_colors" title="Permanent link">¶</a></h2>
+<p>Antes de ponernos a programar, conviene explicar qué son los ficheros <code>rgb_colors.h</code> y <code>rg_colors.c</code>. Estos ficheros se han de colocar en la carpeta <code>common/include</code> y <code>common/src</code> respectivamente. Estos ficheros contienen los colores que se usarán en el juego. Cada color está representado por una estructura de tipo <code>rgb_color_t</code> que contiene tres campos: <code>r</code>, <code>g</code>, y <code>b</code>, que representan la intensidad de cada componente del color en un rango de [0, <code>COLOR_RGB_MAX_VALUE</code>]. Estos colores predefinidos son los que se muestran en la <a href="#tbl:rgb_colors">tabla</a>.</p>
+<p>Estos ficheros permiten definir múltiples colores de manera sencilla y reutilizable. Si deseas añadir más colores, puedes hacerlo en la <a href="version_5.html">Versión 5</a> definiendo nuevas variables de tipo <code>rgb_color_t</code> en el fichero <code>rgb_colors.c</code> y declarándolas en el fichero <code>rgb_colors.h</code>. También podrías cambiar el rango de intensidad modificando el valor de <code>COLOR_RGB_MAX_VALUE</code> para tener mayor o menor resolución en la representación de los colores.</p>
+<h2 id="sec:headers_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2</span> <code>PORT</code>: cabeceras de la librería del RGB light<a class="headerlink" href="#sec:headers_rgb_light" title="Permanent link">¶</a></h2>
+<p>Vamos a implementar el <em>contrato con el usuario</em> de la parte dependiente del HW de librería del <em>RGB light</em>. Esta es la interfaz que vamos a proporcionar al usuario para que pueda usar la librería y añadir LEDs <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> como necesite. Vamos a <em>portar</em> las funciones necesarias para usar la librería, cómo no, para la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Comenzaremos de nuevo por la cabecera y luego los códigos fuente. El montaje de nuestro LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> con la <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span> se muestra en la <a href="#fig:fritzing_rgb_light">figura</a>.</p>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/fritzing_rgb_light.png"><img alt='Montaje del LED &lt;span style="color: red; font-weight: bold;"&gt;R&lt;/span&gt;&lt;span style="color: green; font-weight: bold;"&gt;G&lt;/span&gt;&lt;span style="color: blue; font-weight: bold;"&gt;B&lt;/span&gt; de cátodo común con la &lt;span style="color: RoyalBlue; font-weight: bold;"&gt;Nucleo-STM32F446RE&lt;/span&gt;.' id="fig:fritzing_rgb_light" src="../assets/notebook_imgs/pr_chapters/version_3/fritzing_rgb_light.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Montaje del LED RGB de cátodo común con la Nucleo-STM32F446RE.</figcaption></figure>
+<p>En el mercado existen numerosos LEDs <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En este proyecto utilizaremos un LED de cátodo común. En este tipo de LEDs, el ánodo de cada LED está conectado a un pin del microcontrolador a través de una resistencia, y los cátodos de los tres LED están internamente conectados a un pin común que irá a tierra. Para adquirir uno, ve a <a href="bom.html">la <em>BOM</em></a>).</p>
+<h3 id="cabecera-port_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1</span> Cabecera port_rgb_light.h<a class="headerlink" href="#cabecera-port_rgb_lighth" title="Permanent link">¶</a></h3>
 <p>Esta cabecera depende del HW pero no de las particularidades del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Vamos a seguir los siguientes pasos:</p>
-<ul>
+<ol>
 <li>
 <p>Incluye todas las cabeceras necesarias según indica la API.</p>
 </li>
 <li>
-<p>Incluye los (<code>#define</code>) que se indican en la API para RGB light <code>PORT_RGB_LIGHT_ID</code> que refleja la distancia al objeto en la parte trasera del coche.</p>
-<ul>
-<li>
-<p><code>PORT_RGB_LIGHT_ID</code>: valor numérico natural que será el identificador del RGB light trasero. Si es el único RGB light del sistema, le asignaremos el 0.</p>
-</li>
-<li>
-<p><code>COLOR_RGB_MAX_VALUE</code>: valor máximo que puede tomar el ciclo de trabajo de un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. <strong>Usaremos 255</strong> que es el máximo valor que puede tomar un <code>uint8_t</code>.</p>
-</li>
-<li>
-<p><code>COLOR_RED</code>, <code>COLOR_GREEN</code>, …: son estructuras de tipo <code>rgb_color_t</code> que representan los colores de el . Cada estructura tiene tres campos: <code>red</code>, <code>green</code> y <code>blue</code> que representan el ciclo de trabajo en 8 bits. Siendo 0 el ciclo de trabajo mínimo y 255 el máximo. <strong>Es opcional usar estas estructuras, pero es una buena práctica para que el código sea más legible.</strong></p>
-</li>
-</ul>
+<p>Define (<code>#define</code>) el <code>PORT_RGB_LIGHT_ID</code>, que es un valor numérico natural que será el identificador del <em>RGB light</em> trasero. Si es el único <em>RGB light</em> del sistema, le asignaremos el 0.</p>
 </li>
 <li>
 <p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_rgb_light.h</code>.</p>
@@ -515,11 +658,11 @@
 <li>
 <p>Puede ser buen momento ahora para documentar con Doxygen.</p>
 </li>
-</ul>
-<p>Ya hemos acabado con el encabezado que interactúa con el HW del RGB light y que no depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_rgb_light.h</code>.</p>
-<h3 id="cabecera-stm32f4_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.1.2</span> Cabecera stm32f4_rgb_light.h<a class="headerlink" href="#cabecera-stm32f4_rgb_lighth" title="Permanent link">¶</a></h3>
-<p>Esta cabecera solo define los pines a los que está conectado el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> de cada RGB light asociado.</p>
-<ul>
+</ol>
+<p>Ya hemos acabado con el encabezado que interactúa con el HW del <em>RGB light</em> y que no depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_rgb_light.h</code>.</p>
+<h3 id="cabecera-stm32f4_rgb_lighth"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.2</span> Cabecera stm32f4_rgb_light.h<a class="headerlink" href="#cabecera-stm32f4_rgb_lighth" title="Permanent link">¶</a></h3>
+<p>Esta cabecera define los pines a los que está conectado el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> de cada <em>RGB light</em> asociado.</p>
+<ol>
 <li>
 <p>Incluye todas las cabeceras necesarias según indica la API.</p>
 </li>
@@ -527,44 +670,45 @@
 <p>Define (<code>#define</code>) los valores de las GPIO de los pines de los LED rojo, verde y azul.</p>
 </li>
 <li>
-<p>Documenta los <code>#define</code> con Doxygen.</p>
+<p>Declara la estructura <code>stm32f4_rgb_light_hw_t</code>, que contiene en sus campos los puertos y pines de cada GPIO. Presta atención a la API.</p>
 </li>
-</ul>
-<p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW del RGB light conectado al microcontrolador <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas en <code>port_rgb_light.h</code>.</p>
-<h2 id="sec:port_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2</span> <code>PORT</code>: fuente de la librería del RGB light<a class="headerlink" href="#sec:port_rgb_light" title="Permanent link">¶</a></h2>
-<p>Vamos a <em>portar</em> las funciones necesarias para usar la librería del RGB light y comprobar que la parte HW está bien programada. Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_rgb_light.c</code></strong>. Deberás implementar o completar todas las funciones públicas de las que se hayan declarado el prototipo en el encabezado y algunas funciones privadas.</p>
-<h3 id="fuentes-stm32f4_rgb_lightc"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1</span> Fuentes stm32f4_rgb_light.c<a class="headerlink" href="#fuentes-stm32f4_rgb_lightc" title="Permanent link">¶</a></h3>
-<p>Este fichero es mucho menos extenso que el de la versión anterior. La mayor complejidad está en la configuración de los canales del temporizador, pero si ha leído el capítulo del libro relativo a PWM y lo ha entendido, no debería tener problema <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. Vamos a ello.</p>
+<li>
+<p>Declara el array de estructuras de tipo <code>stm32f4_rgb_light_hw_t</code> como se hizo en versiones anteriores. Este array contendrá las características de todos los LED RGB que tengamos en el sistema.</p>
+</li>
+<li>
+<p>Documenta todo con Doxygen.</p>
+</li>
+</ol>
+<p>Ya hemos acabado con el encabezado (<em>header</em>) que interactúa con el HW del <em>RGB light</em>. Todavía dará errores al compilar. Vamos ahora a implementar todas las funciones prototipadas en <code>port_rgb_light.h</code>.</p>
+<h2 id="sec:port_rgb_light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3</span> <code>PORT</code>: fuente de la librería del RGB light<a class="headerlink" href="#sec:port_rgb_light" title="Permanent link">¶</a></h2>
+<p>Vamos a <em>portar</em> las funciones necesarias para usar la librería del <em>RGB light</em> y comprobar que la parte HW está bien programada. Vamos a programar los ficheros fuente de la parte <code>PORT</code>, que <strong>todos estarán en el fichero <code>stm32f4_rgb_light.c</code></strong>.</p>
+<h3 id="fuentes-stm32f4_rgb_lightc"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3.1</span> Fuentes stm32f4_rgb_light.c<a class="headerlink" href="#fuentes-stm32f4_rgb_lightc" title="Permanent link">¶</a></h3>
+<p>Este fichero es mucho menos extenso que el de la versión anterior. La mayor complejidad está en la configuración de los canales del temporizador, pero si has leído el capítulo del libro relativo a PWM y lo has entendido, no deberías tener problema <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>. Vamos a ello.</p>
 <ol>
 <li>
 <p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
 </li>
 <li>
-<p>Hay que definir la estructura <code>stm32f4_rgb_light_hw_t</code>. En la estructura se definen los campos que se muestran en la y en la API.</p>
-<p>Esta estructura es genérica para cualquier LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> que vayamos a usar, no solo el referente al trasero del coche, sino cualquier otro que queramos añadir. Es muy sencilla y básicamente contiene los campos de las GPIO de los pines de los LED rojo, verde y azul.</p>
-</li>
-<li>
-<p>Igual que hicimos con el botón, ahora vamos a definir una <strong>variable global privada</strong> <code>static stm32f4_rgb_light_hw_t rgb_lights_arr[]</code>. Se trata del array de estructuras de tipo <code>stm32f4_rgb_light_hw_t</code>, que representa al HW de cada RGB light que tengamos en nuestro coche.</p>
-<p>Asigna los valores HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> de aparcamiento trasero <code>PORT_RGB_LIGHT_ID</code> utilizando los <code>#define</code> de <code>stm32f4_rgb_light.h</code>.</p>
+<p>Igual que hicimos anteriormente, define la <strong>variable global privada</strong> <code>stm32f4_rgb_light_hw_t rgb_lights_arr\[\]</code> con la configuración física de nuesto LED RGB. Se trata del array de estructuras de tipo <code>stm32f4_rgb_light_hw_t</code>, que representa al HW de cada <em>RGB light</em> que tengamos en nuestro juego.</p>
+<p>Asigna los valores HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> del LED <code>PORT_RGB_LIGHT_ID</code> utilizando los <code>#define</code> de <code>stm32f4_rgb_light.h</code>.</p>
 </li>
 <li>
 <p>Codifica la función <code>_stm32f4_rgb_light_get()</code> de manera análoga a como se ha hecho en las versiones anteriores.</p>
 </li>
 </ol>
-<h5 id="_1"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.2.1.0.1</span> <a class="headerlink" href="#_1" title="Permanent link">¶</a></h5>
-<p>Ahora vamos a codificar las funciones más importantes de la parte <code>PORT</code> del RGB light, y son las que configuran el temporizador asociado al LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> trasero.</p>
+<p>Ahora vamos a codificar las funciones más importantes de la parte <code>PORT</code> del <em>RGB light</em>, y son las que configuran el temporizador asociado al LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>.</p>
 <ol>
 <li>
 <p>Codifica la función <code>_timer_pwm_config()</code> como indica la API. Esta función configura el temporizador que controla los ciclos de trabajo de los LED rojo, verde y azul. Para ello, apóyate en el ejemplo <em>"timer para PWM”</em> del libro de Fundamentos <sup id="fnref4:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
-<p>Esta función configura un temporizador para que genere una señal <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a> con una frecuencia fija y un ciclo de trabajo variable. El temporizador elegido y la frecuencia se muestra en el .</p>
-<p>Esta función recibe el identificador del RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Cada RGB light tendrá su propio temporizador, pero esta función será llamada para configurar todos ellos. Asegúrate de que el código se ejecuta dentro de un bloque condicional que compruebe el identificador del RGB light.</p>
+<p>Esta función configura un temporizador para que genere una señal <a href="acronimos.html#acro:PWM"><strong>PWM</strong></a> con una frecuencia fija y un ciclo de trabajo variable. El temporizador elegido y la frecuencia se muestra en <a href="#tbl:version3_rgb">la tabla de HW para la versión 3</a>.</p>
+<p>Esta función recibe el identificador del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Cada <em>RGB light</em> tendrá su propio temporizador, pero esta función será llamada para configurar todos ellos. Asegúrate de que el código se ejecuta dentro de un bloque condicional que compruebe el identificador del <em>RGB light</em>.</p>
 <p>Para saber qué fuente de reloj habilitar para el temporizador, consulta la tabla <em>"Figure 3. STM32F446xC/E block diagram”</em> del <em>datasheet</em> <sup id="fnref2:st2021datasheet"><a class="footnote-ref" href="#fn:st2021datasheet">2</a></sup>. Allí podrás ver si nuestro temporizador está conectado al <strong>APB1</strong> o al <strong>APB2</strong>, y tenemos que habilitar el reloj en el registro <code>RCC-&gt;APB1ENR</code> o <code>RCC-&gt;APB2ENR</code> respectivamente.</p>
 <p>Puedes poner los valores de los registros <code>TIMx-&gt;PSC</code> y <code>TIMx-&gt;ARR</code> a mano, o usando las ecuaciones. Puedes crear un <code>#define</code> para la frecuencia de la señal PWM, si te es más cómodo. Si lo haces a mano, asegúrate de que los valores son correctos.</p>
 <p>Asegúrate de que los registro <em>Capture Compare Enable Register</em> (<code>CCER</code>) y <em>Capture Compare Mode Register</em> (<code>CCMRx</code>) están configurados correctamente. En el <em>CCER</em> se habilitan los canales de salida y en el <em>CCMRx</em> se configura el modo PWM. La <em>x</em> es el registro 1 o 2, dependiendo del canal que estés configurando.</p>
 <p><strong>Es muy importante que la función <code>_timer_pwm_config()</code> se llame desde la función <code>port_rgb_light_init()</code></strong>. Si no, no se podrán generar las señales PWM.</p>
 </li>
 </ol>
-<p>Vamos a continuar con las funciones públicas de la parte <code>PORT</code> del RGB light.</p>
+<p>Vamos a continuar con las funciones públicas de la parte <code>PORT</code> del <em>RGB light</em>.</p>
 <ol>
 <li>
 <p>Completa la función <code>port_rgb_light_init()</code> como se indica en la API.</p>
@@ -574,23 +718,68 @@
 <li>
 <p>Codifica la función <code>port_rgb_light_set_rgb</code> siguiendo la API.</p>
 <p>Esta función se encarga de configurar el ciclo de trabajo de los LED rojo, verde y azul. Lo hace con la proporción de los valores recibidos en la estructura <code>rgb_color_t</code> sobre el máximo valor definido en <code>COLOR_RGB_MAX_VALUE</code>. Si el valor recibido es 0, el LED estará apagado, deshabilitando el canal correspondiente.</p>
-<p>Fíjate que la función recibe el identificador del RGB light <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Asegúrate de que el código se ejecuta dentro de un bloque condicional que compruebe el identificador del RGB light.</p>
+<p>Fíjate que la función recibe el identificador del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Asegúrate de que el código se ejecuta dentro de un bloque condicional que compruebe el identificador del <em>RGB light</em>.</p>
+<p>Sigue el siguiente flujograma para implementar la función <code>port_rgb_light_set_rgb()</code>:</p>
+<pre class="mermaid"><code>flowchart TD
+    %% Definición de estilos
+    classDef decision fill:#fce8e6,stroke:#b85450,color:#000000;
+    classDef action fill:#f8cecc,stroke:#b85450,color:#000000;
+
+    %% Nodos
+    A["Retrieve &lt;b&gt;individual&lt;/b&gt; RGB levels&lt;br&gt;(r, g, b)"]:::action
+    B{"Display ID =&lt;br&gt;PORT_RGB_LIGHT_ID"}:::decision
+    C["&lt;b&gt;Disable&lt;/b&gt; the timer"]:::action
+    D{"r = g = b = 0"}:::decision
+    E["&lt;b&gt;Disable&lt;/b&gt; the capture/compare&lt;br&gt;register for all the channels"]:::action
+    F{"r = 0"}:::decision
+    G["&lt;b&gt;Disable&lt;/b&gt; the capture/compare register&lt;br&gt;for the channel of the red LED"]:::action
+    H{"g = 0"}:::decision
+    I["&lt;b&gt;Disable&lt;/b&gt; the capture/compare register&lt;br&gt;for the channel of the green LED"]:::action
+    J{"b = 0"}:::decision
+    K["&lt;b&gt;Disable&lt;/b&gt; the capture/compare register&lt;br&gt;for the channel of the blue LED"]:::action
+    L["For the channel of the red LED:&lt;br&gt;• &lt;b&gt;Set the duty cycle&lt;/b&gt; in compare/compare register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the channel"]:::action
+    M["For the channel of the green LED:&lt;br&gt;• &lt;b&gt;Set the duty cycle&lt;/b&gt; in compare/compare register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the channel"]:::action
+    O["For the channel of the blue LED:&lt;br&gt;• &lt;b&gt;Set the duty cycle&lt;/b&gt; in compare/compare register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the channel"]:::action
+    P["• &lt;b&gt;Set the UG bit&lt;/b&gt; in the EGR register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the timer"]:::action
+    N((return))
+
+    %% Conexiones
+    A --&gt; B
+    B --&gt;|&lt;code&gt;false&lt;/code&gt;| N
+    B --&gt;|&lt;code&gt;true&lt;/code&gt;| C
+    C --&gt; D
+    D --&gt;|&lt;code&gt;true&lt;/code&gt;| E
+    E --&gt; N
+    D --&gt;|&lt;code&gt;false&lt;/code&gt;| F
+    F --&gt;|&lt;code&gt;true&lt;/code&gt;| G
+    F --&gt;|&lt;code&gt;false&lt;/code&gt;| L
+    L --&gt; H
+    G --&gt; H
+    H --&gt;|&lt;code&gt;true&lt;/code&gt;| I
+    H --&gt;|&lt;code&gt;false&lt;/code&gt;| M
+    M --&gt; J
+    I --&gt; J
+    J --&gt;|&lt;code&gt;true&lt;/code&gt;| K
+    J --&gt;|&lt;code&gt;false&lt;/code&gt;| O
+    O --&gt; P
+    K --&gt; P
+    P --&gt; N</code></pre>
 </li>
 <li>
 <p>Si queda algo por documentar puede ser buen momento ahora.</p>
 </li>
 </ol>
-<p>Si ahora compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>!</strong> Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
-<h2 id="sec:test_port_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.3</span> <code>PORT</code>: Test unitario del RGB light<a class="headerlink" href="#sec:test_port_v3" title="Permanent link">¶</a></h2>
-<p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado de la librería del RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> antes de continuar con la FSM.</p>
-<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> Ten a mano y revisa el capítulo <em>"Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
-<p>Descarga el fichero de test HW del RGB light <code>test_port_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
+<p>Ahora, compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>!</strong> Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
+<h2 id="sec:test_port_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4</span> <code>PORT</code>: Test unitario del RGB light<a class="headerlink" href="#sec:test_port_v3" title="Permanent link">¶</a></h2>
+<p>Vamos a comprobar que la parte <code>PORT</code> funciona correctamente pasando los test HW del código que hemos desarrollado de la librería del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> antes de continuar con la FSM.</p>
+<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/gen_book_icon.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/></a> Ten a mano y revisa el capítulo <em>"Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">1</a></sup>.</p>
+<p>Descarga el fichero de test HW del <em>RGB light</em> <code>test_port_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto.</p>
 <ol>
 <li>
 <p>Conecta la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> al ordenador.</p>
 </li>
 <li>
-<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+<p>Pulsa sobre el <strong>icono de depuración <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_debug.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/></a> y selecciona <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_run.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/></a> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
 </li>
 <li>
 <p>En el desplegable que se abre, selecciona el test <code>test_port_rgb_light</code>. Se compilará y se cargará en la placa.</p>
@@ -599,51 +788,50 @@
 <p>Comprueba que todos los test pasan correctamente en el texto mostrado en la terminal de depuración. Si no es así, lee los mensajes de error y corrige tu código hasta que pase todas las pruebas. <strong>Si no pasa las pruebas, no continúes con el siguiente test.</strong></p>
 </li>
 <li>
-<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pase todos los test.</p>
+<p>Termina la depuración pulsando (<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_stop.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/></a>) y repite el proceso hasta que pase todos los test.</p>
 </li>
 </ol>
-<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del RGB light!</strong> Vamos ahora a implementar la parte <code>COMMON</code>.</p>
-<h2 id="common-cabecera-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4</span> <code>COMMON</code>: cabecera de la FSM del RGB light<a class="headerlink" href="#common-cabecera-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
-<h5 id="consideraciones-de-la-fsm-del-RGB" light="light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4.0.0.1</span> Consideraciones de la FSM del RGB light<a class="headerlink" href="#consideraciones-de-la-fsm-del-RGB" title="Permanent link">¶</a></h5>
-<h5 id="_2"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.4.0.0.2</span> <a class="headerlink" href="#_2" title="Permanent link">¶</a></h5>
+<p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del <em>RGB light</em>!</strong> Vamos ahora a implementar la parte <code>COMMON</code>.</p>
+<h2 id="common-cabecera-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5</span> <code>COMMON</code>: cabecera de la FSM del <em>RGB light</em><a class="headerlink" href="#common-cabecera-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
+<h3 id="consideraciones-de-la-fsm-del-RGB" light="light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5.1</span> Consideraciones de la FSM del <em>RGB light</em><a class="headerlink" href="#consideraciones-de-la-fsm-del-RGB" title="Permanent link">¶</a></h3>
 <p>Antes de empezar vamos a partir de una serie de consideraciones.</p>
 <ul>
 <li>
-<p>La FSM <strong>almacena la última distancia que se le ha indicado que tiene que representar</strong>.</p>
+<p>La FSM <strong>almacena el último color que se le ha indicado que tiene que representar y su intensidad</strong>. La intensidad se almacena en porcentaje como un un <code>uint8_t</code> pero ha de estar limitada a <code>MAX_LEVEL_INTENSITY</code> igual a <span class="arithmatex">\(100\)</span> cuando se opere con ella. El color se almacena en una estructura de tipo <code>rgb_color_t</code>.</p>
 </li>
 <li>
-<p>La FSM contiene un campo de estado (<code>status</code>) que indica si el RGB light está activo. <strong>El sistema Simone puede estar en modo aparcamiento y el ultrasonidos puede estar tomando medidas, pero el RGB light se puede desactivar para que no moleste.</strong> Si el RGB light está desactivado, no se mostrará ningún color. Esto es habitual, sobre todo cuando el sistema de notificación de obstáculos es un pitido. En otras situaciones, por ejemplo, con más sensores alrededor del coche, el RGB light puede estar activo.</p>
-<p>La máquina de estados superior, la del sistema Simone, será la que indique si el RGB light está activo o no. La FSM del RGB light solo se encargará de representar la distancia en colores si está activo.</p>
+<p>La FSM contiene un campo de estado (<code>status</code>) que indica si el <em>RGB light</em> está activo. Si el <em>RGB light</em> está desactivado, no se mostrará ningún color. Esto puede ser útil si, por ejemplo, tenemos más de un <em>RGB light</em> en el sistema y queremos desactivar alguno de ellos.</p>
+<p>La máquina de estados superior, la del sistema Simone, será la que indique si el <em>RGB light</em> está activo o no. La FSM del <em>RGB light</em> solo se encargará de representar los colores si está activo.</p>
 </li>
 <li>
-<p>La FSM contiene otro <em>flag</em> que indica si el RGB light está en modo ocioso (<code>idle</code>). En este estado, el RGB light ya ha puesto un color, no se ha cambiado la distancia, y podemos entrar en un modo de bajo consumo <em>Sleep Mode</em> (Versión 4). Esto puede ser normal en una situación en la que se está aparcando (marcha atrás) y no se está moviendo. En <em>Sleep Mode</em>, el núcleo del procesador se detiene, pero los periféricos y el sistema de reloj continúan funcionando, por eso el LED permanecerá encendido en el color que se haya quedado.</p>
+<p>La FSM contiene otro <em>flag</em> que indica si el <em>RGB light</em> está en modo ocioso (<code>idle</code>). En este estado, el <em>RGB light</em> ya ha puesto un color, no se ha cambiado éste ni la intensidad, y podemos entrar en un modo de bajo consumo <em>Sleep Mode</em> <a href="version_4.html">Versión 4</a>. En <em>Sleep Mode</em>, el núcleo del procesador se detiene, pero los periféricos y el sistema de reloj continúan funcionando, por eso el LED permanecerá encendido en el color que se haya quedado.</p>
 </li>
 <li>
-<p>El <em>flag</em> <code>new_color</code> lo activa la máquina de estados de Simone cuando se ha cambiado la distancia a representar. La FSM del RGB light comprobará este <em>flag</em> para saber si tiene que cambiar el color del LED.</p>
+<p>El <em>flag</em> <code>new_color</code> lo activa la máquina de estados de Simone cuando se ha cambiado el color a representar. La FSM del <em>RGB light</em> comprobará este <em>flag</em> para saber si tiene que cambiar el color del LED.</p>
 </li>
 <li>
-<p>El valor de inicio de distancia al arrancar la FSM debe ser negativo, de tal manera que nos aseguremos que es una distancia inválida y el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> permanezca apagado. <strong>El valor de la distancia se mide en centímetros.</strong></p>
+<p>El valor de inicio de intensidad al arrancar debe ser el máximo permitido. <strong>El intensidad se da en porcentaje.</strong></p>
 </li>
 <li>
-<p>La FSM contiene información del identificador (<code>ID</code>) del RGB light. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIO a la que está conectado) para todos los RGB light (LED) <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> del sistema.</p>
+<p>La FSM contiene información del identificador (<code>ID</code>) del <em>RGB light</em>. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIO a la que está conectado) para todos los LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> del sistema.</p>
 </li>
 </ul>
-<figure><embed id="fig:fsm_rgb_light" src="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light.pdf" style="width:100.0%"/><figcaption aria-hidden="true">Máquina de estados del <em>RGB light</em>.</figcaption></figure>
-<p>Nuestra librería implementa la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> mostrada en la y que llamaremos <code>fsm_rgb_light</code> (en los ficheros <code>.c</code> y <code>.h</code>). Tiene 2 estados en los que:</p>
+<figure><embed id="fig:fsm_rgb_light" src="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light.svg" style="width:75.0%"/><figcaption aria-hidden="true">Máquina de estados del <em>RGB light</em>.</figcaption></figure>
+<p>Nuestra librería implementa la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> mostrada en la <a href="#fig:fsm_rgb_light">figura</a> y que llamaremos <code>fsm_rgb_light</code> (en los ficheros <code>.c</code> y <code>.h</code>). Tiene 2 estados en los que:</p>
 <ul>
 <li>
-<p><code>WAIT_COLOR</code>: estado inicial de la FSM. En este estado la FSM espera a que se le indique una distancia para representar. Si se le indica una distancia, se calcula el color y se cambia al estado <code>SET_COLOR</code>. También se vuelve a este estado cuando el sistema de aparcamiento no está activo (<code>status</code> es <code>false</code>).</p>
+<p><code>IDLE_RGB</code>: estado inicial de la FSM en el que espara a ser activada. Si se le activa se cambia al estado <code>SET_COLOR</code>. También se vuelve a este estado cuando el sistema no está activo (<code>status</code> es <code>false</code>).</p>
 </li>
 <li>
-<p><code>SET_COLOR</code>: en este estado la FSM calcula el color en función de la distancia que se le ha indicado. Tras poner el color, se activa el <em>flag</em> <code>idle</code> y se queda en este estado.</p>
+<p><code>SET_COLOR</code>: en este estado la FSM espera a que se le haya pasado un nuevo color base y/o una intensidad nueva. Tras poner el color, se activa el <em>flag</em> <code>idle</code> y se queda en este estado. El nuevo color se corrige modificando la intensidad del color base recibido según el porcentaje de intensidad indicado; esto se hace con la función privada <code>_correct_rgb_light_levels()</code> que deberá implementar. Si se le desactiva el sistema, vuelve al estado <code>IDLE_RGB</code>.</p>
 </li>
 </ul>
-<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la . El tipo de esta estructura está declarada en el fichero <code>fsm_rgb_light.h</code> (<code>typedef struct fsm_rgb_light_t fsm_rgb_light_t;</code>), pero la definición de la estructura está en el fichero <code>.c</code>.</p>
+<p>La parte <code>COMMON</code> de nuestra librería trabaja con la estructura (<code>struct</code>) <strong>pública</strong> que se muestra en la <a href="#fig:fsm_rgb_light_t">figura (c) <code>fsm_rgb_light_t</code></a>. El tipo de esta estructura está declarada en el fichero <code>fsm_rgb_light.h</code>.</p>
 <ol>
-<li>Lo primero, descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>RGB light</em> correspondientes a la versión <code>V3</code>: <a href="https://github.com/sdg2DieUpm/Simone/tree/simone_v3">https://github.com/sdg2DieUpm/Simone/tree/simone_v3</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_rgb_light.h</code> y <code>fsm_rgb_light.c</code>. Ponlos en las carpetas correspondientes de tu proyecto.</li>
-</ol>
-<p>Ahora, vamos a completar la cabecera de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del RGB light, <code>fsm_rgb_light.h</code>.</p>
-<ol>
+<li>
+<p>Lo primero, descarga del repositorio de la asignatura los ficheros correspondientes <strong>a la parte COMMON</strong> de la librería del <em>RGB light</em> correspondientes a la versión <code>V3</code>: <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3">https://github.com/sdg2DieUpm/simone/tree/simone_v3</a>. Solo descarga lo que faltaba por implementar, es decir, los ficheros <code>fsm_rgb_light.h</code> y <code>fsm_rgb_light.c</code>. Ponlos en las carpetas correspondientes de tu proyecto.</p>
+<p>Ahora, vamos a completar la cabecera de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del <em>RGB light</em>, <code>fsm_rgb_light.h</code>.</p>
+</li>
 <li>
 <p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
 </li>
@@ -651,68 +839,51 @@
 <p>Ahora vamos a definir el enumerado con los nombres de los estados de la FSM. Escribe el <code>enum</code> <code>FSM_RGB_LIGHT_SYSTEM</code> con los nombres de los estados del diagrama de la .</p>
 </li>
 <li>
-<p>Defina los <code>#define</code> que se indican en la API para las distancias máximas y mínimas que se pueden representar en el RGB light. Estas distancias son las que se indican en el . <strong>El valor de la distancia se mide en centímetros, y el máximo de un umbral coincide con el mínimo del siguiente,</strong> *e.g.* <code>DANGER_MAX_CM</code> es igual a <code>LEVEL_MEDIUM_MIN_INTENSITY</code>, <em>etc.</em></p>
+<p>Defina los <code>#define</code> que se indican en la API para el máximo nivel de intensidad porcentual que se pueden manejar en el <em>RGB light</em>.</p>
 </li>
 <li>
 <p>Es buena práctica ir documentado el código a la vez que se programa.</p>
 </li>
 <li>
-<p>Seguidamente <strong>declararemos</strong> la estructura <code>fsm_rgb_light_t</code> para hacerla pública. No obstante, no vamos definir sus campos públicamente, como se ha indicado anteriormente.</p>
-</li>
-</ol>
+<p>Seguidamente <strong>declararemos</strong> la estructura <code>fsm_rgb_light_t</code> y definimos sus campos. <span style="color: Red"><strong>Es muy importante que la máquina de estados del <em>RGB light</em></strong> <code>fsm_t</code> <strong>sea el primer campo</strong></span>.</p>
 <p>Continuamos con las declaraciones de funciones públicas de la librería. <strong>Procedamos</strong>:</p>
-<ol>
+</li>
 <li>
-<p>Escribe los prototipos de las <strong>funciones públicas</strong> que aparecen en la API del fichero <code>fsm_rgb_light.h</code>. Añada la función <code>fsm_rgb_light_check_activity()</code> aunque la usaremos en la siguiente versión, también será necesaria para el test de la FSM.</p>
+<p>Escribe los prototipos de las <strong>funciones públicas</strong> que aparecen en la API del fichero <code>fsm_rgb_light.h</code>. Añada la función <code>fsm_rgb_light_check_activity()</code> que, aunque la usaremos en la siguiente versión, también será necesaria para el test de la FSM.</p>
 </li>
 <li>
 <p>Puede ser buen momento ahora para documentar las funciones con Doxygen.</p>
 </li>
 </ol>
 <p>Vamos ahora a programar el fichero fuente <code>fsm_rgb_light.c</code>.</p>
-<h2 id="common-fuente-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5</span> <code>COMMON</code>: fuente de la FSM del RGB light<a class="headerlink" href="#common-fuente-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
-<p>Vamos a proceder con la implementación de las funciones del <em>RGB light</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y la <strong>función privada</strong> que aparece en la API del fichero <code>fsm_rgb_light.c</code>. También definiremos las variables globales y estructuras que sean necesarias. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
-<ul>
-<li>
-<p>Lo primero que debe aparecer es la inclusión de cabeceras como indica la API.</p>
-</li>
-<li>
-<p>Vamos a declarar la estructura <code>fsm_rgb_light_t</code>. Definiremos la estructura con los campos que se muestran en la . <span style="color: Red"><strong>Es muy importante que la máquina de estados del RGB light</strong> <code>fsm_t</code> <strong>sea el primer campo</strong></span>.</p>
-</li>
-<li>
-<p>De igual modo, es buen momento para aprovechar a documentar la estructura.</p>
-</li>
-</ul>
-<p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. Bajo la línea de <code>/* Private functions */</code> vamos a codificar la función <code>_compute_rgb_light_levels()</code>.</p>
+<h2 id="common-fuente-de-la-fsm-del-rgb-light"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.6</span> <code>COMMON</code>: fuente de la FSM del RGB light<a class="headerlink" href="#common-fuente-de-la-fsm-del-rgb-light" title="Permanent link">¶</a></h2>
+<p>Vamos a proceder con la implementación de las funciones del <em>RGB light</em>. Deberás implementar todas las <strong>funciones públicas</strong> de las que ya has declarado el prototipo en el encabezado, y la <strong>función privada</strong> <code>_correct_rgb_light_levels()</code> que aparece en la API del fichero <code>fsm_rgb_light.c</code>. <strong>¡Recuerda que las funciones privadas no se declaran en el <code>.h</code>!</strong></p>
 <ol>
 <li>
-<p>Codifica la función <code>_compute_rgb_light_levels()</code> que se encarga de calcular los niveles de ciclo de trabajo de cada LED rejo, verde y azul. Esta función recoge de la estructura de la FSM la distancia, y sigue el flujograma de la API. <strong>Puedes asignar el valor a cada campo de la estructura</strong> <code>rgb_color_t *p_color</code> <strong>directamente o, si definiste las estructuras de colores en el <code>.h</code>, puedes asignarlas a la estructura de color.</strong> <strong><span style="color: red">Ten en cuenta que el valor que almacenan no es el ciclo de trabajo entre 0 y 100, sino entre 0 y 255.</span></strong></p>
+<p>Lo primero que debe aparecer es la inclusión de cabeceras como indica la API.</p>
+<p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. Bajo la línea de <code>/\* Private functions \*/</code> vamos a codificar la función <code>_correct_rgb_light_levels()</code>.</p>
+</li>
+<li>
+<p>Codifica la función <code>_correct_rgb_light_levels()</code> que se encarga de calcular los niveles de ciclo de trabajo de cada LED rejo, verde y azul. Esta función simplemente multiplica por un valor entre [0, 1] cada uno de los componentes RGB. Esta función <strong><span style="color: red">Ten en cuenta que el valor que almacenan no es el ciclo de trabajo entre 0 y 100, sino que quedará entre 0 y 255. ¡El ciclo de trabajo se calcula en <code>port_rgb_light_set_rgb()</code>!</span></strong></p>
 </li>
 <li>
 <p>Documenta la función con Doxygen.</p>
+<p><strong>Continuamos con las funciones de entrada o comprobación <code>check_</code> de la FSM</strong> bajo la línea de <code>/\* State machine input or transition functions \*/</code>.</p>
 </li>
-</ol>
-<p><strong>Continuamos con las funciones de entrada o comprobación <code>check_</code> de la FSM</strong> bajo la línea de <code>/* State machine input or transition functions */</code>.</p>
-<ol>
 <li>
 <p>Codifica las funciones <code>check_active()</code>, <code>check_set_new_color()</code> y, <code>check_off()</code> como se indica en la API.</p>
 </li>
 <li>
 <p>Documenta las funciones con Doxygen, encima del nombre de cada función.</p>
-</li>
-</ol>
 <p><strong>Seguiremos con las funciones de salida o actualización de la FSM <code>do_</code></strong>.</p>
-<ol>
+</li>
 <li>
 <p>Codifica las funciones <code>do_set_on()</code>, <code>do_set_color()</code> y, <code>do_set_off()</code> como se indica en la API.</p>
 </li>
 <li>
 <p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
-</li>
-</ol>
-<h5 id="_3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.5.0.0.1</span> <a class="headerlink" href="#_3" title="Permanent link">¶</a></h5>
 <p>Todavía no hemos acabado con el desarrollo, pero puedes compilar para ir depurando errores.</p>
-<ol>
+</li>
 <li>
 <p>Declara la tabla de transiciones de la FSM <code>fsm_trans_rgb_light</code>. Esto eliminará muchos errores de compilación.</p>
 </li>
@@ -723,20 +894,17 @@
 <p>Codifica las funciones <code>fsm_rgb_light_fire()</code> y <code>fsm_rgb_light_destroy()</code> igual que hiciste en las versiones anteriores. Estas funciones lanzan la FSM y liberan la memoria respectivamente.</p>
 </li>
 <li>
-<p>Codifica las funciones <code>fsm_rgb_light_get_inner_fsm()</code> y <code>fsm_rgb_light_get_state()</code>. Se usarán en el test de la FSM.</p>
+<p>Codifica el resto de las funciones <code>fsm_rgb_light_xxx()</code> públicas que quedan declaradas en el <code>.h</code> como se indica en la API.</p>
 </li>
 <li>
-<p>Codifica las funciones <code>fsm_rgb_light_get_intensity()</code>, <code>fsm_rgb_light_set_level()</code>, <code>fsm_rgb_light_get_status()</code> y <code>fsm_rgb_light_set_status()</code> como se indica en la API.</p>
+<p>Documenta el código que esté sin comentar todavía.</p>
 </li>
 </ol>
-<p><strong>Ya hemos acabado con la programación de la librería del RGB light.</strong> Ahora, si compilas, no deberán aparecer errores.</p>
-<ol>
-<li>Documenta el código que esté sin comentar todavía.</li>
-</ol>
-<h2 id="sec:test_fsm_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.6</span> <code>COMMON</code> Test unitario de la FSM del RGB light<a class="headerlink" href="#sec:test_fsm_v3" title="Permanent link">¶</a></h2>
-<p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del RGB light y probar que funciona antes de continuar con la siguiente versión.</p>
+<p><strong>Ya hemos acabado con la programación de la librería del <em>RGB light</em>.</strong> Ahora, si compilas, no deberán aparecer errores.</p>
+<h2 id="sec:test_fsm_v3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.7</span> <code>COMMON</code> Test unitario de la FSM del RGB light<a class="headerlink" href="#sec:test_fsm_v3" title="Permanent link">¶</a></h2>
+<p>Vamos a hacer el test del código que hemos desarrollado de la librería de la máquina de estados del <em>RGB light</em> y probar que funciona antes de continuar con la siguiente versión.</p>
 <p><span style="color: Red"><strong>¡Importante! Recuerda que los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span></p>
-<p>Descarga el fichero de test de la FSM del RGB light <code>test_fsm_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
+<p>Descarga el fichero de test de la FSM del <em>RGB light</em> <code>test_fsm_rgb_light.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>test/</code> de tu proyecto. <strong>¡No lo metas en stm32f4/, pues no es un test específico del microcontrolador!</strong></p>
 <ol>
 <li>
 <p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
@@ -754,14 +922,14 @@
 <p>Comprueba los mensajes del <code>gdb-server</code> para ver el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
 </li>
 <li>
-<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
+<p>Termina la depuración pulsando (<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_stop.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/></a>) y repite el proceso hasta que pasen todos los test.</p>
 </li>
 </ol>
-<h2 id="ejemplo-de-uso-de-la-version-3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.7</span> Ejemplo de uso de la Versión 3<a class="headerlink" href="#ejemplo-de-uso-de-la-version-3" title="Permanent link">¶</a></h2>
-<p>En este test de integración del RGB light es responsabilidad del alumno comprobar que la funcionalidad es la esperada. El ejemplo que se da no contempla todas las situaciones.</p>
-<p>Descarga el fichero de ejemplo <code>example3̌.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
+<h2 id="ejemplo-de-uso-de-la-version-3"><span class="enumerate-headings-plugin enumerate-heading-plugin">6.8</span> Ejemplo de uso de la Versión 3<a class="headerlink" href="#ejemplo-de-uso-de-la-version-3" title="Permanent link">¶</a></h2>
+<p>En este test de integración del <em>RGB light</em> es responsabilidad del alumno comprobar que la funcionalidad es la esperada. El ejemplo que se da no contempla todas las situaciones.</p>
+<p>Descarga el fichero de ejemplo <code>example_v3.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v3_test">https://github.com/sdg2DieUpm/simone/tree/simone_v3_test</a>. Ponlo en la carpeta <code>example/</code> de tu proyecto.</p>
 <p><strong>Procedamos</strong>:</p>
-<p>Para poder hacer el ejemplo del RGB light, necesitamos montar el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En la se muestra un ejemplo de montaje.</p>
+<p>Para poder hacer el ejemplo del <em>RGB light</em>, necesitamos montar el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En el <a href="#fig:fritzing_rgb_light">esquema de la figura</a> se muestra un ejemplo de montaje.</p>
 <ol>
 <li>
 <p>Monte el HW como se muestra en la .</p>
@@ -770,7 +938,7 @@
 <p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
 </li>
 <li>
-<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+<p>Pulsa sobre el <strong>icono de depuración <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_debug.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/></a> y selecciona <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_run.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/></a> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
 </li>
 <li>
 <p>En el desplegable que se abre, selecciona el test <code>example_v3</code>. Se compilará y se cargará en la placa.</p>
@@ -782,7 +950,7 @@
 <p>Abre la terminal del <code>gdb-server</code> para ver los mensajes que se van imprimiendo.</p>
 </li>
 <li>
-<p>Comprueba que los colores del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> cambian en función de la distancia que se le indica en los mensajes de la terminal.</p>
+<p>Comprueba que los colores del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> cambian en función de la intensidad que se le indica en los mensajes de la terminal.</p>
 </li>
 <li>
 <p>Haz distintas pruebas y asegúrate de que el comportamiento es el adecuado.</p>
@@ -798,7 +966,7 @@
 <p>Josué Pagán Ortiz. <em>Fundamentos teóricos de sistemas basados en microcontrolador STM32</em>. Universidad Politécnica de Madrid, 2024. <a class="footnote-backref" href="#fnref:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref4:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref5:stm322025fundamentos" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:st2021datasheet">
-<p>STMicroelectronics. Stm32f446xc/e. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</a>. <a class="footnote-backref" href="#fnref:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref3:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a></p>
+<p>STMicroelectronics. Stm32f446xc/e. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/datasheet/stm32f446re.pdf">https://www.st.com/resource/en/datasheet/stm32f446re.pdf</a>. <a class="footnote-backref" href="#fnref:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref3:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref4:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref5:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref6:st2021datasheet" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:st2021reference">
 <p>STMicroelectronics. Rm0390 reference manual. stm32f446xx advanced arm-based 32-bit mcus. Technical Report, STMicroelectronics, 2021. URL: <a href="https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf</a>. <a class="footnote-backref" href="#fnref:st2021reference" title="Jump back to footnote 3 in the text">↩</a></p>
@@ -838,5 +1006,6 @@
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-</body>
-</html>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

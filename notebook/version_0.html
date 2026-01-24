@@ -1,8 +1,5 @@
-
 <!DOCTYPE html>
-
-<html class="no-js" lang="es">
-<head>
+<html class="no-js" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_0.html" rel="canonical"/>
@@ -18,7 +15,17 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../stylesheets/notebook-extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
 <body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -423,14 +430,14 @@
 </div>
 <h2 id="version-0-simone"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> Versión 0: Simone<a class="headerlink" href="#version-0-simone" title="Permanent link">¶</a></h2>
 <p>En esta sección se muestra el esquema general del sistema, y se presenta cómo has de configurar el proyecto en <em>VSCode</em>.</p>
-<figure><img alt="Diagrama de elementos del sistema." id="fig:proyecto_base_dia" src="../assets/notebook_imgs/pr_chapters/version_0/diagram.svg" style="width:100.0%"><figcaption aria-hidden="true">Diagrama de elementos del sistema.</figcaption></img></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/diagram.svg"><img alt="Diagrama de elementos del sistema." id="fig:proyecto_base_dia" src="../assets/notebook_imgs/pr_chapters/version_0/diagram.svg" style="width:100.0%"/></a><figcaption aria-hidden="true">Diagrama de elementos del sistema.</figcaption></figure>
 <p>Nuestro sistema base versiona el clásico juego de los 80's, Simon. Cuando se presiona el botón de usuario (el <span style="color: Blue"><strong>azul</strong></span>) durante un tiempo indica que se quiere encender, o apagar, el juego. En ese instante el sistema central encenderá el <em>RGB light</em> (<a href="acronimos.html#acro:LED"><strong>LED</strong></a> <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>) con la primera secuencia del juego en en nivel fácil (<code>LEVEL_EASY</code>). Cuando acaba de reproducirse (<em>playback</em>) la secuencia, se activa la excitación de las filas del teclado matricial (4x4) de forma iterativa, y se duerme para esperar una interrupción en alguna de las columnas. Cuando se detecta una pulsación, se comprueba si es la correcta. Si lo es, se vuelve a reproducir la secuencia con un nuevo paso añadido. Si no lo es, se enciende el <em>RGB light</em> en rojo para indicar el fallo, y se vuelve a empezar desde el principio. Si se pulsa el botón de usuario durante un tiempo largo, el sistema se apaga. Ve el video demostrativo en <a href="#TODO"><strong>Demostración del sistema Simone</strong></a>. La <a href="#fig:proyecto_base_dia">figura del diagrama</a> muestra los 4 bloques que conforman el sistema:</p>
 <ol>
 <li>
 <p><strong>El sistema central con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span></strong> aloja el microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>. Se encarga de gestionar, el encendido y apagado del sistema <em>Simone</em>, de interpretar las pulsaciones del usuario.</p>
 </li>
 <li>
-<p>La placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> también tiene el botón de usuario <code>B1</code>, y el <a href="acronimos.html#acro:LED"><strong>LED</strong></a> de usuario <code>LD2</code>. Estos conforman <strong>el sub-sistema de control básico</strong>. El botón se usará para detectar pulsaciones que el sistema central interpretará para cambiar encender/ apagar, u otras implementaciones que el quieras hacer en <a href="../version_5">Versión 5</a>. El LED de la placa podrá usarse para saber si hemos realizado correctamente una operación, a modo de <em>feedback</em>.</p>
+<p>La placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> también tiene el botón de usuario <code>B1</code>, y el <a href="acronimos.html#acro:LED"><strong>LED</strong></a> de usuario <code>LD2</code>. Estos conforman <strong>el sub-sistema de control básico</strong>. El botón se usará para detectar pulsaciones que el sistema central interpretará para cambiar encender/ apagar, u otras implementaciones que el quieras hacer en <a href="version_5.html">Versión 5</a>. El LED de la placa podrá usarse para saber si hemos realizado correctamente una operación, a modo de <em>feedback</em>.</p>
 </li>
 <li>
 <p><strong>El teclado matricial</strong>. Representa a un dispositivo HW que permite al usuario interactuar con el sistema. En este caso, el teclado matricial es de <span class="arithmatex">\(4\times4\)</span> teclas, y se usará para que el usuario introduzca la secuencia que el sistema le va indicando. Se trata de un <strong>teclado matricial de membrana</strong> en el que se excitan las filas y se irán leyendo las columnas para identificar qué tecla se ha pulsado.</p>
@@ -451,7 +458,7 @@
 <p>Deberá tener una estructura de directorios como la de la <a href="#fig:project_structure">figura de árbol de directorios</a>:</p>
 </li>
 </ol>
-<figure><img alt="Árbol de directorios tras descargar el proyecto Simone." id="fig:project_structure" src="../assets/notebook_imgs/pr_chapters/version_0/project_tree.png" style="width:70.0%"><figcaption aria-hidden="true">Árbol de directorios tras descargar el proyecto Simone.</figcaption></img></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/project_tree.png"><img alt="Árbol de directorios tras descargar el proyecto Simone." id="fig:project_structure" src="../assets/notebook_imgs/pr_chapters/version_0/project_tree.png" style="width:70.0%"/></a><figcaption aria-hidden="true">Árbol de directorios tras descargar el proyecto Simone.</figcaption></figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Los puestos del laboratorio utilizan Windows 10. A priori no deberı́a haber conflicto con la configuración del proyecto en VSCode entre máquinas. No obstante, <strong>puedes trabajar con tu portátil en el laboratorio si te es más cómodo</strong> que llevar y traer el código cada dı́a. <strong>Sı́ es obligatorio que traigas tu placa Nucleo-STM32 y el HW necesario.</strong></p>
@@ -464,10 +471,10 @@
 <p>Conviene que, si no lo has hecho ya, <strong>leas el capítulo <em>“Desarrollando para <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span>”</em></strong> <sup id="fnref5:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">4</a></sup> y te familiarices con la estructura de proyecto y los conceptos.</p>
 </li>
 </ol>
-<figure><img alt="Proyecto Simone en VSCode." id="fig:vscode_project" src="../assets/notebook_imgs/pr_chapters/version_0/vscode_project.png" style="width:75.0%"/><figcaption aria-hidden="true">Proyecto Simone en VSCode.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/vscode_project.png"><img alt="Proyecto Simone en VSCode." id="fig:vscode_project" src="../assets/notebook_imgs/pr_chapters/version_0/vscode_project.png" style="width:75.0%"/></a><figcaption aria-hidden="true">Proyecto Simone en VSCode.</figcaption></figure>
 <p>Verás que el proyecto ya tiene algunos ficheros de partida. Los ficheros de cabecera (<code>.h</code>) definen nuevos tipos de variable, contienen <code>#define</code>, hacen <code>#include</code> de otros ficheros, y declaran variables. Si abres los ficheros <code>port_system.h</code> (<a href="#fig:port_system_h">ver figura</a>) o <code>stm32f4_system.h</code> verás que son muy verbosos; casi todo son líneas de comentario. La gran mayoría son líneas de comentario interpretables por el generador de documentación Doxygen. Esto se ha hecho así para que puedas desarrollar el código basándote en la <a href="acronimos.html#acro:API"><strong>API</strong></a> disponible en la página de <em>GitHub Pages</em>: <a href="https://sdg2dieupm.github.io/simone/">https://sdg2dieupm.github.io/simone/</a>. <strong>Tendrás que tener esta página siempre a mano</strong><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Solo tiene algunos ficheros con ejemplo de documentación Doxygen; tú tendrás que completar el de cada función que desarrolles fijándote en los <strong><code>TODO alumnos</code></strong> de las descripciones de función. Más adelante se te indicará cómo utilizarla.</p>
 <p><strong>En la carpeta <code>common</code> verás que hay dos ficheros <code>header.h</code> y <code>source.c</code> que indican que han de ser borrados. Están ahí para que veas cómo se estructura del proyecto completo. Bórralos cuando añadas los ficheros de la Versión V1.</strong></p>
-<figure><img alt="Documentación de una función con Doxygen para generar la API." id="fig:port_system_h" src="../assets/notebook_imgs/pr_chapters/version_0/port_system_h.png" style="width:75.0%"/><figcaption aria-hidden="true">Documentación de una función con Doxygen para generar la API.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/port_system_h.png"><img alt="Documentación de una función con Doxygen para generar la API." id="fig:port_system_h" src="../assets/notebook_imgs/pr_chapters/version_0/port_system_h.png" style="width:75.0%"/></a><figcaption aria-hidden="true">Documentación de una función con Doxygen para generar la API.</figcaption></figure>
 <p>Podemos empezar ahora con la gestión de las funciones básicas del sistema y las de acceso a las GPIO. En las siguientes secciones vamos a ver (i) un conjunto de funciones genéricas de sistema, (ii) a desarrollar alguna función relacionada con la temporización del sistema, y (iii) funciones de configuración y manejo de las GPIO. <strong>Fíjate que dividimos por puntos enumerados las acciones a realizar. Ten esto en cuenta para llevar un orden y no perderse</strong>.</p>
 <h2 id="funciones-de-inicializacion-del-sistema"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.2</span> Funciones de inicialización del sistema<a class="headerlink" href="#funciones-de-inicializacion-del-sistema" title="Permanent link">¶</a></h2>
 <p>Como se comenta en el capítulo <em>“Arranque del sistema”</em> del libro de <em>“Fundamentos prácticos”</em> <sup id="fnref:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">4</a></sup>, antes de ir a la función <code>main()</code> el microcontrolador debe realizar el <em>boot</em> del sistema. En dicho capítulo se indica que una de las cosas que hace antes es llamar a la función <code>SystemInit()</code>. Lea dicho capítulo del libro.</p>
@@ -510,12 +517,12 @@
 <p>Compila el código. Lo podemos hacer de varias maneras. Típicamente, lo haremos en depuración, <strong>con la placa conectada</strong>, pero por ahora, podemos construir los binarios sin necesidad de la placa. En este orden:</p>
 <ol>
 <li>
-<p><strong>Primero generamos las reglas de compilación</strong> con <code>CMake</code>: Menú <code>Terminal→ Run Task... → Run CMake → stm32f446re (Default) → Release (Default)</code></p>
+<p><strong>Primero generamos las reglas de compilación</strong> con <code>CMake</code>: Menú <code>Terminal&amp;rarr; Run Task... &amp;rarr; Run CMake &amp;rarr; stm32f446re (Default) &amp;rarr; Release (Default)</code></p>
 <p>Esto generará las carpetas <code>build/Release/</code> con todas las reglas de compilación.</p>
 <p><span style="color: Red"><strong>Si no vas a trabajar en modo depuración, es necesario que generes las reglas de compilación en modo <code>Release</code> cada vez que añadas un fichero al proyecto</strong>. Si trabajas en modo depuración, no es necesario, se hace automáticamente tras el Clean.</span></p>
 </li>
 <li>
-<p><strong>Seguidamente, compilamos el código</strong>: Menú <code>Terminal→ Run Task... → Build → stm32f446re (Default) → Release (Default) → main</code></p>
+<p><strong>Seguidamente, compilamos el código</strong>: Menú <code>Terminal&amp;rarr; Run Task... &amp;rarr; Build &amp;rarr; stm32f446re (Default) &amp;rarr; Release (Default) &amp;rarr; main</code></p>
 </li>
 </ol>
 </li>
@@ -527,7 +534,7 @@
 </div>
 <p>En el fichero <code>stm32f4_system.c</code>, tenemos la variable global <code>msTicks</code>. <strong><code>msTicks</code> es una variable muy importante que hemos definido para llevar la cuenta (ticks) en milisegundos del sistema, y está controlado por <span style="color: Red"><code>SysTick</code></span></strong> (ver capítulo de <em>“Circuito de reloj”</em> del libro de Fundamentos Teóricos <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">4</a></sup>). El valor guardado en <code>msTicks</code> se actualiza cada vez que el reloj de sistema <span style="color: Red"><code>SysTick</code></span> genera una <strong>interrupción</strong>. Puesto que las interrupciones podemos deshabilitarlas —como en los modos de bajo consumo—, <strong>el valor almacenado NO será un valor absoluto desde que se inició el sistema, sino un valor que podremos tener en cuenta de forma relativa para contar lapsos de tiempo.</strong> Trabajaremos con esta variable en las siguientes secciones.</p>
 <h3 id="par:system_delay_ms"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3.1</span> Función <code>port_system_delay_ms</code><a class="headerlink" href="#par:system_delay_ms" title="Permanent link">¶</a></h3>
-<p>La función <code>port_system_delay_ms</code> nos podría ser de ayuda en algún momento. Como dice la API, esta función hace una espera activa durante <code>ms</code> milisegundos, <em>i.e.</em>, el programa se bloquea en el <code>while<span class="arithmatex">\(\{\}\)</span></code> que no hace nada durante un tiempo dado. Esta función, para saber cuántos milisegundos han pasado, necesita hacer la resta entre el instante actual y la referencia que coge al inicio <code>tickstart</code>.</p>
+<p>La función <code>port_system_delay_ms</code> nos podría ser de ayuda en algún momento. Como dice la API, esta función hace una espera activa durante <code>ms</code> milisegundos, <em>i.e.</em>, el programa se bloquea en el <code>while$\{\}$</code> que no hace nada durante un tiempo dado. Esta función, para saber cuántos milisegundos han pasado, necesita hacer la resta entre el instante actual y la referencia que coge al inicio <code>tickstart</code>.</p>
 <p>¿Cómo sabemos cuál es el instante actual? Pues con el valor de la variable global <code>msTicks</code>. Esta variable es global y estática (<code>static uint32_t msTicks</code>), por lo que es accesible por todas las funciones de este fichero solo<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. Esta "librería" de sistema <code>stm32f4_system.c</code> ha de proporcionar al resto del código diversas funcionalidades, y una de ellas es la de dar información del tiempo de sistema <code>msTicks</code>. Para ello —y puesto que la variable no es accesible desde el exterior por ser estática—, nos proporciona la función <code>port_system_get_millis()</code>.</p>
 <h3 id="par:system_delay_until"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.3.2</span> Función <code>port_system_delay_until_ms</code><a class="headerlink" href="#par:system_delay_until" title="Permanent link">¶</a></h3>
 <p>La función <code>port_system_delay_until_ms()</code> recibe la referencia del tiempo actual y hace una espera activa hasta <code>ms</code> después. Nos puede ser también de utilidad durante el proyecto. Esta función toma la referencia de tiempos llamando a <code>port_system_get_millis()</code>.</p>
@@ -566,9 +573,9 @@
 </li>
 </ol>
 <p>Ya tenemos hecho el punto <code>1</code> de la <a href="acronimos.html#acro:ISR"><strong>ISR</strong></a> <code>SysTick_Handler()</code> (ver <a href="#fig:systick_api">figura de la API</a>), y que estaba pendiente de hacer (<strong><code>TODO alumnos</code></strong>).</p>
-<figure><img alt="Vista de la API para la ISR &lt;code&gt;SysTick_Handler&lt;/code&gt;." id="fig:systick_api" src="../assets/notebook_imgs/pr_chapters/version_0/systick_api.png" style="width:100.0%"/><figcaption aria-hidden="true">Vista de la API para la ISR <code>SysTick_Handler</code>.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/systick_api.png"><img alt="Vista de la API para la ISR `SysTick_Handler`." id="fig:systick_api" src="../assets/notebook_imgs/pr_chapters/version_0/systick_api.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Vista de la API para la ISR `SysTick_Handler`.</figcaption></figure>
 <p>Podemos comprobar que <strong>el programa sigue compilando correctamente</strong> y viendo que se ha generado el fichero ejecutable <code>.elf</code> en la carpeta <code>bin</code>, donde se guardan los binarios generados a ejecutar por el microcontrolador. Tendremos un mensaje en la terminal similar al que se muestra en la <a href="#fig:compile_ok">figura de compilación</a>.</p>
-<figure><img alt="Compilación exitosa generando el ejecutable &lt;code&gt;.elf&lt;/code&gt;." id="fig:compile_ok" src="../assets/notebook_imgs/pr_chapters/version_0/compile_ok.png" style="width:80.0%"/><figcaption aria-hidden="true">Compilación exitosa generando el ejecutable <code>.elf</code>.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/compile_ok.png"><img alt="Compilación exitosa generando el ejecutable `.elf`." id="fig:compile_ok" src="../assets/notebook_imgs/pr_chapters/version_0/compile_ok.png" style="width:80.0%"/></a><figcaption aria-hidden="true">Compilación exitosa generando el ejecutable `.elf`.</figcaption></figure>
 <h2 id="sec:sys_gpio"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4</span> Configuración y manejo de GPIOs<a class="headerlink" href="#sec:sys_gpio" title="Permanent link">¶</a></h2>
 <p>En esta sección vamos a comprender el código de las funciones de configuración y manejo de las GPIOs y a completar algunas de ellas. Con estas funciones conseguiremos inicializar el modo (<em>i.e.</em>, entrada, salida, o alternativo) de cada pin de la GPIO, configurar interrupciones, y leer y escribir en los puertos.</p>
 <p><strong>Es muy importante que tengas a mano el capítulo </strong>“Configuración de GPIOs”<strong> del libro de <em>“Fundamentos teóricos”</em></strong> <sup id="fnref3:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">4</a></sup>. En esta sección vamos a trabajar con registros. Todo lo que vamos a ver es un repaso de lo que tiene ya en los ejemplos del libro, pero debes asegurarte de entender lo que hace y saber leer las tablas que en él se muestran. No se te va a pedir manejar el <em>reference manual</em> ni el <em>datasheet</em> del microcontrolador, aunque también puedes mirar en ellos si quieres más detalle sobre los registros.</p>
@@ -604,25 +611,25 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>¿Por qué las funciones ahora se llaman <code>stm32f4_system_gpio_...</code> y no <code>port_system_gpio_...</code>? Porque estas funciones reciben y devuelven tipos de datos (estructuras, punteros, …) que son específicas del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>, y no son portables a otros microcontroladores. Por eso, están declaradas en el fichero <code>stm32f4/include/stm32f4_system.h</code> y no en <code>port/include/port_system.h</code>. Si tuviésemos otro microcontrolador, tendríamos que incluirla en su carpeta correspondiente y adaptar el prototipo de la función.</p>
+<p>¿Por qué las funciones ahora se llaman <code>stm32f4_system_gpio\_...</code> y no <code>port_system_gpio\_...</code>? Porque estas funciones reciben y devuelven tipos de datos (estructuras, punteros, …) que son específicas del microcontrolador <span style="color: RoyalBlue; font-weight: bold;">STM32F446RE</span>, y no son portables a otros microcontroladores. Por eso, están declaradas en el fichero <code>stm32f4/include/stm32f4_system.h</code> y no en <code>port/include/port_system.h</code>. Si tuviésemos otro microcontrolador, tendríamos que incluirla en su carpeta correspondiente y adaptar el prototipo de la función.</p>
 </div>
 <h3 id="par:gpio_config"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.1</span> Función <code>stm32f4_system_gpio_config</code><a class="headerlink" href="#par:gpio_config" title="Permanent link">¶</a></h3>
 <p>Esta función configura el modo de la GPIO: <strong>entrada, salida o función alternativa</strong>, y el tipo de conexión a la que está el pin (conectada a resistencias de <em>pull-up</em>, o de <em>pull-down</em>). Sirva este primer punto para establecer las bases de cómo se codifican las funciones. Tengamos a mano la entrada de la API. La <a href="#fig:gpio_api">figura</a> muestra la descripción de la anatomía de una entrada de la API.</p>
-<figure><img alt="Vista de la API para la función &lt;code&gt;stm32f4_system_gpio_config&lt;/code&gt;." id="fig:gpio_api" src="../assets/notebook_imgs/pr_chapters/version_0/api_gpio_config.png" style="width:85.0%"/><figcaption aria-hidden="true">Vista de la API para la función <code>stm32f4_system_gpio_config</code>.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/api_gpio_config.png"><img alt="Vista de la API para la función `stm32f4_system_gpio_config`." id="fig:gpio_api" src="../assets/notebook_imgs/pr_chapters/version_0/api_gpio_config.png" style="width:85.0%"/></a><figcaption aria-hidden="true">Vista de la API para la función `stm32f4_system_gpio_config`.</figcaption></figure>
 <p>Como dice el punto <code>1</code> de la API, lo primero que se hace es habilitar el reloj de las GPIO. Esto se indica en los ejemplos del capítulo <strong>“Configuración de GPIOs”</strong> del libro como:</p>
 <div class="highlight"><pre><span></span><code><span class="n">RCC</span><span class="o">-&gt;</span><span class="n">AHB1ENR</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">RCC_AHB1ENR_GPIOAEN</span><span class="p">;</span><span class="w"> </span><span class="cm">/* GPIOA clock enable */</span>
 </code></pre></div>
 <p>Esta línea de código activa el bit <code>RCC_AHB1ENR_GPIOAEN</code> (GPIOA) del registro <code>RCC_AHB1ENR</code>. Vamos por partes:</p>
 <ul>
 <li>
-<p>El <a href="acronimos.html#acro:RCC"><strong>RCC</strong></a> es el controlador de relojes. En el fichero <code>stm32f4xx.h</code><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>, <a href="acronimos.html#acro:CMSIS"><strong>CMSIS</strong></a> lo define como un puntero a una estructura de tipo <code>RCC_TypeDef</code>: <img alt="image" class="inline-img" src="../assets/notebook_imgs/pr_chapters/version_0/rcc_define.png"/>. Esta estructura también la define <a href="acronimos.html#acro:CMSIS"><strong>CMSIS</strong></a> en el mismo fichero. Tiene muchos campos. Cada campo es un registro del controlador. Bien, pues uno de esos registros es el <code>RCC_AHB1ENR</code>.</p>
+<p>El <a href="acronimos.html#acro:RCC"><strong>RCC</strong></a> es el controlador de relojes. En el fichero <code>stm32f4xx.h</code><sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>, <a href="acronimos.html#acro:CMSIS"><strong>CMSIS</strong></a> lo define como un puntero a una estructura de tipo <code>RCC_TypeDef</code>: <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/rcc_define.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/pr_chapters/version_0/rcc_define.png"/></a>. Esta estructura también la define <a href="acronimos.html#acro:CMSIS"><strong>CMSIS</strong></a> en el mismo fichero. Tiene muchos campos. Cada campo es un registro del controlador. Bien, pues uno de esos registros es el <code>RCC_AHB1ENR</code>.</p>
 </li>
 <li>
 <p>Recuerda de los <a href="https://youtu.be/X33jHui_l0k">vídeos de SDG1</a> que para acceder a los campos de una estructura tenemos el punto (<code>.</code>), y la flecha (<code>-&gt;</code>). Usamos punto (<code>.</code>) cuando tenemos acceso directo a la estructura, y usamos flecha (<code>-&gt;</code>) cuando lo que tenemos es un acceso indirecto, un puntero. Esta es nuestra situación, porque <code>RCC</code> está definido como puntero, y por eso, para acceder al campo que representa al registro hacemos: <code>RCC-&gt;AHB1ENR</code>.</p>
 <p><strong>Aplica toda esta lógica para cualquier registro. Todos están definidos por <a href="acronimos.html#acro:CMSIS">CMSIS</a> en el fichero <code>stm32f4xx.h</code>, y todos son punteros, por lo que siempre accederemos a los registros de los periféricos con <code>-&gt;</code> (flecha).</strong></p>
 </li>
 <li>
-<p><strong>El fabricante nos indica en el manual de referencia que el acceso a los registros se hace, generalmente, de 32 en 32 bits por lo que no se pueden seleccionar bits particulares de un registro</strong> —como indica el libro en un ejemplo—, por eso usamos <strong>máscaras</strong>, en este caso con el operador <code>|</code> (<code>OR</code>) sobre todo el registro para activar el/los bit/s deseado/s.</p>
+<p><strong>El fabricante nos indica en el manual de referencia que el acceso a los registros se hace, generalmente, de 32 en 32 bits por lo que no se pueden seleccionar bits particulares de un registro</strong> —como indica el libro en un ejemplo—, por eso usamos <strong>máscaras</strong>, en este caso con el operador <code>\|</code> (<code>OR</code>) sobre todo el registro para activar el/los bit/s deseado/s.</p>
 </li>
 <li>
 <p>El <code>RCC_AHB1ENR_GPIOAEN</code> es una máscara que está definida en <code>stm32f4xx.h</code>, y vale <code>0x01</code>. Gran parte de los bits de los registros, si no todos, están definidos en este fichero. Para cualquier registro, tú puedes decidir usarlos, o definirte tus propias máscaras si te es más cómodo.</p>
@@ -648,7 +655,7 @@
 <li>
 <p>Escribe en el registro de modo el valor de la variable <code>mode</code> —que es el argumento recibido y podrá tomar valores <code>STM32F4_GPIO_MODE_IN</code>— <code>STM32F4_GPIO_MODE_OUT</code>, <code>STM32F4_GPIO_MODE_AF</code>, o <code>STM32F4_GPIO_MODE_AN</code>. Estos son los valores que se han definido en el fichero <code>stm32f4_system.h</code>, y que valen <code>0x00</code>, <code>0x01</code>, <code>0x02</code>, y <code>0x03</code>, respectivamente.</p>
 <p>Para escribir en las posiciones correctas del registro, se usa el desplazamiento con la variable <code>pin</code>. La variable <code>pin</code> se multiplica por <code>2U</code> para asegurar que el desplazamiento es de 2 en 2 bits.</p>
-<p><strong>Para poner a 1 los bits de un registro o variable, se hace una <code>OR</code> (<code>|</code>) con el valor deseado</strong>.</p>
+<p><strong>Para poner a 1 los bits de un registro o variable, se hace una <code>OR</code> (<code>\|</code>) con el valor deseado</strong>.</p>
 </li>
 </ul>
 <p>Ya se ha hecho el segundo punto de la API de esta función.</p>
@@ -685,16 +692,16 @@
 <p>Como se indica en el libro, dependiendo del pin y el puerto, tendremos que elegir un registro u otro para realizar la asociación. Como se trata de una función genérica y no sabemos qué valores nos van a llegar, se hace la implementación para cada pin y puerto según sea el valor de la variable <code>pin</code> y <code>port</code>. Así pues:</p>
 <ul>
 <li>
-<p>si el valor de <code>pin</code> está entre <code>0</code> y <code>3</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR1</code> (<code>SYSCFG-&gt;EXTICR[0]</code>),</p>
+<p>si el valor de <code>pin</code> está entre <code>0</code> y <code>3</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR1</code> (<code>SYSCFG-&gt;EXTICR\[0\]</code>),</p>
 </li>
 <li>
-<p>si el valor de <code>pin</code> está entre <code>4</code> y <code>7</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR2</code> (<code>SYSCFG-&gt;EXTICR[1]</code>),</p>
+<p>si el valor de <code>pin</code> está entre <code>4</code> y <code>7</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR2</code> (<code>SYSCFG-&gt;EXTICR\[1\]</code>),</p>
 </li>
 <li>
-<p>si el valor de <code>pin</code> está entre <code>8</code> y <code>11</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR3</code> (<code>SYSCFG-&gt;EXTICR[2]</code>), y</p>
+<p>si el valor de <code>pin</code> está entre <code>8</code> y <code>11</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR3</code> (<code>SYSCFG-&gt;EXTICR\[2\]</code>), y</p>
 </li>
 <li>
-<p>si el valor de <code>pin</code> está entre <code>12</code> y <code>15</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR4</code> (<code>SYSCFG-&gt;EXTICR[3]</code>).</p>
+<p>si el valor de <code>pin</code> está entre <code>12</code> y <code>15</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR4</code> (<code>SYSCFG-&gt;EXTICR\[3\]</code>).</p>
 </li>
 </ul>
 <p>Se define una máscara base de 4 bits (<code>0x0F</code>) para seleccionar los bits del registro <code>EXTICRx</code> que se van a modificar.</p>
@@ -716,7 +723,7 @@
 <li>
 <p>Si el valor es <code>0x03</code> escribe en ambos registros: subida y bajada.</p>
 <p>¿Por qué estos valores? Porque así lo hemos decidido, podrían ser otros cualquiera. ¿Y cómo sabemos que son dichos valores? Porque la API nos dice los valores que podemos darle a la variable <code>mode</code>:</p>
-<p><figure><img alt="Distintos valores que podemos darle a la variable \&lt;code&gt;mode\&lt;/code&gt;." src="../assets/notebook_imgs/pr_chapters/version_0/exti_mode.png" style="width:100.0%"/><figcaption aria-hidden="true">Distintos valores que podemos darle a la variable <code>mode</code>.</figcaption></figure></p>
+<p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/exti_mode.png"><img alt="Distintos valores que podemos darle a la variable &lt;code&gt;mode&lt;/code&gt;." src="../assets/notebook_imgs/pr_chapters/version_0/exti_mode.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Distintos valores que podemos darle a la variable <code>mode</code>.</figcaption></figure><p></p>
 <p>Es un consenso con nosotros mismos. Se ha añadido en <code>stm32f4_system.h</code> un conjunto de <code>#define</code> para estos valores a fin de que el código sea más inteligible y no haya valores <em>“a pincho”</em>. Se usan nombres representativos como:</p>
 <ul>
 <li>
@@ -781,7 +788,7 @@
 <p>En <code>stm32f4_system.h</code> documenta la función con <code>Doxygen</code> ayudándose con la API. Recuerda que tienes el vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a> con las bases para documentar y generar tu propia API.</p>
 </li>
 </ol>
-<p>Ya tenemos la función que nos permite leer valores digitales del exterior dado un puerto y un pin. Comprueba que compila sin errores: Menú <code>Terminal→ Run Task... → Build → stm32f446re (Default) → Release (Default) → main</code>.</p>
+<p>Ya tenemos la función que nos permite leer valores digitales del exterior dado un puerto y un pin. Comprueba que compila sin errores: Menú <code>Terminal&amp;rarr; Run Task... &amp;rarr; Build &amp;rarr; stm32f446re (Default) &amp;rarr; Release (Default) &amp;rarr; main</code>.</p>
 <h3 id="par:gpio_write"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.7</span> Función <code>stm32f4_system_gpio_write</code><a class="headerlink" href="#par:gpio_write" title="Permanent link">¶</a></h3>
 <p>A continuación vamos a desarrollar la función que será llamada cuando queramos escribir un valor digital en un pin. Escribiremos <code>‘1’</code> o <code>‘0’</code> lógicos. Vamos a seguir los dos puntos de la API de esta función.</p>
 <ol>
@@ -891,5 +898,6 @@
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-</body>
-</html>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

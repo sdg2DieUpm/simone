@@ -113,7 +113,7 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:a1dc5ae5f35c3d9ec809a22dba2e1221a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#a1dc5ae5f35c3d9ec809a22dba2e1221a">FSM_RGB_LIGHT_SYSTEM</a> { <br />
-&#160;&#160;<a class="el" href="fsm__rgb__light_8h.html#a1dc5ae5f35c3d9ec809a22dba2e1221aafbd53c6daffd4caf7821583f5d73d2f7">WAIT_COLOR</a> = 0, 
+&#160;&#160;<a class="el" href="fsm__rgb__light_8h.html#a1dc5ae5f35c3d9ec809a22dba2e1221aa8bb86239972e62faad135f624626bf92">IDLE_RGB</a> = 0, 
 <br />
 &#160;&#160;<a class="el" href="fsm__rgb__light_8h.html#a1dc5ae5f35c3d9ec809a22dba2e1221aa8d46e0b018ffb47fa148cef97c3ba393">SET_COLOR</a>
 <br />
@@ -129,15 +129,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a9beddc19f8e1d3f4068b6e4b31ff26a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#a9beddc19f8e1d3f4068b6e4b31ff26a9">fsm_rgb_light_destroy</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a9beddc19f8e1d3f4068b6e4b31ff26a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy an RGB light FSM.  <a href="fsm__rgb__light_8h.html#a9beddc19f8e1d3f4068b6e4b31ff26a9">More...</a><br /></td></tr>
 <tr class="separator:a9beddc19f8e1d3f4068b6e4b31ff26a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dbb919a6ea500305107c73845f2c324"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#a2dbb919a6ea500305107c73845f2c324">fsm_rgb_light_set_color</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm, <a class="el" href="structrgb__color__t.html">rgb_color_t</a> color)</td></tr>
-<tr class="memdesc:a2dbb919a6ea500305107c73845f2c324"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the color of the RGB light.  <a href="fsm__rgb__light_8h.html#a2dbb919a6ea500305107c73845f2c324">More...</a><br /></td></tr>
-<tr class="separator:a2dbb919a6ea500305107c73845f2c324"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaad4017694f046218f9e72d3d3e4c93a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#aaad4017694f046218f9e72d3d3e4c93a">fsm_rgb_light_set_color_intensity</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm, <a class="el" href="structrgb__color__t.html">rgb_color_t</a> color, uint8_t intensity_perc)</td></tr>
 <tr class="memdesc:aaad4017694f046218f9e72d3d3e4c93a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the color and intensity of the RGB light.  <a href="fsm__rgb__light_8h.html#aaad4017694f046218f9e72d3d3e4c93a">More...</a><br /></td></tr>
 <tr class="separator:aaad4017694f046218f9e72d3d3e4c93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38ee0d61897b4c015d60eff14cac6ec5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#a38ee0d61897b4c015d60eff14cac6ec5">fsm_rgb_light_set_intensity</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm, uint8_t intensity_perc)</td></tr>
-<tr class="memdesc:a38ee0d61897b4c015d60eff14cac6ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the RGB light system to show the intensity in percentage.  <a href="fsm__rgb__light_8h.html#a38ee0d61897b4c015d60eff14cac6ec5">More...</a><br /></td></tr>
-<tr class="separator:a38ee0d61897b4c015d60eff14cac6ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97388ea5425504a3b53aea540bb6b441"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#a97388ea5425504a3b53aea540bb6b441">fsm_rgb_light_fire</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a97388ea5425504a3b53aea540bb6b441"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fire the RGB light FSM.  <a href="fsm__rgb__light_8h.html#a97388ea5425504a3b53aea540bb6b441">More...</a><br /></td></tr>
 <tr class="separator:a97388ea5425504a3b53aea540bb6b441"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,15 +144,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a9134fffe42b2bc6593e5acd5503ae7e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#a9134fffe42b2bc6593e5acd5503ae7e0">fsm_rgb_light_check_activity</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a9134fffe42b2bc6593e5acd5503ae7e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the RGB light system is active.  <a href="fsm__rgb__light_8h.html#a9134fffe42b2bc6593e5acd5503ae7e0">More...</a><br /></td></tr>
 <tr class="separator:a9134fffe42b2bc6593e5acd5503ae7e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69699c24d48a1b226f7a81abdba479fe"><td class="memItemLeft" align="right" valign="top">fsm_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#a69699c24d48a1b226f7a81abdba479fe">fsm_rgb_light_get_inner_fsm</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm)</td></tr>
-<tr class="memdesc:a69699c24d48a1b226f7a81abdba479fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the inner FSM of the RGB light.  <a href="fsm__rgb__light_8h.html#a69699c24d48a1b226f7a81abdba479fe">More...</a><br /></td></tr>
-<tr class="separator:a69699c24d48a1b226f7a81abdba479fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb0a9927ca734ca67bbeee469448ca8a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#abb0a9927ca734ca67bbeee469448ca8a">fsm_rgb_light_get_state</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm)</td></tr>
-<tr class="memdesc:abb0a9927ca734ca67bbeee469448ca8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state of the RGB light FSM.  <a href="fsm__rgb__light_8h.html#abb0a9927ca734ca67bbeee469448ca8a">More...</a><br /></td></tr>
-<tr class="separator:abb0a9927ca734ca67bbeee469448ca8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab748e4b31944a2fb8ab3576c73450070"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8h.html#ab748e4b31944a2fb8ab3576c73450070">fsm_rgb_light_set_state</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm, int8_t state)</td></tr>
-<tr class="memdesc:ab748e4b31944a2fb8ab3576c73450070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the state of the RGB light FSM.  <a href="fsm__rgb__light_8h.html#ab748e4b31944a2fb8ab3576c73450070">More...</a><br /></td></tr>
-<tr class="separator:ab748e4b31944a2fb8ab3576c73450070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header for <a class="el" href="fsm__rgb__light_8c.html" title="RGB light system FSM main file.">fsm_rgb_light.c</a> file. </p>
@@ -196,7 +181,7 @@ Functions</h2></td></tr>
 <p>Enumerator for the RGB light system finite state machine. </p>
 <p>This enumerator defines the different states that the RGB light system finite state machine can be in. Each state represents a specific condition of the RGB light system: waiting for a status of RGB light, or showing the status of the RGB light. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1dc5ae5f35c3d9ec809a22dba2e1221aafbd53c6daffd4caf7821583f5d73d2f7"></a>WAIT_COLOR&#160;</td><td class="fielddoc"><p>Starting state. Also comes here when there is no status of RGB light, i.e. the RGB light system is inactive </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1dc5ae5f35c3d9ec809a22dba2e1221aa8bb86239972e62faad135f624626bf92"></a>IDLE_RGB&#160;</td><td class="fielddoc"><p>Starting state. Also comes here when there is no status of RGB light, i.e. the RGB light system is inactive </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a1dc5ae5f35c3d9ec809a22dba2e1221aa8d46e0b018ffb47fa148cef97c3ba393"></a>SET_COLOR&#160;</td><td class="fielddoc"><p>State to show the status of the RGB light system </p>
 </td></tr>
@@ -303,80 +288,6 @@ false If the RGB light system is inactive. </dd></dl>
 
 </div>
 </div>
-<a id="a69699c24d48a1b226f7a81abdba479fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69699c24d48a1b226f7a81abdba479fe">&#9670;&nbsp;</a></span>fsm_rgb_light_get_inner_fsm()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">fsm_t* fsm_rgb_light_get_inner_fsm </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *&#160;</td>
-          <td class="paramname"><em>p_fsm</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the inner FSM of the RGB light. </p>
-<p>This function returns the inner FSM of the RGB light.</p>
-<blockquote class="doxtable">
-<p>&#160;&#160;&#160;&#160;💡 This function is important because the struct is private and external functions such as those of the unit tests cannot access the inner FSM directly. <br  />
-</p>
-</blockquote>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b></p>
-<p>✅ 1. Return the address of the <code>f</code> field of the struct. <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__rgb__light__t.html" title="Structure to define the FSM of the RGB light system.">fsm_rgb_light_t</a></code> struct. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>fsm_t* Pointer to the inner FSM. </dd></dl>
-
-</div>
-</div>
-<a id="abb0a9927ca734ca67bbeee469448ca8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb0a9927ca734ca67bbeee469448ca8a">&#9670;&nbsp;</a></span>fsm_rgb_light_get_state()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t fsm_rgb_light_get_state </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *&#160;</td>
-          <td class="paramname"><em>p_fsm</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the state of the RGB light FSM. </p>
-<p>This function returns the current state of the RGB light FSM.</p>
-<blockquote class="doxtable">
-<p>&#160;&#160;&#160;&#160;💡 This function is important because the struct is private and external functions such as those of the unit tests cannot access the state of the FSM directly. <br  />
-</p>
-</blockquote>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b></p>
-<p>✅ 1. Retrieve and return the field <code>current_state</code> of the FSM (field <code>f</code> of the struct). <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__rgb__light__t.html" title="Structure to define the FSM of the RGB light system.">fsm_rgb_light_t</a></code> struct. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t Current state of the RGB light FSM. </dd></dl>
-
-</div>
-</div>
 <a id="a59f03c669745ee42fdff8476db1358be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59f03c669745ee42fdff8476db1358be">&#9670;&nbsp;</a></span>fsm_rgb_light_get_status()</h2>
 
@@ -440,49 +351,6 @@ false If the RGB light system has been indicated to be paused. </dd></dl>
 
 </div>
 </div>
-<a id="a2dbb919a6ea500305107c73845f2c324"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2dbb919a6ea500305107c73845f2c324">&#9670;&nbsp;</a></span>fsm_rgb_light_set_color()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void fsm_rgb_light_set_color </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *&#160;</td>
-          <td class="paramname"><em>p_fsm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structrgb__color__t.html">rgb_color_t</a>&#160;</td>
-          <td class="paramname"><em>color</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the color of the RGB light. </p>
-<p>This function sets the color of the RGB light.</p>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b> ✅ 1. Set the <code>color</code> field of the RGB light system FSM. <br  />
-✅ 2. Set the <code>new_color</code> field accordingly to indicate that a new color has to be set. <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__rgb__light__t.html" title="Structure to define the FSM of the RGB light system.">fsm_rgb_light_t</a></code> struct. </td></tr>
-    <tr><td class="paramname">color</td><td>RGB color to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="aaad4017694f046218f9e72d3d3e4c93a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaad4017694f046218f9e72d3d3e4c93a">&#9670;&nbsp;</a></span>fsm_rgb_light_set_color_intensity()</h2>
 
@@ -527,92 +395,6 @@ false If the RGB light system has been indicated to be paused. </dd></dl>
     <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__rgb__light__t.html" title="Structure to define the FSM of the RGB light system.">fsm_rgb_light_t</a></code> struct. </td></tr>
     <tr><td class="paramname">color</td><td>RGB color to set. </td></tr>
     <tr><td class="paramname">intensity_perc</td><td>Intensity in percentage to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a38ee0d61897b4c015d60eff14cac6ec5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38ee0d61897b4c015d60eff14cac6ec5">&#9670;&nbsp;</a></span>fsm_rgb_light_set_intensity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void fsm_rgb_light_set_intensity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *&#160;</td>
-          <td class="paramname"><em>p_fsm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>intensity_perc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the RGB light system to show the intensity in percentage. </p>
-<p>This function is used to set the RGB light system to show the intensity in percentage.</p>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b></p>
-<p>✅ 1. Set the intensity in percentage in the RGB light system FSM. <br  />
-✅ 2. Set the <code>new_color</code> field accordingly to indicate that a new color has to be set. <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__rgb__light__t.html" title="Structure to define the FSM of the RGB light system.">fsm_rgb_light_t</a></code> struct. </td></tr>
-    <tr><td class="paramname">intensity_perc</td><td>Intensity in percentage to show in the RGB light system. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab748e4b31944a2fb8ab3576c73450070"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab748e4b31944a2fb8ab3576c73450070">&#9670;&nbsp;</a></span>fsm_rgb_light_set_state()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void fsm_rgb_light_set_state </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *&#160;</td>
-          <td class="paramname"><em>p_fsm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int8_t&#160;</td>
-          <td class="paramname"><em>state</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the state of the RGB light FSM. </p>
-<p>This function sets the current state of the RGB light FSM.</p>
-<blockquote class="doxtable">
-<p>&#160;&#160;&#160;&#160;💡 This function is important because the struct is private and external functions such as those of the unit tests cannot access the state of the FSM directly. <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__rgb__light__t.html" title="Structure to define the FSM of the RGB light system.">fsm_rgb_light_t</a></code> struct. </td></tr>
-    <tr><td class="paramname">state</td><td>New state of the RGB light FSM. </td></tr>
   </table>
   </dd>
 </dl>

@@ -1,8 +1,5 @@
-
 <!DOCTYPE html>
-
-<html class="no-js" lang="es">
-<head>
+<html class="no-js" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_5.html" rel="canonical"/>
@@ -18,7 +15,17 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../stylesheets/notebook-extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
 <body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -352,7 +359,7 @@
 <p>En las últimas sesiones puedes poner a punto la versión final del sistema e incluir diversas funcionalidades a tu elección. Con ello podrás alcanzar la máxima nota. <strong>Recuerda que (i) el proyecto es el <span class="arithmatex">\(70\%\)</span> de la nota total, y (ii) que el proyecto propuesto con especificaciones mínimas obligatorias tiene un máximo de 8 puntos. <span style="color: Red">Estas funcionalidades de libre elección son un <span class="arithmatex">\(20\%\)</span> de la nota final, ¡no las dejes!</span></strong></p>
 <h2 id="posibles-funcionalidades"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1</span> Posibles funcionalidades<a class="headerlink" href="#posibles-funcionalidades" title="Permanent link">¶</a></h2>
 <p>Las sugerencias que se muestran son orientativas. La valoración de la dificultad (de diseño y de implementación) también. No obstante, se valorarán especialmente aquellas funcionalidades que conlleven algún tipo de esfuerzo por parte del alumno a un mayor número de niveles. Así, se tendrán en cuenta los 3 niveles de la arquitectura típica de cualquier sistema embebido: (i) nivel <a href="acronimos.html#acro:SW"><strong>SW</strong></a> o de aplicación (nivel superior en verde de la pila presentada en la ), nivel <a href="acronimos.html#acro:HW"><strong>HW</strong></a> (nivel inferior en rojo), y nivel de <a href="acronimos.html#acro:SW"><strong>SW</strong></a> de sistema o nivel dedicado a la integración <a href="acronimos.html#acro:HW"><strong>HW</strong></a>-<a href="acronimos.html#acro:SW"><strong>SW</strong></a> (nivel intermedio en naranja), mediante el uso de <em>drivers</em> (<em>i.e.</em> controladores o librerías) <a href="acronimos.html#acro:SW"><strong>SW</strong></a> para el manejo de dispositivos.</p>
-<figure><img alt="Niveles de valoración de las posibles funcionalidades a implementar." id="fig:niveles_funcionalidades" src="../assets/notebook_imgs/pr_chapters/version_5/niveles_funcionalidades.png" style="width:70.0%"><figcaption aria-hidden="true">Niveles de valoración de las posibles funcionalidades a implementar.</figcaption></img></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_5/niveles_funcionalidades.png"><img alt="Niveles de valoración de las posibles funcionalidades a implementar." id="fig:niveles_funcionalidades" src="../assets/notebook_imgs/pr_chapters/version_5/niveles_funcionalidades.png" style="width:70.0%"/></a><figcaption aria-hidden="true">Niveles de valoración de las posibles funcionalidades a implementar.</figcaption></figure>
 <p>Así, el impacto de la funcionalidad se valorará según las escalas de la , y podría puntuar, <span style="color: Red"><strong>orientativamente</strong></span>, como se indica:</p>
 <ul>
 <li>
@@ -403,5 +410,6 @@
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-</body>
-</html>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

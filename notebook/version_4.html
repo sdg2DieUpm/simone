@@ -1,8 +1,5 @@
-
 <!DOCTYPE html>
-
-<html class="no-js" lang="es">
-<head>
+<html class="no-js" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_4.html" rel="canonical"/>
@@ -18,7 +15,17 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../stylesheets/notebook-extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
 <body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1088,13 +1095,13 @@
 <h2 id="test-de-integracion-de-simone"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.7</span> Test de integración de Simone<a class="headerlink" href="#test-de-integracion-de-simone" title="Permanent link">¶</a></h2>
 <h3 id="test-de-funcionalidades"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.7.1</span> Test de funcionalidades<a class="headerlink" href="#test-de-funcionalidades" title="Permanent link">¶</a></h3>
 <p>Ya has probado los test de ejemplo de los distintos elementos y que se os han sido proporcionado. Ahora vamos a probar el sistema <em>Simone</em> completo. No se os va a pedir hacer un test formal, pero con todo el trabajo que has hecho, es conveniente que compruebes que todo funciona correctamente. Monta el circuito como se muestra en la . Prueba todo el sistema como en <a href="#TODO">el vídeo demostración Simone</a>. <strong>Procedamos</strong>:</p>
-<figure><img alt="Montaje final con el teclado, el botón y el LED RGB." id="fig:fritzing_simone" src="../assets/notebook_imgs/pr_chapters/version_4/fritzing_simone.png" style="width:100.0%"><figcaption aria-hidden="true">Montaje final con el teclado, el botón y el LED RGB.</figcaption></img></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_4/fritzing_simone.png"><img alt="Montaje final con el teclado, el botón y el LED RGB." id="fig:fritzing_simone" src="../assets/notebook_imgs/pr_chapters/version_4/fritzing_simone.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Montaje final con el teclado, el botón y el LED RGB.</figcaption></figure>
 <ol>
 <li>
 <p>Conecta la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> al ordenador.</p>
 </li>
 <li>
-<p>Compila y carga el programa <code>main</code> en la placa (<strong><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"> <code>Clean and Debug</code></img></strong>). Comprueba que no tienes errores de compilación.</p>
+<p>Compila y carga el programa <code>main</code> en la placa (<strong><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_debug.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/></a> <code>Clean and Debug</code></strong>). Comprueba que no tienes errores de compilación.</p>
 </li>
 <li>
 <p>Prueba que el botón enciende y apaga el juego <em>Simone</em>.</p>
@@ -1131,7 +1138,7 @@
 <p>Lo que haremos para demostrar que el sistema alterna entre el modo <em>despierto</em> y <em>dormido</em> será depurando. Continúa con la depuración sin poner puntos de parada. Cuando el sistema esté inactivo, pausa la depuración y comprueba que se ha detenido en la línea de código tras la llamada a <em>wait for interrupt</em> (<code>__WFI()</code>), similar a como se muestra en la . Esto querrá decir que, efectivamente, la ejecución estaba detenida <em>esperando una interrupción</em>, se ha despertado, y ha pasado a la siguiente línea de código.</p>
 </li>
 </ol>
-<figure><img alt="Restauración del modo despierto vista en depuración." id="fig:debug_sleep" src="../assets/notebook_imgs/pr_chapters/version_4/debug_sleep.png" style="width:100.0%"/><figcaption aria-hidden="true">Restauración del modo <em>despierto</em> vista en depuración.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_4/debug_sleep.png"><img alt="Restauración del modo despierto vista en depuración." id="fig:debug_sleep" src="../assets/notebook_imgs/pr_chapters/version_4/debug_sleep.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Restauración del modo <em>despierto</em> vista en depuración.</figcaption></figure>
 <p>Realiza con con <em>Paint</em>, <em>Drawio</em>, o cualquier programa que elijas el diagrama de la FSM del sistema con todas sus transiciones. Añádela a tu <code>README.md</code>.</p>
 <p>¡Ya tenemos el sistema <em>Simone</em> funcionando! <strong>No olvides documentarlo</strong> (vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a>). En la siguiente versión podrás añadir más funcionalidades a tu elección. Puedes incluir más capturas o imágenes para enriquecer la documentación.</p>
 <p>Guarda una copia de su proyecto como <code>simone_v4</code> para tener un punto de partida para la siguiente versión, y una copia de seguridad por si algo falla. <strong>Esta copia súbela al buzón de entrega de la asignatura separada de la que hagas con la versión 5, que tiene otro buzón</strong>. ¡Ánimo!</p>
@@ -1176,5 +1183,6 @@
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-</body>
-</html>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

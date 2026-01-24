@@ -127,12 +127,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a7ab2d6c73b1f2e7ffe2913a956f1580f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__button_8c.html#a7ab2d6c73b1f2e7ffe2913a956f1580f">fsm_button_fire</a> (<a class="el" href="structfsm__button__t.html">fsm_button_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a7ab2d6c73b1f2e7ffe2913a956f1580f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fire the button FSM.  <a href="fsm__button_8c.html#a7ab2d6c73b1f2e7ffe2913a956f1580f">More...</a><br /></td></tr>
 <tr class="separator:a7ab2d6c73b1f2e7ffe2913a956f1580f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14d12db278609de246350b7c1638e327"><td class="memItemLeft" align="right" valign="top">fsm_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__button_8c.html#a14d12db278609de246350b7c1638e327">fsm_button_get_inner_fsm</a> (<a class="el" href="structfsm__button__t.html">fsm_button_t</a> *p_fsm)</td></tr>
-<tr class="memdesc:a14d12db278609de246350b7c1638e327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the inner FSM of the button.  <a href="fsm__button_8c.html#a14d12db278609de246350b7c1638e327">More...</a><br /></td></tr>
-<tr class="separator:a14d12db278609de246350b7c1638e327"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a006f0940fe60ffbe9a0e8da6f8ba7370"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__button_8c.html#a006f0940fe60ffbe9a0e8da6f8ba7370">fsm_button_get_state</a> (<a class="el" href="structfsm__button__t.html">fsm_button_t</a> *p_fsm)</td></tr>
-<tr class="memdesc:a006f0940fe60ffbe9a0e8da6f8ba7370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the state of the button FSM.  <a href="fsm__button_8c.html#a006f0940fe60ffbe9a0e8da6f8ba7370">More...</a><br /></td></tr>
-<tr class="separator:a006f0940fe60ffbe9a0e8da6f8ba7370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ceba02b9a4674bb307147638a4cf3fc"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__button_8c.html#a8ceba02b9a4674bb307147638a4cf3fc">fsm_button_get_duration</a> (<a class="el" href="structfsm__button__t.html">fsm_button_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a8ceba02b9a4674bb307147638a4cf3fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the duration of the last button press.  <a href="fsm__button_8c.html#a8ceba02b9a4674bb307147638a4cf3fc">More...</a><br /></td></tr>
 <tr class="separator:a8ceba02b9a4674bb307147638a4cf3fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -522,80 +516,6 @@ false </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>uint32_t Duration of the last button press in milliseconds. </dd></dl>
-
-</div>
-</div>
-<a id="a14d12db278609de246350b7c1638e327"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14d12db278609de246350b7c1638e327">&#9670;&nbsp;</a></span>fsm_button_get_inner_fsm()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">fsm_t* fsm_button_get_inner_fsm </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__button__t.html">fsm_button_t</a> *&#160;</td>
-          <td class="paramname"><em>p_fsm</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the inner FSM of the button. </p>
-<p>This function returns the inner FSM of the button.</p>
-<blockquote class="doxtable">
-<p>&#160;&#160;&#160;&#160;💡 This function is important because the struct is private and external functions such as those of the unit tests cannot access the inner FSM directly. <br  />
- </p>
-</blockquote>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b></p>
-<p>✅ 1. Return the address of the <code>f</code> field of the struct. <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__button__t.html" title="Structure of the Button FSM.">fsm_button_t</a></code> struct. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>fsm_t* Pointer to the inner FSM. </dd></dl>
-
-</div>
-</div>
-<a id="a006f0940fe60ffbe9a0e8da6f8ba7370"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a006f0940fe60ffbe9a0e8da6f8ba7370">&#9670;&nbsp;</a></span>fsm_button_get_state()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t fsm_button_get_state </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structfsm__button__t.html">fsm_button_t</a> *&#160;</td>
-          <td class="paramname"><em>p_fsm</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the state of the button FSM. </p>
-<p>This function returns the current state of the button FSM.</p>
-<blockquote class="doxtable">
-<p>&#160;&#160;&#160;&#160;💡 This function is important because the struct is private and external functions such as those of the unit tests cannot access the state of the FSM directly. <br  />
-</p>
-</blockquote>
-<blockquote class="doxtable">
-<p><b>TODO alumnos:</b></p>
-<p>✅ 1. Retrieve and return the field <code>current_state</code> of the FSM (field <code>f</code> of the struct). <br  />
-</p>
-</blockquote>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">p_fsm</td><td>Pointer to an <code><a class="el" href="structfsm__button__t.html" title="Structure of the Button FSM.">fsm_button_t</a></code> struct. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t Current state of the button FSM. </dd></dl>
 
 </div>
 </div>

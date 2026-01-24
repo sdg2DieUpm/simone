@@ -241,9 +241,10 @@ img.inline-img {
 /* Limitar altura y permitir scroll en diagramas Mermaid */
 .mermaid {
     display: flex;
-    max-height: 600px;       /* Altura máxima antes de hacer scroll */
+    /*max-height: 600px;       /* Altura máxima antes de hacer scroll */
     overflow-y: auto;          /* Activar barras de desplazamiento si es necesario */
-    background-color: white; /* Fondo blanco por seguridad */
+    overflow-x: auto;          /* Activar barras de desplazamiento si es necesario */
+    background-color: rgba(255, 255, 255, 0); /* Fondo blanco por seguridad */
     padding: 10px;
     border-radius: 5px;
 }

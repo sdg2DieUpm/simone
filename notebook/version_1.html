@@ -1,8 +1,5 @@
-
 <!DOCTYPE html>
-
-<html class="no-js" lang="es">
-<head>
+<html class="no-js" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_1.html" rel="canonical"/>
@@ -18,7 +15,17 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../stylesheets/notebook-extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
 <body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -525,7 +532,7 @@
 </tbody>
 </table>
 <h2 id="caracteristicas-del-boton-de-usuario-en-version-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.1</span> Características del botón de usuario en Versión 1<a class="headerlink" href="#caracteristicas-del-boton-de-usuario-en-version-1" title="Permanent link">¶</a></h2>
-<p>Estudia y practica con las máquinas de estado. Entiende cómo se definen los estados, las tablas de transiciones, y qué son las funciones de entrada/ comprobación y salida/ actuación. Para ello vuelve a leer <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"> <strong>el capítulo “2. Introducción a las máquinas de estados en C”</strong> <sup id="fnref:stm322025tutoriales"><a class="footnote-ref" href="#fn:stm322025tutoriales">6</a></sup>.</img></p>
+<p>Estudia y practica con las máquinas de estado. Entiende cómo se definen los estados, las tablas de transiciones, y qué son las funciones de entrada/ comprobación y salida/ actuación. Para ello vuelve a leer <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/gen_book_icon.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/></a> <strong>el capítulo “2. Introducción a las máquinas de estados en C”</strong> <sup id="fnref:stm322025tutoriales"><a class="footnote-ref" href="#fn:stm322025tutoriales">6</a></sup>.</p>
 <p>Si tienes la oportunidad de abrir un botón pulsador<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, seguramente encuentres un diseño mecánico como el de la <a href="#fig:button_mechanics">figura</a>. Se trata de una chapa metálica pegada a un aislante (donde toca el usuario) y colocada sobre un muelle. En la parte inferior, los pines del botón están también en contacto con una chapa metálica. Al presionar, la chapa superior entra en contacto con la inferior y cierra el circuito (cortocircuito), circulando la corriente a través del botón. Cuando se suelta, la corriente deja de pasar (circuito abierto).</p>
 <figure><embed id="fig:button_mechanics" src="../assets/notebook_imgs/pr_chapters/version_1/button_mechanics.png" style="width:45.0%"/><figcaption aria-hidden="true">Representación mecánica de un botón.</figcaption></figure>
 <p>En la <a href="fig:button_nucleo">figura del esquema</a> vemos el esquemático del botón de usuario <code>B1</code> en la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span>. Cuando pulsamos el botón, este hace cortocircuito con <code>GND</code>, por lo que la tensión en el puerto <code>PC13</code> del microcontrolador pasa de alto a bajo (flanco de bajada).</p>
@@ -540,7 +547,7 @@
 <p>Vamos a empezar por la parte portable <code>PORT</code> de control y acceso al HW. Empezaremos con las cabeceras <code>.h</code>y seguiremos con la implementación de las funciones de los ficheros fuente <code>.c</code>. Para comprobar que todo funciona correctamente, pasaremos el <em>test</em> unitario de la parte <code>PORT</code>. Luego, pasaremos a la parte <code>COMMON</code> de la librería, que es la lógica común a todos los sistemas. Empezaremos con las cabeceras y seguiremos con la implementación de las funciones de los ficheros fuente. Para comprobar que todo funciona correctamente, pasaremos el <em>test</em> unitario de la parte <code>COMMON</code>, y finalizaremos con el ejemplo de uso de la librería. </p>
 <p>Las cabeceras <code>.h</code> van a se nuestro <strong><em>“contrato con el usuario”</em></strong>, y en los ficheros fuente <code>.c</code> implementaremos las funciones. <strong>Este es el ciclo de desarrollo que vamos a seguir en todo el proyecto.</strong></p>
 </div>
-<figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <img alt="Estructura HW botón" id="fig:stm32f4_button_hw_t" src="../assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.svg" style="width:50%;"/> <img alt="Estructura FSM botón" id="fig:fsm_button_t" src="../assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.svg" style="width:50%;"/> </div> <figcaption>(a) Estructura del HW del botón en PORT, (b) Estructura de la FSM del botón en COMMON.</figcaption> </figure>
+<figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.svg"><img alt="Estructura HW botón" id="fig:stm32f4_button_hw_t" src="../assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.svg" style="width:100%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.svg"><img alt="Estructura FSM botón" id="fig:fsm_button_t" src="../assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.svg" style="width:100%;"/></a> </div> <figcaption>(a) Estructura del HW del botón en PORT, (b) Estructura de la FSM del botón en COMMON.</figcaption> </figure>
 <p>Las <a href="#stm32f4_button_hw_t">figuras de estructuras HW</a> <a href="#fms_button_t">y SW</a> muestran las estructuras que vamos a necesitar para el botón. La estructura del HW del botón en <code>PORT</code>. El <code>PORT</code> de otro microcontrolador podría implementar internamente una estructura diferente, por eso está dentro de la carpeta <code>stm32f4</code>. Por ejemplo, al <em>portar</em> el código para PC no tendría sentido definir la estructura de una GPIO. La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del botón en <code>COMMON</code> se muestra en la <a href="#fsm_button_t">figura de la FSM</a>.</p>
 <p>Ahora sí, comencemos. Preparemos el proyecto para poder añadir el <em>botón</em>:</p>
 <ol>
@@ -586,13 +593,13 @@
 </li>
 <li>
 <p>Puede ser buen momento ahora para documentar las funciones con Doxygen. Para que aparezca en la API el campo y su definición, hay que poner <code>/\*!\&lt; aqui_la_definicion \*/</code> junto al nombre del campo como muestra la <a href="#fig:doxygen_enum">figura de ejemplo de Doxygen en enumerados</a>.</p>
-<p><figure><img alt="Comentario de Doxygen en las claves de un enumerado." id="fig:doxygen_enum" src="../assets/notebook_imgs/pr_chapters/version_1/doxygen_enum.png" style="width:90.0%"><figcaption aria-hidden="true">Comentario de Doxygen en las claves de un enumerado.</figcaption></img></figure></p>
+<p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/doxygen_enum.png"><img alt="Comentario de Doxygen en las claves de un enumerado." id="fig:doxygen_enum" src="../assets/notebook_imgs/pr_chapters/version_1/doxygen_enum.png" style="width:90.0%"/></a><figcaption aria-hidden="true">Comentario de Doxygen en las claves de un enumerado.</figcaption></figure><p></p>
 <p>Puedes partir de los ejemplos dados en el fichero <code>port_system.h</code> y ayudarse con extensa documentación online. <strong>Puede hacerlo en español o inglés</strong><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 </li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Podemos tener ayuda para autocomentar parcialmente el código con Doxygen. Compruea si tienes instalada la extensión llamada <em>Doxygen Documentation Generator</em> —a veces se instala junto con otras extensiones—; si no la tienes, puedes instalarla. Con esta extensión, si te colocas justo en la lı́nea encima del nombre de la función y escribes: <em>barra, asterisco, asterisco, enter</em> <img alt="image" class="inline-img" src="/assets/notebook_imgs/pr_chapters/version_1/doxygen_autocomment.png">, colocando el cursor en la tercera posición, como en la imagen, para darle a enter, se genera automáticamente un esqueleto para poder completarlo. También se puede hacer si, colocados justo encima de la función, damos botón derecho → Generate Doxygen Comment.</img></p>
+<p>Podemos tener ayuda para autocomentar parcialmente el código con Doxygen. Compruea si tienes instalada la extensión llamada <em>Doxygen Documentation Generator</em> —a veces se instala junto con otras extensiones—; si no la tienes, puedes instalarla. Con esta extensión, si te colocas justo en la lı́nea encima del nombre de la función y escribes: <em>barra, asterisco, asterisco, enter</em> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="/assets/notebook_imgs/pr_chapters/version_1/doxygen_autocomment.png"><img alt="image" class="inline-img" src="/assets/notebook_imgs/pr_chapters/version_1/doxygen_autocomment.png"/></a>, colocando el cursor en la tercera posición, como en la imagen, para darle a enter, se genera automáticamente un esqueleto para poder completarlo. También se puede hacer si, colocados justo encima de la función, damos botón derecho → Generate Doxygen Comment.</p>
 </div>
 <p>Ya hemos acabado con el encabezado que interactúa con el HW del botón y que no depende del microcontrolador. Todavía dará errores al compilar. Vamos ahora a programar la cabecera que sí depende del microcontrolador <code>stm32f4_button.h</code>.</p>
 <h3 id="cabecera-stm32f4_buttonh"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.2.2</span> Cabecera stm32f4_button.h<a class="headerlink" href="#cabecera-stm32f4_buttonh" title="Permanent link">¶</a></h3>
@@ -637,7 +644,7 @@
 <p>Vamos a definir la <strong>variable global</strong> <code>stm32f4_button_hw_t buttons_arr\[\]</code> que se declaró en el <code>.h</code>. Se trata de un array que no especifica el número de elementos que tiene, pero cada uno será de tipo <code>stm32f4_button_hw_t</code>, que representa al HW de cada botón que tengamos en nuestro sistema.</p>
 <p>La declaración e inicialización de este array podemos hacerla a la vez, que será lo más aconsejable. También podríamos hacer solo la declaración e inicializar los valores de cada botón en una función aparte —que ahora mismo no tenemos definida—. Convendría recordar las secciones correspondientes de los vídeos de SDG1: <a href="https://youtu.be/U395gYoCHbQ?t=223">inicialización de arrays</a> y <a href="https://youtu.be/X33jHui_l0k?t=378">arrays de estructuras</a>.</p>
 <p>Asigna los valores del botón <code>PORT_USER_BUTTON_ID</code> utilizando los <code>#define</code> de <code>stm32f4_button.h</code>. Deberá quedarte algo como lo de la <a href="#fig:buttons_array">figura de arrays</a>. Si tienes más botones en el sistema, simplemente añadirías una fila para cada botón con sus características correspondientes.</p>
-<p><figure><img alt="Array de botones con las características del botón de usuario." id="fig:buttons_array" src="../assets/notebook_imgs/pr_chapters/version_1/buttons_array.png" style="width:90.0%"><figcaption aria-hidden="true">Array de botones con las características del botón de usuario.</figcaption></img></figure></p>
+<p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/buttons_array.png"><img alt="Array de botones con las características del botón de usuario." id="fig:buttons_array" src="../assets/notebook_imgs/pr_chapters/version_1/buttons_array.png" style="width:90.0%"/></a><figcaption aria-hidden="true">Array de botones con las características del botón de usuario.</figcaption></figure><p></p>
 </li>
 <li>
 <p>Se os proporciona ya codificada la función <code>_stm32f4_button_get()</code>. Se trata de una función privada que devuelve un puntero a la estructura del botón que se le pasa como argumento. Esta función, aunque prescindible, es útil para poder hacer un código más legible y acceder a los campos de la estructura del botón de forma más sencilla desde otras funciones del fichero <code>stm32f4_button.c</code>. <strong>¡Recuerda que esta función es privada y por tanto debe aparecer codificada antes de cualquier función que la utilice!</strong></p>
@@ -682,8 +689,8 @@
 <p>Si ahora compila, el código no debería tener ningún error. <strong>¡Ya hemos acabado con la implementación de <em>portado</em> del botón!</strong>. Vamos a probarlo con el <em>test</em> unitario de la parte <code>PORT</code>.</p>
 <h2 id="sec:test_port_v1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.4</span> <code>PORT</code>: Test unitario del botón<a class="headerlink" href="#sec:test_port_v1" title="Permanent link">¶</a></h2>
 <p>Veremos que la lógica de las máquinas de estado hacen uso de las funciones portables que acceden al HW del dispositivo. Es por ello que es importante comprobar primero que la parte <code>PORT</code> funciona correctamente. Vamos a hacer el test de HW del código que hemos desarrollado de la librería del botón y probar que funciona antes de continuar con la implementación de la lógica de la parte de la FSM.</p>
-<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> Ten a mano y revisa el capítulo <em>“Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>.</p>
-<p>En esta sección vamos a practicar con el concepto de <strong>depuración</strong> (<em>debugging</em>) (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> <strong>recordar ejercicio de clase en SDG1 y las pruebas de la <em>Guía de instalación<em> con </em>blink</em></strong> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">7</a></sup>).</p>
+<p><span style="color: Red"><strong>¡Importante! Los test que se proporcionan comprueban solo algunos aspectos esenciales, pero no son exhaustivos. Es responsabilidad del alumno comprobar que el sistema final funciona correctamente.</strong></span> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/gen_book_icon.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/></a> Ten a mano y revisa el capítulo <em>“Test unitarios y ejemplos de integración”</em> del libro de fundamentos teóricos <sup id="fnref2:stm322025fundamentos"><a class="footnote-ref" href="#fn:stm322025fundamentos">3</a></sup>.</p>
+<p>En esta sección vamos a practicar con el concepto de <strong>depuración</strong> (<em>debugging</em>) (<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/gen_book_icon.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/></a> <strong>recordar ejercicio de clase en SDG1 y las pruebas de la <em>Guía de instalación<em> con </em>blink</em></strong> <sup id="fnref:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">7</a></sup>).</p>
 <p>La herramienta más importante y cómoda que tenemos para depurar es el <a href="acronimos.html#acro:IDE"><strong>IDE</strong></a> que usemos. En nuestro caso, como <em>VSCode</em> no es un <a href="acronimos.html#acro:IDE"><strong>IDE</strong></a> en sí mismo, sino un editor de texto <em>vitaminado</em>, tenemos que usar extensiones. La extensión <em>Cortex-Debug</em> para <em>VSCode</em> es la que nos ayudará a depurar.</p>
 <p>A veces no nos queda otra forma para depurar que imprimir texto por pantalla (cuando esta existe). Recuerde de la <em>Guía de instalación</em> <sup id="fnref2:stm322025guiainstalacion"><a class="footnote-ref" href="#fn:stm322025guiainstalacion">7</a></sup> que algunos dispositivos basados en ARM proporcionan una consola de <a href="acronimos.html#acro:ITM"><strong>ITM</strong></a>. ITM es una aplicación de ARM que permite, entre otras cosas, el uso de la función <code>printf()</code> en depuración con la placa. También existen alternativas como el <em>semihosting</em>, que envía mensajes a través de la pestaña de <em>Debug Console</em> de <em>VSCode</em>. Esta es la opción que tenemos configurada en nuestro proyecto. <strong>No hay que abusar de ellas, porque no vale para todo. Tendremos que acudir inevitablemente a ver los valores de los registros en algún momento.</strong> Bien es cierto que, una vez el proyecto está funcionando en producción, puede ser útil tener trazas (impresas, LEDs, ficheros de <em>log</em>…) para saber qué está pasando en caso de fallo.</p>
 <p>Descarga el fichero de test HW del botón <code>test_port_button.c</code> de <a href="https://github.com/sdg2DieUpm/simone/tree/simone_v1_test">https://github.com/sdg2DieUpm/simone/tree/simone_v1_test</a>. Ponlo en la carpeta <code>test/stm32f4</code> de tu proyecto. Puedes eliminar el fichero plantilla <code>test_template.c</code></p>
@@ -692,24 +699,24 @@
 <p>Conecta la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> al ordenador.</p>
 </li>
 <li>
-<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+<p>Pulsa sobre el <strong>icono de depuración <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_debug.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/></a> y selecciona <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_run.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/></a> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
 </li>
 <li>
 <p>En el desplegable que se abre, selecciona el test <code>test_port_button</code>. Se compilará y se cargará en la placa.</p>
 </li>
 <li>
-<p>Inmediatamente se habrá parado en la primera línea del test. Continúa la depuración (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_continue.png"/>) para ejecutar el test por completo, o pon puntos de parada si deseas ir paso a paso.</p>
+<p>Inmediatamente se habrá parado en la primera línea del test. Continúa la depuración (<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_continue.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_continue.png"/></a>) para ejecutar el test por completo, o pon puntos de parada si deseas ir paso a paso.</p>
 </li>
 <li>
 <p>Se habrá impreso por la terminal del <code>gdb-server</code> el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
 </li>
 <li>
-<p>La depuración se queda en bucle en la instrucción <code>exit(UNITY_END())</code>. Para terminar la depuración pulsa (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
+<p>La depuración se queda en bucle en la instrucción <code>exit(UNITY_END())</code>. Para terminar la depuración pulsa (<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_stop.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/></a>) y repite el proceso hasta que pasen todos los test.</p>
 <p>Si algún test genera una situación de comportamiento inesperado, puede ser que no termine de ejecutarse. Comprueba dónde se queda pausando la depuración, y lee los mensajes de error que te proporciona el test.</p>
 </li>
 </ol>
 <p>Un ejemplo de ejecución del test se muestra en la <a href="#fig:test_port_button">ejecución de test de la figura</a>. En este caso, la segunda comprobación ha fallado indicándonos que la GPIO elegida para el botón no es la correcta. Luego aparecen más errores, pero son derivados de este. Corrigiéndolo, pasan todos los test correctamente. Por eso, se recomienda <strong>arreglar los errores en el orden en que aparecen</strong>.</p>
-<figure><img alt="Ejecución de los test unitarios de la parte `PORT` del botón." id="fig:test_port_button" src="../assets/notebook_imgs/pr_chapters/version_1/unit_test_port_button.png" style="width:100.0%"/><figcaption aria-hidden="true">Ejecución de los test unitarios de la parte `PORT` del botón.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/unit_test_port_button.png"><img alt="Ejecución de los test unitarios de la parte `PORT` del botón." id="fig:test_port_button" src="../assets/notebook_imgs/pr_chapters/version_1/unit_test_port_button.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Ejecución de los test unitarios de la parte `PORT` del botón.</figcaption></figure>
 <p><strong>¡Ya hemos acabado con la parte <code>PORT</code> del botón!</strong> Vamos ahora a implementar la parte <code>COMMON</code> de la librería del botón.</p>
 <h2 id="common-cabecera-de-la-fsm-del-boton"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5</span> <code>COMMON</code>: cabecera de la FSM del botón<a class="headerlink" href="#common-cabecera-de-la-fsm-del-boton" title="Permanent link">¶</a></h2>
 <h3 id="sec:consideraciones_fsm_button"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.5.1</span> Consideraciones de la FSM del botón<a class="headerlink" href="#sec:consideraciones_fsm_button" title="Permanent link">¶</a></h3>
@@ -768,7 +775,7 @@
 </li>
 <li>
 <p>Es buen momento para aprovechar a documentar la estructura, del mismo modo que se hizo anteriormente y se muestra en <a href="#fig:doxygen_struct">la figura de comentario</a>.</p>
-<p><figure><img alt="Comentario de Doxygen en un campo de una estructura." id="fig:doxygen_struct" src="../assets/notebook_imgs/pr_chapters/version_1/doxygen_struct.png" style="width:75.0%"/><figcaption aria-hidden="true">Comentario de Doxygen en un campo de una estructura.</figcaption></figure></p>
+<p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/doxygen_struct.png"><img alt="Comentario de Doxygen en un campo de una estructura." id="fig:doxygen_struct" src="../assets/notebook_imgs/pr_chapters/version_1/doxygen_struct.png" style="width:75.0%"/></a><figcaption aria-hidden="true">Comentario de Doxygen en un campo de una estructura.</figcaption></figure><p></p>
 <p>Continuamos con las declaraciones de funciones públicas de la librería. <strong>Procedamos</strong>:</p>
 </li>
 <li>
@@ -785,7 +792,7 @@
 <ol>
 <li>
 <p>Lo primero que debe aparecer es la inclusión de cabeceras; en nuestro caso <code>fsm_button.h</code>, <code>port_button.h</code>, y <code>port_system.h</code> como indica la API.</p>
-<p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. <strong>Empezaremos con las funciones de entrada o comprobación de la FSM</strong>. Hemos establecido un criterio general por el que, <strong>si una función es de entrada o comprobación, será privada y estática, y el nombre de la función va empezar por <code>check_</code></strong> (porque comprueba la condición de salto de la máquina de estados). Es muy importante aquí que hayas entendido bien los ejemplos con FSM de los tutoriales <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/> <em>“Capítulo 2. Introducción a las máquinas de estados en C”</em> y <em>“Capítulo 3. Máquinas de Estados Combinadas”</em>.</p>
+<p>Ahora empezamos a codificar las <strong>funciones privadas de la FSM</strong>. <strong>Empezaremos con las funciones de entrada o comprobación de la FSM</strong>. Hemos establecido un criterio general por el que, <strong>si una función es de entrada o comprobación, será privada y estática, y el nombre de la función va empezar por <code>check_</code></strong> (porque comprueba la condición de salto de la máquina de estados). Es muy importante aquí que hayas entendido bien los ejemplos con FSM de los tutoriales <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/gen_book_icon.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/></a> <em>“Capítulo 2. Introducción a las máquinas de estados en C”</em> y <em>“Capítulo 3. Máquinas de Estados Combinadas”</em>.</p>
 <div class="admonition danger">
 <p class="admonition-title">IMPORTANTE</p>
 <p>Si te fijas en la API, todas las funciones de la máquina de estados reciben el mismo argumento: <code>fsm_t*</code>, un puntero a una máquina de estados.</p>
@@ -814,7 +821,7 @@
 </li>
 <li>
 <p>Documenta las funciones con Doxygen. En este caso, igual que antes, la documentación irá en el <code>.c</code>, encima del nombre de cada función.</p>
-<p><figure><img alt="Error de compilación durante el desarrollo de &lt;code&gt;fsm_button.c&lt;/code&gt;." id="fig:compile_error_3" src="../assets/notebook_imgs/pr_chapters/version_1/compile_error_3.png" style="width:100.0%"/><figcaption aria-hidden="true">Error de compilación durante el desarrollo de <code>fsm_button.c</code>.</figcaption></figure></p>
+<p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/compile_error_3.png"><img alt="Error de compilación durante el desarrollo de &lt;code&gt;fsm_button.c&lt;/code&gt;." id="fig:compile_error_3" src="../assets/notebook_imgs/pr_chapters/version_1/compile_error_3.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Error de compilación durante el desarrollo de <code>fsm_button.c</code>.</figcaption></figure><p></p>
 <p>Todavía no hemos acabado con el desarrollo, pero vamos a compilar para ir depurando errores. Compile el programa. Verá errores parecidos a los que se muestran en la <a href="#fig:compile_error_3">figura de error</a>. El compilador a veces nos da alguna sugerencia de corrección, pero no tienen por qué ser correctas. Nos dice que:</p>
 <ul>
 <li>
@@ -848,7 +855,7 @@
 </li>
 <li>
 <p>Completa la función <code>fsm_button_init()</code> como se indica en la API.</p>
-<p>Fíjate en las funciones <code>fsm_button_fire()</code>, <code>fsm_button_get_inner_fsm()</code>, y <code>fsm_button_get_state()</code> dadas, que implementaremos también sucesivas versiones. Estas funciones sirven para lanzar y acceder a la <em>máquina de estados</em> (<code>f</code>) y acceder al campo <em>estado</em> (<code>f.current_state</code>). Serán usadas en el test unitario de la máquina de estados, y son útiles para depurar.</p>
+<p>Fíjate en las funciones <code>fsm_button_fire()</code> dada, que implementaremos también sucesivas versiones. Esta función sirve para lanzar la <em>máquina de estados</em> (<code>f</code>). Será usadas en el test unitario de la máquina de estados, en eñ <code>main.c</code>, y son útiles para depurar.</p>
 <p><strong>Ya hemos acabado con la programación de la librería del botón.</strong> Toda esta lógica <code>COMMON</code> <strong>puede ser usada en cualquier sistema</strong>, esté basado en microcontrolador, o sea un PC. Hemos hecho una librería de un botón que tiene un anti-rebotes y nos devuelve la duración de la última pulsación. Así pues, si compilas, no deberán aparecer errores.</p>
 </li>
 <li>
@@ -876,7 +883,7 @@
 <p>Se habrá impreso por la terminal del <code>gdb-server</code> el resultado de las pruebas de los tests. Debería haber pasado todos los tests. Si no, lee el mensaje de error y corrige tu código hasta que pasen todas las pruebas. <strong>Si no pasan las pruebas, no continúes.</strong></p>
 </li>
 <li>
-<p>Termina la depuración pulsando (<img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/>) y repite el proceso hasta que pasen todos los test.</p>
+<p>Termina la depuración pulsando (<a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_stop.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_stop.png"/></a>) y repite el proceso hasta que pasen todos los test.</p>
 </li>
 </ol>
 <h2 id="ejemplo-de-uso-de-la-version-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.8</span> Ejemplo de uso de la Versión 1<a class="headerlink" href="#ejemplo-de-uso-de-la-version-1" title="Permanent link">¶</a></h2>
@@ -890,7 +897,7 @@
 <p>Con la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32</span> conectada al ordenador.</p>
 </li>
 <li>
-<p>Pulsa sobre el <strong>icono de depuración <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/> y selecciona <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
+<p>Pulsa sobre el <strong>icono de depuración <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_debug.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_debug.png"/></a> y selecciona <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/icon_run.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/icon_run.png"/></a> Clean and Debug</strong> sobre la plataforma que queramos depurar (<code>stm32f446re</code>).</p>
 </li>
 <li>
 <p>En el desplegable que se abre, selecciona el test <code>example_v1</code>. Se compilará y se cargará en la placa.</p>
@@ -967,5 +974,6 @@
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-</body>
-</html>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

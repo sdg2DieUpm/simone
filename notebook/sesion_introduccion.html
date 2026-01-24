@@ -1,8 +1,5 @@
-
 <!DOCTYPE html>
-
-<html class="no-js" lang="es">
-<head>
+<html class="no-js" lang="es"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://sdg2dieupm.github.io/simone/notebook/sesion_introduccion.html" rel="canonical"/>
@@ -18,7 +15,17 @@
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../stylesheets/notebook-extra.css" rel="stylesheet"/>
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-</head>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
 <body data-md-color-accent="deep_orange" data-md-color-primary="blue_grey" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -348,7 +355,7 @@
 </li>
 </ul>
 </div>
-<p>En tu primera sesión de laboratorio vas a trabajar con los capítulos de ejemplo de los tutoriales del libro de la asignatura <img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"> <em>"Tutoriales sobre los fundamentos teóricos de sistemas basados en microcontrolador STM32”</em> <sup id="fnref:stm322025tutoriales"><a class="footnote-ref" href="#fn:stm322025tutoriales">2</a></sup>.</img></p>
+<p>En tu primera sesión de laboratorio vas a trabajar con los capítulos de ejemplo de los tutoriales del libro de la asignatura <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/general/gen_book_icon.png"><img alt="image" class="inline-img" src="../assets/notebook_imgs/general/gen_book_icon.png"/></a> <em>"Tutoriales sobre los fundamentos teóricos de sistemas basados en microcontrolador STM32”</em> <sup id="fnref:stm322025tutoriales"><a class="footnote-ref" href="#fn:stm322025tutoriales">2</a></sup>.</p>
 <p>Empezarás por el <strong>proyecto <em>Blink</em></strong> donde aprenderás a configurar un proyecto para compilación cruzada sobre la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>. Luego continúa con los otros <strong>tutoriales para familiarizarte con las máquinas de estado</strong>. Si no te da tiempo, acábalos en casa, porque gran parte del código que ahí realices te servirá para el desarrollo del proyecto. De hecho, constituyen casi en su completitud (aunque no en forma), la versión 1 del sistema. Además, te servirá para familiarizarte con el entorno.</p>
 <p>Posteriormente, en casa, te vendrá bien ver los vídeos recomendados de SDG1. Tanto los documentos como los vídeos es importante que los tengas siempre a mano, pues tratan de conceptos fundamentales.</p>
 <div class="admonition danger">
@@ -409,5 +416,6 @@
 <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
 <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js"></script>
-</body>
-</html>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
