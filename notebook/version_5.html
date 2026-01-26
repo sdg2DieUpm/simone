@@ -360,7 +360,7 @@
 <h2 id="posibles-funcionalidades"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1</span> Posibles funcionalidades<a class="headerlink" href="#posibles-funcionalidades" title="Permanent link">¶</a></h2>
 <p>Las sugerencias que se muestran son orientativas. La valoración de la dificultad (de diseño y de implementación) también. No obstante, se valorarán especialmente aquellas funcionalidades que conlleven algún tipo de esfuerzo por parte del alumno a un mayor número de niveles. Así, se tendrán en cuenta los 3 niveles de la arquitectura típica de cualquier sistema embebido: (i) nivel <a href="acronimos.html#acro:SW"><strong>SW</strong></a> o de aplicación (nivel superior en verde de la pila presentada en la ), nivel <a href="acronimos.html#acro:HW"><strong>HW</strong></a> (nivel inferior en rojo), y nivel de <a href="acronimos.html#acro:SW"><strong>SW</strong></a> de sistema o nivel dedicado a la integración <a href="acronimos.html#acro:HW"><strong>HW</strong></a>-<a href="acronimos.html#acro:SW"><strong>SW</strong></a> (nivel intermedio en naranja), mediante el uso de <em>drivers</em> (<em>i.e.</em> controladores o librerías) <a href="acronimos.html#acro:SW"><strong>SW</strong></a> para el manejo de dispositivos.</p>
 <figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_5/niveles_funcionalidades.png"><img alt="Niveles de valoración de las posibles funcionalidades a implementar." id="fig:niveles_funcionalidades" src="../assets/notebook_imgs/pr_chapters/version_5/niveles_funcionalidades.png" style="width:70.0%"/></a><figcaption aria-hidden="true">Niveles de valoración de las posibles funcionalidades a implementar.</figcaption></figure>
-<p>Así, el impacto de la funcionalidad se valorará según las escalas de la , y podría puntuar, <span style="color: Red"><strong>orientativamente</strong></span>, como se indica:</p>
+<p>Así, el impacto de la funcionalidad se valorará según las escalas de la <a href="#fig:niveles_funcionalidades">figura de niveles</a> , y podría puntuar, <span style="color: Red"><strong>orientativamente</strong></span>, como se indica:</p>
 <ul>
 <li>
 <p><strong>Solo el primer nivel</strong>: <strong>BAJA valoración</strong>, por tratarse de una funcionalidad que solo requiere modificar código. <strong>Hasta <span class="arithmatex">\(0.5\)</span> puntos</strong>.</p>
@@ -375,11 +375,94 @@
 <p>En cualquier caso, las funcionalidades aquí propuestas o las que tú sugieras, pueden implementarse de distintas formas más o menos <strong>complejas</strong> y con distintos grados de perfección (<strong>calidad</strong>), por lo que la calificación final dependerá de ambos aspectos. Igualmente, <strong>la originalidad</strong> o la <strong>novedad</strong> de tus propuestas, será tenida en cuenta para la evaluación. <strong>Hacer una funcionalidad no implica necesariamente conseguir toda la puntuación. Del mismo modo, podrían conseguirse más puntos de los previstos, si se merece</strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">ATENCIÓN</p>
+<p><strong>Es obligatoria para todas las funcionalidades meter su documentación Doxygen incluyendo, si es necesario, diagramas o imágenes que expliquen el funcionamiento de la nueva funcionalidad. <span style="color: Red">Se ha de hacer un vídeo demostrativo corto, 2-3 minutos con lo más relevante de tus propuestas. Incluye un enlace público al vídeo en el README.md.</span></strong></p>
 </div>
 <p>Recuerda que tienes el vídeo de ayuda <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a>.</p>
-<p>Podrías hacer uso de HW disponible en el laboratorio como teclados matriciales de 16 botones y pantallas <a href="acronimos.html#acro:LCD"><strong>LCD</strong></a>. También puedes añadir el tuyo. A continuación se muestran algunas posibles ideas para añadir el sistema o convertirlo en parte de otro proyecto mayor.</p>
+<p>Podrías hacer uso de HW disponible en el laboratorio como teclados matriciales de 16 botones y pantallas <a href="acronimos.html#acro:LCD"><strong>LCD</strong></a>. También puedes añadir el tuyo. A continuación se muestran algunas posibles ideas para añadir al sistema o convertirlo en parte de otro proyecto mayor. Pero recuerda que <strong>¡las más interesantes son las que a ti se te puedan ocurrir!</strong></p>
 <p>Si tienes dudas sobre la implementación o valoración de estas u otras funcionalidades, no dudes en ponerte en contacto con cualquiera de los profesores de la asignatura.</p>
-<p>Guarda una copia de tu proyecto como <code>simone_v5</code> separada de la que contiene los requisitos básicos V1-V4, y súbelo a Moodle en el buzón preparado para V5. <strong>No olvides incluir el vídeo demostrativo en el README.md</strong>.</p>
+<p>Guarda una copia de tu proyecto como <code>simone_v5</code> separada de la que contiene los requisitos básicos V1-V4, y súbelo a Moodle en el buzón preparado para V5. <span style="color: Red"><strong>No olvides incluir el vídeo demostrativo en el README.md</strong></span>.</p>
+<table>
+<thead>
+<tr>
+<th>Descripción</th>
+<th>Dificultad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Añadir un <strong>modo inverso</strong> para que el jugador tenga que repetir la secuencia empezando por el último color mostrado hasta el primero.</td>
+<td>🟢 <strong>BAJA</strong></td>
+</tr>
+<tr>
+<td><strong>Tecla wildcard</strong> para permitir repetir la última secuencia.</td>
+<td>🟢 <strong>BAJA</strong></td>
+</tr>
+<tr>
+<td>Sistema de <strong>vidas</strong> para permitir un margen de error antes del <em>Game Over</em>, indicando los fallos restantes con parpadeos o colores específicos.</td>
+<td>🟢 <strong>BAJA</strong></td>
+</tr>
+<tr>
+<td>Añadir <strong>estadísticas de partida</strong> para medir y mostrar por consola el tiempo medio de reacción del jugador entre colores o la ronda máxima alcanzada.</td>
+<td>🟢 <strong>BAJA</strong></td>
+</tr>
+<tr>
+<td>Meter el tiempo de <strong>anti-rebote</strong> como característica HW del botón y que no se le pase a la FSM del <em>botón</em>, sino que se le pida al <code>PORT</code>.</td>
+<td>🟢 <strong>BAJA</strong></td>
+</tr>
+<tr>
+<td>Que haya un <strong>indicador LED</strong> para mostrar las distintas situaciones del sistema (cuando se ha encendido, apagado, etc.).</td>
+<td>🟢 <strong>BAJA</strong></td>
+</tr>
+<tr>
+<td>Añadir un <strong>nuevo botón</strong> para gestionar algún aspecto de la gestión del juego, o añadir <em>estadísticas</em> de uso en un campo de la FSM.</td>
+<td>🟡 <strong>BAJA-MEDIA</strong></td>
+</tr>
+<tr>
+<td>Que el botón mida el <strong>tiempo de pulsación</strong> con <em>input capture</em> (en lugar de con <em>ticks</em>) en proporción al tiempo que ha estado encendido el LED.</td>
+<td>🟡 <strong>BAJA-MEDIA</strong></td>
+</tr>
+<tr>
+<td>Implementar alguna funcionalidad que tenga en cuenta que el botón de usuario está pulsado más de un tiempo determinado.</td>
+<td>🟡 <strong>BAJA-MEDIA</strong></td>
+</tr>
+<tr>
+<td>Añadir un <strong>zumbador (Buzzer)</strong>  para generar tonos musicales distintos mediante PWM asociados a cada color sincronizados con la luz.</td>
+<td>🟠 <strong>MEDIA-ALTA</strong></td>
+</tr>
+<tr>
+<td>Diseñar o adaptar diseños de impresiones 3D para Nucleo y hacer el sistema más robusto (ver diseños en <a href="https://www.thingiverse.com/">Thingiverse</a> o <a href="https://www.tinkercad.com/">Tinkercad</a>).</td>
+<td>🟠 <strong>MEDIA</strong></td>
+</tr>
+<tr>
+<td><strong>Multijugador local</strong> integrando un segundo teclado matricial y modificando la FSM para permitir un modo <em>versus</em> (uno propone secuencia, otro repite).</td>
+<td>🟠 <strong>MEDIA-ALTA</strong></td>
+</tr>
+<tr>
+<td>Desarrollo de test unitarios y ejemplos <strong>exhaustivos</strong> de todo el proyecto (cobertura de código superior al habitual).</td>
+<td>🟠 <strong>MEDIA-ALTA</strong></td>
+</tr>
+<tr>
+<td><strong>Multijugador remoto</strong> conectando dos placas STM32 mediante UART, I2C o transceptores inalámbricos para jugar una partida sincronizada a distancia.</td>
+<td>🔴 <strong>ALTA</strong></td>
+</tr>
+<tr>
+<td>Crear una <strong>interfaz gráfica de PC</strong> que se comunique por puerto serie y muestre el tablero de colores y puntuaciones en la pantalla del ordenador en tiempo real.</td>
+<td>🔴 <strong>ALTA</strong></td>
+</tr>
+<tr>
+<td>Integrar un lector de tarjetas RFID o cualquier otra forma de comunicación inalámbrica que permita interactuar con el sistema.</td>
+<td>🔴 <strong>ALTA</strong></td>
+</tr>
+<tr>
+<td>Nuevos esquemas y montajes PCB.</td>
+<td>🔴 <strong>ALTA</strong></td>
+</tr>
+<tr>
+<td>Integrar interfaces de visualización alternativa (display LCD, web, móvil), comunicación con la nube...</td>
+<td>🔴 <strong>ALTA</strong></td>
+</tr>
+</tbody>
+</table>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

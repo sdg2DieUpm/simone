@@ -182,8 +182,8 @@ Functions</h2></td></tr>
 <blockquote class="doxtable">
 <p><b>TODO alumnos VERSION 1</b></p>
 <p>✅ 1. Retrieve the values of the GPIO of the user button. Use the <a class="el" href="port__button_8h.html#a9dea052c6ba3a808824929fd5cb47f90">PORT_USER_BUTTON_ID</a> index to get the port and pin from the <code>buttons_arr</code> <br  />
-✅ 2. If the value is #HIGH means that the button as been released, therefore set the field <code>flag_pressed</code> to <code>false</code> <br  />
-✅ 3. If the value is #LOW means that the button as been pressed, therefore set the field <code>flag_pressed</code> to <code>true</code> <br  />
+✅ 2. If the value is HIGH means that the button as been released, therefore set the field <code>flag_pressed</code> to <code>false</code> <br  />
+✅ 3. If the value is LOW means that the button as been pressed, therefore set the field <code>flag_pressed</code> to <code>true</code> <br  />
 ✅ 4. Clean the corresponding bit of the <code>PR</code> register <br  />
 &#160;&#160;&#160;&#160;💡 Recommendation: use the macro <a class="el" href="stm32f4__system_8h.html#ad8e7767483a0c8f878cab29ad46ec656">BIT_POS_TO_MASK</a> <br  />
 &#160;&#160;&#160;&#160;💡 <b>To clean an interrupt in the <em>Pending Register</em> (<code>PR</code>) we must write '1' in the corresponding bit</b>. <em>Look at the example in section "Ejemplo de interrupción externa" of the reference book.</em> You can also find this out by consulting the <em>reference manual</em> <a href="https://www.st.com/resource/en/reference_manual/rm0390-stm32f446xx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf">STM32F446xx Advanced ARM-based 32-bit MCUs</a> (See section "10.3.6 Pending register (EXTI_PR)") <br  />

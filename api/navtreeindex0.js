@@ -92,7 +92,7 @@ var NAVTREEINDEX0 =
 "fsm__rgb__light_8c.html#aca2790daf24016ae89a6ebe8bb14a533":[2,0,0,1,2,14],
 "fsm__rgb__light_8c.html#ae0fec900c7e47e8e2c1fc497e2aeb482":[2,0,0,1,2,3],
 "fsm__rgb__light_8h.html":[2,0,0,0,2],
-"fsm__rgb__light_8h.html#a0784a3164703380dd486f14b510abaa0":[2,0,0,0,2,7],
+"fsm__rgb__light_8h.html#a1bf7ea51b5130bf0107e076661529357":[2,0,0,0,2,7],
 "fsm__rgb__light_8h.html#a1dc5ae5f35c3d9ec809a22dba2e1221a":[2,0,0,0,2,2],
 "fsm__rgb__light_8h.html#a1dc5ae5f35c3d9ec809a22dba2e1221aa8bb86239972e62faad135f624626bf92":[2,0,0,0,2,2,0],
 "fsm__rgb__light_8h.html#a1dc5ae5f35c3d9ec809a22dba2e1221aa8d46e0b018ffb47fa148cef97c3ba393":[2,0,0,0,2,2,1],

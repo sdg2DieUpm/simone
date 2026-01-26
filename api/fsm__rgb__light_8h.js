@@ -10,7 +10,7 @@ var fsm__rgb__light_8h =
     [ "fsm_rgb_light_destroy", "fsm__rgb__light_8h.html#a9beddc19f8e1d3f4068b6e4b31ff26a9", null ],
     [ "fsm_rgb_light_fire", "fsm__rgb__light_8h.html#a97388ea5425504a3b53aea540bb6b441", null ],
     [ "fsm_rgb_light_get_status", "fsm__rgb__light_8h.html#a59f03c669745ee42fdff8476db1358be", null ],
-    [ "fsm_rgb_light_new", "fsm__rgb__light_8h.html#a0784a3164703380dd486f14b510abaa0", null ],
+    [ "fsm_rgb_light_new", "fsm__rgb__light_8h.html#a1bf7ea51b5130bf0107e076661529357", null ],
     [ "fsm_rgb_light_set_color_intensity", "fsm__rgb__light_8h.html#aaad4017694f046218f9e72d3d3e4c93a", null ],
     [ "fsm_rgb_light_set_status", "fsm__rgb__light_8h.html#aea8d405fb2473238fcb893ad3e4e455d", null ]
 ];
