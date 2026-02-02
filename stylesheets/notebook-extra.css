@@ -238,18 +238,6 @@ img.inline-img {
     line-height: 1.6;
 }
 
-/* Limitar altura y permitir scroll en diagramas Mermaid */
-.mermaid {
-    display: flex;
-    /*max-height: 600px;       /* Altura máxima antes de hacer scroll */
-    overflow-y: auto;          /* Activar barras de desplazamiento si es necesario */
-    overflow-x: auto;          /* Activar barras de desplazamiento si es necesario */
-    background-color: rgba(255, 255, 255, 0); /* Fondo blanco por seguridad */
-    padding: 10px;
-    border-radius: 5px;
-}
-
-
 /* =========================================
    TABLA RÚBRICA (Estilo LaTeX) - FINAL
    ========================================= */
@@ -360,4 +348,100 @@ html body .latex-rubric td.cell-excellent {
     color: #82b1ff !important; /* Azul claro brillante */
     background-color: #1a237e !important; /* Fondo azul oscuro */
     border: 1px solid #304ffe !important;
+}
+
+/* =========================================
+   ESTILO DE IMPRESIÓN (Fuente Serif como Latex)
+   ========================================= */
+@media print {
+    /* Ocultar navegación */
+    header, footer, .md-nav, .md-sidebar {
+        display: none !important;
+    }
+
+    /* Fuente Serif académica */
+    :root, body {
+        font-size: 12pt !important;
+        line-height: 1.5 !important;
+        font-family: "Noto Serif", "Georgia", serif !important;
+        color: #000;
+        background-color: #fff;
+    }
+
+    /* Títulos */
+    h1, h2, h3, h4 {
+        font-family: "Noto Serif", serif;
+        font-weight: 700;
+        color: #000;
+        page-break-after: avoid;
+    }
+
+     /* 1. RELAJAR SALTOS EN LISTAS Y PÁRRAFOS */
+    p, li, ul, ol {
+        page-break-inside: auto !important; /* Permite partir elementos por la mitad */
+        orphans: 2; /* Mínimo 2 líneas abajo antes de saltar */
+        widows: 2;  /* Mínimo 2 líneas arriba después de saltar */
+    }
+
+    /* EVITAR QUE LOS TÍTULOS SE QUEDEN SOLOS AL FINAL */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid !important; /* El título debe ir pegado a su texto */
+        page-break-inside: avoid !important;
+        margin-top: 1.5em; /* Un poco de aire arriba para separar del tema anterior */
+    }
+
+
+    /* Código */
+    code, pre {
+        font-family: "Courier New", Courier, monospace !important;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+    }
+
+    /* Listas indentadas */
+    /* A veces WeasyPrint ve el bloque indentado como una "figura" indivisible. Esto lo arregla: */
+    li > p {
+        display: block; /* Tratar los párrafos dentro de listas como bloques normales */
+        margin-bottom: 0.5em;
+    }
+    
+    /* Forzar a que las listas no actúen como bloques rígidos */
+    li {
+        display: list-item;
+    }
+
+    /* --- IMÁGENES Y DIAGRAMAS (Gestión Inteligente) --- */
+    
+    /* 1. Figuras principales (Imágenes solas en un párrafo) */
+    p > img:only-child {
+        display: block;
+        margin: 1.5cm auto !important;
+        max-width: 70% !important; /* Escalado automático para que no sean gigantes */
+        height: auto !important;
+        page-break-inside: avoid;
+    }
+
+    /* 2. Imágenes pequeñas (inline icons) */
+    p img:not(:only-child), span img, td img, img.inline-img {
+        max-width: none !important;
+        display: inline-block !important;
+        margin: 0 2px !important;
+    }
+
+    /* Forzar fondo blanco en imágenes para evitar el fallo del canal alfa */
+    img, figure {
+        background-color: #FFFFFF !important;
+        /* Este modo intenta mezclar la imagen con el fondo blanco */
+        mix-blend-mode: multiply; 
+    }
+
+    /* Tablas */
+    table {
+        page-break-inside: auto;
+        width: 100% !important;
+        font-size: 10pt !important;
+    }
+    tr {
+        page-break-inside: avoid;
+    }
 }

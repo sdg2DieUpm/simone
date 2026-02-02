@@ -5,7 +5,7 @@
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_3.html" rel="canonical"/>
 <link href="version_2.html" rel="prev"/>
 <link href="version_4.html" rel="next"/>
-<link href="../assets/general/favicon.ico" rel="icon"/>
+<link href="../assets/notebook_imgs/general/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
 <title>Versión 3 - Laboratorio de Sistemas Digitales II</title>
 <link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
@@ -376,6 +376,14 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pdf/manual_simone.pdf">
+<span class="md-ellipsis">
+    📥 Descargar como PDF
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -620,7 +628,7 @@
 <p>La <a href="#fig:pwm_colors">figura</a> muestra un ejemplo de señal PWM para un color amarillento (que no el amarillo de <a href="#tbl:rgb_colors">la tabla</a>. Se muestran en el osciloscopio dos de los LED del <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. En la parte superior se muestra el canal de osciloscopio para el LED rojo, y en la parte inferior el canal de osciloscopio para el LED verde. Fíjate que el periodo de la señal PWM es el mismo para los dos LED (<span class="arithmatex">\(20 ms\)</span>), pero el ciclo de trabajo es distinto: <span class="arithmatex">\(20.8\%\)</span> para el LED rojo y <span class="arithmatex">\(36.6\%\)</span> para el LED verde.</p>
 <figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/pwm_colors.png"><img alt="Ejemplo de señales PWM para un color amarillento." id="fig:pwm_colors" src="../assets/notebook_imgs/pr_chapters/version_3/pwm_colors.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Ejemplo de señales PWM para un color amarillento.</figcaption></figure>
 <p>Igual que hemos hecho hasta ahora, <strong>estamos desarrollando una librería.</strong> Así, cada vez que se quiera añadir un LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> le asociaremos una <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a>. Las particularidades de dónde está conectado cada nuevo LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>, sus características físicas, <em>etc.</em>, son cosas específicas del HW, por lo que estarán en <code>PORT</code>.</p>
-<figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/rgb_color_t.svg"><img alt="Estructura de un color RGB" id="fig:rgb_color_t" src="../assets/notebook_imgs/pr_chapters/version_3/rgb_color_t.svg" style="width:100%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/stm32f4_rgb_light_hw_t.svg"><img alt="Estructura HW LED RGB" id="fig:stm32f4_rgb_light_hw_t" src="../assets/notebook_imgs/pr_chapters/version_3/stm32f4_rgb_light_hw_t.svg" style="width:100%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light_t.svg"><img alt="Estructura FSM del LED RGB" id="fig:fsm_rgb_light_t" src="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light_t.svg" style="width:100%;"/></a> </div> <figcaption>(a) Estructura de un color RGB, (b) Estructura del HW del LED RGB en PORT, (c) Estructura de la FSM del *RGB light* en COMMON.</figcaption> </figure>
+<figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/rgb_color_t.png"><img alt="Estructura de un color RGB" id="fig:rgb_color_t" src="../assets/notebook_imgs/pr_chapters/version_3/rgb_color_t.png" style="width:100%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/stm32f4_rgb_light_hw_t.png"><img alt="Estructura HW LED RGB" id="fig:stm32f4_rgb_light_hw_t" src="../assets/notebook_imgs/pr_chapters/version_3/stm32f4_rgb_light_hw_t.png" style="width:100%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light_t.png"><img alt="Estructura FSM del LED RGB" id="fig:fsm_rgb_light_t" src="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light_t.png" style="width:100%;"/></a> </div> <figcaption>(a) Estructura de un color RGB, (b) Estructura del HW del LED RGB en PORT, (c) Estructura de la FSM del *RGB light* en COMMON.</figcaption> </figure>
 <p>Las figuras de estructuras de un <a href="#fig:rgb_color_t">color RGB</a>, <a href="#fig:stm32f4_rgb_light_hw_t">del HW</a> <a href="#fig:fsm_rgb_light_t">y del SW</a> muestran las estructuras que vamos a necesitar para el LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>.</p>
 <p>Un color <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> se define por la estructura de la <a href="#fig:rgb_color_t">figura (a)</a> con tres valores <code>uint8_t</code> que indican la intensidad de cada componente en un rango de [0, <code>COLOR_RGB_MAX_VALUE</code>]. Donde la etiqueta <code>COLOR_RGB_MAX_VALUE</code> se ha definido con un valor de <code>255</code>, por lo que este será el número de niveles de intensidad que podremos representar para cada componente.</p>
 <p>La estructura del HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> (en <code>PORT</code>) se muestra en la <a href="#fig:stm32f4_rgb_light_hw_t">figura (b)</a>. La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> (en <code>COMMON</code>) se muestra en la <a href="#fig:fsm_rgb_light_t">figura (c)</a>.</p>
@@ -689,7 +697,7 @@
 <p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
 </li>
 <li>
-<p>Igual que hicimos anteriormente, define la <strong>variable global privada</strong> <code>stm32f4_rgb_light_hw_t rgb_lights_arr\[\]</code> con la configuración física de nuesto LED RGB. Se trata del array de estructuras de tipo <code>stm32f4_rgb_light_hw_t</code>, que representa al HW de cada <em>RGB light</em> que tengamos en nuestro juego.</p>
+<p>Igual que hicimos anteriormente, define la <strong>variable global privada</strong> <code>stm32f4_rgb_light_hw_t rgb_lights_arr[]</code> con la configuración física de nuesto LED RGB. Se trata del array de estructuras de tipo <code>stm32f4_rgb_light_hw_t</code>, que representa al HW de cada <em>RGB light</em> que tengamos en nuestro juego.</p>
 <p>Asigna los valores HW del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> del LED <code>PORT_RGB_LIGHT_ID</code> utilizando los <code>#define</code> de <code>stm32f4_rgb_light.h</code>.</p>
 </li>
 <li>
@@ -719,51 +727,8 @@
 <p>Codifica la función <code>port_rgb_light_set_rgb</code> siguiendo la API.</p>
 <p>Esta función se encarga de configurar el ciclo de trabajo de los LED rojo, verde y azul. Lo hace con la proporción de los valores recibidos en la estructura <code>rgb_color_t</code> sobre el máximo valor definido en <code>COLOR_RGB_MAX_VALUE</code>. Si el valor recibido es 0, el LED estará apagado, deshabilitando el canal correspondiente.</p>
 <p>Fíjate que la función recibe el identificador del LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>. Asegúrate de que el código se ejecuta dentro de un bloque condicional que compruebe el identificador del <em>RGB light</em>.</p>
-<p>Sigue el siguiente flujograma para implementar la función <code>port_rgb_light_set_rgb()</code>:</p>
-<pre class="mermaid"><code>flowchart TD
-    %% Definición de estilos
-    classDef decision fill:#fce8e6,stroke:#b85450,color:#000000;
-    classDef action fill:#f8cecc,stroke:#b85450,color:#000000;
-
-    %% Nodos
-    A["Retrieve &lt;b&gt;individual&lt;/b&gt; RGB levels&lt;br&gt;(r, g, b)"]:::action
-    B{"Display ID =&lt;br&gt;PORT_RGB_LIGHT_ID"}:::decision
-    C["&lt;b&gt;Disable&lt;/b&gt; the timer"]:::action
-    D{"r = g = b = 0"}:::decision
-    E["&lt;b&gt;Disable&lt;/b&gt; the capture/compare&lt;br&gt;register for all the channels"]:::action
-    F{"r = 0"}:::decision
-    G["&lt;b&gt;Disable&lt;/b&gt; the capture/compare register&lt;br&gt;for the channel of the red LED"]:::action
-    H{"g = 0"}:::decision
-    I["&lt;b&gt;Disable&lt;/b&gt; the capture/compare register&lt;br&gt;for the channel of the green LED"]:::action
-    J{"b = 0"}:::decision
-    K["&lt;b&gt;Disable&lt;/b&gt; the capture/compare register&lt;br&gt;for the channel of the blue LED"]:::action
-    L["For the channel of the red LED:&lt;br&gt;• &lt;b&gt;Set the duty cycle&lt;/b&gt; in compare/compare register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the channel"]:::action
-    M["For the channel of the green LED:&lt;br&gt;• &lt;b&gt;Set the duty cycle&lt;/b&gt; in compare/compare register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the channel"]:::action
-    O["For the channel of the blue LED:&lt;br&gt;• &lt;b&gt;Set the duty cycle&lt;/b&gt; in compare/compare register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the channel"]:::action
-    P["• &lt;b&gt;Set the UG bit&lt;/b&gt; in the EGR register&lt;br&gt;• &lt;b&gt;Enable&lt;/b&gt; the timer"]:::action
-    N((return))
-
-    %% Conexiones
-    A --&gt; B
-    B --&gt;|&lt;code&gt;false&lt;/code&gt;| N
-    B --&gt;|&lt;code&gt;true&lt;/code&gt;| C
-    C --&gt; D
-    D --&gt;|&lt;code&gt;true&lt;/code&gt;| E
-    E --&gt; N
-    D --&gt;|&lt;code&gt;false&lt;/code&gt;| F
-    F --&gt;|&lt;code&gt;true&lt;/code&gt;| G
-    F --&gt;|&lt;code&gt;false&lt;/code&gt;| L
-    L --&gt; H
-    G --&gt; H
-    H --&gt;|&lt;code&gt;true&lt;/code&gt;| I
-    H --&gt;|&lt;code&gt;false&lt;/code&gt;| M
-    M --&gt; J
-    I --&gt; J
-    J --&gt;|&lt;code&gt;true&lt;/code&gt;| K
-    J --&gt;|&lt;code&gt;false&lt;/code&gt;| O
-    O --&gt; P
-    K --&gt; P
-    P --&gt; N</code></pre>
+<p>Sigue el <a href="#fig:port_rgb_light_set_rgb">siguiente flujograma</a> para implementar la función <code>port_rgb_light_set_rgb()</code>:</p>
+<p></p><figure><embed id="fig:port_rgb_light_set_rgb" src="../assets/notebook_imgs/pr_chapters/version_3/port_rgb_light_set_rgb_flow.png" style="width:100.0%"/><figcaption aria-hidden="true">Flujograma de la función <code>port_rgb_light_set_rgb()</code>.</figcaption></figure><p></p>
 </li>
 <li>
 <p>Si queda algo por documentar puede ser buen momento ahora.</p>
@@ -816,7 +781,7 @@
 <p>La FSM contiene información del identificador (<code>ID</code>) del <em>RGB light</em>. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIO a la que está conectado) para todos los LED <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span> del sistema.</p>
 </li>
 </ul>
-<figure><embed id="fig:fsm_rgb_light" src="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light.svg" style="width:75.0%"/><figcaption aria-hidden="true">Máquina de estados del <em>RGB light</em>.</figcaption></figure>
+<figure><embed id="fig:fsm_rgb_light" src="../assets/notebook_imgs/pr_chapters/version_3/fsm_rgb_light.png" style="width:75.0%"/><figcaption aria-hidden="true">Máquina de estados del <em>RGB light</em>.</figcaption></figure>
 <p>Nuestra librería implementa la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> mostrada en la <a href="#fig:fsm_rgb_light">figura</a> y que llamaremos <code>fsm_rgb_light</code> (en los ficheros <code>.c</code> y <code>.h</code>). Tiene 2 estados en los que:</p>
 <ul>
 <li>

@@ -5,7 +5,7 @@
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_0.html" rel="canonical"/>
 <link href="sesion_introduccion.html" rel="prev"/>
 <link href="version_1.html" rel="next"/>
-<link href="../assets/general/favicon.ico" rel="icon"/>
+<link href="../assets/notebook_imgs/general/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
 <title>Versión 0 - Laboratorio de Sistemas Digitales II</title>
 <link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
@@ -348,6 +348,14 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pdf/manual_simone.pdf">
+<span class="md-ellipsis">
+    📥 Descargar como PDF
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -430,7 +438,7 @@
 </div>
 <h2 id="version-0-simone"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.1</span> Versión 0: Simone<a class="headerlink" href="#version-0-simone" title="Permanent link">¶</a></h2>
 <p>En esta sección se muestra el esquema general del sistema, y se presenta cómo has de configurar el proyecto en <em>VSCode</em>.</p>
-<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/diagram.svg"><img alt="Diagrama de elementos del sistema." id="fig:proyecto_base_dia" src="../assets/notebook_imgs/pr_chapters/version_0/diagram.svg" style="width:100.0%"/></a><figcaption aria-hidden="true">Diagrama de elementos del sistema.</figcaption></figure>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/diagram.png"><img alt="Diagrama de elementos del sistema." id="fig:proyecto_base_dia" src="../assets/notebook_imgs/pr_chapters/version_0/diagram.png" style="width:75.0%"/></a><figcaption aria-hidden="true">Diagrama de elementos del sistema.</figcaption></figure>
 <p>Nuestro sistema base versiona el clásico juego de los 80's, Simon. Cuando se presiona el botón de usuario (el <span style="color: Blue"><strong>azul</strong></span>) durante un tiempo indica que se quiere encender, o apagar, el juego. En ese instante el sistema central encenderá el <em>RGB light</em> (<a href="acronimos.html#acro:LED"><strong>LED</strong></a> <span style="color: red; font-weight: bold;">R</span><span style="color: green; font-weight: bold;">G</span><span style="color: blue; font-weight: bold;">B</span>) con la primera secuencia del juego en en nivel fácil (<code>LEVEL_EASY</code>). Cuando acaba de reproducirse (<em>playback</em>) la secuencia, se activa la excitación de las filas del teclado matricial (4x4) de forma iterativa, y se duerme para esperar una interrupción en alguna de las columnas. Cuando se detecta una pulsación, se comprueba si es la correcta. Si lo es, se vuelve a reproducir la secuencia con un nuevo paso añadido. Si no lo es, se enciende el <em>RGB light</em> en rojo para indicar el fallo, y se vuelve a empezar desde el principio. Si se pulsa el botón de usuario durante un tiempo largo, el sistema se apaga. Ve el video demostrativo en <a href="https://youtu.be/v-HXdcEtT_4"><strong>Demostración del sistema Simone</strong></a>. La <a href="#fig:proyecto_base_dia">figura del diagrama</a> muestra los 4 bloques que conforman el sistema:</p>
 <ol>
 <li>
@@ -681,8 +689,7 @@
 </li>
 </ul>
 <h3 id="par:gpio_config_exti"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.3</span> Función <code>stm32f4_system_gpio_config_exti</code><a class="headerlink" href="#par:gpio_config_exti" title="Permanent link">¶</a></h3>
-<p>Vamos a ver ahora esta función que configura el pin dado para generar interrupciones externas. Lee y ten a mano <strong>el capítulo <em>“Interrupciones”</em> del libro</strong>. El ejemplo te servirá de mucho. Esta función nos servirá para enterarnos cuando pulsemos el botón y realizar alguna acción en nuestro sistema.</p>
-<p>Vamos a seguir los cuatro puntos de la API de esta función.</p>
+<p>Vamos a ver ahora esta función que configura el pin dado para generar interrupciones externas. Lee y ten a mano <strong>el capítulo <em>“Interrupciones”</em> del libro</strong>. El ejemplo te servirá de mucho. Esta función nos servirá para enterarnos cuando pulsemos el botón y realizar alguna acción en nuestro sistema. Vamos a seguir los cuatro puntos de la API de esta función.</p>
 <ol>
 <li>
 <p>Lo primero que hace es habilitar el controlador de configuración del sistema que, como nos indica la API, sirve para controlar la línea de interrupciones externas hacia las GPIO. Para ello, se activa el bit <code>SYSCFGEN</code> del registro <code>APB2ENR</code> del <a href="acronimos.html#acro:RCC"><strong>RCC</strong></a>. De nuevo, podemos definir nuestra propia máscara para dicho bit mirando el registro, o usar la <code>RCC_APB2ENR_SYSCFGEN</code> de <a href="acronimos.html#acro:CMSIS"><strong>CMSIS</strong></a> que nos indica la API.</p>
@@ -691,18 +698,10 @@
 <p>Lo siguiente que hace es asociar la interrupción externa al puerto. Este código puede hacerse de muchas maneras, unas más eficientes que otras, aunque no nos preocupamos de eso ahora.</p>
 <p>Como se indica en el libro, dependiendo del pin y el puerto, tendremos que elegir un registro u otro para realizar la asociación. Como se trata de una función genérica y no sabemos qué valores nos van a llegar, se hace la implementación para cada pin y puerto según sea el valor de la variable <code>pin</code> y <code>port</code>. Así pues:</p>
 <ul>
-<li>
-<p>si el valor de <code>pin</code> está entre <code>0</code> y <code>3</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR1</code> (<code>SYSCFG-&gt;EXTICR\[0\]</code>),</p>
-</li>
-<li>
-<p>si el valor de <code>pin</code> está entre <code>4</code> y <code>7</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR2</code> (<code>SYSCFG-&gt;EXTICR\[1\]</code>),</p>
-</li>
-<li>
-<p>si el valor de <code>pin</code> está entre <code>8</code> y <code>11</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR3</code> (<code>SYSCFG-&gt;EXTICR\[2\]</code>), y</p>
-</li>
-<li>
-<p>si el valor de <code>pin</code> está entre <code>12</code> y <code>15</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR4</code> (<code>SYSCFG-&gt;EXTICR\[3\]</code>).</p>
-</li>
+<li>si el valor de <code>pin</code> está entre <code>0</code> y <code>3</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR1</code> (<code>SYSCFG-&gt;EXTICR[0]</code>),</li>
+<li>si el valor de <code>pin</code> está entre <code>4</code> y <code>7</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR2</code> (<code>SYSCFG-&gt;EXTICR[1]</code>),</li>
+<li>si el valor de <code>pin</code> está entre <code>8</code> y <code>11</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR3</code> (<code>SYSCFG-&gt;EXTICR[2]</code>), y</li>
+<li>si el valor de <code>pin</code> está entre <code>12</code> y <code>15</code>, se trabaja sobre el registro <code>SYSCFG_EXTICR4</code> (<code>SYSCFG-&gt;EXTICR[3]</code>).</li>
 </ul>
 <p>Se define una máscara base de 4 bits (<code>0x0F</code>) para seleccionar los bits del registro <code>EXTICRx</code> que se van a modificar.</p>
 <p>Esta máscara se desplaza <em>4 por el valor de la variable <code>pin</code> </em>módulo<em> 4</em>. 4 es el ancho de cada campo del registro <code>EXTICRx</code>. El <em>módulo 4</em> hace que el valor de <code>pin</code> se mantenga entre 0 y 3 y, así, no nos salgamos del ancho del registro, del que se usan 16 bits.</p>
@@ -726,15 +725,9 @@
 <p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_0/exti_mode.png"><img alt="Distintos valores que podemos darle a la variable &lt;code&gt;mode&lt;/code&gt;." src="../assets/notebook_imgs/pr_chapters/version_0/exti_mode.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Distintos valores que podemos darle a la variable <code>mode</code>.</figcaption></figure><p></p>
 <p>Es un consenso con nosotros mismos. Se ha añadido en <code>stm32f4_system.h</code> un conjunto de <code>#define</code> para estos valores a fin de que el código sea más inteligible y no haya valores <em>“a pincho”</em>. Se usan nombres representativos como:</p>
 <ul>
-<li>
-<p><code>#define STM32F4_TRIGGER_RISING_EDGE</code></p>
-</li>
-<li>
-<p><code>#define STM32F4_TRIGGER_FALLING_EDGE</code></p>
-</li>
-<li>
-<p><code>#define STM32F4_TRIGGER_BOTH_EDGE</code></p>
-</li>
+<li><code>#define STM32F4_TRIGGER_RISING_EDGE</code></li>
+<li><code>#define STM32F4_TRIGGER_FALLING_EDGE</code></li>
+<li><code>#define STM32F4_TRIGGER_BOTH_EDGE</code></li>
 </ul>
 </li>
 </ul>
@@ -743,12 +736,8 @@
 <p>Por último, de nuevo codificado en el valor de <code>mode</code>, se actúa sobre los registros <code>EXTI_EMR</code> o <code>EXTI_IMR</code> activando el bit correspondiente según si el valor de <code>mode</code> es <code>0x04</code> o <code>0x08</code>, respectivamente. También puede darse el caso de que se quieran activar ambos a la vez. No son excluyentes. En este caso, como en el anterior, activaríamos ambos (se puede añadir un tercer <code>#define</code> híbrido, o realizar dos llamadas a la función).</p>
 <p>Se añade en <code>stm32f4_system.h</code> un conjunto de <code>#define</code> con nombres representativos como:</p>
 <ul>
-<li>
-<p><code>#define STM32F4_TRIGGER_ENABLE_EVENT_REQ</code></p>
-</li>
-<li>
-<p><code>#define STM32F4_TRIGGER_ENABLE_INTERR_REQ</code></p>
-</li>
+<li><code>#define STM32F4_TRIGGER_ENABLE_EVENT_REQ</code></li>
+<li><code>#define STM32F4_TRIGGER_ENABLE_INTERR_REQ</code></li>
 </ul>
 </li>
 </ol>

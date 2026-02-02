@@ -5,7 +5,7 @@
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_4.html" rel="canonical"/>
 <link href="version_3.html" rel="prev"/>
 <link href="version_5.html" rel="next"/>
-<link href="../assets/general/favicon.ico" rel="icon"/>
+<link href="../assets/notebook_imgs/general/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
 <title>Versión 4 - Laboratorio de Sistemas Digitales II</title>
 <link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
@@ -368,6 +368,14 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pdf/manual_simone.pdf">
+<span class="md-ellipsis">
+    📥 Descargar como PDF
+    
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -772,40 +780,8 @@
 <h5 id="cond:simone_add_color_added"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.2.1</span> Transición (1): Secuencia actualizada<a class="headerlink" href="#cond:simone_add_color_added" title="Permanent link">¶</a></h5>
 <p>La <strong>función de comprobación</strong> <code>check_color_added()</code> verifica si la longitud de la secuencia (<code>seq_idx</code>) es diferente del índice del jugador (<code>player_idx</code>). Como la la función auxiliar <code>_add_color()</code> habrá añadido un nuevo color, esta condición se cumplirá inmediatamente, permitiendo el paso al estado de reproducción de la secuencia <a href="#sec:estado-playback"><code>PLAYBACK</code></a>.</p>
 <p>La <strong>función de acción</strong> <code>do_playback()</code> es el <strong><em>core</em> de la reproducción</strong>. Su objetivo es gestionar el parpadeo de los LED respetando los tiempos de cada nivel. Dado que esta función se llama repetidamente, utiliza la variable <code>playback_over</code> como un selector para <strong>alternar entre dos fases: mostrar color y pausa.</strong></p>
-<p><strong id="fig:flowchart_do_playback">Flujograma de implementación:</strong></p>
-<pre class="mermaid"><code>flowchart TD
-    Start([do_playback]) --&gt; Guard{"¿secuencia recorrida por completo?"}
-
-    %% Guarda de seguridad
-    Guard -- "&lt;code&gt;true&lt;/code&gt;" --&gt; EndReturn([&lt;code&gt;return&lt;/code&gt;])
-
-    Guard -- &lt;code&gt;false&lt;/code&gt; --&gt; ResetHW["1. Reset flag timer Simone&lt;br/&gt;2. Stop escaneo del teclado"]
-
-    ResetHW --&gt; CheckPhase{"playback_over"}
-
-    %% RAMA 1: MOSTRAR COLOR (playback_over == false)
-    CheckPhase -- "&lt;code&gt;false&lt;/code&gt;" --&gt; LedOn["1. Coger color e intensidad de los arrays.&lt;br/&gt;2. Llamar función de la FSM del LED RGB para poner color e intensidad."]
-    LedOn --&gt; SetTimerOn["1. Seleccionar duración de ON según nivel de dificultad&lt;br/&gt;2. Set timer de Simone con  duración."]
-    SetTimerOn --&gt; UpdateFlagOn["&lt;code&gt;playback_over = true&lt;/code&gt;"]
-    UpdateFlagOn --&gt; EndFunc([&lt;code&gt;return&lt;/code&gt;])
-
-    %% RAMA 2: PAUSA / GAP (playback_over == true)
-    CheckPhase -- "&lt;code&gt;true&lt;/code&gt;" --&gt; LedOff["Llamar función de la FSM del LED RGB para poner color &lt;code&gt;color_off&lt;/code&gt;."]
-    LedOff --&gt; IncIdx["Set timer de Simone con duración de pausa entre colores."]
-    IncIdx --&gt; UpdateFlagOff["1. &lt;code&gt;playback_idx++&lt;/code&gt;&lt;br/&gt;2. &lt;code&gt;playback_over=false&lt;/code&gt;"]
-
-    %% Comprobación de fin de secuencia
-    UpdateFlagOff --&gt; CheckEnd{"&lt;code&gt;playback_idx&gt;=seq_idx&lt;/code&gt;"}
-    CheckEnd -- "&lt;code&gt;true&lt;/code&gt;" --&gt; SetMarker["Marcar fin de playback"]
-    CheckEnd -- "&lt;code&gt;false&lt;/code&gt;" --&gt; EndFunc
-    SetMarker --&gt; EndFunc
-
-    %% Estilos para facilitar lectura
-    style Start fill:#f9f,stroke:#333,stroke-width:2px
-    style EndReturn fill:#faa,stroke:#333
-    style EndFunc fill:#ccf,stroke:#333
-    style CheckPhase fill:#ffd,stroke:#333,stroke-width:2px</code></pre>
-<p>Aunque el diagrama resume el flujo lógico, la implementación correcta de <code>do_playback()</code> requiere prestar atención a varios detalles técnicos para mantener la estabilidad del sistema:</p>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_4/flowchart_do_playback.png"><img alt="Diagrama de flujo de la función `do_playback()`." id="fig:flowchart_do_playback" src="../assets/notebook_imgs/pr_chapters/version_4/flowchart_do_playback.png" style="width:100.0%"/></a><figcaption aria-hidden="true">Diagrama de flujo de la función `do_playback()`.</figcaption></figure>
+<p>Aunque el <a href="#fig:flowchart_do_playback">diagrama</a> resume el flujo lógico, la implementación correcta de <code>do_playback()</code> requiere prestar atención a varios detalles técnicos para mantener la estabilidad del sistema:</p>
 <ol>
 <li><strong>La naturaleza no bloqueante del temporizador</strong>: Cuando el diagrama indica "Set timer de Simone", debes llamar a <code>port_simone_set_timer_timeout()</code>. Hay que entender que esta función <strong>no detiene la ejecución del código</strong> (no es un <code>delay</code>), sino que  programa una interrupción futura. El microcontrolador se dormirá en el estado <code>SLEEP_WHILE_PLAYBACK</code> hasta que ese tiempo expire, interrumpa y vuelva a comprobarse la tabla de transiciones.</li>
 <li><strong>Protección contra entradas espurias</strong>: Una de las primeras acciones es detener el escaneo del teclado. Si no se hace, el usuario podría pulsar teclas mientras se muestran las luces; esas pulsaciones se quedarían guardadas en el <em>struct</em> HW del teclado y se procesarían erróneamente en cuanto el juego pasara al estado de espera, provocando que se detecte como una tecla mal pulsada al inicio de la ronda siguiente.</li>
@@ -912,26 +888,7 @@
 <p>La <strong>función de comprobación</strong> <code>check_player_round_end()</code> verifica si (1) el jugador ha reproducido con éxito toda la secuencia actual (comparando los índices <code>player_idx</code> y <code>seq_idx</code>), pero (2) aún no ha cumplido las condiciones de victoria total; esto es, no ha alcanzado la longitud máxima de la secuencia o no está en el nivel más alto.</p>
 <p>Si se cumplen estas dos condiciones, el jugador ha superado la ronda y pasa al estado <a href="#sec:estado-add_color"><code>ADD_COLOR</code></a> para preparar la siguiente ronda.</p>
 <p>La <strong>función de acción</strong> <code>do_add_color()</code> prepara el sistema para el siguiente nivel o secuencia. Puedes ver su lógica detallada en el <a href="#fig:flowchart_do_add_color">flujograma</a>.</p>
-<p><strong id="fig:flowchart_do_add_color">Flujograma de implementación:</strong></p>
-<pre class="mermaid"><code>flowchart TD
-    Start([do_add_color]) --&gt; ResetVars["Reset de &lt;code&gt;player_idx&lt;/code&gt;, &lt;code&gt;playback_idx&lt;/code&gt; y &lt;code&gt;playback_over&lt;/code&gt;"]
-
-    ResetVars --&gt; CheckLevelUp{"Array lleno &amp; nivel &lt; HARD"}
-
-    %% RAMA 1: SUBIR NIVEL
-    CheckLevelUp -- "&lt;code&gt;true&lt;/code&gt;" --&gt; LevelUp["1. Subir nivel&lt;br/&gt;2. Reiniciar &lt;code&gt;seq_idx&lt;/code&gt;&lt;br/&gt;3. Imprimir mensaje de aviso"]
-    LevelUp --&gt; AddSeq
-
-    %% RAMA 2: MANTENER NIVEL
-    CheckLevelUp -- "&lt;code&gt;false&lt;/code&gt;" --&gt; AddSeq["Llamar a &lt;code&gt;_add_sequence(p_fsm)&lt;/code&gt;"]
-
-    AddSeq --&gt; EndFunc([&lt;code&gt;return&lt;/code&gt;])
-
-    %% Estilos de formato
-    style Start fill:#f9f,stroke:#333,stroke-width:2px
-    style EndFunc fill:#ccf,stroke:#333
-    style CheckLevelUp fill:#ffd,stroke:#333,stroke-width:2px
-</code></pre>
+<figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_4/flowchart_do_add_color.png"><img alt="Diagrama de flujo de la función `do_add_color()`." id="fig:flowchart_do_add_color" src="../assets/notebook_imgs/pr_chapters/version_4/flowchart_do_add_color.png" style="width:70.0%"/></a><figcaption aria-hidden="true">Diagrama de flujo de la función `do_add_color()`.</figcaption></figure>
 <h5 id="cond:simone_wait_any_key"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.4.5</span> Transición (5): Pulsación de una tecla<a class="headerlink" href="#cond:simone_wait_any_key" title="Permanent link">¶</a></h5>
 <p>La <strong>función de comprobación</strong> <code>check_any_key_pressed()</code> utiliza el driver del teclado para detectar si hay alguna tecla disponible en el buffer. Devuelve <code>true</code> si el usuario ha pulsado algo (valor de tecla leída es distinto de <code>KEY_NO_KEY_PRESSED</code>). En tal caso, el sistema transiciona al estado intermedio <a href="#sec:estado-verify_input"><code>VERIFY_INPUT</code></a> para validar la pulsación.</p>
 <p>La <strong>función de acción</strong> <code>do_capture_input()</code> realiza de nuevo la lectura de la tecla pulsada y proporciona <em>feedback</em> visual inmediato al usuario del color de la tecla que haya pulsado (sea correcta, o no). Debe:</p>

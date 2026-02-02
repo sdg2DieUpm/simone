@@ -5,7 +5,7 @@
 <link href="https://sdg2dieupm.github.io/simone/notebook/version_1.html" rel="canonical"/>
 <link href="version_0.html" rel="prev"/>
 <link href="version_2.html" rel="next"/>
-<link href="../assets/general/favicon.ico" rel="icon"/>
+<link href="../assets/notebook_imgs/general/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
 <title>Versión 1 - Laboratorio de Sistemas Digitales II</title>
 <link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
@@ -376,6 +376,14 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pdf/manual_simone.pdf">
+<span class="md-ellipsis">
+    📥 Descargar como PDF
+    
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -539,7 +547,7 @@
 <figure><embed id="fig:button_nucleo" src="../assets/notebook_imgs/pr_chapters/version_1/button_nucleo.png" style="width:50.0%"/><figcaption aria-hidden="true">Esquema del circuito del botón en la placa <span style="color: RoyalBlue; font-weight: bold;">Nucleo-STM32F446RE</span>.</figcaption></figure>
 <p>Como habrás podido intuir, el muelle genera inestabilidades cuando se pulsa, esto es a lo que llamamos <strong>rebotes</strong> (<em>bounces</em> en inglés). Estos rebotes son molestos porque se pueden interpretar como múltiples pulsaciones del usuario, por lo que hay que poner algún mecanismo para filtrarlos. Se pueden hacer mecanismos HW como un filtro paso bajo o, como en nuestro caso, se pueden implementar mecanismos SW.</p>
 <p>En SW hay varias formas de implementar dicho mecanismo. En nuestra propuesta lo haremos a través de la definición de un tiempo de guarda que obliga a ignorar todo lo que pasa en ese intervalo. Fíjate en el supuesto de la <a href="#fig:button_debound">figura de rebotes</a>. <strong>Para el proyecto vamos a considerar que la pulsación empieza cuando la ISR detecta el flanco de bajada, y hasta que se detecta un flanco de subida válido</strong>. En la figura, hay una pulsación de usuario, y la mecánica del botón hace que haya 2 rebotes bien definidos. El primer rebote no se detecta porque está dentro del tiempo de guarda. No obstante, este tiempo no es lo suficiente grande y <em>se nos cuela</em> el segundo rebote. Esta figura nos servirá como ejemplo para entender el desarrollo de la FSM.</p>
-<figure><embed id="fig:button_debound" src="../assets/notebook_imgs/pr_chapters/version_1/button_debounce.svg" style="width:100.0%"/><figcaption aria-hidden="true">Ejemplo de 2 rebotes en una pulsación con tiempo de anti-rebotes bajo.</figcaption></figure>
+<figure><embed id="fig:button_debound" src="../assets/notebook_imgs/pr_chapters/version_1/button_debounce.png" style="width:100.0%"/><figcaption aria-hidden="true">Ejemplo de 2 rebotes en una pulsación con tiempo de anti-rebotes bajo.</figcaption></figure>
 <p>Salvo que tengamos mucha experiencia jugando a videojuegos 😅, no seremos muy rápidos pulsando el botón. Dejando un tiempo de guarda entre <span class="arithmatex">\(100-200 ms\)</span> debería ser suficiente, pero depende del deterioro de nuestro botón y quizás debamos ajustarlo haciendo pruebas en el laboratorio con el osciloscopio. Ya estamos preparados para implementar la FSM.</p>
 <p>Tenemos que entender que <strong>estamos desarrollando una librería.</strong> Así lo vamos a hacer con todos los bloques del sistema. ¿Qué quiere decir esto? Tenemos que pensar que una librería es una entidad superior que me proporciona <em>“cosas”</em>. Pueden ser funciones, o elementos (estructuras). Me puede proporcionar tantos como necesite. El desarrollo de la librería es ajeno al botón que vamos a usar (irá en el <code>COMMON</code>, es una lógica <em>común</em>, genérica, independiente del HW). Puedo tener <span class="arithmatex">\(1\)</span> botón, o <span class="arithmatex">\(N\)</span> botones. Cada vez que quiera usar un botón, a este le asociaré una <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> de botón. Las particularidades de dónde está conectado este nuevo botón, sus características físicas (tiempo de rebote), <em>etc.</em>, son cosas específicas del HW, por lo que estarán en <code>PORT</code>. La lógica la vamos a hacer, siempre que se pueda, con máquinas de estado. El <em>botón</em> implementa su propia máquina de estados. Esta filosofía es la que mantendremos a lo largo de todo el proyecto.</p>
 <div class="admonition note">
@@ -547,7 +555,7 @@
 <p>Vamos a empezar por la parte portable <code>PORT</code> de control y acceso al HW. Empezaremos con las cabeceras <code>.h</code>y seguiremos con la implementación de las funciones de los ficheros fuente <code>.c</code>. Para comprobar que todo funciona correctamente, pasaremos el <em>test</em> unitario de la parte <code>PORT</code>. Luego, pasaremos a la parte <code>COMMON</code> de la librería, que es la lógica común a todos los sistemas. Empezaremos con las cabeceras y seguiremos con la implementación de las funciones de los ficheros fuente. Para comprobar que todo funciona correctamente, pasaremos el <em>test</em> unitario de la parte <code>COMMON</code>, y finalizaremos con el ejemplo de uso de la librería. </p>
 <p>Las cabeceras <code>.h</code> van a se nuestro <strong><em>“contrato con el usuario”</em></strong>, y en los ficheros fuente <code>.c</code> implementaremos las funciones. <strong>Este es el ciclo de desarrollo que vamos a seguir en todo el proyecto.</strong></p>
 </div>
-<figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.svg"><img alt="Estructura HW botón" id="fig:stm32f4_button_hw_t" src="../assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.svg" style="width:200%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.svg"><img alt="Estructura FSM botón" id="fig:fsm_button_t" src="../assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.svg" style="width:200%;"/></a> </div> <figcaption>(a) Estructura del HW del botón en PORT, (b) Estructura de la FSM del botón en COMMON.</figcaption> </figure>
+<figure style="text-align:center;"> <div style="display: flex; justify-content: center; align-items: center; gap: 10px;"> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.png"><img alt="Estructura HW botón" id="fig:stm32f4_button_hw_t" src="../assets/notebook_imgs/pr_chapters/version_1/stm32f4_button_hw_t.png" style="width:200%;"/></a> <a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.png"><img alt="Estructura FSM botón" id="fig:fsm_button_t" src="../assets/notebook_imgs/pr_chapters/version_1/fsm_button_t.png" style="width:200%;"/></a> </div> <figcaption>(a) Estructura del HW del botón en PORT, (b) Estructura de la FSM del botón en COMMON.</figcaption> </figure>
 <p>Las <a href="#fig:stm32f4_button_hw_t">figuras de estructuras HW</a> <a href="#fig:fsm_button_t">y SW</a> muestran las estructuras que vamos a necesitar para el botón. La estructura del HW del botón en <code>PORT</code>. El <code>PORT</code> de otro microcontrolador podría implementar internamente una estructura diferente, por eso está dentro de la carpeta <code>stm32f4</code>. Por ejemplo, al <em>portar</em> el código para PC no tendría sentido definir la estructura de una GPIO. La estructura de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> del botón en <code>COMMON</code> se muestra en la <a href="#fig:fsm_button_t">figura de la FSM</a>.</p>
 <p>Ahora sí, comencemos. Preparemos el proyecto para poder añadir el <em>botón</em>:</p>
 <ol>
@@ -741,7 +749,7 @@
 <p>La FSM contiene información del identificador (<code>ID</code>) del botón. Este <code>ID</code> es único y gestionado por el usuario en el <code>PORT</code>. Ahí es donde el usuario proporciona identificadores e información HW (GPIO a la que está conectado y tiempo de anti-rebotes) para todos los botones de su sistema.</p>
 </li>
 </ul>
-<figure><embed id="fig:fsm_boton" src="../assets/notebook_imgs/pr_chapters/version_1/fsm_button.svg" style="width:140.0%"/><figcaption aria-hidden="true">Máquina de estados del botón.</figcaption></figure>
+<figure><embed id="fig:fsm_boton" src="../assets/notebook_imgs/pr_chapters/version_1/fsm_button.png" style="width:140.0%"/><figcaption aria-hidden="true">Máquina de estados del botón.</figcaption></figure>
 <p>Nuestra librería implementa la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> mostrada en la <a href="#fig:fsm_boton">FSM de la figura</a> y que llamaremos <code>fsm_button</code> (en los ficheros <code>.c</code> y <code>.h</code>). Tiene 4 estados porque <strong>implementa un mecanismo anti-rebotes SW</strong>. Los rebotes de botón o pulsaciones muy rápidas que duren menos que el <em>tiempo de anti-rebote</em> (<code>debounce_time</code>), se filtran. Los estados, como muestran la figura, son:</p>
 <ul>
 <li>
