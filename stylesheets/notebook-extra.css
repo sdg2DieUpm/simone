@@ -435,6 +435,36 @@ html body .latex-rubric td.cell-excellent {
         mix-blend-mode: multiply; 
     }
 
+    /* 1. OCULTAR LA NUMERACIÓN DEL PLUGIN EN EL PDF */
+    /* El plugin enumerate-headings envuelve sus números en esta clase */
+    .enumerate-headings-plugin {
+        display: none !important;
+    }
+
+    /* 2. LIMPIAR EL EXCESO DE NÚMEROS EN LAS LISTAS */
+    /* Forzamos el estilo estándar y quitamos los contadores extra del motor de PDF */
+    ol {
+        list-style-type: decimal !important;
+        counter-reset: none !important; /* Evita que se reinicie erróneamente */
+    }
+
+    ol li::before {
+        content: none !important; /* Elimina el "1. 1." duplicado */
+    }
+
+    /* Ajuste de margen para que los números de lista no se corten */
+    ol li {
+        margin-left: 1.5em !important;
+        display: list-item !important;
+    }
+
+    /* 3. ASEGURAR QUE LOS TÍTULOS USEN LA NUMERACIÓN DEL PDF */
+    /* Esto mantendrá el "3.1" que te gusta y quitará el "3." */
+    h1, h2, h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
     /* Tablas */
     table {
         page-break-inside: auto;
