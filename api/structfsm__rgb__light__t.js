@@ -5,6 +5,6 @@ var structfsm__rgb__light__t =
     [ "idle", "structfsm__rgb__light__t.html#ab817689a6281c9c471ffe2e8e4a1c788", null ],
     [ "intensity_perc", "structfsm__rgb__light__t.html#aee27f84c86e0b207eb8cd6105e1d06cd", null ],
     [ "new_color", "structfsm__rgb__light__t.html#a02c2edc48a05392c68079e5470c9d905", null ],
-    [ "rgb_light_id", "structfsm__rgb__light__t.html#a6c350483481781e40426fce8bdd01444", null ],
+    [ "rgb_light_id", "structfsm__rgb__light__t.html#ab502ad4c68fa6cb633202dedb796f921", null ],
     [ "status", "structfsm__rgb__light__t.html#add76316d0ac2388be498a18c7cf965bf", null ]
 ];

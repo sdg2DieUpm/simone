@@ -123,12 +123,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a93a8745b455e90e7dd7093adf9d90a06"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8c.html#a93a8745b455e90e7dd7093adf9d90a06">do_set_off</a> (fsm_t *p_this)</td></tr>
 <tr class="memdesc:a93a8745b455e90e7dd7093adf9d90a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn the RGB light system OFF.  <a href="fsm__rgb__light_8c.html#a93a8745b455e90e7dd7093adf9d90a06">More...</a><br /></td></tr>
 <tr class="separator:a93a8745b455e90e7dd7093adf9d90a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69025ba782448cb1c8b3b77998a36148"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8c.html#a69025ba782448cb1c8b3b77998a36148">fsm_rgb_light_init</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm_rgb_light, uint32_t rgb_light_id)</td></tr>
-<tr class="memdesc:a69025ba782448cb1c8b3b77998a36148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an RGB light system FSM.  <a href="fsm__rgb__light_8c.html#a69025ba782448cb1c8b3b77998a36148">More...</a><br /></td></tr>
-<tr class="separator:a69025ba782448cb1c8b3b77998a36148"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bf7ea51b5130bf0107e076661529357"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8c.html#a1bf7ea51b5130bf0107e076661529357">fsm_rgb_light_new</a> (uint32_t rgb_light_id)</td></tr>
-<tr class="memdesc:a1bf7ea51b5130bf0107e076661529357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new RGB light FSM.  <a href="fsm__rgb__light_8c.html#a1bf7ea51b5130bf0107e076661529357">More...</a><br /></td></tr>
-<tr class="separator:a1bf7ea51b5130bf0107e076661529357"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27b9412d65eaf469adfc5632281a580"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8c.html#ae27b9412d65eaf469adfc5632281a580">fsm_rgb_light_init</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm_rgb_light, uint8_t rgb_light_id)</td></tr>
+<tr class="memdesc:ae27b9412d65eaf469adfc5632281a580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an RGB light system FSM.  <a href="fsm__rgb__light_8c.html#ae27b9412d65eaf469adfc5632281a580">More...</a><br /></td></tr>
+<tr class="separator:ae27b9412d65eaf469adfc5632281a580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05c86fa3380f799664ebace02321e9de"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8c.html#a05c86fa3380f799664ebace02321e9de">fsm_rgb_light_new</a> (uint8_t rgb_light_id)</td></tr>
+<tr class="memdesc:a05c86fa3380f799664ebace02321e9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new RGB light FSM.  <a href="fsm__rgb__light_8c.html#a05c86fa3380f799664ebace02321e9de">More...</a><br /></td></tr>
+<tr class="separator:a05c86fa3380f799664ebace02321e9de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9beddc19f8e1d3f4068b6e4b31ff26a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fsm__rgb__light_8c.html#a9beddc19f8e1d3f4068b6e4b31ff26a9">fsm_rgb_light_destroy</a> (<a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a> *p_fsm)</td></tr>
 <tr class="memdesc:a9beddc19f8e1d3f4068b6e4b31ff26a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy an RGB light FSM.  <a href="fsm__rgb__light_8c.html#a9beddc19f8e1d3f4068b6e4b31ff26a9">More...</a><br /></td></tr>
 <tr class="separator:a9beddc19f8e1d3f4068b6e4b31ff26a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -356,7 +356,7 @@ false If a new color does not have to be set </dd></dl>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
 <p>✅ 1. Correct the levels of the RGB LEDs according to the intensity . Use the <code><a class="el" href="fsm__rgb__light_8c.html#a5fb4ea0ac3e3b2b5fed7e9f73eab2892" title="Apply correction to an RGB color based on the intensity value.">_correct_rgb_light_levels()</a></code>. <br  />
-✅ 2. Call function <code><a class="el" href="port__rgb__light_8h.html#ab26636769fbad08ef5a345f92a7af337" title="Set the Capture/Compare register values for each channel of the RGB LED given a color.">port_rgb_light_set_rgb()</a></code> with the RGB LED ID and the color <br  />
+✅ 2. Call function <code><a class="el" href="port__rgb__light_8h.html#a326965ec22f24d8ed258d8e288ab6c3f" title="Set the Capture/Compare register values for each channel of the RGB LED given a color.">port_rgb_light_set_rgb()</a></code> with the RGB LED ID and the color <br  />
 ✅ 3. Reset the flag <code>new_color</code> to indicate that the color has been set <br  />
 ✅ 4. Set the RGB light system to idle. In this case, the RGB light system is active, but while the intensity is not changed, the RGB light system is idle and can enter in a low power mode <br  />
 </p>
@@ -397,7 +397,7 @@ false If a new color does not have to be set </dd></dl>
 <p>Turn the RGB light system OFF. </p>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
-<p>✅ 1. Call function <code><a class="el" href="port__rgb__light_8h.html#ab26636769fbad08ef5a345f92a7af337" title="Set the Capture/Compare register values for each channel of the RGB LED given a color.">port_rgb_light_set_rgb()</a></code> with the RGB LED ID with no color (<code>COLOR_OFF</code>). <br  />
+<p>✅ 1. Call function <code><a class="el" href="port__rgb__light_8h.html#a326965ec22f24d8ed258d8e288ab6c3f" title="Set the Capture/Compare register values for each channel of the RGB LED given a color.">port_rgb_light_set_rgb()</a></code> with the RGB LED ID with no color (<code>COLOR_OFF</code>). <br  />
 ✅ 2. Reset the flag <code>idle</code> to indicate that the RGB light system is not idle <br  />
 </p>
 </blockquote>
@@ -438,7 +438,7 @@ false If a new color does not have to be set </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>In this version the RGB light starts ON with no color. This is: the LED is turned ON but no color is set. In future versions you can set a default color at the beginning.</dd></dl>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
-<p>✅ 1. Call function <code><a class="el" href="port__rgb__light_8h.html#ab26636769fbad08ef5a345f92a7af337" title="Set the Capture/Compare register values for each channel of the RGB LED given a color.">port_rgb_light_set_rgb()</a></code> with the RGB LED ID with no color (all the duty cycles to 0). <br  />
+<p>✅ 1. Call function <code><a class="el" href="port__rgb__light_8h.html#a326965ec22f24d8ed258d8e288ab6c3f" title="Set the Capture/Compare register values for each channel of the RGB LED given a color.">port_rgb_light_set_rgb()</a></code> with the RGB LED ID with no color (all the duty cycles to 0). <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -583,8 +583,8 @@ false If the RGB light system has been indicated to be paused. </dd></dl>
 
 </div>
 </div>
-<a id="a69025ba782448cb1c8b3b77998a36148"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69025ba782448cb1c8b3b77998a36148">&#9670;&nbsp;</a></span>fsm_rgb_light_init()</h2>
+<a id="ae27b9412d65eaf469adfc5632281a580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27b9412d65eaf469adfc5632281a580">&#9670;&nbsp;</a></span>fsm_rgb_light_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,7 +601,7 @@ false If the RGB light system has been indicated to be paused. </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>rgb_light_id</em>&#160;</td>
         </tr>
         <tr>
@@ -626,7 +626,7 @@ false If the RGB light system has been indicated to be paused. </dd></dl>
 <blockquote class="doxtable">
 <p><b>TODO alumnos:</b></p>
 <p>✅ 1. Call the <code>fsm_init()</code> to initialize the FSM. Pass the address of the <code>fsm_t</code> struct and the transition table. <br  />
-✅ 2. Initialize the ''intensity_id<code>. \n ✅ 3. Set the</code>intensity_perc<code>to</code>MAX_LEVEL_INTENSITY<code>. Initialize the color to OFF. \n ✅ 4. Initialize the flags</code>new_color<code>,</code>status<code>, and</code>idle<code>to</code>false<code>. \n ✅ 5. Call function</code><a class="el" href="port__rgb__light_8h.html#ad74359579885cf1bcd4741bfe3069f8b" title="Configure the HW specifications of a given RGB light.">port_rgb_light_init()</a>` to initialize the HW. <br  />
+✅ 2. Initialize the ''intensity_id<code>. \n ✅ 3. Set the</code>intensity_perc<code>to</code>MAX_LEVEL_INTENSITY<code>. Initialize the color to OFF. \n ✅ 4. Initialize the flags</code>new_color<code>,</code>status<code>, and</code>idle<code>to</code>false<code>. \n ✅ 5. Call function</code><a class="el" href="port__rgb__light_8h.html#a1b04d2dd778bef7a90ee86ff7aadd83d" title="Configure the HW specifications of a given RGB light.">port_rgb_light_init()</a>` to initialize the HW. <br  />
 </p>
 </blockquote>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -639,8 +639,8 @@ false If the RGB light system has been indicated to be paused. </dd></dl>
 
 </div>
 </div>
-<a id="a1bf7ea51b5130bf0107e076661529357"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bf7ea51b5130bf0107e076661529357">&#9670;&nbsp;</a></span>fsm_rgb_light_new()</h2>
+<a id="a05c86fa3380f799664ebace02321e9de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c86fa3380f799664ebace02321e9de">&#9670;&nbsp;</a></span>fsm_rgb_light_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -648,7 +648,7 @@ false If the RGB light system has been indicated to be paused. </dd></dl>
         <tr>
           <td class="memname"><a class="el" href="structfsm__rgb__light__t.html">fsm_rgb_light_t</a>* fsm_rgb_light_new </td>
           <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>rgb_light_id</em></td><td>)</td>
           <td></td>
         </tr>
