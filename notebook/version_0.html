@@ -637,7 +637,7 @@
 <p><strong>Aplica toda esta lógica para cualquier registro. Todos están definidos por <a href="acronimos.html#acro:CMSIS">CMSIS</a> en el fichero <code>stm32f4xx.h</code>, y todos son punteros, por lo que siempre accederemos a los registros de los periféricos con <code>-&gt;</code> (flecha).</strong></p>
 </li>
 <li>
-<p><strong>El fabricante nos indica en el manual de referencia que el acceso a los registros se hace, generalmente, de 32 en 32 bits por lo que no se pueden seleccionar bits particulares de un registro</strong> —como indica el libro en un ejemplo—, por eso usamos <strong>máscaras</strong>, en este caso con el operador <code>\|</code> (<code>OR</code>) sobre todo el registro para activar el/los bit/s deseado/s.</p>
+<p><strong>El fabricante nos indica en el manual de referencia que el acceso a los registros se hace, generalmente, de 32 en 32 bits por lo que no se pueden seleccionar bits particulares de un registro</strong> —como indica el libro en un ejemplo—, por eso usamos <strong>máscaras</strong>, en este caso con el operador <code>|</code> (<code>OR</code>) sobre todo el registro para activar el/los bit/s deseado/s.</p>
 </li>
 <li>
 <p>El <code>RCC_AHB1ENR_GPIOAEN</code> es una máscara que está definida en <code>stm32f4xx.h</code>, y vale <code>0x01</code>. Gran parte de los bits de los registros, si no todos, están definidos en este fichero. Para cualquier registro, tú puedes decidir usarlos, o definirte tus propias máscaras si te es más cómodo.</p>
@@ -663,7 +663,7 @@
 <li>
 <p>Escribe en el registro de modo el valor de la variable <code>mode</code> —que es el argumento recibido y podrá tomar valores <code>STM32F4_GPIO_MODE_IN</code>— <code>STM32F4_GPIO_MODE_OUT</code>, <code>STM32F4_GPIO_MODE_AF</code>, o <code>STM32F4_GPIO_MODE_AN</code>. Estos son los valores que se han definido en el fichero <code>stm32f4_system.h</code>, y que valen <code>0x00</code>, <code>0x01</code>, <code>0x02</code>, y <code>0x03</code>, respectivamente.</p>
 <p>Para escribir en las posiciones correctas del registro, se usa el desplazamiento con la variable <code>pin</code>. La variable <code>pin</code> se multiplica por <code>2U</code> para asegurar que el desplazamiento es de 2 en 2 bits.</p>
-<p><strong>Para poner a 1 los bits de un registro o variable, se hace una <code>OR</code> (<code>\|</code>) con el valor deseado</strong>.</p>
+<p><strong>Para poner a 1 los bits de un registro o variable, se hace una <code>OR</code> (<code>|</code>) con el valor deseado</strong>.</p>
 </li>
 </ul>
 <p>Ya se ha hecho el segundo punto de la API de esta función.</p>
