@@ -525,12 +525,12 @@
 <p>Compila el código. Lo podemos hacer de varias maneras. Típicamente, lo haremos en depuración, <strong>con la placa conectada</strong>, pero por ahora, podemos construir los binarios sin necesidad de la placa. En este orden:</p>
 <ol>
 <li>
-<p><strong>Primero generamos las reglas de compilación</strong> con <code>CMake</code>: Menú <code>Terminal&amp;rarr; Run Task... &amp;rarr; Run CMake &amp;rarr; stm32f446re (Default) &amp;rarr; Release (Default)</code></p>
+<p><strong>Primero generamos las reglas de compilación</strong> con <code>CMake</code>: Menú <code>Terminal→ Run Task... → Run CMake → stm32f446re (Default) → Release (Default)</code></p>
 <p>Esto generará las carpetas <code>build/Release/</code> con todas las reglas de compilación.</p>
 <p><span style="color: Red"><strong>Si no vas a trabajar en modo depuración, es necesario que generes las reglas de compilación en modo <code>Release</code> cada vez que añadas un fichero al proyecto</strong>. Si trabajas en modo depuración, no es necesario, se hace automáticamente tras el Clean.</span></p>
 </li>
 <li>
-<p><strong>Seguidamente, compilamos el código</strong>: Menú <code>Terminal&amp;rarr; Run Task... &amp;rarr; Build &amp;rarr; stm32f446re (Default) &amp;rarr; Release (Default) &amp;rarr; main</code></p>
+<p><strong>Seguidamente, compilamos el código</strong>: Menú <code>Terminal→ Run Task... → Build → stm32f446re (Default) → Release (Default) → main</code></p>
 </li>
 </ol>
 </li>
@@ -777,7 +777,7 @@
 <p>En <code>stm32f4_system.h</code> documenta la función con <code>Doxygen</code> ayudándose con la API. Recuerda que tienes el vídeo <a href="https://youtu.be/VC7fExJJQSY?si=YIY22n5yiqzfZuQd">"[MatrixMCU] Documentación de código con Doxygen”</a> con las bases para documentar y generar tu propia API.</p>
 </li>
 </ol>
-<p>Ya tenemos la función que nos permite leer valores digitales del exterior dado un puerto y un pin. Comprueba que compila sin errores: Menú <code>Terminal&amp;rarr; Run Task... &amp;rarr; Build &amp;rarr; stm32f446re (Default) &amp;rarr; Release (Default) &amp;rarr; main</code>.</p>
+<p>Ya tenemos la función que nos permite leer valores digitales del exterior dado un puerto y un pin. Comprueba que compila sin errores: Menú <code>Terminal→ Run Task... → Build → stm32f446re (Default) → Release (Default) → main</code>.</p>
 <h3 id="par:gpio_write"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.7</span> Función <code>stm32f4_system_gpio_write</code><a class="headerlink" href="#par:gpio_write" title="Permanent link">¶</a></h3>
 <p>A continuación vamos a desarrollar la función que será llamada cuando queramos escribir un valor digital en un pin. Escribiremos <code>‘1’</code> o <code>‘0’</code> lógicos. Vamos a seguir los dos puntos de la API de esta función.</p>
 <ol>
