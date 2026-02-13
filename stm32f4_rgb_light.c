@@ -19,7 +19,7 @@
 /* Global variables */
 
 /* Private functions -----------------------------------------------------------*/
-stm32f4_rgb_light_hw_t *_stm32f4_rgb_light_get(uint32_t rgb_light_id)
+stm32f4_rgb_light_hw_t *_stm32f4_rgb_light_get(uint8_t rgb_light_id)
 {
     // Return the pointer to the rgb light with the given ID. If the ID is not valid, return NULL.
     // TO-DO alumnos
