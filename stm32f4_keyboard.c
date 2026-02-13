@@ -60,7 +60,7 @@ static uint8_t keyboard_main_col_pins[] = {
 /* Private functions ----------------------------------------------------------*/
 
 /* Public functions -----------------------------------------------------------*/
-void port_keyboard_init(uint32_t keyboard_id)
+void port_keyboard_init(uint8_t keyboard_id)
 {
     /* Get the keyboard sensor */
     stm32f4_keyboard_hw_t *p_keyboard = _stm32f4_keyboard_get(keyboard_id);
