@@ -30,7 +30,7 @@
  * @return Pointer to the button state struct.
  * @return NULL If the button ID is not valid.
  */
-stm32f4_button_hw_t *_stm32f4_button_get(uint32_t button_id)
+stm32f4_button_hw_t *_stm32f4_button_get(uint8_t button_id)
 {
     // Return the pointer to the button with the given ID. If the ID is not valid, return NULL.
     if (button_id < sizeof(buttons_arr) / sizeof(buttons_arr[0]))
@@ -44,7 +44,7 @@ stm32f4_button_hw_t *_stm32f4_button_get(uint32_t button_id)
 }
 
 /* Public functions -----------------------------------------------------------*/
-void port_button_init(uint32_t button_id)
+void port_button_init(uint8_t button_id)
 {
     // Retrieve the button struct using the private function and the button ID
     stm32f4_button_hw_t *p_button = _stm32f4_button_get(button_id);

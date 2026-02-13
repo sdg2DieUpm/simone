@@ -21,7 +21,7 @@
 /* State machine output or action functions */
 
 /* Other auxiliary functions */
-void fsm_button_init(fsm_button_t *p_fsm_button, uint32_t debounce_time, uint32_t button_id)
+void fsm_button_init(fsm_button_t *p_fsm_button, uint32_t debounce_time, uint8_t button_id)
 {
     fsm_init(&p_fsm_button->f, fsm_trans_button);
 
@@ -29,7 +29,7 @@ void fsm_button_init(fsm_button_t *p_fsm_button, uint32_t debounce_time, uint32_
 }
 
 /* Public functions -----------------------------------------------------------*/
-fsm_button_t *fsm_button_new(uint32_t debounce_time, uint32_t button_id)
+fsm_button_t *fsm_button_new(uint32_t debounce_time, uint8_t button_id)
 {
     fsm_button_t *p_fsm_button = malloc(sizeof(fsm_button_t)); /* Do malloc to reserve memory of all other FSM elements, although it is interpreted as fsm_t (the first element of the structure) */
     fsm_button_init(p_fsm_button, debounce_time, button_id);   /* Initialize the FSM */
