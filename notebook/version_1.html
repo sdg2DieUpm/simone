@@ -650,7 +650,7 @@ tt</p>
 <p>Incluye las librerías necesarias, si falta alguna, según indique la API.</p>
 </li>
 <li>
-<p>Vamos a definir la <strong>variable global</strong> <code>stm32f4_button_hw_t buttons_arr\[\]</code> que se declaró en el <code>.h</code>. Se trata de un array que no especifica el número de elementos que tiene, pero cada uno será de tipo <code>stm32f4_button_hw_t</code>, que representa al HW de cada botón que tengamos en nuestro sistema.</p>
+<p>Vamos a definir la <strong>variable global</strong> <code>stm32f4_button_hw_t buttons_arr[]</code> que se declaró en el <code>.h</code>. Se trata de un array que no especifica el número de elementos que tiene, pero cada uno será de tipo <code>stm32f4_button_hw_t</code>, que representa al HW de cada botón que tengamos en nuestro sistema.</p>
 <p>La declaración e inicialización de este array podemos hacerla a la vez, que será lo más aconsejable. También podríamos hacer solo la declaración e inicializar los valores de cada botón en una función aparte —que ahora mismo no tenemos definida—. Convendría recordar las secciones correspondientes de los vídeos de SDG1: <a href="https://youtu.be/U395gYoCHbQ?t=223">inicialización de arrays</a> y <a href="https://youtu.be/X33jHui_l0k?t=378">arrays de estructuras</a>.</p>
 <p>Asigna los valores del botón <code>PORT_USER_BUTTON_ID</code> utilizando los <code>#define</code> de <code>stm32f4_button.h</code>. Deberá quedarte algo como lo de la <a href="#fig:buttons_array">figura de arrays</a>. Si tienes más botones en el sistema, simplemente añadirías una fila para cada botón con sus características correspondientes.</p>
 <p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/buttons_array.png"><img alt="Array de botones con las características del botón de usuario." id="fig:buttons_array" src="../assets/notebook_imgs/pr_chapters/version_1/buttons_array.png" style="width:90.0%"/></a><figcaption aria-hidden="true">Array de botones con las características del botón de usuario.</figcaption></figure><p></p>
@@ -847,7 +847,7 @@ tt</p>
 <p>Mucha información hasta ahora, pero verá cómo se aclara todo enseguida. <strong>Vamos a codificar la tabla (array) de transiciones de la FSM del <em>botón</em></strong>.</p>
 </li>
 <li>
-<p>Definimos <code>static fsm_trans_t fsm_trans_button\[\] = ...</code> justo después de la función <code>do_set_duration()</code>.</p>
+<p>Definimos <code>static fsm_trans_t fsm_trans_button[] = ...</code> justo después de la función <code>do_set_duration()</code>.</p>
 <p>Recuerda que cada fila de la tabla de transiciones tiene la forma: <code>EstadoIni, FuncCompruebaCondicion, EstadoSig, FuncAccionesSiTransicion</code>. No olvides añadir la fila <code>-1, NULL, -1, NULL</code> que sirve a la librería <code>fsm.c</code> para detectar el fin de la tabla.</p>
 <p><span style="color: Red">¿Por qué es importante haber colocado la tabla en este punto? Bueno, puede ser en cualquier punto después de las funciones <code>check_</code> y <code>do_</code>, porque de lo contrario, de estar más arriba, al compilar, la tabla de transiciones estaría haciendo referencia a funciones que todavía no se sabe que existen (¡porque son privadas y no están en el <code>.h</code>!).</span></p>
 <p>Si ahora compilas, verás que han desaparecido muchos errores. Ya queda menos para acabar la implementación de la librería de la máquina de estados. Prosigamos:</p>
