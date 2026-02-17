@@ -660,7 +660,7 @@ tt</p>
 <p>Si el botón no existe, la función devuelve <code>NULL</code>. Esto es habitual en funciones que devuelven punteros y es muy útil para detectar errores en la programación.</p>
 </li>
 <li>
-<p>Completa la función <code>port_button_init()</code> como se indica en la API. Fíjate cómo la parte de código proporcionada define la variable local <code>\*p_button</code> que nos permite acceder al botón. También podría haberse hecho con acceso directo al elemento del array de botones <code>buttons_arr\[button_id\]</code>, pero es más elegante, seguro, y legible hacerlo con la función <code>_stm32f4_button_get()</code>.</p>
+<p>Completa la función <code>port_button_init()</code> como se indica en la API. Fíjate cómo la parte de código proporcionada define la variable local <code>\*p_button</code> que nos permite acceder al botón. También podría haberse hecho con acceso directo al elemento del array de botones <code>buttons_arr[button_id]</code>, pero es más elegante, seguro, y legible hacerlo con la función <code>_stm32f4_button_get()</code>.</p>
 <p><span style="color: Red">Recuerda que es muy importante indicar en el modo de la interrupción del botón que, <strong>además de detectar ambos flancos (subida y bajada), debe habilitar la petición de interrupción (registro <code>EXTI_IMR</code>)</strong></span>.</p>
 </li>
 <li>
