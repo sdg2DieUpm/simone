@@ -462,7 +462,8 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="cha:version1"><span class="enumerate-headings-plugin enumerate-heading-plugin">4.</span> Versión 1: botón de usuario<a class="headerlink" href="#cha:version1" title="Permanent link">¶</a></h1>
-<p>Ya estamos en disposición de programar el bloque que controla la pulsación del botón para encender y apagar el sistema <em>Simone</em>, y para pausarlo. Debes tener a mano en todo momento <strong>los documentos referenciados y ver los vídeos sugeridos</strong> a fin de entender mejor cómo tienes que escribir el código o realizar montajes.</p>
+<p>Ya estamos en disposición de programar el bloque que controla la pulsación del botón para encender y apagar el sistema <em>Simone</em>, y para pausarlo. Debes tener a mano en todo momento <strong>los documentos referenciados y ver los vídeos sugeridos</strong> a fin de entender mejor cómo tienes que escribir el código o realizar montajes.
+tt</p>
 <div class="admonition example">
 <p class="admonition-title">Bibliografía</p>
 <ol>
@@ -600,7 +601,7 @@
 <p>Escribe los prototipos de las funciones públicas que aparecen en la API del fichero <code>port_button.h</code>.</p>
 </li>
 <li>
-<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. Para que aparezca en la API el campo y su definición, hay que poner <code>/\*!\&lt; aqui_la_definicion \*/</code> junto al nombre del campo como muestra la <a href="#fig:doxygen_enum">figura de ejemplo de Doxygen en enumerados</a>.</p>
+<p>Puede ser buen momento ahora para documentar las funciones con Doxygen. Para que aparezca en la API el campo y su definición, hay que poner <code>/*!&lt; aqui_la_definicion */</code> junto al nombre del campo como muestra la <a href="#fig:doxygen_enum">figura de ejemplo de Doxygen en enumerados</a>.</p>
 <p></p><figure><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="auto" href="../assets/notebook_imgs/pr_chapters/version_1/doxygen_enum.png"><img alt="Comentario de Doxygen en las claves de un enumerado." id="fig:doxygen_enum" src="../assets/notebook_imgs/pr_chapters/version_1/doxygen_enum.png" style="width:90.0%"/></a><figcaption aria-hidden="true">Comentario de Doxygen en las claves de un enumerado.</figcaption></figure><p></p>
 <p>Puedes partir de los ejemplos dados en el fichero <code>port_system.h</code> y ayudarse con extensa documentación online. <strong>Puede hacerlo en español o inglés</strong><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.</p>
 </li>
@@ -626,7 +627,7 @@
 <p><code>STM32F4_USER_BUTTON_PIN</code>: pin/ línea de la GPIO del botón. Es un número entero que va de 0 a 15.</p>
 </li>
 <li>
-<p>En el fichero tenemos que declarar también una estructura llamada <code>stm32f4_button_hw_t</code> (ver la [figura del struct]{#fig:stm32f4_button_hw_t}). Esta estructura se pone en el \ttt{.h} y se hace pública para que pueda ser usada por la ISR del botón en el fichero <code>interr.c</code>. Esto es así porque a las ISR no se les puede pasar argumentos. En ella se definen los campos que se muestran en la figura.</p>
+<p>En el fichero tenemos que declarar también una estructura llamada <code>stm32f4_button_hw_t</code> (ver la <a href="#fig:stm32f4_button_hw_t">figura del struct</a>). Esta estructura se pone en el <code>.h</code> y se hace pública para que pueda ser usada por la ISR del botón en el fichero <code>interr.c</code>. Esto es así porque a las ISR no se les puede pasar argumentos. En ella se definen los campos que se muestran en la figura.</p>
 <p>Esta estructura es genérica para cualquier botón que vayamos a usar, no solo el de usuario <code>B1</code>, sino cualquiera que desee añadir más tarde.</p>
 <p>El campo <code>flag_pressed</code> nos indica si el botón se ha pulsado, o no. Ya vimos que cuando pulsamos nuestro botón se produce un flanco de bajada por cómo están conectados sus pines (ver <a href="#fig:button_debound">figura de rebotes</a>). Son las ISR las que hacen esta interpretación.</p>
 </li>
