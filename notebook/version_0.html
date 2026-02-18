@@ -599,10 +599,10 @@
 <p><a href="#par:gpio_config_exti"><code>stm32f4_system_gpio_config_exti()</code></a></p>
 </li>
 <li>
-<p><a href="#par:gpio_config_exti_enable"><code>stm32f4_system_gpio_config_exti_enable()</code></a></p>
+<p><a href="#par:gpio_config_exti_enable"><code>stm32f4_system_gpio_exti_enable()</code></a></p>
 </li>
 <li>
-<p><a href="#par:gpio_config_exti_disable"><code>stm32f4_system_gpio_config_exti_disable()</code></a></p>
+<p><a href="#par:gpio_config_exti_disable"><code>stm32f4_system_gpio_exti_disable()</code></a></p>
 </li>
 </ul>
 <p>Además, por otro lado <strong>vas a tener que implementar</strong> las funciones de lectura, escritura y toggle de las GPIOs**. Son:</p>
@@ -742,9 +742,9 @@
 </li>
 </ol>
 <p>Ya hemos visto cómo está programada la función. Esta ha sido más compleja, pero esperemos que ya vaya cogiendo soltura con los registros.</p>
-<h3 id="par:gpio_config_exti_enable"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.4</span> Función <code>stm32f4_system_gpio_config_exti_enable</code><a class="headerlink" href="#par:gpio_config_exti_enable" title="Permanent link">¶</a></h3>
+<h3 id="par:gpio_config_exti_enable"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.4</span> Función <code>stm32f4_system_gpio_exti_enable</code><a class="headerlink" href="#par:gpio_config_exti_enable" title="Permanent link">¶</a></h3>
 <p>El objetivo de esta función es <strong>establecer el nivel de prioridad y subprioridad, y a la vez habilitar la interrupción de una línea externa dada</strong>. La llamaremos cuando queramos configurar un pin como entrada y que genere interrupciones. Internamente llama a una macro de <a href="acronimos.html#acro:CMSIS"><strong>CMSIS</strong></a> que controla los registros de interrupción. Estos registros no aparecen en el <em>reference manual</em> porque son del <em>core</em> de Cortex-M4. <span style="color: Red"><strong>Es muy importante habilitar la interrupción o nunca saltará la ISR.</strong></span></p>
-<h3 id="par:gpio_config_exti_disable"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.5</span> Función <code>stm32f4_system_gpio_config_exti_disable</code><a class="headerlink" href="#par:gpio_config_exti_disable" title="Permanent link">¶</a></h3>
+<h3 id="par:gpio_config_exti_disable"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.5</span> Función <code>stm32f4_system_gpio_exti_disable</code><a class="headerlink" href="#par:gpio_config_exti_disable" title="Permanent link">¶</a></h3>
 <p>El objetivo de esta función es <strong>deshabilitar la interrupción de una línea externa dada</strong>. La usaremos cuando no queramos que nos interrumpa un pin/ línea configurado como entrada y previamente habilitado. <strong>Mientras está desactivada, no saltará la ISR asociada a dicha línea.</strong></p>
 <h3 id="par:gpio_read"><span class="enumerate-headings-plugin enumerate-heading-plugin">3.4.6</span> Función <code>stm32f4_system_gpio_read</code><a class="headerlink" href="#par:gpio_read" title="Permanent link">¶</a></h3>
 <p>Esta función será llamada cuando queramos leer el valor digital de un pin. Leeremos un <code>‘1’</code> o un <code>‘0’</code> lógico, por eso, la función devuelve <code>bool</code>. Vamos a seguir los dos puntos de la API de esta función para que la implementes tú mismo/a.</p>
