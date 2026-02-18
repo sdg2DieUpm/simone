@@ -681,7 +681,7 @@
 <p>Codifica la función <code>port_keyboard_excite_row()</code> como se indica en la API. Esta función debe <strong>activar la fila indicada y ¡desactivar las restantes!</strong></p>
 </li>
 <li>
-<p>Codifica la función <code>port_keyboard_get_cols()</code> como se indica en la API. Esta función llama a la anterior pero antes actualiza <code>current_excited_row</code>, que es el índice de la fila a ser excitada.</p>
+<p>Codifica la función <code>port_keyboard_excite_next_row()</code> como se indica en la API. Esta función llama a la anterior pero antes actualiza <code>current_excited_row</code>, que es el índice de la fila a ser excitada.</p>
 </li>
 <li>
 <p>Codifica todos los <em>getters</em> y <em>setters</em> que aparecen en el <code>.h</code> como indica la API. Especial atención a la función <code>port_keyboard_get_key_value()</code>, que debe devolver el carácter ASCII correspondiente a la tecla pulsada, usando el <em>layout</em> del teclado.</p>
@@ -819,7 +819,7 @@
 <p>Nuestra librería implementa la lógica de la <a href="acronimos.html#acro:FSM"><strong>FSM</strong></a> mostrada en el <a href="#fig:fsm_keyboard">diagrama de la figura</a> y que llamaremos <code>fsm_keyboard</code> (en los ficheros <code>.c</code> y <code>.h</code>). Es análoga a la del botón, salvo por una <strong>autotransición</strong> en el primer estado. Tiene 4 estados porque <strong>implementa también un mecanismo anti-rebotes SW</strong>. Nos centramos en la descripción de ese primer estado y su autotransición, para el resto, vaya la descripción hecha en <a href="version_1.html#sec:consideraciones_fsm_button">las consideraciones de la FSM del botón</a>:</p>
 <ul>
 <li>
-<p><code>KEYBOARD_RELEASED_WAIT_ROW</code>: es el estado inicial de la máquina de estados, y es al estado al que vuelve cuando se pulsa ¡y se suelta! una tecla. En este estado, además, se comprueba si ha pasado el <em>timeout</em> de excitación de filas (flag <code>flag_row_timeout</code>), y si es así, se excita la siguiente fila del teclado, <strong>permaneciendo en este estado (autotransición)</strong>. Esta excitación se hace llamando a la función <code>port_keyboard_get_cols()</code>, que devuelve el índice de la fila que se está excitando. Si, durante la excitación de una fila, se detecta una interrupción en alguna columna en <code>do_set_key_value()</code> se guardará dicho valor tras pedírselo al <code>PORT</code>.</p>
+<p><code>KEYBOARD_RELEASED_WAIT_ROW</code>: es el estado inicial de la máquina de estados, y es al estado al que vuelve cuando se pulsa ¡y se suelta! una tecla. En este estado, además, se comprueba si ha pasado el <em>timeout</em> de excitación de filas (flag <code>flag_row_timeout</code>), y si es así, se excita la siguiente fila del teclado, <strong>permaneciendo en este estado (autotransición)</strong>. Esta excitación se hace llamando a la función <code>port_keyboard_excite_next_row()</code>. Si, durante la excitación de una fila, se detecta una interrupción de subida en alguna columna, se guardará el <em>tick</em> de tiempo en el que se pulsó la tecla; transcurrido el tiempo suficiente para evitar rebotes, al soltar y producirse una interrupción en flanco de bajada, se llamará a <code>do_set_key_value()</code> que  guardará la tecla pulsada tras pedírselo al <code>PORT</code>.</p>
 <p><strong>Será el usuario en su programa principal quien deba reiniciar el valor de tecla pulsada una vez leído, llamando a la función <code>fsm_keyboard_reset_key_value()</code></strong>, como se hacía con el botón.</p>
 </li>
 </ul>
