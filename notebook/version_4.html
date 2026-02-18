@@ -756,7 +756,6 @@
 <p>Si no hay actividad, el sistema puede dormirse pasando al estado <code>SLEEP_WHILE_IDLE</code>.</p>
 <p>La <strong>función de comprobación</strong> <code>check_no_activity()</code> devuelve directamente el valor inverso al de su contraria <code>check_activity()</code>. Esta última, lo que hace es devolver <code>true</code> si alguna de las FSM de los elementos (botón, teclado, RGB light) está activa. Para ello, llama a las funciones de comprobación de actividad que hemos implementado en la <a href="#sec:low_power_modes">sección de bajo consumo</a> (<code>fsm_xxx_check_activity()</code>).</p>
 <p>La <strong>función de acción</strong> <code>do_sleep_idle()</code> debe poner el sistema en un estado de bajo consumo. Para ello llama a la función de <em>sleep</em> del <code>PORT</code> del sistema que hemos implementado en la <a href="#sec:low_power_modes">sección de bajo consumo</a>.</p>
-<p>Aquí tienes la especificación para el estado <code>ADD_COLOR</code>, siguiendo el mismo formato, estilo y estructura que tu ejemplo de <code>IDLE</code>.</p>
 <h4 id="sec:estado-add_color"><span class="enumerate-headings-plugin enumerate-heading-plugin">7.5.2.2</span> Estado <code>ADD_COLOR</code><a class="headerlink" href="#sec:estado-add_color" title="Permanent link">¶</a></h4>
 <p>Este es un estado de transición. El sistema no se detiene aquí esperando eventos externos, sino que realiza las operaciones lógicas necesarias para preparar la secuencia de la siguiente ronda antes de reproducirla.</p>
 <table>
